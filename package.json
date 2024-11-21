@@ -1,0 +1,25 @@
+{
+  "name": "commandapi-docs",
+  "license": "MIT",
+  "homepage": "",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/"
+  },
+  "bugs": {
+    "url": "https://github.com//issues"
+  },
+  "devDependencies": {
+    "vitepress": "^1.5.0",
+    "vitepress-sidebar": "^1.29.0"
+  },
+  "scripts": {
+    "docs:dev": "vitepress dev docs",
+    "docs:build": "vitepress build docs",
+    "docs:preview": "vitepress preview docs"
+  },
+  "dependencies": {
+    "vitepress-i18n": "^1.3.0",
+    "vue": "^3.5.13"
+  }
+}
