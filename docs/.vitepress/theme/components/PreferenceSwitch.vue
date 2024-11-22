@@ -88,7 +88,7 @@ onMounted(() => {
       <VTIconChevronDown class="vt-link-icon" :class="{ open: isOpen }"/>
     </button>
     <div id="preference-switches"
-         class="mobile-wrapper"
+         class="mobile-wrapper switches"
          :hidden="!isOpen"
          :aria-hidden="!isOpen"
     >
@@ -126,7 +126,7 @@ onMounted(() => {
   top: -0.5px;
   background-color: var(--vt-c-bg);
   padding-top: 10px;
-  z-index: 10;
+  z-index: 5;
 }
 
 @media (min-width: 1280px) {
@@ -141,6 +141,12 @@ onMounted(() => {
     flex-direction: row;
     gap: 8px;
   }
+}
+
+.switches {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
 }
 
 .toggle {

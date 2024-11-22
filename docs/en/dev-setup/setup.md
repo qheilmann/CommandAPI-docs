@@ -1,5 +1,5 @@
 ---
-order: 2
+order: 1
 preferences: ["build-system"]
 ---
 
@@ -29,8 +29,6 @@ dependencies:
 ```
 
 :::
-
------
 
 ## Using Build System (Recommended)
 
