@@ -1,15 +1,20 @@
 {
   "name": "commandapi-docs",
   "license": "MIT",
-  "homepage": "",
+  "homepage": "https://github.com/MC-XiaoHei/CommandAPI-Docs",
   "repository": {
     "type": "git",
-    "url": "https://github.com/"
+    "url": "https://github.com/MC-XiaoHei/CommandAPI-Docs"
   },
   "bugs": {
-    "url": "https://github.com//issues"
+    "url": "https://github.com/MC-XiaoHei/CommandAPI-Docs/issues"
   },
   "devDependencies": {
+    "@types/markdown-it": "^14.1.2",
+    "@types/markdown-it-container": "^2.0.10",
+    "markdown-it": "^14.1.0",
+    "markdown-it-container": "^4.0.0",
+    "medium-zoom": "^1.1.0",
     "vitepress": "^1.5.0",
     "vitepress-sidebar": "^1.29.0"
   },
@@ -19,6 +24,7 @@
     "docs:preview": "vitepress preview docs"
   },
   "dependencies": {
+    "@vue/theme": "^2.3.0",
     "vitepress-i18n": "^1.3.0",
     "vue": "^3.5.13"
   }

@@ -3,6 +3,7 @@ import {defineConfig, UserConfig} from 'vitepress';
 import {withI18n} from 'vitepress-i18n';
 import {VitePressI18nOptions} from 'vitepress-i18n/dist/types';
 import {VitePressSidebarOptions, withSidebar} from "vitepress-sidebar";
+import {tabsPlugin} from "./theme/tabs/codesMarkdownPlugin";
 
 const defaultLocale: string = 'en';
 const supportLocales: string[] = [defaultLocale, 'zhHans'];
@@ -63,6 +64,9 @@ const vitepressOptions: UserConfig = {
                     match: "\\b(align|anchored|as|at|facing|in|positioned|rotated|run|if|store|result|score|matches)\\b"
                 }]
             })
+        },
+        config: (md) => {
+            tabsPlugin(md)
         }
     }
 }
