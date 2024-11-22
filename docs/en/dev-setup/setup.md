@@ -109,7 +109,7 @@ If you've never used build system before, I highly recommend it! It makes it eas
 
 ## Manually using the .jar
 
-- Download the latest CommandAPI.jar from the download page [here](https://github.com/JorelAli/CommandAPI/releases/latest)
+- Download the latest CommandAPI.jar from the download page [here](https://github.com/CommandAPI/CommandAPI/releases/latest)
 
 - Add the CommandAPI.jar file to your project/environment's build path:
 
