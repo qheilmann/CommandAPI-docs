@@ -4,10 +4,10 @@
 import {VTSwitch, VTIconChevronDown} from '@vue/theme'
 import {useData, useRoute} from 'vitepress'
 import {onMounted, ref, Ref, watch} from 'vue'
-import {preferMaven, preferMavenKey} from "../prefer/prefer";
+import {preferKotlinDslInGradle, preferKotlinDslInGradleKey, preferMaven, preferMavenKey} from "../prefer/prefer";
 
 const {frontmatter} = useData();
-let settings: Ref<string[]> = ref();
+let preferencesToDisplay: Ref<string[]> = ref();
 const route = useRoute();
 
 watch(
@@ -16,7 +16,7 @@ watch(
 );
 
 function refresh() {
-  settings.value = frontmatter.value.settings;
+  preferencesToDisplay.value = frontmatter.value["preferences"];
 }
 
 let isOpen = ref(true);
@@ -37,6 +37,12 @@ const toggleMaven = useToggleFn(
     preferMavenKey,
     preferMaven,
     'prefer-maven'
+);
+
+const toggleGradleDsl = useToggleFn(
+    preferKotlinDslInGradleKey,
+    preferKotlinDslInGradle,
+    'prefer-kts'
 );
 
 function useToggleFn(
@@ -63,11 +69,12 @@ refresh()
 
 onMounted(() => {
   toggleMaven(preferMaven.value);
+  toggleGradleDsl(preferKotlinDslInGradle.value);
 });
 </script>
 
 <template>
-  <div v-if="settings !== undefined" class="preference-switch">
+  <div v-if="preferencesToDisplay !== undefined" class="preference-switch">
     <button
         class="toggle"
         aria-label="preference switches toggle"
@@ -82,10 +89,10 @@ onMounted(() => {
     </button>
     <div id="preference-switches"
          class="mobile-wrapper"
-         v-if="settings.includes('build-system')" :hidden="!isOpen"
+         :hidden="!isOpen"
          :aria-hidden="!isOpen"
     >
-      <div class="switch-container">
+      <div v-if="preferencesToDisplay.includes('build-system')" class="switch-container">
         <label class="gradle-label" @click="toggleMaven(false)">Gradle</label>
         <VTSwitch
             class="api-switch"
@@ -94,6 +101,16 @@ onMounted(() => {
             @click="toggleMaven()"
         />
         <label class="maven-label" @click="toggleMaven(true)">Maven</label>
+      </div>
+      <div v-if="!preferMaven" class="switch-container">
+        <label class="groovy-label" @click="toggleGradleDsl(false)">.gradle</label>
+        <VTSwitch
+            class="dsl-switch"
+            aria-label="prefer kts"
+            :aria-checked="preferKotlinDslInGradle"
+            @click="toggleGradleDsl()"
+        />
+        <label class="kts-label" @click="toggleGradleDsl(true)">.gradle.kts</label>
       </div>
     </div>
   </div>
@@ -226,17 +243,17 @@ onMounted(() => {
 
 <style>
 .maven,
-.sfc {
+.kts {
   display: none;
 }
 
 .prefer-maven .gradle,
-.prefer-sfc .html {
+.prefer-kts .groovy {
   display: none;
 }
 
 .prefer-maven .maven,
-.prefer-sfc .sfc {
+.prefer-kts .kts {
   display: initial;
 }
 
@@ -245,22 +262,24 @@ onMounted(() => {
 }
 
 .maven-label,
-.sfc-label,
+.kts-label,
 .prefer-maven .gradle-label,
-.prefer-sfc .no-sfc-label {
+.prefer-kts .groovy-label {
   color: var(--vt-c-text-3);
 }
 
 .prefer-maven .maven-label,
-.prefer-sfc .sfc-label {
+.prefer-kts .kts-label {
   color: var(--vt-c-text-1);
 }
 
-.prefer-sfc .sfc-switch .vt-switch-check {
+.prefer-kts .dsl-switch .vt-switch-check {
   transform: translateX(18px);
 }
 
 .tip .gradle,
+.tip .groovy,
+.tip .kts,
 .tip .maven {
   color: var(--vt-c-text-code);
   /* transition: color 0.5s; */
