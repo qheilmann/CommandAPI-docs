@@ -1,6 +1,10 @@
 ---
 order: 1
 preferences: ["build-system"]
+authors:
+  - JorelAli
+  - DerEchtePilz
+  - willkroboth
 ---
 
 # Setting up your development environment

@@ -8,6 +8,7 @@ import mediumZoom from "medium-zoom";
 import {onMounted, watch, nextTick, h} from 'vue'
 import {useRoute} from 'vitepress'
 import './style/global.css'
+import AuthorsComponent from "./components/AuthorsComponent.vue";
 
 export default {
     extends: DefaultTheme,
@@ -20,6 +21,7 @@ export default {
         const children = {
             "doc-before": () => h(PreferenceSwitch),
             "aside-outline-before": () => h(PreferenceSwitch),
+            "aside-outline-after": () => h(AuthorsComponent),
         };
 
         return h(DefaultTheme.Layout, null, children);

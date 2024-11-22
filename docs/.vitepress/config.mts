@@ -1,5 +1,5 @@
 import {repository, homepage} from '../../package.json';
-import {defineConfig, UserConfig} from 'vitepress';
+import {defineConfig, UserConfig, type DefaultTheme} from 'vitepress';
 import {withI18n} from 'vitepress-i18n';
 import {VitePressI18nOptions} from 'vitepress-i18n/dist/types';
 import {VitePressSidebarOptions, withSidebar} from "vitepress-sidebar";
@@ -36,7 +36,10 @@ const vitepressOptions: UserConfig = {
             pattern: editLinkPattern
         },
         socialLinks: [
-            {icon: 'github', link: 'https://github.com/vuejs/vitepress'}
+            {
+                icon: 'github',
+                link: 'https://github.com/CommandAPI/CommandAPI'
+            }
         ]
     },
     markdown: {
@@ -77,6 +80,10 @@ const vitePressI18nOptions: VitePressI18nOptions = {
     searchProvider: 'local',
     themeConfig: {
         en: {
+            outline: {
+                level: "2-3",
+                label: "On this page"
+            },
             nav: [
                 {
                     text: 'Introduction',
@@ -85,6 +92,10 @@ const vitePressI18nOptions: VitePressI18nOptions = {
             ]
         },
         zhHans: {
+            outline: {
+                level: "2-3",
+                label: "在本页"
+            },
             nav: [
                 {
                     text: '介绍',

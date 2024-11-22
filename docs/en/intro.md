@@ -1,5 +1,9 @@
 ---
 order: 1
+outline: 2
+authors:
+  - JorelAli
+  - DerEchtePilz
 ---
 
 # Introduction
@@ -35,11 +39,11 @@ Using the search icon in the top left corner, you can search for anything in thi
 
 Here's the list of changes to the documentation between each update. You can view the current documentation version at the top of this page.
 
-### Documentation changes 9.4.0 → 9.4.1
+### 9.4.0 → 9.4.1
 
 - Updates [Configuration for server owners](./config) page with new `skip-initial-datapack-reload` option.
 
-### Documentation changes 9.3.0 → 9.4.0
+### 9.3.0 → 9.4.0
 
 - Updates [Shading the CommandAPI in your plugins](./setup_shading) page with spigot-mapped and mojang-mapped dependencies
 - Adds [Velocity](./velocity_intro) page to outline how to setup the CommandAPI for Velocity
@@ -48,38 +52,38 @@ Here's the list of changes to the documentation between each update. You can vie
 - Updates [Arguments](./arguments) to list the newly added `PotionEffectArgument.NamespacedKey` argument
 - Updates [Particles](./argument_particles) page to include both [old particle information](./argument_particle_old) and [new particle information](./argument_particle_new)
 
-### Documentation changes 9.2.0 → 9.3.0
+### 9.2.0 → 9.3.0
 
 - Updates [Incompatible version information](./incompatibleversions) page and `FunctionArgument` pages that functions made with the `FunctionArgument` will always return 1 when running on 1.20.3 and 1.20.4.
 - Updates [Kotlin DSL](./kotlindsl) page to mention every possible executor method.
 
-### Documentation changes 9.1.0 → 9.2.0
+### 9.1.0 → 9.2.0
 
 - Updates [Location arguments](./argument_locations) page to mention the new `centerPosition` argument to center the position of integer values for location arguments.
 - Added [Delegated properties](./delegated_properties) page to mention the added support of delegations.
 
-### Documentation changes 9.0.3 → 9.1.0
+### 9.0.3 → 9.1.0
 
 - Updates [Multi literal arguments](./argument_multiliteral) page to mention new `MultiLiteralArgument` constructor.
 - Adds [CommandArguments](./commandarguments) page to explain the `CommandArguments` class introduced in 9.0.0
 - Adds [Adventure chat color argument](./argument_chat_adventure) to the adventure chat arguments page.
 - Adds new [Command unregistration](./commandunregistration) page.
 
-### Documentation changes 9.0.2 → 9.0.3
+### 9.0.2 → 9.0.3
 
 - Updates [Map arguments](./argument_map) page with new syntax
 
-### Documentation changes 9.0.1 → 9.0.2
+### 9.0.1 → 9.0.2
 
 - Updates [Multi literal arguments](./argument_multiliteral) page to add the node name information
 - Updates [Help](./help) page so it contains `withUsage()` information
 
-### Documentation changes 9.0.0 → 9.0.1
+### 9.0.0 → 9.0.1
 
 - Updates [Optional arguments](./optional_arguments) page to update the method list for avoiding `null` values
 - Updates [Normal command executors](./normalexecutors) page to now mention the existence of the `ExecutionInfo`
 
-### Documentation changes 8.8.0 → 9.0.0
+### 8.8.0 → 9.0.0
 
 ::: info
 9.0.0 is a giant update that is incompatible with 8.8.x and prior versions. A lot of the documentation's code examples and explanations have been changed for the various changes made in this version. Please read the [Upgrading guide](./upgrading) for information on how to upgrade to 9.0.0.
@@ -88,11 +92,11 @@ Here's the list of changes to the documentation between each update. You can vie
 - Adds the new [Optional arguments](./optional_arguments) section
 - Adds Kotlin DSL code examples to all code examples
 
-### Documentation changes 8.7.0 → 8.8.0
+### 8.7.0 → 8.8.0
 
 - Changed the version number from 8.7.0 to 8.8.0. That's it.
 
-### Documentation changes 8.6.0 → 8.7.0
+### 8.6.0 → 8.7.0
 
 ::: info
 `SoundArgument`s written for 8.6.0 are incompatible with this update! Other significant changes to `ScoreHolderArgument` and `EntitySelectorArgument` were made in this update. I highly recommend reading the [Upgrading guide](./upgrading) section which covers the changes in more detail and how to update your plugin for this version.
@@ -103,7 +107,7 @@ Here's the list of changes to the documentation between each update. You can vie
 - Updated [Scoreboard arguments](./argument_scoreboards) with the new `Single` and `Multiple` constructors
 - Updated [Entity & player arguments](./argument_entities) to include the new `OneEntity`, `ManyEntities`, `OnePlayer` and `ManyPlayers` constructors
 
-### Documentation changes 8.5.1 → 8.6.0
+### 8.5.1 → 8.6.0
 
 - Greatly improved the format and documentation for [Configuration for server owners](./config)
 - Adds a Kotlin tab to all Java code blocks which displays the equivalent code, but in Kotlin
@@ -119,17 +123,17 @@ Here's the list of changes to the documentation between each update. You can vie
 - Adds documentation for [Kotlin-based commands](./kotlinintro) using the Kotlin DSL
 - Update the [Afterword](./afterword), giving special credits to some very special contributors!
 
-### Documentation changes 8.5.0 → 8.5.1
+### 8.5.0 → 8.5.1
 
 - Update [Brigadier + CommandAPI](./brigadier) with function parameter changes. See [Upgrading](./upgrading) for more info.
 
-### Documentation changes 8.4.0 → 8.5.0
+### 8.4.0 → 8.5.0
 
 - Adds [Chat preview](./chatpreview) section
 - Adds Kotlin-DSL `build.gradle.kts` instructions for using the CommandAPI
 - Adds `CommandAPI.onDisable()` method to [Shading the CommandAPI in your plugins](./setup_shading#disabling)
 
-### Documentation changes 8.3.0 → 8.4.0
+### 8.3.0 → 8.4.0
 
 - Updated [Shading with Maven](./setup_shading#shading-with-maven) with updated `maven-shade-plugin` version
 - Adds [NamespacedKey arguments](./argument_namespacedkey) section
@@ -139,21 +143,21 @@ Here's the list of changes to the documentation between each update. You can vie
 - Adds [Getting a list of registered commands](./internal#getting-a-list-of-registered-commands) section to the Internal CommandAPI page
 - Update [Upgrading guide](./upgrading) for 8.4.0 changes
 
-### Documentation changes 8.2.0 → 8.2.1
+### 8.2.0 → 8.2.1
 
 - Adds `withSubcommands` method to [Subcommands](./subcommands) section.
 
-### Documentation changes 8.0.0 → 8.2.0
+### 8.0.0 → 8.2.0
 
 - Adds [List arguments](./argument_list) section.
 - Fix bug with [Multiple command executors with the same implementation](./normalexecutors#multiple-command-executors-with-the-same-implementation) example.
 
-### Documentation changes 7.0.0 → 8.0.0
+### 7.0.0 → 8.0.0
 
 - Updated particle arguments in the [Particle arguments](./argument_particles) section.
 - Update the [Upgrading guide](./upgrading) for the new changes in 8.0.0.
 
-### Documentation changes 6.5.4 → 7.0.0
+### 6.5.4 → 7.0.0
 
 - Changed the repo that the CommandAPI is served from JitPack to Maven Central.
 - Remove direct link to `CommandAPI.jar` file from [Installation for server owners](./installation), in favor of pointing to the latest release page (to allow version numbers to appear in the file name).
@@ -167,34 +171,34 @@ Here's the list of changes to the documentation between each update. You can vie
 - Update [Handling command failures](./commandfailures) to fit new `throw` requirement for command failures.
 - Updated [Normal command executors](./normalexecutors#multiple-command-executors-with-the-same-implementation) with the new multiple command executors with the same implementation feature.
 
-### Documentation changes 6.4.0 → 6.5.4
+### 6.4.0 → 6.5.4
 
 - Update the Maven and Gradle pages to say to use CommandAPI version 6.5.4 because this kept confusing everyone.
 
-### Documentation changes 6.3.1 → 6.4.0
+### 6.3.1 → 6.4.0
 
 - Adds a section [Help](./help) for the new help feature.
 - Update [Annotations](./annotations) section to include new `@Help` annotation.
 
-### Documentation changes 6.3.0 → 6.3.1
+### 6.3.0 → 6.3.1
 
 - Adds Java 16 error to [Troubleshooting](./troubleshooting).
 - Update [FAQ](faq).
 - Adds some useful tools to [Command conversion](./conversionforowners) to get plugin info and check `config.yml` validity.
 - Adds [Plugin reloading](./reloading) page which describes how to add minimal support for `/reload`.
 
-### Documentation changes 6.2.0 → 6.3.0
+### 6.2.0 → 6.3.0
 
 - Update [Custom arguments](./argument_custom) page with new custom argument constructor information
 - Adds upgrade info to the [Upgrading guide](./upgrading#from-version-620-to-630) to help upgrade any existing custom arguments which you may have.
 
-### Documentation changes 6.0.0 → 6.2.0
+### 6.0.0 → 6.2.0
 
 - Update [Configuration for server owners](./config) page with new config options `missing-executor-implementation` and `use-latest-nms-version`
 - Update instructions for shading the CommandAPI with maven in [Shading the CommandAPI in your plugins](./setup_shading#shading-with-maven) to support Java 16.
 - Mention that commands registered with the CommandAPI appear in the `minecraft:` namespace (see above under "How the CommandAPI works")
 
-### Documentation changes 5.12 → 6.0.0
+### 5.12 → 6.0.0
 
 - Adds entry for [Upgrading guide](./upgrading#from-version-5x-to-600) to help update from 5.12 to 6.0.0.
 - Adds new `silent-logs` config entry to [Configuration for server owners](./config)
@@ -207,7 +211,7 @@ Here's the list of changes to the documentation between each update. You can vie
 - Adds syntax highlighting for Minecraft commands in code blocks
 - Fix old code examples which didn't work anymore
 
-### Documentation changes 5.11 → 5.12
+### 5.11 → 5.12
 
 ::: info
 The Maven/Gradle repository URL has changed! See [5. Setting up your development environment](./setup_dev) for more information. For older versions of the CommandAPI (versions 5.11 and below), please consult the older documentation which can be found on the homepage [here](https://commandapi.jorel.dev/).
@@ -216,23 +220,23 @@ The Maven/Gradle repository URL has changed! See [5. Setting up your development
 - Change the repository URL for the CommandAPI in [5. Setting up your development environment](./setup_dev)
 - Update the [Afterword](./afterword)
 
-### Documentation changes 5.10 → 5.11
+### 5.10 → 5.11
 
 - Adds a section [Arbitrary command conversion](./conversionforownerssingle#arbitrary-command-conversion) on how to convert arbitrary commands
 - Adds a section [3.3. Entity selectors](./conversionentityselectors) describing how to convert entity selector commands with the CommandAPI's command conversion system
 - Updated the [list of all suppoprted argument types](./conversionforownerssingleargs#list-of-all-supported-argument-types) for command conversion
 
-### Documentation changes 5.6 → 5.10
+### 5.6 → 5.10
 
 - Splits chat argument sections into two: [11.5.1. Spigot chat arguments](./argument_chat_spigot) and [11.5.2. Adventure chat arguments](./argument_chat_adventure)
 - Adds a [FAQ page](./faq)
 - Adds a warning about shading in [6. Shading the CommandAPI in your plugins](./setup_shading)
 
-### Documentation changes 5.3 → 5.6
+### 5.3 → 5.6
 
 - Adds a section [4. Skipping proxy senders](./skippingproxysenders) which describes how to use the `skip-sender-proxy` configuration option.
 
-### Documentation changes 5.2 → 5.3
+### 5.2 → 5.3
 
 - Adds a section [6. Using the annotation system](./setup_annotations) on setting up your development environment to use the annotation system
 - Adds a whole massive section on using annotations ([16. Annotation-based commands](./annotationsintro), [17. Annotations](./annotations), [18. Registering annotation-based commands](./registeringannotations))
@@ -240,18 +244,18 @@ The Maven/Gradle repository URL has changed! See [5. Setting up your development
 - Improve warning for `LiteralArgument` - instead of it being "obsolete" compared to the `MultiLiteralArgument`, it is now "more complex" than `MultiLiteralArgument`s
 - Fix issue in the section for custom arguments which should have been updated but wasn't
 
-### Documentation changes 5.1 → 5.2
+### 5.1 → 5.2
 
 - Adds brief documentation for the CommandAPI's `reloadDatapacks` method in [16. Internal CommandAPI](./internal#reloading-datapacks)
 
-### Documentation changes 5.0 → 5.1
+### 5.0 → 5.1
 
 - Adds a section [10.2. The SimpleFunctionWrapper class](./simplefunctionwrapper) which outlines the new `SimpleFunctionWrapper` class
 - Updates the documentation for [10.3. The FunctionWrapper class](./functionwrapper)
 - Update the name of the package from `dev.jorel.commandapi.CommandAPIHandler.Brigadier` to `dev.jorel.commandapi.Brigadier` in section [17. Brigadier + CommandAPI](./brigadier#brigadier-support-functions)
 - Update the documentation for [11. Permissions](./permissions) stating that you can use `withPermission(String)` instead of `withPermission(CommandPermission)`
 
-### Documentation changes 4.3 → 5.0
+### 4.3 → 5.0
 
 ::: info
 Lots and lots and lots of changes occurred in version 5.0! I highly recommend reading the [Upgrading guide](./upgrading) section which covers the changes in more detail and how to update your plugin for this version.
@@ -269,20 +273,20 @@ Every page has been rewritten in this update and checked for errors. In general,
 - Executes native is now present in the command registration page
 - Section [8.3. Argument suggestions with tooltips](./tooltips) now mentions the `IStringTooltip` class
 
-### Documentation changes 4.2 → 4.3
+### 4.2 → 4.3
 
 - Improve the documentation for [2. Configuration for server owners](./config) by using simple YAML lists (using the `-` symbol) and update the command conversion syntax for all commands using the `~` syntax
 - Adds the command sender priority to [6.1. Normal command executors](./normalexecutors#multiple-command-executor-implementations)
 - Adds new method and example for converting specific commands internally in [13. Command conversion](./conversion#only-specific-commands)
 - Adds two sneaky little buttons in the main title toolbar at the top of the page
 
-### Documentation changes 4.1 → 4.2
+### 4.1 → 4.2
 
 - Adds a warning about using redirected commands for suggestions that depend on previous arguments in [7.1. Argument suggestions](./argumentsuggestions#suggestions-depending-on-previous-arguments)
 - Adds a new section [6.3. Native commandsenders](./native)
 - Update documentation for [6.1. Normal command executors](normalexecutors#restricting-who-can-run-your-command) to include the `.executesNative()` method for native command senders
 
-### Documentation changes 4.0 → 4.1
+### 4.0 → 4.1
 
 - Adds a new section [7.3. Argument suggestions with tooltips](./tooltips)
 - Adds documentation for the `MultiLiteralArgument` in section [8.11.2. Multi literal arguments](./argument_multiliteral)
@@ -290,7 +294,7 @@ Every page has been rewritten in this update and checked for errors. In general,
 - Update documentation for [14. Brigadier + CommandAPI](./brigadier) with new (overloaded) function `argBuildOf`
 - Update [Afterword](./afterword)
 
-### Documentation changes 3.4 → 4.0
+### 3.4 → 4.0
 
 - Update the maven and gradle documentation to state that it is `provided` and `compileOnly`
 - The project has been renamed from the "1.13 Command API" to simply the "CommandAPI". This has changed a few things, such as various links. See the section [Upgrading guide](./upgrading) to view the relevant changes with regards to maven.
@@ -311,19 +315,19 @@ Every page has been rewritten in this update and checked for errors. In general,
 - Adds page [14. Predicate tips](./predicatetips) with information on how to reduce the amount of repeated code when using requirements
 - Update [Afterword](./afterword)
 
-### Documentation changes 3.3 → 3.4
+### 3.3 → 3.4
 
 - Moves configuration for server owners to a new section [2. Configuration for server owners](./config). This has the side-effect of also re-numbering all of the sections on the left. Sorry!
 - Adds server owner documentation for the CommandAPI's config command conversion system in section [2. Configuration for server owners](./config#command-conversion)
 - Update the conversion page [10. Command conversion](./conversion) so it should be much easier to follow and understand
 - Changed the list of Java versions that the CommandAPI is compatible with in the [Troubleshooting](./troubleshooting#commandapi-errors-when-reloading-datapacks) section
 
-### Documentation changes 3.1 → 3.3
+### 3.1 → 3.3
 
 - Adds information on how functions are loaded in 1.16+ in section [6. Functions & Tags](./functions#functions-in-116)
 - Added function error messages to section [Troubleshooting](./troubleshooting#server-errors-when-loading-datapacks-in-116)
 
-### Documentation changes 3.0 → 3.1
+### 3.0 → 3.1
 
 - Adds new section [5.1 Argument suggestions](./argumentsuggestions) to cover how to override suggestions - Having it all in section _5. Arguments_ was a bit too content-heavy
 - Adds documentation for the new `.overrideSuggestions()` method in section [5.1 Argument suggestions](./argumentsuggestions#suggestions-depending-on-previous-arguments)
@@ -332,7 +336,7 @@ Every page has been rewritten in this update and checked for errors. In general,
 - Changed the repository information for gradle in section [2 Setting up your development environment](./setup_dev). You now have to include the NBTAPI repository because gradle can't automatically detect this for some reason. Kinda stupid tbh.
 - Adds a section on using multiple or optional arguments in section [5 Arguments](./arguments#optionaldifferent-arguments)
 
-### Documentation changes 2.1 → 3.0
+### 2.1 → 3.0
 
 ::: info
 Lots of changes occurred in version 3.0. I highly recommend reading the [Upgrading guide](./upgrading) section which covers the changes in more detail and how to update your plugin for this version.

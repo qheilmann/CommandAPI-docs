@@ -1,6 +1,11 @@
 ---
 order: 2
 preferences: ["build-system", "mapping"]
+authors:
+  - JorelAli
+  - DerEchtePilz
+  - willkroboth
+  - Strokkur424
 ---
 
 # Shading the CommandAPI in your plugins

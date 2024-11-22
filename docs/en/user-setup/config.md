@@ -1,5 +1,9 @@
 ---
 order: 2
+authors:
+  - DerEchtePilz
+  - JorelAli
+  - willkroboth
 ---
 
 # Configuration for server admins
