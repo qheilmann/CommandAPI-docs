@@ -4,7 +4,16 @@
 import {VTSwitch, VTIconChevronDown} from '@vue/theme'
 import {useData, useRoute} from 'vitepress'
 import {onMounted, ref, Ref, watch} from 'vue'
-import {preferKotlinDslInGradle, preferKotlinDslInGradleKey, preferMaven, preferMavenKey} from "../prefer/prefer";
+import {
+  openPreference,
+  openPreferenceKey,
+  preferKotlinDslInGradle,
+  preferKotlinDslInGradleKey,
+  preferMaven,
+  preferMavenKey,
+  preferMojmap,
+  preferMojmapKey,
+} from "../prefer/prefer";
 
 const {frontmatter} = useData();
 let preferencesToDisplay: Ref<string[]> = ref();
@@ -12,17 +21,20 @@ const route = useRoute();
 
 watch(
     () => route.path,
-    (_) => refresh()
+    () => refresh()
 );
+
+watch(
+    openPreference,
+    () => localStorage.setItem(openPreferenceKey, String(openPreference.value))
+)
 
 function refresh() {
   preferencesToDisplay.value = frontmatter.value["preferences"];
 }
 
-let isOpen = ref(true);
-
 const toggleOpen = () => {
-  isOpen.value = !isOpen.value;
+  openPreference.value = !openPreference.value;
 };
 
 const removeOutline = (e: Event) => {
@@ -44,6 +56,12 @@ const toggleGradleDsl = useToggleFn(
     preferKotlinDslInGradle,
     'prefer-kts'
 );
+
+const toggleMapping = useToggleFn(
+    preferMojmapKey,
+    preferMojmap,
+    'prefer-mojmap'
+)
 
 function useToggleFn(
     storageKey: string,
@@ -70,6 +88,7 @@ refresh()
 onMounted(() => {
   toggleMaven(preferMaven.value);
   toggleGradleDsl(preferKotlinDslInGradle.value);
+  toggleMapping(preferMojmap.value);
 });
 </script>
 
@@ -79,17 +98,17 @@ onMounted(() => {
         class="toggle"
         aria-label="preference switches toggle"
         aria-controls="preference-switches"
-        :aria-expanded="isOpen"
+        :aria-expanded="openPreference"
         @click="toggleOpen"
         @mousedown="removeOutline"
         @blur="restoreOutline"
     >
       <span>Preference</span>
-      <VTIconChevronDown class="vt-link-icon" :class="{ open: isOpen }"/>
+      <VTIconChevronDown class="vt-link-icon" :class="{ open: openPreference }"/>
     </button>
     <div id="preference-switches"
-         :hidden="!isOpen"
-         :aria-hidden="!isOpen"
+         :hidden="!openPreference"
+         :aria-hidden="!openPreference"
     >
       <div class="mobile-wrapper switches">
         <div v-if="preferencesToDisplay.includes('build-system')" class="switch-container">
@@ -112,9 +131,19 @@ onMounted(() => {
           />
           <label class="kts-label" @click="toggleGradleDsl(true)">.gradle.kts</label>
         </div>
+        <div v-if="preferencesToDisplay.includes('mapping')" class="switch-container">
+          <label class="reobf-label" @click="toggleMapping(false)">Reobf</label>
+          <VTSwitch
+              class="mapping-switch"
+              aria-label="prefer mojmap"
+              :aria-checked="preferMojmap"
+              @click="toggleMapping()"
+          />
+          <label class="mojmap-label" @click="toggleMapping(true)">Mojmap</label>
+        </div>
       </div>
     </div>
-    <br class="hide-on-mobile" :hidden="isOpen"/>
+    <br class="hide-on-mobile" :hidden="openPreference"/>
   </div>
 </template>
 
@@ -130,7 +159,7 @@ onMounted(() => {
   z-index: 5;
 }
 
-@media (min-width: 1280px) {
+@media (max-width: 1279px) {
   .hide-on-mobile {
     display: none;
   }
@@ -204,7 +233,7 @@ onMounted(() => {
   }
 }
 
-.switch-container:nth-child(2) {
+.switch-container:not(:first-child) {
   margin-top: 10px;
 }
 
@@ -256,44 +285,56 @@ onMounted(() => {
 
 <style>
 .maven,
-.kts {
+.kts,
+.mojmap {
   display: none;
 }
 
 .prefer-maven .gradle,
-.prefer-kts .groovy {
+.prefer-kts .groovy,
+.prefer-mojmap .reobf {
   display: none;
 }
 
 .prefer-maven .maven,
-.prefer-kts .kts {
+.prefer-kts .kts,
+.prefer-mojmap .mojmap {
   display: initial;
+}
+
+.maven-label,
+.kts-label,
+.mojmap-label,
+.prefer-maven .gradle-label,
+.prefer-kts .groovy-label,
+.prefer-mojmap .reobf-label {
+  color: var(--vt-c-text-3);
+}
+
+.prefer-maven .maven-label,
+.prefer-kts .kts-label,
+.prefer-mojmap .mojmap-label {
+  color: var(--vt-c-text-1);
 }
 
 .prefer-maven .api-switch .vt-switch-check {
   transform: translateX(18px);
 }
 
-.maven-label,
-.kts-label,
-.prefer-maven .gradle-label,
-.prefer-kts .groovy-label {
-  color: var(--vt-c-text-3);
-}
-
-.prefer-maven .maven-label,
-.prefer-kts .kts-label {
-  color: var(--vt-c-text-1);
-}
-
 .prefer-kts .dsl-switch .vt-switch-check {
+  transform: translateX(18px);
+}
+
+.prefer-mojmap .mapping-switch .vt-switch-check {
   transform: translateX(18px);
 }
 
 .tip .gradle,
 .tip .groovy,
 .tip .kts,
-.tip .maven {
+.tip .maven,
+.tip .mojmap,
+.tip .reobf {
   color: var(--vt-c-text-code);
   /* transition: color 0.5s; */
   font-weight: 600;
