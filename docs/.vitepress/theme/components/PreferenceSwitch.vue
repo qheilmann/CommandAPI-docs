@@ -88,31 +88,33 @@ onMounted(() => {
       <VTIconChevronDown class="vt-link-icon" :class="{ open: isOpen }"/>
     </button>
     <div id="preference-switches"
-         class="mobile-wrapper switches"
          :hidden="!isOpen"
          :aria-hidden="!isOpen"
     >
-      <div v-if="preferencesToDisplay.includes('build-system')" class="switch-container">
-        <label class="gradle-label" @click="toggleMaven(false)">Gradle</label>
-        <VTSwitch
-            class="api-switch"
-            aria-label="prefer maven"
-            :aria-checked="preferMaven"
-            @click="toggleMaven()"
-        />
-        <label class="maven-label" @click="toggleMaven(true)">Maven</label>
-      </div>
-      <div v-if="!preferMaven" class="switch-container">
-        <label class="groovy-label" @click="toggleGradleDsl(false)">.gradle</label>
-        <VTSwitch
-            class="dsl-switch"
-            aria-label="prefer kts"
-            :aria-checked="preferKotlinDslInGradle"
-            @click="toggleGradleDsl()"
-        />
-        <label class="kts-label" @click="toggleGradleDsl(true)">.gradle.kts</label>
+      <div class="mobile-wrapper switches">
+        <div v-if="preferencesToDisplay.includes('build-system')" class="switch-container">
+          <label class="gradle-label" @click="toggleMaven(false)">Gradle</label>
+          <VTSwitch
+              class="api-switch"
+              aria-label="prefer maven"
+              :aria-checked="preferMaven"
+              @click="toggleMaven()"
+          />
+          <label class="maven-label" @click="toggleMaven(true)">Maven</label>
+        </div>
+        <div v-if="!preferMaven" class="switch-container">
+          <label class="groovy-label" @click="toggleGradleDsl(false)">.gradle</label>
+          <VTSwitch
+              class="dsl-switch"
+              aria-label="prefer kts"
+              :aria-checked="preferKotlinDslInGradle"
+              @click="toggleGradleDsl()"
+          />
+          <label class="kts-label" @click="toggleGradleDsl(true)">.gradle.kts</label>
+        </div>
       </div>
     </div>
+    <br class="hide-on-mobile" :hidden="isOpen"/>
   </div>
 </template>
 
@@ -122,11 +124,16 @@ onMounted(() => {
   border-bottom: 1px solid var(--vt-c-divider-light);
   transition: border-color 0.5s, background-color 0.5s ease;
   margin-bottom: 20px;
-  position: sticky;
   top: -0.5px;
   background-color: var(--vt-c-bg);
   padding-top: 10px;
   z-index: 5;
+}
+
+@media (min-width: 1280px) {
+  .hide-on-mobile {
+    display: none;
+  }
 }
 
 @media (min-width: 1280px) {
