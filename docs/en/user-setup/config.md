@@ -127,8 +127,8 @@ silent-logs: true
 Controls messages that the CommandAPI displays to players. Available messages:
 
 - `missing-executor-implementation` - the message to display to senders when a command has no executor. This message supports format parameters:
-  - `%s` - the executor class (lowercase). For example "craftplayer"
-  - `%S` - the executor class (normal case). For example "CraftPlayer"
+  - `%s` - the executor class (lowercase). For example `craftplayer`
+  - `%S` - the executor class (normal case). For example `CraftPlayer`
 
 **Default value**
 
@@ -165,7 +165,7 @@ This setting can be used to run the CommandAPI on Minecraft versions higher than
 
 ::: warning
 
-This feature is very experimental and should only be used if you know what you are doing. In almost every case, it is better to wait for an official CommandAPI release that supports the latest version of Minecraft. Using `use-latest-nms-version` is _not_ guaranteed to work and can cause unexpected side-effects!
+This feature is very experimental and should only be used if you know what you are doing. In almost every case, it is better to wait for an official CommandAPI release that supports the latest version of Minecraft. Using `use-latest-nms-version` is _not_ guaranteed to work and can cause unexpected side effects!
 
 :::
 
@@ -189,7 +189,7 @@ Similar to the [`use-latest-nms-version`](#use-latest-nms-version) setting, this
 
 ::: warning
 
-Take the warning from the [`use-latest-nms-version`](#use-latest-nms-version) and apply it here too. This is _not_ guaranteed to work either and also may cause unexpected side-effects.
+Take the warning from the [`use-latest-nms-version`](#use-latest-nms-version) and apply it here too. This is _not_ guaranteed to work either and also may cause unexpected side effects.
 
 :::
 
@@ -247,7 +247,7 @@ skip-initial-datapack-reload: true
 
 ### `plugins-to-convert`
 
-Controls the list of plugins to process for command conversion. See [Command conversion](./conversionforowners) for more information.
+Controls the list of plugins to process for command conversion. See [Command conversion](./cmd-conversion/conversion) for more information.
 
 **Default value**
 
@@ -283,7 +283,7 @@ plugins-to-convert:
 
 ### `skip-sender-proxy`
 
-Determines whether the proxy sender should be skipped when converting a command. See [Skipping proxy senders](./skippingproxysenders) for more information.
+Determines whether the proxy sender should be skipped when converting a command. See [Skipping proxy senders](./skip-proxy-senders) for more information.
 
 **Default value**
 
@@ -301,7 +301,7 @@ skip-sender-proxy:
 
 ### `other-commands-to-convert`
 
-A list of other commands to convert. This should be used for commands which are not declared in a `plugin.yml` file. See [Arbitrary command conversion](./conversionforownerssingle#arbitrary-command-conversion) for more information.
+A list of other commands to convert. This should be used for commands which are not declared in a `plugin.yml` file. See [Arbitrary command conversion](./cmd-conversion/single-command#arbitrary-command-conversion) for more information.
 
 **Default value**
 

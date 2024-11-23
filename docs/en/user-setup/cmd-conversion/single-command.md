@@ -19,7 +19,7 @@ To convert a single command, you need to first populate the `config.yml` with th
 
 ::: tip Example - Converting plugin commands
 
-Say we're using [EssentialsX](https://www.spigotmc.org/resources/essentialsx.9089/) on our server and we want to be able to use `/afk` and `/hat` in command blocks. This would allow us to use (for example) the following commands in command blocks:
+Say we're using [EssentialsX](https://www.spigotmc.org/resources/essentialsx.9089/) on our server, and we want to be able to use `/afk` and `/hat` in command blocks. This would allow us to use (for example) the following commands in command blocks:
 
 ```mccmd
 /execute as @p run afk
@@ -46,21 +46,21 @@ main: com.earth2me.essentials.Essentials
 version: 2.18.0.0
 website: http://tiny.cc/EssentialsCommands
 description: Provides an essential, core set of commands for Bukkit.
-softdepend: [Vault, LuckPerms]
-authors: [Zenexer, ementalo, Aelux, Brettflan, KimKandor, snowleo, ceulemans, Xeology, KHobbits, md_5, Iaccidentally, drtshock, vemacs, SupaHam, md678685]
+softdepend: [ Vault, LuckPerms ]
+authors: [ Zenexer, ementalo, Aelux, Brettflan, KimKandor, snowleo, ceulemans, Xeology, KHobbits, md_5, Iaccidentally, drtshock, vemacs, SupaHam, md678685 ]
 api-version: "1.13"
 commands:
   afk:
     description: Marks you as away-from-keyboard.
     usage: /<command> [player/message...]
-    aliases: [eafk,away,eaway]
+    aliases: [ eafk,away,eaway ]
 
-# (other config options omitted)
+  # (other config options omitted)
 
   hat:
     description: Get some cool new headgear.
     usage: /<command> [remove]
-    aliases: [ehat,head,ehead]
+    aliases: [ ehat,head,ehead ]
 
 # (other config options omitted)
 ```

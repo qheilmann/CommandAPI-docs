@@ -52,7 +52,7 @@ Using this, we can display options, such as "fly" and "walk", as well as optiona
 
 ![A command "/execute run speed" with argument suggestions for entity selectors, as well as "fly" and "walk"](/images/speedoptions.png)
 
-Additionally, we can apply limits to the numbers that can be provided. For example, here we limit the number to a value between 0 to 10. If a value is outside of that range, and error is shown to the user:
+Additionally, we can apply limits to the numbers that can be provided. For example, here we limit the number to a value between 0 and 10. If a value is outside of that range, and error is shown to the user:
 
 ![A command "/execute run speed walk 15" with an error displaying `"Long must not be more than 10, found 15 at position 24: ...peed walk <--[HERE]`](/images/speedlimit.png)
 
@@ -99,9 +99,9 @@ The name in the argument can be whatever you want, but it is recommended to keep
 | `brigadier:string`    | A single word                                                                               |
 | `minecraft:block_pos` | A location of x, y and z coordinates (whole numbers)                                        |
 
-In the example above, we used the a "range type" in the form `[0..10]`. This is a special argument type that will conform to `brigader:long` or `brigader:double` and apply a limit to the values that can be entered.
+In the example above, we used the "range type" in the form `[0..10]`. This is a special argument type that will conform to `brigader:long` or `brigader:double` and apply a limit to the values that can be entered.
 
-::: tip Example - Declaring"range type" arguments
+::: tip Example - Declaring "range type" arguments
 
 To declare the range \\(10 \le x \le 50\\) (a value must be between 10 and 50 (inclusive)):
 
@@ -134,8 +134,6 @@ To declare a value \\(x\\) that can take any range of values and is a decimal nu
 ```
 
 :::
-
------
 
 ## List of all supported argument types
 

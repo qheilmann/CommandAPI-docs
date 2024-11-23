@@ -36,7 +36,7 @@ I think the easiest way to explain it is with an example:
 
 - Finally, we register the command to the CommandAPI using `register`.
 
-That's it! This simple snippet of code fully registers the command to the server. You don't need to supply a plugin instance, you don't have to create a custom class and you don't have to mess with the `plugin.yml` file.
+That's it! This simple snippet of code fully registers the command to the server. You don't need to supply a plugin instance, you don't have to create a custom class, and you don't have to mess with the `plugin.yml` file.
 
 Throughout this documentation, we will use the various different methods for command registration to give you an idea of when and where certain methods are more suitable than others.
 
@@ -59,7 +59,7 @@ CommandAPICommand withArguments(List<Argument> arguments)
 CommandAPICommand withArguments(Argument... arguments)
 ```
 
-The `withArguments` method is used to add arguments to your command. The `arguments` parameter is appended to the the list of arguments for the command.
+The `withArguments` method is used to add arguments to your command. The `arguments` parameter is appended to the list of arguments for the command.
 
 ```java
 CommandAPICommand withPermission(CommandPermission)

@@ -95,7 +95,7 @@ With this code, executing `/gamemode` will give the unknown command exception as
 
 When the server starts, `/gamemode` is created in step 2 inside the Vanilla CommandDispatcher. In step 4, our plugin is enabled and we remove the `/gamemode` command from that CommandDispatcher. After all the plugins enable, step 6 moves all commands in the Vanilla CommandDispatcher to the Bukkit CommandMap and gives them the `minecraft` namespace. Since `/gamemode` doesn't exist at this point, step 6 cannot create the `/minecraft:gamemode` command. So, even though `unregisterNamespaces` was `false`, `/minecraft:gamemode` doesn't exist anyway.
 
-> [!TIP] Example - Replacing Minecraft's `/gamemode` command
+> [!TIP] Example - Replacing Minecraft's <code>/gamemode</code> command
 >
 > To replace a command, first unregister the original command, then register a new implementation for that command.
 > 

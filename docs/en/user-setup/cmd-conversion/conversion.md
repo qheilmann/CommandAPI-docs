@@ -91,7 +91,7 @@ If you're uncertain if your configuration is valid (or you're getting weird erro
 
 ### Converting all plugin commands
 
-To convert all of the commands that a plugin has, add the name of the plugin, followed by a `~` character to the list of plugins to convert in the `config.yml` file.
+To convert all the commands that a plugin has, add the name of the plugin, followed by a `~` character to the list of plugins to convert in the `config.yml` file.
 
 ::: tip **Example - Converting all commands from EssentialsX**
 
