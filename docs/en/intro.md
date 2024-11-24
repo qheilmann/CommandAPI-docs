@@ -47,9 +47,9 @@ Here's the list of changes to the documentation between each update. You can vie
 
 - Updates [Shading the CommandAPI in your plugins](./dev-setup/shading) page with spigot-mapped and mojang-mapped dependencies
 - Adds [Velocity](./velocity_intro) page to outline how to set up the CommandAPI for Velocity
-- Updates [CommandArguments](./create-commands/arguments/arguments) to document new additions for safe arguments
+- Updates [CommandArguments](./create-commands/arguments/command-arguments) to document new additions for safe arguments
 - Updates [Potion effect arguments](./argument_potion) to include examples for the newly added `NamespacedKey` variant for the `PotionEffectArgument`
-- Updates [Arguments](./create-commands/arguments/arguments) to list the newly added `PotionEffectArgument.NamespacedKey` argument
+- Updates [Arguments](./create-commands/arguments/command-arguments) to list the newly added `PotionEffectArgument.NamespacedKey` argument
 - Updates [Particles](./argument_particles) page to include both [old particle information](./argument_particle_old) and [new particle information](./argument_particle_new)
 
 ### 9.2.0 → 9.3.0
@@ -65,7 +65,7 @@ Here's the list of changes to the documentation between each update. You can vie
 ### 9.0.3 → 9.1.0
 
 - Updates [Multi literal arguments](./argument_multiliteral) page to mention new `MultiLiteralArgument` constructor.
-- Adds [CommandArguments](./create-commands/arguments/arguments) page to explain the `CommandArguments` class introduced in 9.0.0
+- Adds [CommandArguments](./create-commands/arguments/command-arguments) page to explain the `CommandArguments` class introduced in 9.0.0
 - Adds [Adventure chat color argument](./argument_chat_adventure) to the adventure chat arguments page.
 - Adds new [Command unregistration](./create-commands/unregistration) page.
 
@@ -111,7 +111,7 @@ Here's the list of changes to the documentation between each update. You can vie
 
 - Greatly improved the format and documentation for [Configuration for server owners](./user-setup/config)
 - Adds a Kotlin tab to all Java code blocks which displays the equivalent code, but in Kotlin
-- Adds the new [Command arguments](./create-commands/arguments/arguments) section
+- Adds the new [Command arguments](./create-commands/arguments/command-arguments) section
 - Adds the new [World arguments](./argument_world) section
 - Mentions the new `LiteralArgument.of()` and `LiteralArgument.literal()` methods in [Literal arguments](./argument_literal)
 - Adds a really cool new example to the [Brigadier Suggestions](./brigadiersuggestions) page
@@ -301,7 +301,7 @@ Every page has been rewritten in this update and checked for errors. In general,
 - Updated [3. Setting up your development environment](./dev-setup/setup) to include new Maven repository links
 - Fixed stronkage with Java versions - there's now no random warning boxes about incompatibility with Java 12!
 - Arguments now include pictures that showcase how they work!
-- Reorganised the sections - arguments is now split up into two sections: [6. Arguments (in general)](./create-commands/arguments/arguments) and [7. Argument types](./argumenttypes)
+- Reorganised the sections - arguments is now split up into two sections: [6. Arguments (in general)](./create-commands/arguments/command-arguments) and [7. Argument types](./argumenttypes)
 - Adds documentation for [6.2. Safe argument suggestions](./safeargumentsuggestions)
 - Adds documentation for [7.8.3. BlockState arguments](./argument_blockstate)
 - Adds documentation for new arguments:
@@ -334,7 +334,7 @@ Every page has been rewritten in this update and checked for errors. In general,
 - Simplified the description of the documentation updates
 - Changed the artifact ID for the dependency of the CommandAPI. Instead of being `commandapi`, it is now `commandapi-core`. You can view the changes in section [2 Setting up your development environment](./dev-setup/setup)
 - Changed the repository information for gradle in section [2 Setting up your development environment](./dev-setup/setup). You now have to include the NBTAPI repository because gradle can't automatically detect this for some reason. Kinda stupid tbh.
-- Adds a section on using multiple or optional arguments in section [5 Arguments](./create-commands/arguments/arguments)
+- Adds a section on using multiple or optional arguments in section [5 Arguments](./create-commands/arguments/command-arguments)
 
 ### 2.1 → 3.0
 
@@ -347,7 +347,7 @@ Lots of changes occurred in version 3.0. I highly recommend reading the [Upgradi
 - Dependency section ([2. Setting up your development environment](./dev-setup/setup)) updated to use the new dependency Group ID
 - Command registration section ([3. Command registration](./create-commands/registration)) updated to reflect new API changes
 - Command execution section ([4. Command Executors](./create-commands/executors/command-executors)) updated to reflect new API changes
-- Arguments section ([5. Arguments](./create-commands/arguments/arguments)) completely rewritten to reflect new API changes. Adds more detailed examples for each argument
+- Arguments section ([5. Arguments](./create-commands/arguments/command-arguments)) completely rewritten to reflect new API changes. Adds more detailed examples for each argument
 - Function arguments section ([6.3 Function Arguments](./argument_function)) updated to reflect new API changes
 - Permissions section ([7. Permissions](./permissions)) updated to reflect new API changes
 - Aliases section ([8. Aliases](./aliases)) updated to reflect new API changes

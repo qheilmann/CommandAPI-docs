@@ -101,7 +101,7 @@ $$
 \text{/execute run} \xrightarrow{\text{redirect}} \text{mycommand arg1 arg2 arg3}
 $$
 
-It is not possible to access the [`CommandArguments`](../arguments) of previously declared arguments. **If a command occurs via a redirect, the [`CommandArguments`](../arguments) of previously declared arguments will be null**.
+It is not possible to access the [`CommandArguments`](../command-arguments) of previously declared arguments. **If a command occurs via a redirect, the [`CommandArguments`](../command-arguments) of previously declared arguments will be null**.
 
 :::
 

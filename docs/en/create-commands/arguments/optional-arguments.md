@@ -1,5 +1,5 @@
 ---
-order: 2
+order: 3
 authors:
   - DerEchtePilz
   - JorelAli
@@ -83,7 +83,7 @@ However, calling `withOptionalArguments` is safer because it makes sure that the
 
 ## Avoiding null values
 
-Previously, we've looked at how to handle null values. To make all of this easier, the CommandAPI implements multiple additional methods for [`CommandArguments`](./arguments):
+Previously, we've looked at how to handle null values. To make all of this easier, the CommandAPI implements multiple additional methods for [`CommandArguments`](./command-arguments):
 
 ```java
 Object getOrDefault(int index, Object defaultValue);

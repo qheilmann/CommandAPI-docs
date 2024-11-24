@@ -1,5 +1,5 @@
 ---
-order: 3
+order: 4
 authors:
   - DerEchtePilz
   - willkroboth
@@ -8,9 +8,9 @@ authors:
 
 # Listed arguments
 
-Arguments have a setting which determine whether they are present in the [`CommandArguments args`](./arguments) that is populated when executing a command.
+Arguments have a setting which determine whether they are present in the [`CommandArguments args`](./command-arguments) that is populated when executing a command.
 
-By default, the `LiteralArgument` has this setting set to `false`, hence the literal values are _not_ present in the [`CommandArguments args`](arguments).
+By default, the `LiteralArgument` has this setting set to `false`, hence the literal values are _not_ present in the [`CommandArguments args`](command-arguments).
 
 This flag is set using the following function:
 
@@ -26,7 +26,7 @@ Say we have the following command:
 /mycommand <player> <value> <message>
 ```
 
-Let's also say that in our implementation of this command, we don't actually perform any processing for `<value>`. Hence, listing it in the [`CommandArguments args`](./arguments) is unnecessary.
+Let's also say that in our implementation of this command, we don't actually perform any processing for `<value>`. Hence, listing it in the [`CommandArguments args`](./command-arguments) is unnecessary.
 
 :::tabs
 ===Java
@@ -39,6 +39,6 @@ Let's also say that in our implementation of this command, we don't actually per
 ```
 :::
 
-In this scenario, the argument `<value>` is not present in the [`CommandArguments args`](./arguments) for the executor.
+In this scenario, the argument `<value>` is not present in the [`CommandArguments args`](./command-arguments) for the executor.
 
 ::::
