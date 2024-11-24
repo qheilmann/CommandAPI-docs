@@ -66,7 +66,6 @@ class Tooltips {
     // #region customTooltipExampleDeclare
     @SuppressWarnings("deprecation")
     class CustomItem implements IStringTooltip {
-
         private ItemStack itemstack;
         private String name;
 
@@ -96,7 +95,6 @@ class Tooltips {
         public Message getTooltip() {
             return BukkitTooltip.messageFromString(this.itemstack.getItemMeta().getLore().get(0));
         }
-
     }
     // #endregion customTooltipExampleDeclare
 
