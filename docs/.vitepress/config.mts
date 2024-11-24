@@ -29,6 +29,21 @@ const vitepressOptions: UserConfig = {
     rewrites: {
         'en/:rest*': ':rest*'
     },
+    vite: {
+        optimizeDeps: {
+            exclude: [
+                '@nolebase/vitepress-plugin-enhanced-readabilities/client',
+                'vitepress',
+                '@nolebase/ui',
+            ],
+        },
+        ssr: {
+            noExternal: [
+                '@nolebase/vitepress-plugin-enhanced-readabilities',
+                '@nolebase/ui',
+            ],
+        },
+    },
     sitemap: {
         hostname: homepage
     },

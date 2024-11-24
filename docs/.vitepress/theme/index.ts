@@ -7,8 +7,11 @@ import PreferenceSwitch from './components/PreferenceSwitch.vue';
 import mediumZoom from "medium-zoom";
 import {onMounted, watch, nextTick, h} from 'vue'
 import {useRoute} from 'vitepress'
-import './style/global.css'
 import AuthorsComponent from "./components/AuthorsComponent.vue";
+import {NolebaseEnhancedReadabilitiesMenu, NolebaseEnhancedReadabilitiesScreenMenu} from "@nolebase/vitepress-plugin-enhanced-readabilities";
+
+import './style/global.css'
+import '@nolebase/vitepress-plugin-enhanced-readabilities/client/style.css'
 
 export default {
     extends: DefaultTheme,
@@ -22,6 +25,8 @@ export default {
             "doc-before": () => h(PreferenceSwitch),
             "aside-outline-before": () => h(PreferenceSwitch),
             "aside-outline-after": () => h(AuthorsComponent),
+            'nav-bar-content-after': () => h(NolebaseEnhancedReadabilitiesMenu),
+            'nav-screen-content-after': () => h(NolebaseEnhancedReadabilitiesScreenMenu),
         };
 
         return h(DefaultTheme.Layout, null, children);

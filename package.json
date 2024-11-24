@@ -10,6 +10,7 @@
     "url": "https://github.com/MC-XiaoHei/CommandAPI-Docs/issues"
   },
   "devDependencies": {
+    "@nolebase/vitepress-plugin-enhanced-readabilities": "^2.10.0",
     "@types/markdown-it": "^14.1.2",
     "@types/markdown-it-container": "^2.0.10",
     "markdown-it": "^14.1.0",
