@@ -49,7 +49,7 @@ Here's the list of changes to the documentation between each update. You can vie
 - Adds [Velocity](./velocity_intro) page to outline how to set up the CommandAPI for Velocity
 - Updates [CommandArguments](./create-commands/arguments/command-arguments) to document new additions for safe arguments
 - Updates [Potion effect arguments](./argument_potion) to include examples for the newly added `NamespacedKey` variant for the `PotionEffectArgument`
-- Updates [Arguments](./create-commands/arguments/command-arguments) to list the newly added `PotionEffectArgument.NamespacedKey` argument
+- Updates [Arguments](./create-commands/arguments/arguments) to list the newly added `PotionEffectArgument.NamespacedKey` argument
 - Updates [Particles](./argument_particles) page to include both [old particle information](./argument_particle_old) and [new particle information](./argument_particle_new)
 
 ### 9.2.0 → 9.3.0
@@ -80,7 +80,7 @@ Here's the list of changes to the documentation between each update. You can vie
 
 ### 9.0.0 → 9.0.1
 
-- Updates [Optional arguments](./optional_arguments) page to update the method list for avoiding `null` values
+- Updates [Optional arguments](./create-commands/arguments/optional-arguments) page to update the method list for avoiding `null` values
 - Updates [Normal command executors](./create-commands/executors/normal-executors) page to now mention the existence of the `ExecutionInfo`
 
 ### 8.8.0 → 9.0.0
@@ -89,7 +89,7 @@ Here's the list of changes to the documentation between each update. You can vie
 9.0.0 is a giant update that is incompatible with 8.8.x and prior versions. A lot of the documentation's code examples and explanations have been changed for the various changes made in this version. Please read the [Upgrading guide](./upgrading) for information on how to upgrade to 9.0.0.
 :::
 
-- Adds the new [Optional arguments](./optional_arguments) section
+- Adds the new [Optional arguments](./create-commands/arguments/optional-arguments) section
 - Adds Kotlin DSL code examples to all code examples
 
 ### 8.7.0 → 8.8.0
@@ -240,7 +240,7 @@ The Maven/Gradle repository URL has changed! See [5. Setting up your development
 
 - Adds a section [6. Using the annotation system](./setup_annotations) on setting up your development environment to use the annotation system
 - Adds a whole massive section on using annotations ([16. Annotation-based commands](./annotationsintro), [17. Annotations](./annotations), [18. Registering annotation-based commands](./registeringannotations))
-- Adds a section on argument suggestion deferral in section [9.1. Argument suggestions](./argumentsuggestions#argument-suggestion-deferral)
+- Adds a section on argument suggestion deferral in section [9.1. Argument suggestions](./create-commands/arguments/suggestions/suggestions)
 - Improve warning for `LiteralArgument` - instead of it being "obsolete" compared to the `MultiLiteralArgument`, it is now "more complex" than `MultiLiteralArgument`s
 - Fix issue in the section for custom arguments which should have been updated but wasn't
 
@@ -271,7 +271,7 @@ Every page has been rewritten in this update and checked for errors. In general,
 - Mentions listed arguments in section [9.11.1. Literal arguments](./argument_literal)
 - Section [15. Command conversion](./conversion) has been rewritten
 - Executes native is now present in the command registration page
-- Section [8.3. Argument suggestions with tooltips](./tooltips) now mentions the `IStringTooltip` class
+- Section [8.3. Argument suggestions with tooltips](./create-commands/arguments/suggestions/tooltips) now mentions the `IStringTooltip` class
 
 ### 4.2 → 4.3
 
@@ -288,7 +288,7 @@ Every page has been rewritten in this update and checked for errors. In general,
 
 ### 4.0 → 4.1
 
-- Adds a new section [7.3. Argument suggestions with tooltips](./tooltips)
+- Adds a new section [7.3. Argument suggestions with tooltips](./create-commands/arguments/suggestions/tooltips)
 - Adds documentation for the `MultiLiteralArgument` in section [8.11.2. Multi literal arguments](./argument_multiliteral)
 - Adds a new section [4. Shading the CommandAPI into your plugins](./dev-setup/shading)
 - Update documentation for [14. Brigadier + CommandAPI](./brigadier) with new (overloaded) function `argBuildOf`
@@ -301,8 +301,8 @@ Every page has been rewritten in this update and checked for errors. In general,
 - Updated [3. Setting up your development environment](./dev-setup/setup) to include new Maven repository links
 - Fixed stronkage with Java versions - there's now no random warning boxes about incompatibility with Java 12!
 - Arguments now include pictures that showcase how they work!
-- Reorganised the sections - arguments is now split up into two sections: [6. Arguments (in general)](./create-commands/arguments/command-arguments) and [7. Argument types](./argumenttypes)
-- Adds documentation for [6.2. Safe argument suggestions](./safeargumentsuggestions)
+- Reorganised the sections - arguments is now split up into two sections: [6. Arguments (in general)](./create-commands/arguments/arguments) and [7. Argument types](./argumenttypes)
+- Adds documentation for [6.2. Safe argument suggestions](./create-commands/arguments/suggestions/safe-suggestions)
 - Adds documentation for [7.8.3. BlockState arguments](./argument_blockstate)
 - Adds documentation for new arguments:
   - `UUIDArgument`: [7.8.14. UUID arguments](./argument_uuid)
@@ -329,12 +329,12 @@ Every page has been rewritten in this update and checked for errors. In general,
 
 ### 3.0 → 3.1
 
-- Adds new section [5.1 Argument suggestions](./argumentsuggestions) to cover how to override suggestions - Having it all in section _5. Arguments_ was a bit too content-heavy
-- Adds documentation for the new `.overrideSuggestions()` method in section [5.1 Argument suggestions](./argumentsuggestions#suggestions-depending-on-previous-arguments)
+- Adds new section [5.1 Argument suggestions](./create-commands/arguments/suggestions/suggestions) to cover how to override suggestions - Having it all in section _5. Arguments_ was a bit too content-heavy
+- Adds documentation for the new `.overrideSuggestions()` method in section [5.1 Argument suggestions](./create-commands/arguments/suggestions/suggestions)
 - Simplified the description of the documentation updates
 - Changed the artifact ID for the dependency of the CommandAPI. Instead of being `commandapi`, it is now `commandapi-core`. You can view the changes in section [2 Setting up your development environment](./dev-setup/setup)
 - Changed the repository information for gradle in section [2 Setting up your development environment](./dev-setup/setup). You now have to include the NBTAPI repository because gradle can't automatically detect this for some reason. Kinda stupid tbh.
-- Adds a section on using multiple or optional arguments in section [5 Arguments](./create-commands/arguments/command-arguments)
+- Adds a section on using multiple or optional arguments in section [5 Arguments](./create-commands/arguments/arguments)
 
 ### 2.1 → 3.0
 
@@ -347,7 +347,7 @@ Lots of changes occurred in version 3.0. I highly recommend reading the [Upgradi
 - Dependency section ([2. Setting up your development environment](./dev-setup/setup)) updated to use the new dependency Group ID
 - Command registration section ([3. Command registration](./create-commands/registration)) updated to reflect new API changes
 - Command execution section ([4. Command Executors](./create-commands/executors/command-executors)) updated to reflect new API changes
-- Arguments section ([5. Arguments](./create-commands/arguments/command-arguments)) completely rewritten to reflect new API changes. Adds more detailed examples for each argument
+- Arguments section ([5. Arguments](./create-commands/arguments/arguments)) completely rewritten to reflect new API changes. Adds more detailed examples for each argument
 - Function arguments section ([6.3 Function Arguments](./argument_function)) updated to reflect new API changes
 - Permissions section ([7. Permissions](./permissions)) updated to reflect new API changes
 - Aliases section ([8. Aliases](./aliases)) updated to reflect new API changes
