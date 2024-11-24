@@ -6,7 +6,7 @@ authors:
   - JorelAli
 ---
 
-# String argument suggestions
+# String suggestions
 
 ## Suggestions with a String Array
 

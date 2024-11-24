@@ -7,7 +7,7 @@ authors:
   - Xemii16
 ---
 
-# Handling command failures
+# Handle command failures
 
 Sometimes, you want your command to fail on purpose. This is the way to "gracefully" handle errors in your command execution. This is performed by throwing any of the following methods:
 

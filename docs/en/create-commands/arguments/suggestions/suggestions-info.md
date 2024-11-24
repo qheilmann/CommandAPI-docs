@@ -5,7 +5,7 @@ authors:
   - willkroboth
 ---
 
-# The `SuggestionsInfo` record
+# `SuggestionsInfo` record
 
 Argument suggestion methods can accept a function which takes in a `SuggestionsInfo` object and returns a suitable format for suggestions. The `SuggestionInfo` class is a record which contains the following methods:
 
