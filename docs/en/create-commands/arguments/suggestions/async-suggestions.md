@@ -54,23 +54,25 @@ CompletableFuture.supplyAsync(() -> {
 
 ## Asynchronous suggestions examples
 
-> [!TIP] Example - Reading keys from a config file
-> 
-> Say you wanted to write a command to modify your plugin's config file. Since the config file is an external file, you ideally want to access the file in a separate thread to the main server thread to retain performance for players on the server. We have the following command syntax:
-> 
-> ```mccmd
-> /setconfig <key> <value>
-> ```
-> 
-> We make use of the `ArgumentSuggestions.stringsAsync` method to provide asynchronous suggestions. In our completable future implementation, we access the keys from the plugin configuration.
-> 
-> :::tabs
-> ===Java
-> ```java
-> // todo {{#include ../../commandapi-documentation-code/src/main/java/dev/jorel/commandapi/examples/java/Examples.java:asyncSuggestions1}}
-> ```
-> ===Kotlin
-> ```kotlin
-> // todo {{#include ../../commandapi-documentation-code/src/main/kotlin/dev/jorel/commandapi/examples/kotlin/Examples.kt:asyncSuggestions1}}
-> ```
-> :::
+::::tip Example - Reading keys from a config file
+
+Say you wanted to write a command to modify your plugin's config file. Since the config file is an external file, you ideally want to access the file in a separate thread to the main server thread to retain performance for players on the server. We have the following command syntax:
+
+```mccmd
+/setconfig <key> <value>
+```
+
+We make use of the `ArgumentSuggestions.stringsAsync` method to provide asynchronous suggestions. In our completable future implementation, we access the keys from the plugin configuration.
+
+:::tabs
+===Java
+```java
+// todo {{#include ../../commandapi-documentation-code/src/main/java/dev/jorel/commandapi/examples/java/Examples.java:asyncSuggestions1}}
+```
+===Kotlin
+```kotlin
+// todo {{#include ../../commandapi-documentation-code/src/main/kotlin/dev/jorel/commandapi/examples/kotlin/Examples.kt:asyncSuggestions1}}
+```
+:::
+
+::::

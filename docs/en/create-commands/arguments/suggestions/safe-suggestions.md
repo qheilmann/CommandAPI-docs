@@ -109,120 +109,123 @@ This allows you to create `ScoreboardSlot` instances which can be used with the 
 
 While this should be fairly straight forward, here's a few examples of how this can be used in practice:
 
-> [!TIP] Example - Safe recipe arguments
->
-> Say we have a plugin that registers custom items which can be crafted. In this example, we use an "emerald sword" with a custom crafting recipe. Now say that we want to have a command that gives the player the item from our declared recipes, which will have the following syntax:
->
-> ```mccmd
-> /giverecipe <recipe>
-> ```
->
-> To do this, we first register our custom items:
->
-> :::tabs
-> ===Java
-> ```java
-> // todo {{#include ../../commandapi-documentation-code/src/main/java/dev/jorel/commandapi/examples/java/Examples.java:safeArgumentSuggestions1}}
-> ```
-> ===Kotlin
-> ```kotlin
-> // todo {{#include ../../commandapi-documentation-code/src/main/kotlin/dev/jorel/commandapi/examples/kotlin/Examples.kt:safeArgumentSuggestions1}}
-> ```
-> :::
->
-> Once we've done that, we can now include them in our command registration. To do this, we use `replaceSafeSuggestions(recipes)` and then register our command as normal:
->
-> :::tabs
-> ===Java
-> ```java
-> // todo {{#include ../../commandapi-documentation-code/src/main/java/dev/jorel/commandapi/examples/java/Examples.java:safeArgumentSuggestions2}}
-> ```
-> ===Kotlin
-> ```kotlin
-> // todo {{#include ../../commandapi-documentation-code/src/main/kotlin/dev/jorel/commandapi/examples/kotlin/Examples.kt:safeArgumentSuggestions2}}
-> ```
-> :::
->
+::::tip Example - Safe recipe arguments
 
-> [!TIP] Example - Safe <code>/spawnmob</code> suggestions
->
-> Say we have a command to spawn mobs:
->
-> ```mccmd
-> /spawnmob <mob>
-> ```
->
-> Now say that we don't want non-op players to spawn bosses. To do this, we'll create a `List<EntityType>` which is the list of all mobs that non-ops are allowed to spawn:
->
-> :::tabs
-> ===Java
-> ```java
-> // todo {{#include ../../commandapi-documentation-code/src/main/java/dev/jorel/commandapi/examples/java/Examples.java:safeArgumentSuggestions3}}
-> ```
-> ===Kotlin
-> ```kotlin
-> // todo {{#include ../../commandapi-documentation-code/src/main/kotlin/dev/jorel/commandapi/examples/kotlin/Examples.kt:safeArgumentSuggestions3}}
-> ```
-> :::
->
-> We then use our safe arguments to return an `EntityType[]` as the list of values that are suggested to the player. In this example, we use the `sender()` method to determine if the sender has permissions to view the suggestions:
->
-> :::tabs
-> ===Java
-> ```java
-> // todo {{#include ../../commandapi-documentation-code/src/main/java/dev/jorel/commandapi/examples/java/Examples.java:safeArgumentSuggestions4}}
-> ```
-> ===Kotlin
-> ```kotlin
-> // todo {{#include ../../commandapi-documentation-code/src/main/kotlin/dev/jorel/commandapi/examples/kotlin/Examples.kt:safeArgumentSuggestions4}}
-> ```
-> :::
->
-> Now we register our command as normal:
->
-> :::tabs
-> ===Java
-> ```java
-> // todo {{#include ../../commandapi-documentation-code/src/main/java/dev/jorel/commandapi/examples/java/Examples.java:safeArgumentSuggestions5}}
-> ```
-> ===Kotlin
-> ```kotlin
-> // todo {{#include ../../commandapi-documentation-code/src/main/kotlin/dev/jorel/commandapi/examples/kotlin/Examples.kt:safeArgumentSuggestions5}}
-> ```
-> :::
->
+Say we have a plugin that registers custom items which can be crafted. In this example, we use an "emerald sword" with a custom crafting recipe. Now say that we want to have a command that gives the player the item from our declared recipes, which will have the following syntax:
 
-> [!TIP] Example - Removing a potion effect from a player
->
-> Say we wanted to remove a potion effect from a player. To do this, we'll use the following command syntax:
->
-> ```mccmd
-> /removeeffect <player> <potioneffect>
-> ```
->
-> Now, we don't want to remove a potion effect that doesn't exist on a player, so instead we'll use the safe arguments to find a list of potion effects on the target player and then only suggest those potion effects. To do this, we'll use the `previousArguments()` method, as it allows us to access the previously defined `<player>` argument.
->
-> :::tabs
-> ===Java
-> ```java
-> // todo {{#include ../../commandapi-documentation-code/src/main/java/dev/jorel/commandapi/examples/java/Examples.java:safeArgumentSuggestions6}}
-> ```
-> ===Kotlin
-> ```kotlin
-> // todo {{#include ../../commandapi-documentation-code/src/main/kotlin/dev/jorel/commandapi/examples/kotlin/Examples.kt:safeArgumentSuggestions6}}
-> ```
-> :::
->
-> And then we can register our command as normal:
->
-> :::tabs
-> ===Java
-> ```java
-> // todo {{#include ../../commandapi-documentation-code/src/main/java/dev/jorel/commandapi/examples/java/Examples.java:safeArgumentSuggestions7}}
-> ```
-> ===Kotlin
-> ```kotlin
-> // todo {{#include ../../commandapi-documentation-code/src/main/kotlin/dev/jorel/commandapi/examples/kotlin/Examples.kt:safeArgumentSuggestions7}}
-> ```
-> :::
-> 
+```mccmd
+/giverecipe <recipe>
+```
+
+To do this, we first register our custom items:
+
+:::tabs
+===Java
+```java
+// todo {{#include ../../commandapi-documentation-code/src/main/java/dev/jorel/commandapi/examples/java/Examples.java:safeArgumentSuggestions1}}
+```
+===Kotlin
+```kotlin
+// todo {{#include ../../commandapi-documentation-code/src/main/kotlin/dev/jorel/commandapi/examples/kotlin/Examples.kt:safeArgumentSuggestions1}}
+```
+:::
+
+Once we've done that, we can now include them in our command registration. To do this, we use `replaceSafeSuggestions(recipes)` and then register our command as normal:
+
+:::tabs
+===Java
+```java
+// todo {{#include ../../commandapi-documentation-code/src/main/java/dev/jorel/commandapi/examples/java/Examples.java:safeArgumentSuggestions2}}
+```
+===Kotlin
+```kotlin
+// todo {{#include ../../commandapi-documentation-code/src/main/kotlin/dev/jorel/commandapi/examples/kotlin/Examples.kt:safeArgumentSuggestions2}}
+```
+:::
+
+::::
+
+::::tip Example - Safe `/spawnmob` suggestions
+
+Say we have a command to spawn mobs:
+
+```mccmd
+/spawnmob <mob>
+```
+
+Now say that we don't want non-op players to spawn bosses. To do this, we'll create a `List<EntityType>` which is the list of all mobs that non-ops are allowed to spawn:
+
+:::tabs
+===Java
+```java
+// todo {{#include ../../commandapi-documentation-code/src/main/java/dev/jorel/commandapi/examples/java/Examples.java:safeArgumentSuggestions3}}
+```
+===Kotlin
+```kotlin
+// todo {{#include ../../commandapi-documentation-code/src/main/kotlin/dev/jorel/commandapi/examples/kotlin/Examples.kt:safeArgumentSuggestions3}}
+```
+:::
+
+We then use our safe arguments to return an `EntityType[]` as the list of values that are suggested to the player. In this example, we use the `sender()` method to determine if the sender has permissions to view the suggestions:
+
+:::tabs
+===Java
+```java
+// todo {{#include ../../commandapi-documentation-code/src/main/java/dev/jorel/commandapi/examples/java/Examples.java:safeArgumentSuggestions4}}
+```
+===Kotlin
+```kotlin
+// todo {{#include ../../commandapi-documentation-code/src/main/kotlin/dev/jorel/commandapi/examples/kotlin/Examples.kt:safeArgumentSuggestions4}}
+```
+:::
+
+Now we register our command as normal:
+
+:::tabs
+===Java
+```java
+// todo {{#include ../../commandapi-documentation-code/src/main/java/dev/jorel/commandapi/examples/java/Examples.java:safeArgumentSuggestions5}}
+```
+===Kotlin
+```kotlin
+// todo {{#include ../../commandapi-documentation-code/src/main/kotlin/dev/jorel/commandapi/examples/kotlin/Examples.kt:safeArgumentSuggestions5}}
+```
+:::
+
+::::
+
+:::: Example - Removing a potion effect from a player
+
+Say we wanted to remove a potion effect from a player. To do this, we'll use the following command syntax:
+
+```mccmd
+/removeeffect <player> <potioneffect>
+```
+
+Now, we don't want to remove a potion effect that doesn't exist on a player, so instead we'll use the safe arguments to find a list of potion effects on the target player and then only suggest those potion effects. To do this, we'll use the `previousArguments()` method, as it allows us to access the previously defined `<player>` argument.
+
+:::tabs
+===Java
+```java
+// todo {{#include ../../commandapi-documentation-code/src/main/java/dev/jorel/commandapi/examples/java/Examples.java:safeArgumentSuggestions6}}
+```
+===Kotlin
+```kotlin
+// todo {{#include ../../commandapi-documentation-code/src/main/kotlin/dev/jorel/commandapi/examples/kotlin/Examples.kt:safeArgumentSuggestions6}}
+```
+:::
+
+And then we can register our command as normal:
+
+:::tabs
+===Java
+```java
+// todo {{#include ../../commandapi-documentation-code/src/main/java/dev/jorel/commandapi/examples/java/Examples.java:safeArgumentSuggestions7}}
+```
+===Kotlin
+```kotlin
+// todo {{#include ../../commandapi-documentation-code/src/main/kotlin/dev/jorel/commandapi/examples/kotlin/Examples.kt:safeArgumentSuggestions7}}
+```
+:::
+
+::::

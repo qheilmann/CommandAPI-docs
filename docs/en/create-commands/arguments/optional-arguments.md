@@ -21,42 +21,43 @@ Argument withOptionalArguments(List<Argument<?>> args);
 Argument withOptionalArguments(Argument<?>... args);
 ```
 
-> [!TIP] Example - <code>/sayhi</code> command with an optional argument
-> 
-> For example, say we're registering a command `/sayhi`:
-> 
-> ```mccmd
-> /sayhi          - Says "Hi!" to yourself
-> /sayhi <target> - Says "Hi!" to a target player
-> ```
-> 
-> For that, we are going to register a command `/sayhi`. To add optional arguments, we are going to use the `withOptionalArguments(Argument... args)` method:
-> 
-> :::tabs
-> ===Java
-> ```java
-> // todo {{#include ../../commandapi-documentation-code/src/main/java/dev/jorel/commandapi/examples/java/Examples.java:optionalArguments1}}
-> ```
-> ===Kotlin
-> ```kotlin
-> // todo {{#include ../../commandapi-documentation-code/src/main/kotlin/dev/jorel/commandapi/examples/kotlin/Examples.kt:optionalArguments1}}
-> ```
-> ===Kotlin DSL
-> ```kotlin
-> // todo {{#include ../../commandapi-documentation-code/src/main/kotlin/dev/jorel/commandapi/examples/kotlin/ExamplesKotlinDSL.kt:optionalArguments1}}
-> ```
-> :::
-> 
-> 
-> This gives us the ability to run both `/sayhi` and `/sayhi <target>` with the same command name "sayhi", but have different results based on the arguments used.
-> 
-> You can notice two things:
-> 
-> - We use the `withOptionalArguments` method to add an optional argument to a command
-> - We use `args.get("target")` to get our player out of the arguments
-> 
-> With optional arguments, there is a possibility of them being not present in the arguments of a command. The reason we use `args.get("target")` is that this will just return `null` and you can handle what should happen.
+::::tip Example - `/sayhi` command with an optional argument
 
+For example, say we're registering a command `/sayhi`:
+
+```mccmd
+/sayhi          - Says "Hi!" to yourself
+/sayhi <target> - Says "Hi!" to a target player
+```
+
+For that, we are going to register a command `/sayhi`. To add optional arguments, we are going to use the `withOptionalArguments(Argument... args)` method:
+
+:::tabs
+===Java
+```java
+// todo {{#include ../../commandapi-documentation-code/src/main/java/dev/jorel/commandapi/examples/java/Examples.java:optionalArguments1}}
+```
+===Kotlin
+```kotlin
+// todo {{#include ../../commandapi-documentation-code/src/main/kotlin/dev/jorel/commandapi/examples/kotlin/Examples.kt:optionalArguments1}}
+```
+===Kotlin DSL
+```kotlin
+// todo {{#include ../../commandapi-documentation-code/src/main/kotlin/dev/jorel/commandapi/examples/kotlin/ExamplesKotlinDSL.kt:optionalArguments1}}
+```
+:::
+
+
+This gives us the ability to run both `/sayhi` and `/sayhi <target>` with the same command name "sayhi", but have different results based on the arguments used.
+
+You can notice two things:
+
+- We use the `withOptionalArguments` method to add an optional argument to a command
+- We use `args.get("target")` to get our player out of the arguments
+
+With optional arguments, there is a possibility of them being not present in the arguments of a command. The reason we use `args.get("target")` is that this will just return `null` and you can handle what should happen.
+
+::::
 
 ## Setting existing arguments as optional arguments
 
@@ -95,32 +96,33 @@ Optional<Object> getOptional(String nodeName)
 
 The examples will be using the `getOptional` methods but there is no downside of using the `getOrDefault` methods.
 
-> [!TIP] Example - <code>/sayhi</code> command while using the getOptional method
-> 
-> Let's register the `/sayhi` command from above a second time - this time using a `getOptional` method. We are using the exact same command syntax:
-> 
-> ```mccmd
-> /sayhi          - Says "Hi!" to yourself
-> /sayhi <target> - Says "Hi!" to a target player
-> ```
-> 
-> This is how the `getOptional` method is being implemented:
-> 
-> :::tabs
-> ===Java
-> ```java
-> // todo {{#include ../../commandapi-documentation-code/src/main/java/dev/jorel/commandapi/examples/java/Examples.java:optionalArguments2}}
-> ```
-> ===Kotlin
-> ```kotlin
-> // todo {{#include ../../commandapi-documentation-code/src/main/kotlin/dev/jorel/commandapi/examples/kotlin/Examples.kt:optionalArguments2}}
-> ```
-> ===Kotlin DSL
-> ```kotlin
-> // todo {{#include ../../commandapi-documentation-code/src/main/kotlin/dev/jorel/commandapi/examples/kotlin/ExamplesKotlinDSL.kt:optionalArguments2}}
-> ```
-> :::
-> 
+:::tip Example - `/sayhi` command while using the getOptional method
+
+Let's register the `/sayhi` command from above a second time - this time using a `getOptional` method. We are using the exact same command syntax:
+
+```mccmd
+/sayhi          - Says "Hi!" to yourself
+/sayhi <target> - Says "Hi!" to a target player
+```
+
+This is how the `getOptional` method is being implemented:
+
+:::tabs
+===Java
+```java
+// todo {{#include ../../commandapi-documentation-code/src/main/java/dev/jorel/commandapi/examples/java/Examples.java:optionalArguments2}}
+```
+===Kotlin
+```kotlin
+// todo {{#include ../../commandapi-documentation-code/src/main/kotlin/dev/jorel/commandapi/examples/kotlin/Examples.kt:optionalArguments2}}
+```
+===Kotlin DSL
+```kotlin
+// todo {{#include ../../commandapi-documentation-code/src/main/kotlin/dev/jorel/commandapi/examples/kotlin/ExamplesKotlinDSL.kt:optionalArguments2}}
+```
+:::
+
+::::
 
 ## Implementing required arguments after optional arguments
 
@@ -168,30 +170,31 @@ new CommandAPICommand("mycommand")
 
 This would result in an `OptionalArgumentException` because you are declaring a required argument after an optional argument without creating that exception for argument `C` like you do for argument `B`.
 
-> [!TIP] Example - Required arguments after optional arguments
-> 
-> We want to register a command `/rate` with the following syntax:
-> 
-> ```mccmd
-> /rate                           - Sends an information message
-> /rate <topic> <rating>          - Rates a topic with a rating and sends a message to the command sender
-> /rate <topic> <rating> <target> - Rates a topic with a rating and sends a message to the target
-> ```
-> 
-> To implement that structure we make use of the `combineWith` method to make the argument after the optional argument \<topic> required:
-> 
-> :::tabs
-> ===Java
-> ```java
-> // todo {{#include ../../commandapi-documentation-code/src/main/java/dev/jorel/commandapi/examples/java/Examples.java:optionalArguments3}}
-> ```
-> ===Kotlin
-> ```kotlin
-> // todo {{#include ../../commandapi-documentation-code/src/main/kotlin/dev/jorel/commandapi/examples/kotlin/Examples.kt:optionalArguments3}}
-> ```
-> ===Kotlin DSL
-> ```kotlin
-> // todo {{#include ../../commandapi-documentation-code/src/main/kotlin/dev/jorel/commandapi/examples/kotlin/ExamplesKotlinDSL.kt:optionalArguments3}}
-> ```
-> :::
-> 
+::::tip Example - Required arguments after optional arguments
+
+We want to register a command `/rate` with the following syntax:
+
+```mccmd
+/rate                           - Sends an information message
+/rate <topic> <rating>          - Rates a topic with a rating and sends a message to the command sender
+/rate <topic> <rating> <target> - Rates a topic with a rating and sends a message to the target
+```
+
+To implement that structure we make use of the `combineWith` method to make the argument after the optional argument \<topic> required:
+
+:::tabs
+===Java
+```java
+// todo {{#include ../../commandapi-documentation-code/src/main/java/dev/jorel/commandapi/examples/java/Examples.java:optionalArguments3}}
+```
+===Kotlin
+```kotlin
+// todo {{#include ../../commandapi-documentation-code/src/main/kotlin/dev/jorel/commandapi/examples/kotlin/Examples.kt:optionalArguments3}}
+```
+===Kotlin DSL
+```kotlin
+// todo {{#include ../../commandapi-documentation-code/src/main/kotlin/dev/jorel/commandapi/examples/kotlin/ExamplesKotlinDSL.kt:optionalArguments3}}
+```
+:::
+
+::::

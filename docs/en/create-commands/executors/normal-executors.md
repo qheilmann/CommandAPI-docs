@@ -27,37 +27,38 @@ In short, this is what values are returned when a command is executed from a nor
 | **Success Value** |       1       |          0           |
 | **Result Value**  |       1       |          0           |
 
-> [!TIP] Example - Creating a message broadcasting system
-> 
-> To illustrate this, let's take a look at a simple message broadcasting command. We'll make a command which sends a message to everyone on the server, using the following syntax:
-> 
-> ```mccmd
-> /broadcastmsg <message>
-> /broadcastmessage <message>
-> /broadcast <message>
-> ```
-> 
-> We use an argument "message" to hold the message to broadcast, we provide some aliases and set a permission required to run the command. Then we declare our main command body by using the `.executes()` method, before finally registering the command:
-> 
-> :::tabs
-> ===Java
-> ```java
-> // todo {{#include ../../commandapi-documentation-code/src/main/java/dev/jorel/commandapi/examples/java/Examples.java:normalExecutors1}}
-> ```
-> ===Kotlin
-> ```kotlin
-> // todo {{#include ../../commandapi-documentation-code/src/main/kotlin/dev/jorel/commandapi/examples/kotlin/Examples.kt:normalExecutors1}}
-> ```
-> :::
-> 
-> Note how when we finish up our implementation of `.executes()`, we don't return anything. This is unlike commands in the standard Bukkit API where the `onCommand` method returns a Boolean value:
-> 
-> ```java
-> boolean onCommand(CommandSender, Command, String, String[])
-> ```
-> 
-> The returning of this Boolean value is handled automatically by the CommandAPI on a much lower level.
-> 
+::::tip Example - Creating a message broadcasting system
+
+To illustrate this, let's take a look at a simple message broadcasting command. We'll make a command which sends a message to everyone on the server, using the following syntax:
+
+```mccmd
+/broadcastmsg <message>
+/broadcastmessage <message>
+/broadcast <message>
+```
+
+We use an argument "message" to hold the message to broadcast, we provide some aliases and set a permission required to run the command. Then we declare our main command body by using the `.executes()` method, before finally registering the command:
+
+:::tabs
+===Java
+```java
+// todo {{#include ../../commandapi-documentation-code/src/main/java/dev/jorel/commandapi/examples/java/Examples.java:normalExecutors1}}
+```
+===Kotlin
+```kotlin
+// todo {{#include ../../commandapi-documentation-code/src/main/kotlin/dev/jorel/commandapi/examples/kotlin/Examples.kt:normalExecutors1}}
+```
+:::
+
+Note how when we finish up our implementation of `.executes()`, we don't return anything. This is unlike commands in the standard Bukkit API where the `onCommand` method returns a Boolean value:
+
+```java
+boolean onCommand(CommandSender, Command, String, String[])
+```
+
+The returning of this Boolean value is handled automatically by the CommandAPI on a much lower level.
+
+::::
 
 ## Restricting who can run your command
 
@@ -73,21 +74,22 @@ The `CommandAPICommand` class has multiple different `executes...()` methods tha
 | `ProxiedCommandSender`     | `.executesProxy()`        | Proxied senders only<br />(via `/execute as ...`) |
 | `NativeProxyCommandSender` | `.executesNative()`       | See [Native CommandSenders](./native-sender)      |
 
-> [!TIP] Example - A `/suicide` command
-> 
-> Say we wanted to create a command `/suicide`, which kills the player that executes it. Since this command can't be used by non-players (you can't kill a command block!), we can restrict it so only players can execute this command. Since it's a player, we can use the `.executesPlayer()` method:
-> 
-> :::tabs
-> ===Java
-> ```java
-> // todo {{#include ../../commandapi-documentation-code/src/main/java/dev/jorel/commandapi/examples/java/Examples.java:normalExecutors2}}
-> ```
-> ===Kotlin
-> ```kotlin
-> // todo {{#include ../../commandapi-documentation-code/src/main/kotlin/dev/jorel/commandapi/examples/kotlin/Examples.kt:normalExecutors2}}
-> ```
-> :::
-> 
+::::tip Example - A `/suicide` command
+
+Say we wanted to create a command `/suicide`, which kills the player that executes it. Since this command can't be used by non-players (you can't kill a command block!), we can restrict it so only players can execute this command. Since it's a player, we can use the `.executesPlayer()` method:
+
+:::tabs
+===Java
+```java
+// todo {{#include ../../commandapi-documentation-code/src/main/java/dev/jorel/commandapi/examples/java/Examples.java:normalExecutors2}}
+```
+===Kotlin
+```kotlin
+// todo {{#include ../../commandapi-documentation-code/src/main/kotlin/dev/jorel/commandapi/examples/kotlin/Examples.kt:normalExecutors2}}
+```
+:::
+
+::::
 
 ## Multiple command executor implementations
 
@@ -95,39 +97,36 @@ The CommandAPI allows you to chain different implementations of the command depe
 
 Extending on the suicide example above, we could write another implementation for a different `CommandSender`. Here, we write an implementation to make entities (non-player) go out with a bang when they run the command (using `/execute as <entity> run suicide` command).
 
-> [!TIP] Example - A `/suicide` command with different implementations
-> 
-> :::tabs
-> ===Java
-> ```java
-> // todo {{#include ../../commandapi-documentation-code/src/main/java/dev/jorel/commandapi/examples/java/Examples.java:normalExecutors3}}
-> ```
-> ===Kotlin
-> ```kotlin
-> // todo {{#include ../../commandapi-documentation-code/src/main/kotlin/dev/jorel/commandapi/examples/kotlin/Examples.kt:normalExecutors3}}
-> ```
-> :::
-> 
-> This saves having to use `instanceof` multiple times to check the type of the `CommandSender`.
-> 
+::::tip Example - A `/suicide` command with different implementations
+
+:::tabs
+===Java
+```java
+// todo {{#include ../../commandapi-documentation-code/src/main/java/dev/jorel/commandapi/examples/java/Examples.java:normalExecutors3}}
+```
+===Kotlin
+```kotlin
+// todo {{#include ../../commandapi-documentation-code/src/main/kotlin/dev/jorel/commandapi/examples/kotlin/Examples.kt:normalExecutors3}}
+```
+:::
+
+This saves having to use `instanceof` multiple times to check the type of the `CommandSender`.
+
+::::
 
 The different command sender priority is the following (from the highest priority to the lowest priority):
 
-> 
-> .executesNative() // Always chosen if used
-> 
-> .executesPlayer()
-> 
-> .executesEntity()
-> 
-> .executesConsole()
-> 
-> .executesCommandBlock()
-> 
-> .executesProxy()
-> 
-> .executes()
-> 
+$$
+\begin{align}
+&\quad\texttt{.executesNative()} && \texttt{(Always chosen if used)}\\\\
+&\quad\texttt{.executesPlayer()} \\\\
+&\quad\texttt{.executesEntity()} \\\\
+&\quad\texttt{.executesConsole()} \\\\
+&\quad\texttt{.executesCommandBlock()} \\\\
+&\quad\texttt{.executesProxy()} \\\\
+&\quad\texttt{.executes()}
+\end{align}
+$$
 
 ## Multiple command executors with the same implementation
 
@@ -145,21 +144,22 @@ This is achieved using the `.executes(executor, ...)` method, which accepts a va
 | `PROXY`             | Proxied senders only<br />(via `/execute as ...`) |
 | `NATIVE`            | See [Native CommandSenders](./native-sender)      |
 
-> [!TIP] Example - A <code>`/suicide` command with the same implementation</code>
-> 
-> Expanding on the suicide example above, we can restrict the command to only players and entities. We know that the command sender is a `LivingEntity`, so we can cast to it safely.
-> 
-> :::tabs
-> ===Java
-> ```java
-> // todo {{#include ../../commandapi-documentation-code/src/main/java/dev/jorel/commandapi/examples/java/Examples.java:normalExecutors4}}
-> ```
-> ===Kotlin
-> ```kotlin
-> // todo {{#include ../../commandapi-documentation-code/src/main/kotlin/dev/jorel/commandapi/examples/kotlin/Examples.kt:normalExecutors4}}
-> ```
-> :::
-> 
+::::tip Example - A `/suicide` command with the same implementation
+
+Expanding on the suicide example above, we can restrict the command to only players and entities. We know that the command sender is a `LivingEntity`, so we can cast to it safely.
+
+:::tabs
+===Java
+```java
+// todo {{#include ../../commandapi-documentation-code/src/main/java/dev/jorel/commandapi/examples/java/Examples.java:normalExecutors4}}
+```
+===Kotlin
+```kotlin
+// todo {{#include ../../commandapi-documentation-code/src/main/kotlin/dev/jorel/commandapi/examples/kotlin/Examples.kt:normalExecutors4}}
+```
+:::
+
+::::
 
 ## Using the ExecutionInfo
 

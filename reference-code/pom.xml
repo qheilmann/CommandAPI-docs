@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <groupId>dev.jorel.commandapi</groupId>
+    <artifactId>reference-code</artifactId>
+    <version>1.0-SNAPSHOT</version>
+
+    <properties>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+        <maven.build.timestamp.format>dd_MMM_yyyy_(hh-mm-ssa)</maven.build.timestamp.format>
+        <maven.compiler.source>21</maven.compiler.source>
+        <maven.compiler.target>21</maven.compiler.target>
+        <java.version>16</java.version>
+        <kotlin.version>2.0.0</kotlin.version>
+        <paper.version>1.21-R0.1-SNAPSHOT</paper.version>
+        <commandapi.version>9.6.1</commandapi.version>
+
+    </properties>
+
+    <repositories>
+        <repository>
+            <id>minecraft-libraries</id>
+            <url>https://libraries.minecraft.net</url>
+        </repository>
+        <repository>
+            <id>PaperMC</id>
+            <url>https://repo.papermc.io/repository/maven-public/</url>
+        </repository>
+        <repository>
+            <id>CodeMC</id>
+            <url>https://repo.codemc.org/repository/maven-public/</url>
+            <layout>default</layout>
+        </repository>
+    </repositories>
+
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.jetbrains.kotlin</groupId>
+                <artifactId>kotlin-maven-plugin</artifactId>
+                <version>${kotlin.version}</version>
+                <executions>
+                    <execution>
+                        <id>compile</id>
+                        <phase>process-sources</phase>
+                        <goals>
+                            <goal>compile</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
+        </plugins>
+    </build>
+
+    <dependencies>
+        <!-- Minecraft dependencies -->
+        <dependency>
+            <groupId>com.mojang</groupId>
+            <artifactId>brigadier</artifactId>
+            <version>1.0.17</version>
+            <scope>provided</scope>
+        </dependency>
+        <!--suppress VulnerableLibrariesLocal -->
+        <dependency>
+            <groupId>com.mojang</groupId>
+            <artifactId>authlib</artifactId>
+            <version>3.3.39</version>
+            <scope>provided</scope>
+        </dependency>
+
+        <!-- Bukkit dependencies -->
+        <dependency>
+            <groupId>net.kyori</groupId>
+            <artifactId>adventure-platform-bukkit</artifactId>
+            <version>4.2.0</version>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>io.papermc.paper</groupId>
+            <artifactId>paper-api</artifactId>
+            <version>${paper.version}</version>
+            <scope>provided</scope>
+        </dependency>
+
+        <!-- CommandAPI -->
+        <dependency>
+            <groupId>dev.jorel</groupId>
+            <artifactId>commandapi-bukkit-core</artifactId>
+            <version>${commandapi.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>dev.jorel</groupId>
+            <artifactId>commandapi-bukkit-kotlin</artifactId>
+            <version>${commandapi.version}</version>
+        </dependency>
+
+        <!-- Other -->
+        <dependency>
+            <groupId>de.tr7zw</groupId>
+            <artifactId>item-nbt-api</artifactId>
+            <version>2.11.1</version>
+        </dependency>
+        <dependency>
+            <groupId>org.jetbrains.kotlin</groupId>
+            <artifactId>kotlin-stdlib</artifactId>
+            <version>${kotlin.version}</version>
+        </dependency>
+    </dependencies>
+</project>

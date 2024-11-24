@@ -95,24 +95,24 @@ With this code, executing `/gamemode` will give the unknown command exception as
 
 When the server starts, `/gamemode` is created in step 2 inside the Vanilla CommandDispatcher. In step 4, our plugin is enabled and we remove the `/gamemode` command from that CommandDispatcher. After all the plugins enable, step 6 moves all commands in the Vanilla CommandDispatcher to the Bukkit CommandMap and gives them the `minecraft` namespace. Since `/gamemode` doesn't exist at this point, step 6 cannot create the `/minecraft:gamemode` command. So, even though `unregisterNamespaces` was `false`, `/minecraft:gamemode` doesn't exist anyway.
 
-> [!TIP] Example - Replacing Minecraft's <code>/gamemode</code> command
->
-> To replace a command, first unregister the original command, then register a new implementation for that command.
-> 
-> :::tabs
-> ===Java
-> ```java
-> // todo {{#include ../../commandapi-documentation-code/src/main/java/dev/jorel/commandapi/examples/java/Examples.java:commandUnregistration3}}
-> ```
-> ===Kotlin
-> ```kotlin
-> // todo {{#include ../../commandapi-documentation-code/src/main/kotlin/dev/jorel/commandapi/examples/kotlin/Examples.kt:commandUnregistration3}}
-> ```
-> :::
-> 
-> Now, when `/gamemode` is executed, it will use the new implementation defined using the CommandAPI.
-> 
->
+::::tip Example - Replacing Minecraft's `/gamemode` command
+
+To replace a command, first unregister the original command, then register a new implementation for that command.
+
+:::tabs
+===Java
+```java
+// todo {{#include ../../commandapi-documentation-code/src/main/java/dev/jorel/commandapi/examples/java/Examples.java:commandUnregistration3}}
+```
+===Kotlin
+```kotlin
+// todo {{#include ../../commandapi-documentation-code/src/main/kotlin/dev/jorel/commandapi/examples/kotlin/Examples.kt:commandUnregistration3}}
+```
+:::
+
+Now, when `/gamemode` is executed, it will use the new implementation defined using the CommandAPI.
+
+::::
 
 ## Unregistering a Plugin command - `/luckperms:luckperms`
 
@@ -234,33 +234,34 @@ Finally, `unregisterNamespaces` should be `false`, and since that's the default 
 
 With this code, `/gamemode` will execute as normal, but `/minecraft:gamemode` will give the unknown command message.
 
-> [!WARNING] Developer's Note:
-> 
-> Doing the opposite action here -- only unregistering `/gamemode` but keeping `/minecraft:gamemode` -- is not recommended. That would be the following code, where `commandName` is `"gamemode"` (or any command in the Vanilla CommandDispatcher), and `unregisterNamespaces` is `false`:
-> 
-> :::tabs
-> ===Java
-> ```java
-> // todo {{#include ../../commandapi-documentation-code/src/main/java/dev/jorel/commandapi/examples/java/Examples.java:commandUnregistration8}}
-> ```
-> ===Kotlin
-> ```kotlin
-> // todo {{#include ../../commandapi-documentation-code/src/main/kotlin/dev/jorel/commandapi/examples/kotlin/Examples.kt:commandUnregistration8}}
-> ```
-> :::
-> 
-> The expected outcome of this code is that `/minecraft:gamemode` would work as expected, and `/gamemode` would give the command not found message. However, that is only true for the player's commands. If you try to use `/minecraft:gamemode` in the console, it *will not work* properly. Specifically, while you can tab-complete the command's label, `minecraft:gamemode` the command's arguments will not have any suggestions. If you try to execute `/minecraft:gamemode` in the console, it will always tell you your command is unknown or incomplete.
-> 
-> The main point is that if you ever try to unregister a Vanilla command after the server is enabled, the namespaced version of that command will break for the console. To avoid this issue, always set `unregisterNamespaces` to `true` if `unregisterBukkit` is `false` when unregistering commands after the server is enabled.
-> 
-> :::tabs
-> ===Java
-> ```java
-> // todo {{#include ../../commandapi-documentation-code/src/main/java/dev/jorel/commandapi/examples/java/Examples.java:commandUnregistration9}}
-> ```
-> ===Kotlin
-> ```kotlin
-> // todo {{#include ../../commandapi-documentation-code/src/main/kotlin/dev/jorel/commandapi/examples/kotlin/Examples.kt:commandUnregistration9}}
-> ```
-> :::
->
+::::warning Developer's Note:
+
+Doing the opposite action here -- only unregistering `/gamemode` but keeping `/minecraft:gamemode` -- is not recommended. That would be the following code, where `commandName` is `"gamemode"` (or any command in the Vanilla CommandDispatcher), and `unregisterNamespaces` is `false`:
+
+:::tabs
+===Java
+```java
+// todo {{#include ../../commandapi-documentation-code/src/main/java/dev/jorel/commandapi/examples/java/Examples.java:commandUnregistration8}}
+```
+===Kotlin
+```kotlin
+// todo {{#include ../../commandapi-documentation-code/src/main/kotlin/dev/jorel/commandapi/examples/kotlin/Examples.kt:commandUnregistration8}}
+```
+:::
+
+The expected outcome of this code is that `/minecraft:gamemode` would work as expected, and `/gamemode` would give the command not found message. However, that is only true for the player's commands. If you try to use `/minecraft:gamemode` in the console, it *will not work* properly. Specifically, while you can tab-complete the command's label, `minecraft:gamemode` the command's arguments will not have any suggestions. If you try to execute `/minecraft:gamemode` in the console, it will always tell you your command is unknown or incomplete.
+
+The main point is that if you ever try to unregister a Vanilla command after the server is enabled, the namespaced version of that command will break for the console. To avoid this issue, always set `unregisterNamespaces` to `true` if `unregisterBukkit` is `false` when unregistering commands after the server is enabled.
+
+:::tabs
+===Java
+```java
+// todo {{#include ../../commandapi-documentation-code/src/main/java/dev/jorel/commandapi/examples/java/Examples.java:commandUnregistration9}}
+```
+===Kotlin
+```kotlin
+// todo {{#include ../../commandapi-documentation-code/src/main/kotlin/dev/jorel/commandapi/examples/kotlin/Examples.kt:commandUnregistration9}}
+```
+:::
+
+::::
