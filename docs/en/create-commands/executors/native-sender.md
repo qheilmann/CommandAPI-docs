@@ -52,17 +52,11 @@ As you can see, this command takes no arguments. This is fine, since our "argume
 
 :::tabs
 ===Java
-```java
-// todo {{#include ../../commandapi-documentation-code/src/main/java/dev/jorel/commandapi/examples/java/Examples.java:native1}}
-```
+<<< @/../reference-code/src/main/java/createcommands/executors/NativeSender.java#breakCommandExample
 ===Kotlin
-```kotlin
-// todo {{#include ../../commandapi-documentation-code/src/main/kotlin/dev/jorel/commandapi/examples/kotlin/Examples.kt:native1}}
-```
+<<< @/../reference-code/src/main/kotlin/createcommands/executors/NativeSender.kt#breakCommandExample
 ===Kotlin DSL
-```kotlin
-// todo {{#include ../../commandapi-documentation-code/src/main/kotlin/dev/jorel/commandapi/examples/kotlin/ExamplesKotlinDSL.kt:native1}}
-```
+<<< @/../reference-code/src/main/kotlin/createcommands/executors/NativeSender.kt#breakCommandExampleDSL
 :::
 
 This can now be used via the following command examples:

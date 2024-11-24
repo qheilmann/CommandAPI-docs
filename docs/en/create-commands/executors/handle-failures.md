@@ -29,13 +29,9 @@ Therefore, to gracefully handle this with a proper error message, we use one of 
 
 :::tabs
 ===Java
-```java
-// todo {{#include ../../commandapi-documentation-code/src/main/java/dev/jorel/commandapi/examples/java/Examples.java:commandFailures1}}
-```
+<<< @/../reference-code/src/main/java/createcommands/executors/HandleFailures.java#handleFailuresExample
 ===Kotlin
-```kotlin
-// todo {{#include ../../commandapi-documentation-code/src/main/kotlin/dev/jorel/commandapi/examples/kotlin/Examples.kt:commandFailures1}}
-```
+<<< @/../reference-code/src/main/kotlin/createcommands/executors/HandleFailures.kt#handleFailuresExample
 :::
 
 ::::

@@ -16,17 +16,11 @@ Say we have a command which kills the sender of a command. This is easily implem
 
 :::tabs
 ===Java
-```java
-// todo {{#include ../../commandapi-documentation-code/src/main/java/dev/jorel/commandapi/examples/java/Examples.java:proxySender1}}
-```
+<<< @/../reference-code/src/main/java/createcommands/executors/ProxySender.java#simpleKillCommandExample
 ===Kotlin
-```kotlin
-// todo {{#include ../../commandapi-documentation-code/src/main/kotlin/dev/jorel/commandapi/examples/kotlin/Examples.kt:proxySender1}}
-```
+<<< @/../reference-code/src/main/kotlin/createcommands/executors/ProxySender.kt#simpleKillCommandExample
 ===Kotlin DSL
-```kotlin
-// todo {{#include ../../commandapi-documentation-code/src/main/kotlin/dev/jorel/commandapi/examples/kotlin/ExamplesKotlinDSL.kt:proxySender1}}
-```
+<<< @/../reference-code/src/main/kotlin/createcommands/executors/ProxySender.kt#simpleKillCommandExampleDSL
 :::
 
 But what if the sender of the command is _not_ a player? By using Minecraft's `/execute` command, we could execute the command as _any_ arbitrary entity, as shown with the command below:
@@ -39,17 +33,11 @@ To handle this case, we can use the `.executesProxy()` method to ensure that the
 
 :::tabs
 ===Java
-```java
-// todo {{#include ../../commandapi-documentation-code/src/main/java/dev/jorel/commandapi/examples/java/Examples.java:proxySender2}}
-```
+<<< @/../reference-code/src/main/java/createcommands/executors/ProxySender.java#proxyKillCommandExample
 ===Kotlin
-```kotlin
-// todo {{#include ../../commandapi-documentation-code/src/main/kotlin/dev/jorel/commandapi/examples/kotlin/Examples.kt:proxySender2}}
-```
+<<< @/../reference-code/src/main/kotlin/createcommands/executors/ProxySender.kt#proxyKillCommandExample
 ===Kotlin DSL
-```kotlin
-// todo {{#include ../../commandapi-documentation-code/src/main/kotlin/dev/jorel/commandapi/examples/kotlin/ExamplesKotlinDSL.kt:proxySender2}}
-```
+<<< @/../reference-code/src/main/kotlin/createcommands/executors/ProxySender.kt#proxyKillCommandExampleDSL
 :::
 
 This allows the command above to run successfully, killing all chickens it can find.

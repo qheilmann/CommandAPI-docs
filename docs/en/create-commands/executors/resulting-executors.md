@@ -32,17 +32,11 @@ Say we want a command that returns a random number as a result. This can then be
 
 :::tabs
 ===Java
-```java
-// todo {{#include ../../commandapi-documentation-code/src/main/java/dev/jorel/commandapi/examples/java/Examples.java:resultingCommandExecutors1}}
-```
+<<< @/../reference-code/src/main/java/createcommands/executors/ResultingExecutors.java#randomResultCommandExample
 ===Kotlin
-```kotlin
-// todo {{#include ../../commandapi-documentation-code/src/main/kotlin/dev/jorel/commandapi/examples/kotlin/Examples.kt:resultingCommandExecutors1}}
-```
+<<< @/../reference-code/src/main/kotlin/createcommands/executors/ResultingExecutors.kt#randomResultCommandExample
 ===Kotlin DSL
-```kotlin
-// todo {{#include ../../commandapi-documentation-code/src/main/kotlin/dev/jorel/commandapi/examples/kotlin/ExamplesKotlinDSL.kt:resultingCommandExecutors1}}
-```
+<<< @/../reference-code/src/main/kotlin/createcommands/executors/ResultingExecutors.kt#randomResultCommandExampleDSL
 :::
 
 This returns a **success value of 1** _(Because no errors or `CommandAPI.failWithString(String)` was thrown)_ and a **result value of a random number**.
@@ -64,34 +58,22 @@ Since we're declaring commands that are to be used in `/execute`, we must ensure
 
 :::tabs
 ===Java
-```java
-// todo {{#include ../../commandapi-documentation-code/src/main/java/dev/jorel/commandapi/examples/java/Examples.java:resultingCommandExecutors2}}
-```
+<<< @/../reference-code/src/main/java/createcommands/executors/ResultingExecutors.java#randomNumberCommandExample
 ===Kotlin
-```kotlin
-// todo {{#include ../../commandapi-documentation-code/src/main/kotlin/dev/jorel/commandapi/examples/kotlin/Examples.kt:resultingCommandExecutors2}}
-```
+<<< @/../reference-code/src/main/kotlin/createcommands/executors/ResultingExecutors.kt#randomNumberCommandExample
 ===Kotlin DSL
-```kotlin
-// todo {{#include ../../commandapi-documentation-code/src/main/kotlin/dev/jorel/commandapi/examples/kotlin/ExamplesKotlinDSL.kt:resultingCommandExecutors2}}
-```
+<<< @/../reference-code/src/main/kotlin/createcommands/executors/ResultingExecutors.kt#randomNumberCommandExampleDSL
 :::
 
 Now we write our implementation for `/givereward`. In this example, we use the `EntitySelectorArgument` to select a single player. We cast it to `Player` and then add the items to their inventory.
 
 :::tabs
 ===Java
-```java
-// todo {{#include ../../commandapi-documentation-code/src/main/java/dev/jorel/commandapi/examples/java/Examples.java:resultingCommandExecutors3}}
-```
+<<< @/../reference-code/src/main/java/createcommands/executors/ResultingExecutors.java#giverewardCommandExample
 ===Kotlin
-```kotlin
-// todo {{#include ../../commandapi-documentation-code/src/main/kotlin/dev/jorel/commandapi/examples/kotlin/Examples.kt:resultingCommandExecutors3}}
-```
+<<< @/../reference-code/src/main/kotlin/createcommands/executors/ResultingExecutors.kt#giverewardCommandExample
 ===Kotlin DSL
-```kotlin
-// todo {#include ../../commandapi-documentation-code/src/main/kotlin/dev/jorel/commandapi/examples/kotlin/ExamplesKotlinDSL.kt:resultingCommandExecutors3}}
-```
+<<< @/../reference-code/src/main/kotlin/createcommands/executors/ResultingExecutors.kt#giverewardCommandExampleDSL
 :::
 
 Now that we've declared these commands, we can now use them in practice. We can use a command block to store a random number under the scoreboard score `randVal` for a player called `SomePlayer`, by executing the command `/randomnumber`. Since `/randomnumber` **returns** an integer, this value is stored in the scoreboard score:

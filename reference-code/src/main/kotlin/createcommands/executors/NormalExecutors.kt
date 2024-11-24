@@ -11,7 +11,7 @@ import org.bukkit.Bukkit
 import org.bukkit.command.ProxiedCommandSender
 import org.bukkit.entity.LivingEntity
 
-fun broadcastExample() {
+fun normalExecutors() {
     // #region broadcastExample
     // Create our command
     CommandAPICommand("broadcastmsg")
@@ -24,9 +24,7 @@ fun broadcastExample() {
         })
         .register()
     // #endregion broadcastExample
-}
 
-fun suicideExample() {
     // #region suicideExample
     CommandAPICommand("suicide")
         .executesPlayer(PlayerCommandExecutor { player, _ ->
@@ -34,9 +32,7 @@ fun suicideExample() {
         })
         .register()
     // #endregion suicideExample
-}
 
-fun differentImplExample() {
     // #region differentImplExample
     CommandAPICommand("suicide")
         .executesPlayer(PlayerCommandExecutor { player, _ ->
@@ -48,9 +44,7 @@ fun differentImplExample() {
         })
         .register()
     // #endregion differentImplExample
-}
 
-fun sameImplExample() {
     // #region sameImplExample
     CommandAPICommand("suicide")
         .executes(CommandExecutor { sender, _ ->
