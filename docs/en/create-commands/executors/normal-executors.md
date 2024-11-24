@@ -41,13 +41,9 @@ We use an argument "message" to hold the message to broadcast, we provide some a
 
 :::tabs
 ===Java
-```java
-// todo {{#include ../../commandapi-documentation-code/src/main/java/dev/jorel/commandapi/examples/java/Examples.java:normalExecutors1}}
-```
+<<< @/../reference-code/src/main/java/createcommands/executors/NormalExecutors.java#broadcastExample
 ===Kotlin
-```kotlin
-// todo {{#include ../../commandapi-documentation-code/src/main/kotlin/dev/jorel/commandapi/examples/kotlin/Examples.kt:normalExecutors1}}
-```
+<<< @/../reference-code/src/main/kotlin/createcommands/executors/NormalExecutors.kt#broadcastExample
 :::
 
 Note how when we finish up our implementation of `.executes()`, we don't return anything. This is unlike commands in the standard Bukkit API where the `onCommand` method returns a Boolean value:
@@ -80,13 +76,9 @@ Say we wanted to create a command `/suicide`, which kills the player that execut
 
 :::tabs
 ===Java
-```java
-// todo {{#include ../../commandapi-documentation-code/src/main/java/dev/jorel/commandapi/examples/java/Examples.java:normalExecutors2}}
-```
+<<< @/../reference-code/src/main/java/createcommands/executors/NormalExecutors.java#suicideExample
 ===Kotlin
-```kotlin
-// todo {{#include ../../commandapi-documentation-code/src/main/kotlin/dev/jorel/commandapi/examples/kotlin/Examples.kt:normalExecutors2}}
-```
+<<< @/../reference-code/src/main/kotlin/createcommands/executors/NormalExecutors.kt#suicideExample
 :::
 
 ::::
@@ -101,13 +93,9 @@ Extending on the suicide example above, we could write another implementation fo
 
 :::tabs
 ===Java
-```java
-// todo {{#include ../../commandapi-documentation-code/src/main/java/dev/jorel/commandapi/examples/java/Examples.java:normalExecutors3}}
-```
+<<< @/../reference-code/src/main/java/createcommands/executors/NormalExecutors.java#differentImplExample
 ===Kotlin
-```kotlin
-// todo {{#include ../../commandapi-documentation-code/src/main/kotlin/dev/jorel/commandapi/examples/kotlin/Examples.kt:normalExecutors3}}
-```
+<<< @/../reference-code/src/main/kotlin/createcommands/executors/NormalExecutors.kt#differentImplExample
 :::
 
 This saves having to use `instanceof` multiple times to check the type of the `CommandSender`.
@@ -150,13 +138,9 @@ Expanding on the suicide example above, we can restrict the command to only play
 
 :::tabs
 ===Java
-```java
-// todo {{#include ../../commandapi-documentation-code/src/main/java/dev/jorel/commandapi/examples/java/Examples.java:normalExecutors4}}
-```
+<<< @/../reference-code/src/main/java/createcommands/executors/NormalExecutors.java#sameImplExample
 ===Kotlin
-```kotlin
-// todo {{#include ../../commandapi-documentation-code/src/main/kotlin/dev/jorel/commandapi/examples/kotlin/Examples.kt:normalExecutors4}}
-```
+<<< @/../reference-code/src/main/kotlin/createcommands/executors/NormalExecutors.kt#sameImplExample
 :::
 
 ::::
