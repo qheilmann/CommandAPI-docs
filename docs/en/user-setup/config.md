@@ -283,7 +283,7 @@ plugins-to-convert:
 
 ### `skip-sender-proxy`
 
-Determines whether the proxy sender should be skipped when converting a command. See [Skipping proxy senders](./skip-proxy-senders) for more information.
+Determines whether the proxy sender should be skipped when converting a command. See [Skipping proxy senders](cmd-conversion/skip-proxy-senders.md) for more information.
 
 **Default value**
 

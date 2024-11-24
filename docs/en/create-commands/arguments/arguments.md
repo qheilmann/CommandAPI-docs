@@ -7,7 +7,7 @@ authors:
   - Gregzeee
 ---
 
-# Arguments
+# Command arguments
 
 Arguments in the CommandAPI are registered by using an `Argument[]` or `List<Argument>` object. There are two things you need to keep in mind when creating arguments:
 

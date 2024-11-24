@@ -71,7 +71,7 @@ The `CommandAPICommand` class has multiple different `executes...()` methods tha
 | `BlockCommandSender`       | `.executesCommandBlock()` | Command blocks only                               |
 | `ConsoleCommandSender`     | `.executesConsole()`      | The console only                                  |
 | `ProxiedCommandSender`     | `.executesProxy()`        | Proxied senders only<br />(via `/execute as ...`) |
-| `NativeProxyCommandSender` | `.executesNative()`       | See [Native CommandSenders](./native)             |
+| `NativeProxyCommandSender` | `.executesNative()`       | See [Native CommandSenders](./native-sender)      |
 
 > [!TIP] Example - A `/suicide` command
 > 
@@ -143,7 +143,7 @@ This is achieved using the `.executes(executor, ...)` method, which accepts a va
 | `BLOCK`             | Command blocks only                               |
 | `CONSOLE`           | The console only                                  |
 | `PROXY`             | Proxied senders only<br />(via `/execute as ...`) |
-| `NATIVE`            | See [Native CommandSenders](./native)             |
+| `NATIVE`            | See [Native CommandSenders](./native-sender)      |
 
 > [!TIP] Example - A <code>`/suicide` command with the same implementation</code>
 > 
