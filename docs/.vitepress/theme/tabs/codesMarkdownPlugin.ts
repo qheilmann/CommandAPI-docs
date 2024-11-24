@@ -1,6 +1,8 @@
 // copy from https://github.com/sapphi-red/vitepress-plugins , original license is MIT
 
+// @ts-ignore
 import MarkdownIt, {Renderer, Token} from "markdown-it";
+// @ts-ignore
 import container from "markdown-it-container";
 import {ruleBlockTab} from "./rulePluginTabs";
 

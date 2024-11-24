@@ -101,7 +101,10 @@ The `onDisable()` method disables the CommandAPI gracefully. This should be plac
 
 By default, the CommandAPI is written in the `dev.jorel.commandapi` package. It is **highly recommended** to "relocate" the shaded copy of the CommandAPI to your own package instead to prevent package clashes with other projects that shade the CommandAPI:
 
-> `dev.jorel.commandapi` → `my.custom.package.commandapi`
+
+$$
+\text{dev.jorel.commandapi} \xrightarrow{\text{relocate}} \text{my.custom.package.commandapi}
+$$
 
 
 ## Shading with Build System

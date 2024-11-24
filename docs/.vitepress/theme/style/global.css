@@ -10,3 +10,7 @@
 .medium-zoom--opened .medium-zoom-overlay {
     opacity: 0.9 !important;
 }
+
+.MathJax {
+    overflow: hidden;
+}

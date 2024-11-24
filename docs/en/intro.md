@@ -184,7 +184,7 @@ Here's the list of changes to the documentation between each update. You can vie
 
 - Adds Java 16 error to [Troubleshooting](./troubleshooting).
 - Update [FAQ](faq).
-- Adds some useful tools to [Command conversion](./user-setup/cmd-conversion/conversion) to get plugin info and check `config.yml` validity.
+- Adds some useful tools to [Command conversion](user-setup/command-conversion/conversion) to get plugin info and check `config.yml` validity.
 - Adds [Plugin reloading](./reloading) page which describes how to add minimal support for `/reload`.
 
 ### 6.2.0 → 6.3.0
@@ -222,9 +222,9 @@ The Maven/Gradle repository URL has changed! See [5. Setting up your development
 
 ### 5.10 → 5.11
 
-- Adds a section [Arbitrary command conversion](./user-setup/cmd-conversion/single-command#arbitrary-command-conversion) on how to convert arbitrary commands
-- Adds a section [3.3. Entity selectors](./user-setup/cmd-conversion/entity-selectors) describing how to convert entity selector commands with the CommandAPI's command conversion system
-- Updated the [list of all supported argument types](./user-setup/cmd-conversion/single-command-with-args#list-of-all-supported-argument-types) for command conversion
+- Adds a section [Arbitrary command conversion](user-setup/command-conversion/single-command#arbitrary-command-conversion) on how to convert arbitrary commands
+- Adds a section [3.3. Entity selectors](user-setup/command-conversion/entity-selectors) describing how to convert entity selector commands with the CommandAPI's command conversion system
+- Updated the [list of all supported argument types](user-setup/command-conversion/single-command-with-args#list-of-all-supported-argument-types) for command conversion
 
 ### 5.6 → 5.10
 
@@ -234,7 +234,7 @@ The Maven/Gradle repository URL has changed! See [5. Setting up your development
 
 ### 5.3 → 5.6
 
-- Adds a section [4. Skipping proxy senders](./user-setup/cmd-conversion/skip-proxy-senders) which describes how to use the `skip-sender-proxy` configuration option.
+- Adds a section [4. Skipping proxy senders](user-setup/command-conversion/skip-proxy-senders) which describes how to use the `skip-sender-proxy` configuration option.
 
 ### 5.2 → 5.3
 
@@ -263,7 +263,7 @@ Lots and lots and lots of changes occurred in version 5.0! I highly recommend re
 
 Every page has been rewritten in this update and checked for errors. In general, this is the list of new additions:
 
-- New section [3. Command conversion](./user-setup/cmd-conversion/conversion) dedicated to command conversion via the `config.yml`
+- New section [3. Command conversion](user-setup/command-conversion/conversion) dedicated to command conversion via the `config.yml`
 - New section [8.4. Listed arguments](./listed)
 - New section [9.8.1. Angle arguments](./argument_angle)
 - New section [14. Subcommands](./subcommands)

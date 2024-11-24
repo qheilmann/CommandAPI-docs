@@ -14,6 +14,7 @@
     "@types/markdown-it-container": "^2.0.10",
     "markdown-it": "^14.1.0",
     "markdown-it-container": "^4.0.0",
+    "markdown-it-mathjax3": "^4.3.2",
     "medium-zoom": "^1.1.0",
     "vitepress": "^1.5.0",
     "vitepress-sidebar": "^1.29.0"

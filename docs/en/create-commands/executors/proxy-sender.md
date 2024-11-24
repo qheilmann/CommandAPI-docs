@@ -6,7 +6,7 @@ authors:
   - JorelAli
 ---
 
-# Proxied CommandSenders
+# Proxied command senders
 
 The CommandAPI has extra support for vanilla Minecraft's `/execute` command, by allowing the CommandSender to be an instance of the `ProxiedCommandSender` class. This allows the CommandSender to contain two extra pieces of information: The "proxied sender" and the original sender.
 

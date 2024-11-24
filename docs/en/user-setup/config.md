@@ -247,7 +247,7 @@ skip-initial-datapack-reload: true
 
 ### `plugins-to-convert`
 
-Controls the list of plugins to process for command conversion. See [Command conversion](./cmd-conversion/conversion) for more information.
+Controls the list of plugins to process for command conversion. See [Command conversion](command-conversion/conversion) for more information.
 
 **Default value**
 
@@ -283,7 +283,7 @@ plugins-to-convert:
 
 ### `skip-sender-proxy`
 
-Determines whether the proxy sender should be skipped when converting a command. See [Skipping proxy senders](cmd-conversion/skip-proxy-senders.md) for more information.
+Determines whether the proxy sender should be skipped when converting a command. See [Skipping proxy senders](command-conversion/skip-proxy-senders.md) for more information.
 
 **Default value**
 
@@ -301,7 +301,7 @@ skip-sender-proxy:
 
 ### `other-commands-to-convert`
 
-A list of other commands to convert. This should be used for commands which are not declared in a `plugin.yml` file. See [Arbitrary command conversion](./cmd-conversion/single-command#arbitrary-command-conversion) for more information.
+A list of other commands to convert. This should be used for commands which are not declared in a `plugin.yml` file. See [Arbitrary command conversion](command-conversion/single-command#arbitrary-command-conversion) for more information.
 
 **Default value**
 

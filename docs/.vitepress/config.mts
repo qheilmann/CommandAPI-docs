@@ -1,3 +1,4 @@
+// @ts-ignore
 import {repository, homepage} from '../../package.json';
 import {defineConfig, UserConfig, type DefaultTheme} from 'vitepress';
 import {withI18n} from 'vitepress-i18n';
@@ -46,7 +47,9 @@ const vitepressOptions: UserConfig = {
         container: {
             infoLabel: '**Developer\'s Note:**',
         },
+        math: true,
         shikiSetup: (shiki) => {
+            // @ts-ignore
             shiki.loadLanguage({
                 name: "mccmd",
                 scopeName: "source.mccmd",
