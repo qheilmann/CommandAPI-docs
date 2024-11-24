@@ -69,13 +69,9 @@ For example, to load the CommandAPI on Bukkit with all logging disabled, you can
 
 :::tabs
 ===Java
-```java
-// todo {{#include ../../commandapi-documentation-code/src/main/java/dev/jorel/commandapi/examples/java/Examples.java:setupShading1}}
-```
+<<< @/../reference-code/src/main/java/devsetup/Shading.java#bukkitConfigExample
 ===Kotlin
-```kotlin
-// todo {{#include ../../commandapi-documentation-code/src/main/kotlin/dev/jorel/commandapi/examples/kotlin/Examples.kt:setupShading1}}
-```
+<<< @/../reference-code/src/main/kotlin/devsetup/Shading.kt#bukkitConfigExample
 :::
 
 ### Enabling & Disabling
@@ -88,13 +84,9 @@ The `onDisable()` method disables the CommandAPI gracefully. This should be plac
 
 :::tabs
 ===Java
-```java
-// todo {{#include ../../commandapi-documentation-code/src/main/java/dev/jorel/commandapi/examples/java/Examples.java:setupShading2}}
-```
+<<< @/../reference-code/src/main/java/devsetup/Shading.java#shadingExample
 ===Kotlin
-```kotlin
-// todo {{#include ../../commandapi-documentation-code/src/main/kotlin/dev/jorel/commandapi/examples/kotlin/Examples.kt:setupShading2}}
-```
+<<< @/../reference-code/src/main/kotlin/devsetup/Shading.kt#shadingExample
 :::
 
 ## A note about relocating
