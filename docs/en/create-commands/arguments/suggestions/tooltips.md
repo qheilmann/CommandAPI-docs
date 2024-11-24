@@ -52,9 +52,7 @@ First, we'll declare our arguments. Here, we'll use the `stringsWithTooltips` me
 ===Java
 <<< @/../reference-code/src/main/java/createcommands/arguments/suggestions/Tooltips.java#stringSuggestionTooltipsExampleDeclare
 ===Kotlin
-```kotlin
-// todo {{#include ../../commandapi-documentation-code/src/main/kotlin/dev/jorel/commandapi/examples/kotlin/Examples.kt:tooltips1}}
-```
+<<< @/../reference-code/src/main/kotlin/createcommands/arguments/suggestions/Tooltips.kt#stringSuggestionTooltipsExampleDeclare
 :::
 
 Finally, we declare our command as normal:
@@ -63,9 +61,7 @@ Finally, we declare our command as normal:
 ===Java
 <<< @/../reference-code/src/main/java/createcommands/arguments/suggestions/Tooltips.java#stringSuggestionTooltipsExampleRegister
 ===Kotlin
-```kotlin
-// todo {{#include ../../commandapi-documentation-code/src/main/kotlin/dev/jorel/commandapi/examples/kotlin/Examples.kt:tooltips2}}
-```
+<<< @/../reference-code/src/main/kotlin/createcommands/arguments/suggestions/Tooltips.kt#stringSuggestionTooltipsExampleRegister
 :::
 
 ::::
@@ -93,9 +89,7 @@ Let's say we've created a simple plugin which has custom items. For a custom ite
 ===Java
 <<< @/../reference-code/src/main/java/createcommands/arguments/suggestions/Tooltips.java#customTooltipExampleDeclare
 ===Kotlin
-```kotlin
-// todo {{#include ../../commandapi-documentation-code/src/main/kotlin/dev/jorel/commandapi/examples/kotlin/Examples.kt:tooltips3}}
-```
+<<< @/../reference-code/src/main/kotlin/createcommands/arguments/suggestions/Tooltips.kt#customTooltipExampleDeclare
 :::
 
 We make use of the `Tooltip.messageFromString()` method to generate a Brigadier `Message` object from our string tooltip.
@@ -106,9 +100,7 @@ Let's also say that our plugin has registered lots of `CustomItem`s and has this
 ===Java
 <<< @/../reference-code/src/main/java/createcommands/arguments/suggestions/Tooltips.java#customTooltipExampleRegister
 ===Kotlin
-```kotlin
-// todo {{#include ../../commandapi-documentation-code/src/main/kotlin/dev/jorel/commandapi/examples/kotlin/Examples.kt:tooltips4}}
-```
+<<< @/../reference-code/src/main/kotlin/createcommands/arguments/suggestions/Tooltips.kt#customTooltipExampleRegister
 :::
 
 ::::
@@ -154,9 +146,7 @@ First, we'll declare our arguments. Here, we use a `LocationArgument` and use th
 ===Java
 <<< @/../reference-code/src/main/java/createcommands/arguments/suggestions/Tooltips.java#tooltipsWithSafeSuggestionsExampleDeclare
 ===Kotlin
-```kotlin
-// todo {{#include ../../commandapi-documentation-code/src/main/kotlin/dev/jorel/commandapi/examples/kotlin/Examples.kt:tooltips5}}
-```
+<<< @/../reference-code/src/main/kotlin/createcommands/arguments/suggestions/Tooltips.kt#tooltipsWithSafeSuggestionsExampleDeclare
 :::
 
 In the arguments declaration, we've cast the command sender to a player. To ensure that the command sender is definitely a player, we'll use the `executesPlayer` command execution method in our command declaration:
@@ -165,9 +155,7 @@ In the arguments declaration, we've cast the command sender to a player. To ensu
 ===Java
 <<< @/../reference-code/src/main/java/createcommands/arguments/suggestions/Tooltips.java#tooltipsWithSafeSuggestionsExampleRegister
 ===Kotlin
-```kotlin
-// todo {{#include ../../commandapi-documentation-code/src/main/kotlin/dev/jorel/commandapi/examples/kotlin/Examples.kt:tooltips6}}
-```
+<<< @/../reference-code/src/main/kotlin/createcommands/arguments/suggestions/Tooltips.kt#tooltipsWithSafeSuggestionsExampleRegister
 :::
 
 ::::

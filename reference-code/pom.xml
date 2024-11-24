@@ -47,6 +47,12 @@
                     <execution>
                         <id>compile</id>
                         <phase>process-sources</phase>
+                        <configuration>
+                            <sourceDirs>
+                                <sourceDir>${project.basedir}/src/main/java</sourceDir>
+                                <sourceDir>${project.basedir}/src/main/kotlin</sourceDir>
+                            </sourceDirs>
+                        </configuration>
                         <goals>
                             <goal>compile</goal>
                         </goals>
