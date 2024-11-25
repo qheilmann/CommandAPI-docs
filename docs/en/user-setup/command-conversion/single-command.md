@@ -69,7 +69,7 @@ commands:
 
 ## Arbitrary command conversion
 
-Some commands which are registered by plugins are not present in the plugin's `plugin.yml` file. Due to this, the CommandAPI cannot link a command to its respective plugin for command conversion. In order to deal with this, the CommandAPI can link arbitrary commands via the `other-commands-to-convert` option in the CommandAPI's `config.yml` file.
+Some commands that are registered by plugins aren’t present in the plugin's `plugin.yml` file. Due to this, the CommandAPI can’t link a command to its respective plugin for command conversion. To deal with this, the CommandAPI can link arbitrary commands via the `other-commands-to-convert` option in the CommandAPI's `config.yml` file.
 
 This can be used for any of the following (and more):
 
@@ -77,9 +77,9 @@ This can be used for any of the following (and more):
 - Commands created using [MyCommand](https://dev.bukkit.org/projects/mycommand)
 - Commands which are not registered in a `plugin.yml`, such as [WorldEdit](https://dev.bukkit.org/projects/worldedit) commands
 
-To add commands to be converted, simply add them under the `other-command-to-convert` section in the CommandAPI's `config.yml`.
+To add commands to be converted, add them under the `other-command-to-convert` section in the CommandAPI's `config.yml`.
 
-::: tip Example - Converting arbitrary commands
+::: tip Example – Converting arbitrary commands
 
 In this example, we want to convert the `//set` command from WorldEdit, as well as a custom command `/mycommand`. Note that since WorldEdit's `//set` command has two forward slashes, we ignore the first one (because that is the symbol used to start commands), but must make sure that we include the second one as that is part of WorldEdit's command syntax. This is the following `config.yml` that you would need:
 

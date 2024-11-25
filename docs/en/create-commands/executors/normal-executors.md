@@ -18,7 +18,7 @@ new CommandAPICommand("...")
     .register();
 ```
 
-With normal command executors, these do not need to return anything. By default, this will return a _success value_ of 1 if it runs successfully, and a _success value_ of 0 if it runs unsuccessfully, either by throwing an exception _(RuntimeException)_ or by forcing the command to fail (See the section on [handling command failures](./handle-failures)).
+With normal command executors, these don’t need to return anything. By default, this will return a _success value_ of 1 if it runs successfully, and a _success value_ of 0 if it runs unsuccessfully, either by throwing an exception _(RuntimeException)_ or by forcing the command to fail (See the section on [handling command failures](./handle-failures)).
 
 In short, this is what values are returned when a command is executed from a normal command executor:
 
@@ -27,7 +27,7 @@ In short, this is what values are returned when a command is executed from a nor
 | **Success Value** |       1       |          0           |
 | **Result Value**  |       1       |          0           |
 
-::::tip Example - Creating a message broadcasting system
+::::tip Example – Creating a message broadcasting system
 
 To illustrate this, let's take a look at a simple message broadcasting command. We'll make a command which sends a message to everyone on the server, using the following syntax:
 
@@ -52,7 +52,7 @@ Note how when we finish up our implementation of `.executes()`, we don't return 
 boolean onCommand(CommandSender, Command, String, String[])
 ```
 
-The returning of this Boolean value is handled automatically by the CommandAPI on a much lower level.
+The returning of this Boolean value is handled automatically by the CommandAPI at a much lower level.
 
 ::::
 
@@ -147,7 +147,7 @@ Expanding on the suicide example above, we can restrict the command to only play
 
 ## Using the ExecutionInfo
 
-You also have the option to implement a command executor which uses an `ExecutionInfo` object:
+You can also implement a command executor which uses an `ExecutionInfo` object:
 
 ```java
 new CommandAPICommand("...")

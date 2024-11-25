@@ -40,7 +40,7 @@ As described in the section about [normal command executors](./normal-executors)
 The `.executesNative()` method has the highest priority over all over `.executesXXX()` methods - if you use the `.executesNative()` method, no other execution method will be run.
 :::
 
-::::tip Example - A really simple "break block" command
+::::tip Example – A really simple "break block" command
 
 Say we wanted to make a command that simply sets the current block to air. For this example, we'll use the following command syntax:
 

@@ -38,7 +38,7 @@ StringTooltip ofAdventureComponent(String suggestion, Component tooltip);
 
 The first method, `StringTooltip.none(String)` creates a normal suggestion entry with no tooltip. The other methods create a suggestion with the provided tooltip text in either `String`, Brigadier `Message`, Spigot `BaseComponent[]` or Adventure `Component` format.
 
-::::tip Example - An emotes command with string suggestion tooltips
+::::tip Example – An emotes command with string suggestion tooltips
 
 Say we want to create a simple command to provide in-game emotes between players. For example, if you did `/emote wave Bob`, you'll "wave" to the player _Bob_. For this example, we'll use the following command syntax:
 
@@ -79,7 +79,7 @@ public interface IStringTooltip {
 
 > Note that the `Message` class is from the Brigadier library, which you will have to add as a dependency to your plugin. Information on how to do that can be found [here](https://github.com/Mojang/brigadier#installation).
 
-This is incredibly useful if you are using suggestions with custom objects, such as a plugin that has custom items.
+This is incredibly useful if you’re using suggestions with custom objects, such as a plugin that has custom items.
 
 ::::tip Example - Using <code>IStringTooltip</code> for custom items
 
@@ -149,7 +149,7 @@ First, we'll declare our arguments. Here, we use a `LocationArgument` and use th
 <<< @/../reference-code/src/main/kotlin/createcommands/arguments/suggestions/Tooltips.kt#tooltipsWithSafeSuggestionsExampleDeclare
 :::
 
-In the arguments declaration, we've cast the command sender to a player. To ensure that the command sender is definitely a player, we'll use the `executesPlayer` command execution method in our command declaration:
+In the argument declaration, we've cast the command sender to a player. To ensure that the command sender is definitely a player, we'll use the `executesPlayer` command execution method in our command declaration:
 
 :::tabs
 ===Java

@@ -2,6 +2,7 @@
 order: 2
 authors:
   - willkroboth
+  - MC-XiaoHei
 ---
 
 # Command unregistration

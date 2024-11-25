@@ -26,7 +26,7 @@ I think the easiest way to explain it is with an example:
 
 - In this example, we add an alias, "broadcast", to the command. This allows the sender to use either `/broadcastmsg <message>` or `/broadcast <message>`.
 
-- By using `withPermission`, we require the sender to be an OP in order to run the command.
+- By using `withPermission`, we require the sender to be an OP to run the command.
 
 - We control what the command does using `executes` (this is described in more detail in [the section on command executors](./executors)).
 
@@ -62,7 +62,7 @@ CommandAPICommand withPermission(CommandPermission)
 CommandAPICommand withPermission(String)
 ```
 
-The `withPermission` method is used to assign a permission that is required to execute the command. (See [the section on permissions](permissions) for more info).
+The `withPermission` method is used to assign a permission required to execute the command. (See [the section on permissions](permissions) for more info).
 
 ```java
 CommandAPICommand withRequirements(sender -> {})
@@ -156,7 +156,7 @@ new CommandAPICommand("spawnpigs")
      .register();
 ```
 
-The Java type inference system cannot determine what the type of the lambda `(player, args) -> ()` is, therefore it produces the following compilation error:
+The Java type inference system can’t determine what the type of the lambda `(player, args) -> ()` is, therefore, it produces the following compilation error:
 
 ```log
 The method executesPlayer(PlayerCommandExecutor) is ambiguous for the type CommandAPICommand
@@ -187,13 +187,13 @@ Registers the command with the default `minecraft` namespace. If you are [shadin
 void register(String namespace)
 ```
 
-Registers the command with a custom provided namespace.
+Register the command with a custom-provided namespace.
 
 ```java
 void register(JavaPlugin plugin)
 ```
 
-Registers the command with the provided plugin's name.
+Register the command with the provided plugin's name.
 
 ## Command loading order
 

@@ -20,7 +20,7 @@ When the CommandAPI converts a command, it does some tweaks to the thing running
 
 To fix this, add the plugin which the command is registered from to the list of plugins under `skip-sender-proxy`.
 
-:::tip Example - Improving compatibility with the SkinsRestorer plugin
+:::tip Example – Improving compatibility with the SkinsRestorer plugin
 
 [SkinsRestorer](https://www.spigotmc.org/resources/skinsrestorer.2124/) (not associated or sponsored by the CommandAPI in any way) is a plugin that lets you change the skin for a player. This suffers from the above issue and is not compatible with the CommandAPI's conversion compatibility tweaks. To do this, we'll add `SkinsRestorer` to the list of plugins which should be skipped:
 

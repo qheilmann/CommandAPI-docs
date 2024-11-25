@@ -6,7 +6,7 @@ authors:
 
 # Command Conversion for server admins
 
-The CommandAPI has the ability to convert plugin commands into "Vanilla compatible" commands automatically on startup. This allows you to use `/execute` and Minecraft functions/tags for plugins that do not use the CommandAPI. For example, if you want to use the `/hat` command from the plugin `Essentials` in an `/execute` command or from a command block, you can use the CommandAPI's command conversion setting to do so.
+The CommandAPI can convert plugin commands into "Vanilla compatible" commands automatically on startup. This allows you to use `/execute` and Minecraft functions/tags for plugins that don’t use the CommandAPI. For example, if you want to use the `/hat` command from the plugin `Essentials` in an `/execute` command or from a command block, you can use the CommandAPI's command conversion setting to do so.
 
 The CommandAPI has 3 different conversion methods, each one more specific and powerful than the others. These are the following:
 
@@ -93,7 +93,7 @@ If you're uncertain if your configuration is valid (or you're getting weird erro
 
 To convert all the commands that a plugin has, add the name of the plugin, followed by a `~` character to the list of plugins to convert in the `config.yml` file.
 
-::: tip **Example - Converting all commands from EssentialsX**
+::: tip **Example – Converting all commands from EssentialsX**
 
 For example, if you wanted to convert all commands that [EssentialsX](https://www.spigotmc.org/resources/essentialsx.9089/) has, you can use the following `config.yml`:
 

@@ -8,24 +8,26 @@ authors:
 
 # Introduction
 
-Welcome to the documentation for the CommandAPI. The CommandAPI lets you create vanilla Minecraft commands which utilize the new command features which were implemented in Minecraft 1.13, including but not limited to:
+Welcome to the documentation for the CommandAPI. The CommandAPI lets you create vanilla Minecraft commands which use the new command features which were implemented in Minecraft 1.13, including but not limited to:
 
 - Having commands compatible with the vanilla `/execute` command
 - Having commands which can be run using Minecraft functions
 - Having better auto-completion and suggestions
-- Having command type checks before execution (e.g. ensuring a number is within a certain range)
+- Having command type checks before execution (e.g., ensuring a number is within a certain range)
 
 ## How the CommandAPI works
 
 ::: info
-This is a pretty important section, I would recommend reading before implementing the CommandAPI in your own projects. This section tells you about things which is not stated anywhere else in the documentation. Think of it as the "knowledge you should know before using this API".
+This is a pretty important section, I would recommend reading before implementing the CommandAPI in your own projects.
+This section tells you about things that aren’t stated anywhere else in the documentation.
+Think of it as the "knowledge you should know before using this API".
 :::
 
 The CommandAPI does not follow the "standard" method of registering commands. In other words, commands which are registered with the CommandAPI will be registered as pure vanilla Minecraft commands as opposed to Bukkit or Spigot commands. This means that the following implications exist:
 
 - **Commands should not be declared in the `plugin.yml` file.**
 - Commands are automatically registered under the `minecraft` namespace. For example, if you register a command `/hello`, you can also run it using `/minecraft:hello`. However, you can change this default `minecraft` namespace. More about this [on the command registration page](./create-commands/registration#registering-the-command).
-- Commands are not "linked" to a certain plugin. In other words, you cannot look up which commands are registered by which plugin.
+- Commands are not "linked" to a certain plugin. In other words, you can’t look up which commands are registered by which plugin.
 
 ## How this documentation works
 
@@ -110,7 +112,7 @@ Here's the list of changes to the documentation between each update. You can vie
 ### 8.5.1 → 8.6.0
 
 - Greatly improved the format and documentation for [Configuration for server owners](./user-setup/config)
-- Adds a Kotlin tab to all Java code blocks which displays the equivalent code, but in Kotlin
+- Adds a Kotlin tab to all Java code blocks that displays the equivalent code, but in Kotlin
 - Adds the new [Command arguments](./create-commands/arguments/command-arguments) section
 - Adds the new [World arguments](./argument_world) section
 - Mentions the new `LiteralArgument.of()` and `LiteralArgument.literal()` methods in [Literal arguments](./argument_literal)
@@ -121,7 +123,7 @@ Here's the list of changes to the documentation between each update. You can vie
   - Update [Argument suggestions with tooltips](./tooltips) with new tooltip methods for formatting text
   - Update [Sound arguments](./argument_sound) with support for namespaced keys
 - Adds documentation for [Kotlin-based commands](./kotlinintro) using the Kotlin DSL
-- Update the [Afterword](./afterword), giving special credits to some very special contributors!
+- Update the [Afterword](./afterword), giving special credits to some exceptional contributors!
 
 ### 8.5.0 → 8.5.1
 
@@ -160,12 +162,12 @@ Here's the list of changes to the documentation between each update. You can vie
 ### 6.5.4 → 7.0.0
 
 - Changed the repo that the CommandAPI is served from JitPack to Maven Central.
-- Remove direct link to `CommandAPI.jar` file from [Installation for server owners](./user-setup/install), in favor of pointing to the latest release page (to allow version numbers to appear in the file name).
+- Remove a direct link to `CommandAPI.jar` file from [Installation for server owners](./user-setup/install), in favor of pointing to the latest release page (to allow version numbers to appear in the file name).
 - Rewrite the [Argument suggestions](./argumentsuggestions) section to cover the new argument suggestions API.
 - Update the [Upgrading guide](./upgrading) for the new changes in 7.0.0.
 - Update repository information in the [Shading the CommandAPI in your plugins](./dev-setup/shading) page.
 - Update the [Brigadier + CommandAPI](./brigadier) page with updated methods.
-- Adds an example of using Brgiader's `SuggestionsBuilder` in the [Brigadier Suggestions](./brigadiersuggestions) section.
+- Adds an example of using Brigadier's `SuggestionsBuilder` in the [Brigadier Suggestions](./brigadiersuggestions) section.
 - Updated the colors of links, example blocks and warning blocks to meet accessibility contrast guidelines better.
 - Adds [Command trees](./commandtrees) section.
 - Update [Handling command failures](./create-commands/executors/handle-failures) to fit new `throw` requirement for command failures.
@@ -296,12 +298,12 @@ Every page has been rewritten in this update and checked for errors. In general,
 
 ### 3.4 → 4.0
 
-- Update the maven and gradle documentation to state that it is `provided` and `compileOnly`
+- Update the Maven and Gradle documentation to state that it is `provided` and `compileOnly`
 - The project has been renamed from the "1.13 Command API" to simply the "CommandAPI". This has changed a few things, such as various links. See the section [Upgrading guide](./upgrading) to view the relevant changes in regard to maven.
 - Updated [3. Setting up your development environment](./dev-setup/setup) to include new Maven repository links
-- Fixed stronkage with Java versions - there's now no random warning boxes about incompatibility with Java 12!
+- Fixed stronk age with Java versions — there are now no random warning boxes about incompatibility with Java 12!
 - Arguments now include pictures that showcase how they work!
-- Reorganised the sections - arguments is now split up into two sections: [6. Arguments (in general)](./create-commands/arguments/arguments) and [7. Argument types](./argumenttypes)
+- Reorganised the sections - arguments are now split up into two sections: [6. Arguments (in general)](./create-commands/arguments/arguments) and [7. Argument types](./argumenttypes)
 - Adds documentation for [6.2. Safe argument suggestions](./create-commands/arguments/suggestions/safe-suggestions)
 - Adds documentation for [7.8.3. BlockState arguments](./argument_blockstate)
 - Adds documentation for new arguments:
@@ -332,8 +334,8 @@ Every page has been rewritten in this update and checked for errors. In general,
 - Adds new section [5.1 Argument suggestions](./create-commands/arguments/suggestions/suggestions) to cover how to override suggestions - Having it all in section _5. Arguments_ was a bit too content-heavy
 - Adds documentation for the new `.overrideSuggestions()` method in section [5.1 Argument suggestions](./create-commands/arguments/suggestions/suggestions)
 - Simplified the description of the documentation updates
-- Changed the artifact ID for the dependency of the CommandAPI. Instead of being `commandapi`, it is now `commandapi-core`. You can view the changes in section [2 Setting up your development environment](./dev-setup/setup)
-- Changed the repository information for gradle in section [2 Setting up your development environment](./dev-setup/setup). You now have to include the NBTAPI repository because gradle can't automatically detect this for some reason. Kinda stupid tbh.
+- Change the artifact ID for the dependency of the CommandAPI. Instead of being `commandapi`, it is now `commandapi-core`. You can view the changes in section [2 Setting up your development environment](./dev-setup/setup)
+- Changed the repository information for Gradle in section [2 Setting up your development environment](./dev-setup/setup). You now have to include the NBTAPI repository because Gradle can't automatically detect this for some reason. Kinda stupid tbh.
 - Adds a section on using multiple or optional arguments in section [5 Arguments](./create-commands/arguments/arguments)
 
 ### 2.1 → 3.0

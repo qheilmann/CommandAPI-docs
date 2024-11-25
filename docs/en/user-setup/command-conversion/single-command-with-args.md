@@ -33,7 +33,7 @@ By looking at this, we can see that:
 
 - `<speed>` is a number. By using the command, we can determine that the range of values is between 0 and 10 (inclusive).
 - `<target>` is a player
-- `<walk/fly>` don't change - these are "fixed" values.
+- `<walk/fly>` don't change – these are "fixed" values.
 
 We can represent this using the following `config.yml` file:
 
@@ -101,7 +101,7 @@ The name in the argument can be whatever you want, but it is recommended to keep
 
 In the example above, we used the "range type" in the form `[0..10]`. This is a special argument type that will conform to `brigader:long` or `brigader:double` and apply a limit to the values that can be entered.
 
-::: tip Example - Declaring "range type" arguments
+::: tip Example – Declaring "range type" arguments
 
 To declare the range \\(10 \le x \le 50\\) (a value must be between 10 and 50 (inclusive)):
 
@@ -137,7 +137,7 @@ To declare a value \\(x\\) that can take any range of values and is a decimal nu
 
 ## List of all supported argument types
 
-The list of types are based on [the list of argument types from the Minecraft Wiki](https://minecraft.wiki/w/Argument_types), with a few changes. The complete list that the CommandAPI supports is as follows:
+The list of types is based on [the list of argument types from the Minecraft Wiki](https://minecraft.wiki/w/Argument_types), with a few changes. The complete list that the CommandAPI supports is as follows:
 
 | Type                           | Description                                                                                                                            |
 |--------------------------------|----------------------------------------------------------------------------------------------------------------------------------------|

@@ -8,7 +8,7 @@ authors:
 
 # Asynchronous suggestions
 
-In addition to normal suggestions, safely-typed suggestions and suggestions with tooltips, the CommandAPI can support computing the list of suggestions to send to a player asynchronously. This allows you to perform suggestions independent of the main server thread, which is useful for slow operations, such as:
+In addition to normal suggestions, safely typed suggestions and suggestions with tooltips, the CommandAPI can support computing the list of suggestions to send to a player asynchronously. This allows you to perform suggestions independent of the main server thread, which is useful for slow operations, such as:
 
 - Retrieving suggestions from a remote database
 - Retrieving information from the web
@@ -54,7 +54,7 @@ CompletableFuture.supplyAsync(() -> {
 
 ## Asynchronous suggestions examples
 
-::::tip Example - Reading keys from a config file
+::::tip Example – Reading keys from a config file
 
 Say you wanted to write a command to modify your plugin's config file. Since the config file is an external file, you ideally want to access the file in a separate thread to the main server thread to retain performance for players on the server. We have the following command syntax:
 

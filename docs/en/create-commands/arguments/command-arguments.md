@@ -108,13 +108,9 @@ This is how these commands are implemented:
 
 :::tabs
 ===Java
-```java
-{{#include ../../commandapi-documentation-code/src/main/java/dev/jorel/commandapi/examples/java/Examples.java:commandArguments1}}
-```
+<<< @/../reference-code/src/main/java/createcommands/arguments/CommandArguments.java#getArgExample
 ===Kotlin
-```kotlin
-{{#include ../../commandapi-documentation-code/src/main/kotlin/dev/jorel/commandapi/examples/kotlin/Examples.kt:commandArguments1}}
-```
+<<< @/../reference-code/src/main/kotlin/createcommands/arguments/CommandArguments.kt#getArgExample
 :::
 
 ::::
@@ -161,7 +157,7 @@ Optional<String> getRawOptional(int index);
 
 ::::tip Example - Access raw arguments by node name and index
 
-To demonstrate how to access raw arguments, we are going to implement the `/mycommand` again, this time with the following syntax:
+To demonstrate how to access raw arguments, we’re going to implement the `/mycommand` again, this time with the following syntax:
 
 ```mccmd
 /mycommand <entities>
@@ -171,13 +167,9 @@ We want to find out which entity selector is being used when the command is exec
 
 :::tabs
 ===Java
-```java
-{{#include ../../commandapi-documentation-code/src/main/java/dev/jorel/commandapi/examples/java/Examples.java:commandArguments2}}
-```
+<<< @/../reference-code/src/main/java/createcommands/arguments/CommandArguments.java#getRawExample
 ===Kotlin
-```kotlin
-{{#include ../../commandapi-documentation-code/src/main/kotlin/dev/jorel/commandapi/examples/kotlin/Examples.kt:commandArguments2}}
-```
+<<< @/../reference-code/src/main/kotlin/createcommands/arguments/CommandArguments.kt#getRawExample
 :::
 
 ::::
@@ -192,7 +184,7 @@ Unsafe arguments provide the ability to access an argument without needing to ca
 String name = (String) args.get("name");
 ```
 
-When using unsafe arguments you can make your code look like this:
+When using unsafe arguments, you can make your code look like this:
 
 ```java
 String name = args.getUnchecked("name");
@@ -202,7 +194,7 @@ Unsafe arguments can also be accessed by their node names and their indices.
 
 ### Access arguments by node name
 
-Unsafe arguments can also be accessed by node name which, again, is the recommended way of doing it.
+Node name can also access unsafe arguments which, again, is the recommended way of doing it.
 
 Use these methods when accessing unsafe arguments by their node name:
 
@@ -236,13 +228,9 @@ Here, we don't actually want to cast the argument, so we use unsafe arguments to
 
 :::tabs
 ===Java
-```java
-{{#include ../../commandapi-documentation-code/src/main/java/dev/jorel/commandapi/examples/java/Examples.java:commandArguments3}}
-```
+<<< @/../reference-code/src/main/java/createcommands/arguments/CommandArguments.java#getUncheckedExample
 ===Kotlin
-```kotlin
-{{#include ../../commandapi-documentation-code/src/main/kotlin/dev/jorel/commandapi/examples/kotlin/Examples.kt:commandArguments3}}
-```
+<<< @/../reference-code/src/main/kotlin/createcommands/arguments/CommandArguments.kt#getUncheckedExample
 :::
 
 ::::
@@ -251,11 +239,12 @@ Here, we don't actually want to cast the argument, so we use unsafe arguments to
 
 :::warning **Developer's Note:**
 
-The following methods cannot be used to access a value returned by a `CustomArgument` as its return type depends on the base argument for it.
+The following methods can’t be used to access a value returned by a `CustomArgument` as its return type depends on the base argument for it.
 
 :::
 
-Lastly, the CommandArguments class offers you a way to access your arguments in a more safe way by using internal casts. Again, methods are offered to access arguments by their
+Lastly, the CommandArguments class offers you a way to access your arguments in a safer way by using internal casts.
+Again, methods are offered to access arguments by their
 index or their node name:
 
 ```java
@@ -296,17 +285,13 @@ T getOptionalByArgument(Argument<T> argumentType);
 However, while safer, this also introduces the need to first initialize your arguments before you can start implementing your command.
 To visualize this, we want to implement the command from [Access arguments by node name and index](#access-arguments-by-index) again, but this time using safe arguments with an argument instance:
 
-::::tip Example - Access safe arguments using an argument instance
+::::tip Example – Access safe arguments using an argument instance
 
 :::tabs
 ===Java
-```java
-{{#include ../../commandapi-documentation-code/src/main/java/dev/jorel/commandapi/examples/java/Examples.java:commandArguments4}}
-```
+<<< @/../reference-code/src/main/java/createcommands/arguments/CommandArguments.java#getByArgumentExample
 ===Kotlin
-```kotlin
-{{#include ../../commandapi-documentation-code/src/main/kotlin/dev/jorel/commandapi/examples/kotlin/Examples.kt:commandArguments4}}
-```
+<<< @/../reference-code/src/main/kotlin/createcommands/arguments/CommandArguments.kt#getByArgumentExample
 :::
 
 ::::

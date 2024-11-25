@@ -32,47 +32,29 @@ The CommandAPI is very flexible when it comes to registering arguments, and lets
 
 :::tabs
 ===Java
-```java
-// todo {{#include ../../commandapi-documentation-code/src/main/java/dev/jorel/commandapi/examples/java/Examples.java:arguments1}}
-```
+<<< @/../reference-code/src/main/java/createcommands/arguments/Arguments.java#registerArgumentsExample
 ===Kotlin
-```kotlin
-// todo {{#include ../../commandapi-documentation-code/src/main/kotlin/dev/jorel/commandapi/examples/kotlin/Examples.kt:arguments1}}
-```
+<<< @/../reference-code/src/main/kotlin/createcommands/arguments/Arguments.kt#registerArgumentsExample
 ===Kotlin DSL
-```kotlin
-// todo {{#include ../../commandapi-documentation-code/src/main/kotlin/dev/jorel/commandapi/examples/kotlin/ExamplesKotlinDSL.kt:arguments1}}
-```
+<<< @/../reference-code/src/main/kotlin/createcommands/arguments/Arguments.kt#registerArgumentsExampleDSL
 :::
 
 :::tabs
 ===Java
-```java
-// todo {{#include ../../commandapi-documentation-code/src/main/java/dev/jorel/commandapi/examples/java/Examples.java:arguments2}}
-```
+<<< @/../reference-code/src/main/java/createcommands/arguments/Arguments.java#registerArgumentsVarargExample
 ===Kotlin
-```kotlin
-// todo {{#include ../../commandapi-documentation-code/src/main/kotlin/dev/jorel/commandapi/examples/kotlin/Examples.kt:arguments2}}
-```
+<<< @/../reference-code/src/main/kotlin/createcommands/arguments/Arguments.kt#registerArgumentsVarargExample
 ===Kotlin DSL
-```kotlin
-// todo {{#include ../../commandapi-documentation-code/src/main/kotlin/dev/jorel/commandapi/examples/kotlin/ExamplesKotlinDSL.kt:arguments2}}
-```
+<<< @/../reference-code/src/main/kotlin/createcommands/arguments/Arguments.kt#registerArgumentsVarargExampleDSL
 :::
 
 :::tabs
 ===Java
-```java
-// todo {{#include ../../commandapi-documentation-code/src/main/java/dev/jorel/commandapi/examples/java/Examples.java:arguments3}}
-```
+<<< @/../reference-code/src/main/java/createcommands/arguments/Arguments.java#registerArgumentsListExample
 ===Kotlin
-```kotlin
-// todo {{#include ../../commandapi-documentation-code/src/main/kotlin/dev/jorel/commandapi/examples/kotlin/Examples.kt:arguments3}}
-```
+<<< @/../reference-code/src/main/kotlin/createcommands/arguments/Arguments.kt#registerArgumentsListExample
 ===Kotlin DSL
-```kotlin
-// todo {{#include ../../commandapi-documentation-code/src/main/kotlin/dev/jorel/commandapi/examples/kotlin/ExamplesKotlinDSL.kt:arguments3}}
-```
+<<< @/../reference-code/src/main/kotlin/createcommands/arguments/Arguments.kt#registerArgumentsListExampleDSL
 :::
 
 ## Argument Casting
@@ -81,17 +63,11 @@ To access arguments, they have to be casted to the type that the argument repres
 
 :::tabs
 ===Java
-```java
-// todo {{#include ../../commandapi-documentation-code/src/main/java/dev/jorel/commandapi/examples/java/Examples.java:arguments4}}
-```
+<<< @/../reference-code/src/main/java/createcommands/arguments/Arguments.java#argumentCastExample
 ===Kotlin
-```kotlin
-// todo {{#include ../../commandapi-documentation-code/src/main/kotlin/dev/jorel/commandapi/examples/kotlin/Examples.kt:arguments4}}
-```
+<<< @/../reference-code/src/main/kotlin/createcommands/arguments/Arguments.kt#argumentCastExample
 ===Kotlin DSL
-```kotlin
-// todo {{#include ../../commandapi-documentation-code/src/main/kotlin/dev/jorel/commandapi/examples/kotlin/ExamplesKotlinDSL.kt:arguments4}}
-```
+<<< @/../reference-code/src/main/kotlin/createcommands/arguments/Arguments.kt#argumentCastExampleDSL
 :::
 
 The type to cast each argument (declared in the `dev.jorel.commandapi.arguments` package) is listed below:

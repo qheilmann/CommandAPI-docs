@@ -9,7 +9,7 @@ authors:
 
 # Using the annotation system
 
-The annotation system is a separate part of the CommandAPI, and as a result it needs to be included as an additional dependency to your project.
+The annotation system is a separate part of the CommandAPI, and as a result, it needs to be included as an additional dependency to your project.
 
 The annotation system effectively needs to be added twice: Once for compilation and again to invoke the annotation processor itself.
 

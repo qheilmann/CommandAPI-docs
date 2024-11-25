@@ -14,7 +14,7 @@ authors:
 
 ## Shading vs CommandAPI plugin
 
-The CommandAPI plugin has a few slight differences with the shaded CommandAPI jar file. The CommandAPI plugin has the following extra features that are not present in the shaded version:
+The CommandAPI plugin has a few slight differences with the shaded CommandAPI jar file. The CommandAPI plugin has the following extra features that aren’t present in the shaded version:
 
 - Command conversion via a `config.yml` file
 
@@ -50,7 +50,7 @@ public class CommandAPIConfig {
 
 The `CommandAPIConfig` class follows a typical builder pattern (without you having to run `.build()` at the end), which lets you easily construct configuration instances.
 
-However, the `CommandAPIConfig` class is abstract and cannot be used to configure the CommandAPI directly. Instead, you must use a subclass of `CommandAPIConfig` that corresponds to the platform you are developing for. For example, when developing for Bukkit, you should use the `CommandAPIBukkitConfig` class.
+However, the `CommandAPIConfig` class is abstract and can’t be used to configure the CommandAPI directly. Instead, you must use a subclass of `CommandAPIConfig` that corresponds to the platform you’re developing for. For example, when developing for Bukkit, you should use the `CommandAPIBukkitConfig` class.
 
 <!-- TODO: Add tabs and explanations for other platforms -->
 
@@ -63,7 +63,7 @@ public class CommandAPIBukkitConfig extends CommandAPIConfig {
 }
 ```
 
-In order to create a `CommandAPIBukkitConfig` object, you must give it a reference to your `JavaPlugin` instance. The CommandAPI always uses this to registers events, so it is required when loading the CommandAPI on Bukkit. There are also Bukkit-specific features, such as the `hook-paper-reload` configuration option, which may be configured using a `CommandAPIBukkitConfig` instance.
+To create a `CommandAPIBukkitConfig` object, you must give it a reference to your `JavaPlugin` instance. The CommandAPI always uses this to register events, so it is required when loading the CommandAPI on Bukkit. There are also Bukkit-specific features, such as the `hook-paper-reload` configuration option, which may be configured using a `CommandAPIBukkitConfig` instance.
 
 For example, to load the CommandAPI on Bukkit with all logging disabled, you can use the following:
 
@@ -78,9 +78,9 @@ For example, to load the CommandAPI on Bukkit with all logging disabled, you can
 
 The `onEnable()` method initializes the CommandAPI's enabling sequence. Similar to the `onLoad(CommandAPIConfig)` method, this must be placed in your plugin's `onEnable()` method. This isn't as strict as the `onLoad(CommandAPIConfig)` method, and can be placed anywhere in your `onEnable()` method.
 
-The `onDisable()` method disables the CommandAPI gracefully. This should be placed in your plugin's `onDisable()` method. This doesn't unregister commands, so commands may persist during reloads - this can be mitigated using the `CommandAPI.unregister()` method.
+The `onDisable()` method disables the CommandAPI gracefully. This should be placed in your plugin's `onDisable()` method. This doesn't unregister commands, so commands may persist during reloads – this can be mitigated using the `CommandAPI.unregister()` method.
 
-:::tip Example - Setting up the CommandAPI in your plugin
+:::tip Example – Setting up the CommandAPI in your plugin
 
 :::tabs
 ===Java

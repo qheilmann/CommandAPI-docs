@@ -12,7 +12,7 @@ authors:
 
 The first method, `replaceSuggestions(ArgumentSuggestions suggestions)`, allows you to _replace_ the suggestions normally associated with that argument. This can be replaced with an array of strings by using the `strings(String... suggestions)` method.
 
-::::tip Example - Teleport to worlds by replacing suggestions
+::::tip Example – Teleport to worlds by replacing suggestions
 
 Say we're creating a plugin with the ability to teleport to different warps on the server. If we were to retrieve a list of warps, we would be able to replace the suggestions of a typical `StringArgument` to teleport to that warp. Let's create a command with the following syntax:
 
@@ -79,7 +79,7 @@ We can then use this to generate our suggested list of friends:
 
 ## Suggestions depending on previous arguments
 
-The `strings(Function<SuggestionInfo, String[]>)` method also has the capability to suggest arguments based on the values of previously inputted arguments, using the `previousArgs()` method in `SuggestionInfo`. This `previousArgs()` method returns a **list of previous arguments** which are parsed exactly like any regular CommandAPI command argument.
+The `strings(Function<SuggestionInfo, String[]>)` method can also suggest arguments based on the values of previously inputted arguments, using the `previousArgs()` method in `SuggestionInfo`. This `previousArgs()` method returns a **list of previous arguments** which are parsed exactly like any regular CommandAPI command argument.
 
 :::warning
 
@@ -105,7 +105,7 @@ It is not possible to access the [`CommandArguments`](../command-arguments) of p
 
 :::
 
-::::tip Example - Sending a message to a nearby player
+::::tip Example – Sending a message to a nearby player
 
 Say we wanted to create a command that lets you send a message to a specific player in a given radius. _(This is a bit of a contrived example, but let's roll with it)_. To do this, we'll use the following command syntax:
 

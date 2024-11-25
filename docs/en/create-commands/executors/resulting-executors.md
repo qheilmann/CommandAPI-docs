@@ -24,9 +24,9 @@ Similarly, these will return a _success value_ of 1 if it runs successfully, and
 | **Success Value** |              1              |          0           |
 | **Result Value**  | result defined in your code |          0           |
 
-The concept of result values are better explained through examples:
+The concept of result values is better explained through examples:
 
-::::tip Example - Random number result command
+::::tip Example – Random number result command
 
 Say we want a command that returns a random number as a result. This can then be used by vanilla Minecraft's `/execute store result ...` command, which can be used for other commandblock chains.
 

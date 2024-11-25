@@ -7,7 +7,7 @@ authors:
 
 # Optional Arguments
 
-Sometimes, you want to implement a command that has arguments that do not need to be entered. Take a `/sayhi` command for example. You may want to say "Hi" to yourself, or to another player. For that, we want this command syntax:
+Sometimes, you want to implement a command that has arguments that don’t need to be entered. Take a `/sayhi` command for example. You may want to say "Hi" to yourself or to another player. For that, we want this command syntax:
 
 ```mccmd
 /sayhi          - Says "Hi!" to yourself
@@ -30,7 +30,7 @@ For example, say we're registering a command `/sayhi`:
 /sayhi <target> - Says "Hi!" to a target player
 ```
 
-For that, we are going to register a command `/sayhi`. To add optional arguments, we are going to use the `withOptionalArguments(Argument... args)` method:
+For that, we’re going to register a command `/sayhi`. To add optional arguments, we’re going to use the `withOptionalArguments(Argument... args)` method:
 
 :::tabs
 ===Java
@@ -48,7 +48,7 @@ For that, we are going to register a command `/sayhi`. To add optional arguments
 :::
 
 
-This gives us the ability to run both `/sayhi` and `/sayhi <target>` with the same command name "sayhi", but have different results based on the arguments used.
+This allows us to run both `/sayhi` and `/sayhi <target>` with the same command name `sayhi`, but have different results based on the arguments used.
 
 You can notice two things:
 
@@ -61,7 +61,7 @@ With optional arguments, there is a possibility of them being not present in the
 
 ## Setting existing arguments as optional arguments
 
-In order to set arguments as optional the CommandAPI has the method `setOptional(boolean)`:
+To set arguments as optional, the CommandAPI has the method `setOptional(boolean)`:
 
 ```java
 Argument setOptional(boolean optional);
@@ -96,7 +96,7 @@ Optional<Object> getOptional(String nodeName)
 
 The examples will be using the `getOptional` methods but there is no downside of using the `getOrDefault` methods.
 
-:::tip Example - `/sayhi` command while using the getOptional method
+::::tip Example - `/sayhi` command while using the getOptional method
 
 Let's register the `/sayhi` command from above a second time - this time using a `getOptional` method. We are using the exact same command syntax:
 
@@ -139,9 +139,13 @@ You will need to use this method if you want to have a required argument after a
 1. You have a `CommandAPICommand` and you add arguments to it.
 2. After your required arguments, you can provide optional arguments.
 
-At this point your command is basically done. Any attempt to add a required argument will result in an `OptionalArgumentException`. However, this is where the `combineWith` method comes in.
-This method allows you to combine arguments. Let's say you have an optional `StringArgument` (here simplified to `A`) and you want a required `PlayerArgument` (here simplified to `B`).
-Argument `B` should only be required if argument `A` is given. To implement that logic, we are going to use the `combineWith` method so that we have this syntax:
+At this point, your command is basically done.
+Any attempt to add a required argument will result in an `OptionalArgumentException`.
+However, this is where the `combineWith` method comes in.
+This method allows you to combine arguments.
+Let's say you have an optional `StringArgument` (here simplified to `A`) and you want a required `PlayerArgument` (here simplified to `B`).
+Argument `B` should only be required if argument `A` is given.
+To implement that logic, we’re going to use the `combineWith` method so that we have this syntax:
 
 ```java
 A.combineWith(B)
@@ -168,7 +172,7 @@ new CommandAPICommand("mycommand")
     .withArguments(C)
 ```
 
-This would result in an `OptionalArgumentException` because you are declaring a required argument after an optional argument without creating that exception for argument `C` like you do for argument `B`.
+This would result in an `OptionalArgumentException` because you’re declaring a required argument after an optional argument without creating that exception for argument `C` like you do for argument `B`.
 
 ::::tip Example - Required arguments after optional arguments
 
@@ -180,7 +184,7 @@ We want to register a command `/rate` with the following syntax:
 /rate <topic> <rating> <target> - Rates a topic with a rating and sends a message to the target
 ```
 
-To implement that structure we make use of the `combineWith` method to make the argument after the optional argument \<topic> required:
+To implement that structure, we make use of the `combineWith` method to make the argument after the optional argument \<topic> required:
 
 :::tabs
 ===Java

@@ -21,9 +21,9 @@ throw CommandAPIBukkit.failWithAdventureComponent(ComponentLike message);
 
 When the CommandAPI handles the fail method, it will cause the command to return a _success value_ of 0, to indicate failure.
 
-::::tip Example - Command failing for element not in a list
+::::tip Example - Command failing for an element not in a list
 
-Say we have some list containing fruit and the player can choose from it. In order to do that, we can use a `StringArgument` and suggest it to the player using `.replaceSuggestions(info -> String[])`. However, because this only lists _suggestions_ to the player, it does **not** stop the player from entering an option that isn't on the list of suggestions.
+Say we have some list containing fruit and the player can choose from it. To do that, we can use a `StringArgument` and suggest it to the player using `.replaceSuggestions(info -> String[])`. However, because this only lists _suggestions_ to the player, it does **not** stop the player from entering an option that isn't on the list of suggestions.
 
 Therefore, to gracefully handle this with a proper error message, we use one of the `CommandAPI.failWithXXX()` methods above with a meaningful error message which is displayed to the user.
 
@@ -37,5 +37,6 @@ Therefore, to gracefully handle this with a proper error message, we use one of 
 ::::
 
 :::info
-In general, it's a good idea to handle unexpected cases with one of the `CommandAPI.failWithXXX()` methods. Most arguments used by the CommandAPI will have their own built-in failsafe system _(e.g. the `EntitySelectorArgument` will not execute the command executor if it fails to find an entity)_, so this feature is for those extra cases.
+In general, it's a good idea to handle unexpected cases with one of the `CommandAPI.failWithXXX()` methods.
+Most arguments used by the CommandAPI will have their own built-in failsafe system _(e.g., the `EntitySelectorArgument` will not execute the command executor if it fails to find an entity)_, so this feature is for those extra cases.
 :::

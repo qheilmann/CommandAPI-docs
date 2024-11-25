@@ -9,9 +9,9 @@ authors:
 
 # Type-Safe suggestions
 
-So far, we've covered how to replace suggestions using the `replaceSuggestions()` method. The issue with using strings for suggestion listings is that they are prone to errors - it is possible to suggest something which is not actually a valid argument, which makes that suggestion unusable. As a result, some arguments include the `replaceSafeSuggestions()`, which provides type-safety checks for argument suggestions, as well as automatic "Bukkit-to-suggestion" conversion.
+So far, we've covered how to replace suggestions using the `replaceSuggestions()` method. The issue with using strings for suggestion listings is that they’re prone to errors - it is possible to suggest something, which is not actually a valid argument, which makes that suggestion unusable. As a result, some arguments include the `replaceSafeSuggestions()`, which provides type-safety checks for argument suggestions, as well as automatic "Bukkit-to-suggestion" conversion.
 
-The whole point of the safe argument suggestions method is that parameters entered this method are **guaranteed** to work.
+The whole point of the safe argument suggestions method is that parameters entered in this method are **guaranteed** to work.
 
 The use of the safe replace suggestions function is the same as `replaceSuggestions()` from the previous section, except instead of returning a `String[]`, you now return a `T[]`, where `T` is the class corresponding to the argument. This is described in more detail in the table below.
 
@@ -40,7 +40,7 @@ SafeSuggestions<T> tooltipsAsync(Function<SuggestionInfo, CompletableFuture<Tool
 
 Not all arguments support safe suggestions. This is mostly due to implementation constraints or inadequate support by the Bukkit API.
 
-The list of supported arguments are displayed in the following table. The parameter `T` (shown in the method signatures above) are also provided for each argument. This parameter is the same as the cast argument described in [Argument Casting](../command-arguments#argument-casting), except for a few exceptions which are outlined in **bold**.
+The list of supported arguments is displayed in the following table. The parameter `T` (shown in the method the signatures above) are also provided for each argument. This parameter is the same as the cast argument described in [Argument Casting](../command-arguments#argument-casting), except for a few exceptions which are outlined in **bold**.
 
 |                                                                         Argument | Class (T)                                      |
 |---------------------------------------------------------------------------------:|:-----------------------------------------------|
@@ -92,7 +92,7 @@ These create representations of ticks (e.g. `40t`), days (e.g. `2d`) and seconds
 
 ## Safe function arguments
 
-Although all safe arguments are indeed "type-safe", the function argument uses a `NamespacedKey` which cannot be checked fully at compile time. As a result, this is argument should be used with caution - providing a `NamespacedKey` suggestion that does not exist when the server is running will cause that command to fail if that suggestion is used.
+Although all safe arguments are indeed "type-safe", the function argument uses a `NamespacedKey` which cannot be checked fully at compile time. As a result, this is argument should be used with caution - providing a `NamespacedKey` suggestion that doesn’t exist when the server is running will cause that command to fail if that suggestion is used.
 
 ## Safe scoreboard slot arguments
 

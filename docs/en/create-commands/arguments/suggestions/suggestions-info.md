@@ -30,13 +30,13 @@ CommandSender sender();
 CommandArguments previousArgs();
 ```
 
-`previousArgs()` represents the previously declared arguments, which are parsed and interpreted as if they were being used to execute the command. See [this example on the string argument suggestions page](./string-suggestions#suggestions-depending-on-previous-arguments) for an idea of how to utilize this field.
+`previousArgs()` represents the previously declared arguments, which are parsed and interpreted as if they were being used to execute the command. See [this example on the string argument suggestions page](./string-suggestions#suggestions-depending-on-previous-arguments) for an idea of how to use this field.
 
 ```java
 String currentInput();
 ```
 
-`currentInput()` represents the current input that the command sender has entered. This is effectively everything that they have typed, including the leading `/` symbol which is required to start a command. If a user is typing `/mycommand hellowor¦`, the result of `currentInput()` would be `"/mycommand hellowor"`.
+`currentInput()` represents the current input that the command sender has entered. This is effectively everything that they’ve typed, including the leading `/` symbol which is required to start a command. If a user is typing `/mycommand hellowor¦`, the result of `currentInput()` would be `"/mycommand hellowor"`.
 
 ```java
 String currentArg();
