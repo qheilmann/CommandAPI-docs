@@ -17,8 +17,8 @@ import org.bukkit.Material
 import org.bukkit.entity.Player
 import org.bukkit.inventory.ItemStack
 
-fun stringSuggestionTooltipsExample() {
-    // #region stringSuggestionTooltipsExampleDeclare
+fun tooltips() {
+    // #region createArgumentsWithTooltips
     val arguments = mutableListOf<Argument<*>>()
     arguments.add(
         StringArgument("emote")
@@ -31,9 +31,9 @@ fun stringSuggestionTooltipsExample() {
             })
     )
     arguments.add(PlayerArgument("target"))
-    // #endregion stringSuggestionTooltipsExampleDeclare
+    // #endregion createArgumentsWithTooltips
 
-    // #region stringSuggestionTooltipsExampleRegister
+    // #region registerEmoteCommand
     CommandAPICommand("emote")
         .withArguments(*arguments.toTypedArray())
         .executesPlayer(PlayerCommandExecutor { player, args ->
@@ -47,11 +47,9 @@ fun stringSuggestionTooltipsExample() {
             }
         })
         .register()
-    // #endregion stringSuggestionTooltipsExampleRegister
-}
+    // #endregion registerEmoteCommand
 
-fun customTooltipExample() {
-    // #region customTooltipExampleDeclare
+    // #region createCustomItemClass
     class CustomItem(val item: ItemStack, val name: String, lore: String) : IStringTooltip {
         init {
             val meta = item.itemMeta
@@ -64,9 +62,9 @@ fun customTooltipExample() {
 
         override fun getTooltip(): Message = BukkitTooltip.messageFromString(this.item.itemMeta.lore?.get(0) ?: "")
     }
-    // #endregion customTooltipExampleDeclare
+    // #endregion createCustomItemClass
 
-    // #region customTooltipExampleRegister
+    // #region registerCustomItemCommand
     val customItems = arrayOf<CustomItem>(
         CustomItem(ItemStack(Material.DIAMOND_SWORD), "God sword", "A sword from the heavens"),
         CustomItem(ItemStack(Material.PUMPKIN_PIE), "Sweet pie", "Just like grandma used to make")
@@ -86,11 +84,11 @@ fun customTooltipExample() {
             }
         })
         .register()
-    // #endregion customTooltipExampleRegister
+    // #endregion registerCustomItemCommand
 }
 
-fun tooltipsWithSafeSuggestionsExample() {
-    // #region tooltipsWithSafeSuggestionsExampleDeclare
+fun tooltips2() {
+    // #region createArgumentsWithTooltipsAndSafeSuggestions
     val arguments = listOf<Argument<*>>(
         LocationArgument("location")
             .replaceSafeSuggestions(SafeSuggestions.tooltips { info ->
@@ -103,14 +101,14 @@ fun tooltipsWithSafeSuggestionsExample() {
                 )
             })
     )
-    // #endregion tooltipsWithSafeSuggestionsExampleDeclare
+    // #endregion createArgumentsWithTooltipsAndSafeSuggestions
 
-    // #region tooltipsWithSafeSuggestionsExampleRegister
+    // #region registerWarpCommand
     CommandAPICommand("warp")
         .withArguments(arguments)
         .executesPlayer(PlayerCommandExecutor { player, args ->
             player.teleport(args["location"] as Location)
         })
         .register()
-    // #endregion tooltipsWithSafeSuggestionsExampleRegister
+    // #endregion registerWarpCommand
 }

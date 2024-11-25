@@ -121,26 +121,18 @@ To do this, we first register our custom items:
 
 :::tabs
 ===Java
-```java
-// todo {{#include ../../commandapi-documentation-code/src/main/java/dev/jorel/commandapi/examples/java/Examples.java:safeArgumentSuggestions1}}
-```
+<<< @/../reference-code/src/main/java/createcommands/arguments/suggestions/SafeSuggestions.java#registerCustomItem
 ===Kotlin
-```kotlin
-// todo {{#include ../../commandapi-documentation-code/src/main/kotlin/dev/jorel/commandapi/examples/kotlin/Examples.kt:safeArgumentSuggestions1}}
-```
+<<< @/../reference-code/src/main/kotlin/createcommands/arguments/suggestions/SafeSuggestions.kt#registerCustomItem
 :::
 
 Once we've done that, we can now include them in our command registration. To do this, we use `replaceSafeSuggestions(recipes)` and then register our command as normal:
 
 :::tabs
 ===Java
-```java
-// todo {{#include ../../commandapi-documentation-code/src/main/java/dev/jorel/commandapi/examples/java/Examples.java:safeArgumentSuggestions2}}
-```
+<<< @/../reference-code/src/main/java/createcommands/arguments/suggestions/SafeSuggestions.java#registerCommandWithSafeSuggestions
 ===Kotlin
-```kotlin
-// todo {{#include ../../commandapi-documentation-code/src/main/kotlin/dev/jorel/commandapi/examples/kotlin/Examples.kt:safeArgumentSuggestions2}}
-```
+<<< @/../reference-code/src/main/kotlin/createcommands/arguments/suggestions/SafeSuggestions.kt#registerCommandWithSafeSuggestions
 :::
 
 ::::
@@ -157,44 +149,32 @@ Now say that we don't want non-op players to spawn bosses. To do this, we'll cre
 
 :::tabs
 ===Java
-```java
-// todo {{#include ../../commandapi-documentation-code/src/main/java/dev/jorel/commandapi/examples/java/Examples.java:safeArgumentSuggestions3}}
-```
+<<< @/../reference-code/src/main/java/createcommands/arguments/suggestions/SafeSuggestions.java#createForbiddenMobsList
 ===Kotlin
-```kotlin
-// todo {{#include ../../commandapi-documentation-code/src/main/kotlin/dev/jorel/commandapi/examples/kotlin/Examples.kt:safeArgumentSuggestions3}}
-```
+<<< @/../reference-code/src/main/kotlin/createcommands/arguments/suggestions/SafeSuggestions.kt#createForbiddenMobsList
 :::
 
 We then use our safe arguments to return an `EntityType[]` as the list of values that are suggested to the player. In this example, we use the `sender()` method to determine if the sender has permissions to view the suggestions:
 
 :::tabs
 ===Java
-```java
-// todo {{#include ../../commandapi-documentation-code/src/main/java/dev/jorel/commandapi/examples/java/Examples.java:safeArgumentSuggestions4}}
-```
+<<< @/../reference-code/src/main/java/createcommands/arguments/suggestions/SafeSuggestions.java#createSafeArguments
 ===Kotlin
-```kotlin
-// todo {{#include ../../commandapi-documentation-code/src/main/kotlin/dev/jorel/commandapi/examples/kotlin/Examples.kt:safeArgumentSuggestions4}}
-```
+<<< @/../reference-code/src/main/kotlin/createcommands/arguments/suggestions/SafeSuggestions.kt#createSafeArguments
 :::
 
 Now we register our command as normal:
 
 :::tabs
 ===Java
-```java
-// todo {{#include ../../commandapi-documentation-code/src/main/java/dev/jorel/commandapi/examples/java/Examples.java:safeArgumentSuggestions5}}
-```
+<<< @/../reference-code/src/main/java/createcommands/arguments/suggestions/SafeSuggestions.java#registerSpawnMobCommand
 ===Kotlin
-```kotlin
-// todo {{#include ../../commandapi-documentation-code/src/main/kotlin/dev/jorel/commandapi/examples/kotlin/Examples.kt:safeArgumentSuggestions5}}
-```
+<<< @/../reference-code/src/main/kotlin/createcommands/arguments/suggestions/SafeSuggestions.kt#registerSpawnMobCommand
 :::
 
 ::::
 
-:::: Example - Removing a potion effect from a player
+::::tip Example – Removing a potion effect from a player
 
 Say we wanted to remove a potion effect from a player. To do this, we'll use the following command syntax:
 
@@ -206,26 +186,18 @@ Now, we don't want to remove a potion effect that doesn't exist on a player, so 
 
 :::tabs
 ===Java
-```java
-// todo {{#include ../../commandapi-documentation-code/src/main/java/dev/jorel/commandapi/examples/java/Examples.java:safeArgumentSuggestions6}}
-```
+<<< @/../reference-code/src/main/java/createcommands/arguments/suggestions/SafeSuggestions.java#createSafePotionEffectArguments
 ===Kotlin
-```kotlin
-// todo {{#include ../../commandapi-documentation-code/src/main/kotlin/dev/jorel/commandapi/examples/kotlin/Examples.kt:safeArgumentSuggestions6}}
-```
+<<< @/../reference-code/src/main/kotlin/createcommands/arguments/suggestions/SafeSuggestions.kt#createSafePotionEffectArguments
 :::
 
 And then we can register our command as normal:
 
 :::tabs
 ===Java
-```java
-// todo {{#include ../../commandapi-documentation-code/src/main/java/dev/jorel/commandapi/examples/java/Examples.java:safeArgumentSuggestions7}}
-```
+<<< @/../reference-code/src/main/java/createcommands/arguments/suggestions/SafeSuggestions.java#registerRemoveEffectCommand
 ===Kotlin
-```kotlin
-// todo {{#include ../../commandapi-documentation-code/src/main/kotlin/dev/jorel/commandapi/examples/kotlin/Examples.kt:safeArgumentSuggestions7}}
-```
+<<< @/../reference-code/src/main/kotlin/createcommands/arguments/suggestions/SafeSuggestions.kt#registerRemoveEffectCommand
 :::
 
 ::::

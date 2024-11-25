@@ -50,18 +50,18 @@ First, we'll declare our arguments. Here, we'll use the `stringsWithTooltips` me
 
 :::tabs
 ===Java
-<<< @/../reference-code/src/main/java/createcommands/arguments/suggestions/Tooltips.java#stringSuggestionTooltipsExampleDeclare
+<<< @/../reference-code/src/main/java/createcommands/arguments/suggestions/Tooltips.java#createArgumentsWithTooltips
 ===Kotlin
-<<< @/../reference-code/src/main/kotlin/createcommands/arguments/suggestions/Tooltips.kt#stringSuggestionTooltipsExampleDeclare
+<<< @/../reference-code/src/main/kotlin/createcommands/arguments/suggestions/Tooltips.kt#createArgumentsWithTooltips
 :::
 
 Finally, we declare our command as normal:
 
 :::tabs
 ===Java
-<<< @/../reference-code/src/main/java/createcommands/arguments/suggestions/Tooltips.java#stringSuggestionTooltipsExampleRegister
+<<< @/../reference-code/src/main/java/createcommands/arguments/suggestions/Tooltips.java#registerEmoteCommand
 ===Kotlin
-<<< @/../reference-code/src/main/kotlin/createcommands/arguments/suggestions/Tooltips.kt#stringSuggestionTooltipsExampleRegister
+<<< @/../reference-code/src/main/kotlin/createcommands/arguments/suggestions/Tooltips.kt#registerEmoteCommand
 :::
 
 ::::
@@ -87,9 +87,9 @@ Let's say we've created a simple plugin which has custom items. For a custom ite
 
 :::tabs
 ===Java
-<<< @/../reference-code/src/main/java/createcommands/arguments/suggestions/Tooltips.java#customTooltipExampleDeclare
+<<< @/../reference-code/src/main/java/createcommands/arguments/suggestions/Tooltips.java#createCustomItemClass
 ===Kotlin
-<<< @/../reference-code/src/main/kotlin/createcommands/arguments/suggestions/Tooltips.kt#customTooltipExampleDeclare
+<<< @/../reference-code/src/main/kotlin/createcommands/arguments/suggestions/Tooltips.kt#createCustomItemClass
 :::
 
 We make use of the `Tooltip.messageFromString()` method to generate a Brigadier `Message` object from our string tooltip.
@@ -98,9 +98,9 @@ Let's also say that our plugin has registered lots of `CustomItem`s and has this
 
 :::tabs
 ===Java
-<<< @/../reference-code/src/main/java/createcommands/arguments/suggestions/Tooltips.java#customTooltipExampleRegister
+<<< @/../reference-code/src/main/java/createcommands/arguments/suggestions/Tooltips.java#registerCustomItemCommand
 ===Kotlin
-<<< @/../reference-code/src/main/kotlin/createcommands/arguments/suggestions/Tooltips.kt#customTooltipExampleRegister
+<<< @/../reference-code/src/main/kotlin/createcommands/arguments/suggestions/Tooltips.kt#registerCustomItemCommand
 :::
 
 ::::
@@ -144,18 +144,18 @@ First, we'll declare our arguments. Here, we use a `LocationArgument` and use th
 
 :::tabs
 ===Java
-<<< @/../reference-code/src/main/java/createcommands/arguments/suggestions/Tooltips.java#tooltipsWithSafeSuggestionsExampleDeclare
+<<< @/../reference-code/src/main/java/createcommands/arguments/suggestions/Tooltips.java#createArgumentsWithTooltipsAndSafeSuggestions
 ===Kotlin
-<<< @/../reference-code/src/main/kotlin/createcommands/arguments/suggestions/Tooltips.kt#tooltipsWithSafeSuggestionsExampleDeclare
+<<< @/../reference-code/src/main/kotlin/createcommands/arguments/suggestions/Tooltips.kt#createArgumentsWithTooltipsAndSafeSuggestions
 :::
 
 In the argument declaration, we've cast the command sender to a player. To ensure that the command sender is definitely a player, we'll use the `executesPlayer` command execution method in our command declaration:
 
 :::tabs
 ===Java
-<<< @/../reference-code/src/main/java/createcommands/arguments/suggestions/Tooltips.java#tooltipsWithSafeSuggestionsExampleRegister
+<<< @/../reference-code/src/main/java/createcommands/arguments/suggestions/Tooltips.java#registerWarpCommand
 ===Kotlin
-<<< @/../reference-code/src/main/kotlin/createcommands/arguments/suggestions/Tooltips.kt#tooltipsWithSafeSuggestionsExampleRegister
+<<< @/../reference-code/src/main/kotlin/createcommands/arguments/suggestions/Tooltips.kt#registerWarpCommand
 :::
 
 ::::

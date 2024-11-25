@@ -23,7 +23,7 @@ import java.util.List;
 
 class Tooltips {
     {
-        // #region stringSuggestionTooltipsExampleDeclare
+        // #region createArgumentsWithTooltips
         List<Argument<?>> arguments = new ArrayList<>();
         arguments.add(new StringArgument("emote")
             .replaceSuggestions(ArgumentSuggestions.stringsWithTooltips(info ->
@@ -35,9 +35,9 @@ class Tooltips {
             ))
         );
         arguments.add(new PlayerArgument("target"));
-        // #endregion stringSuggestionTooltipsExampleDeclare
+        // #endregion createArgumentsWithTooltips
 
-        // #region stringSuggestionTooltipsExampleRegister
+        // #region registerEmoteCommand
         new CommandAPICommand("emote")
             .withArguments(arguments)
             .executesPlayer((player, args) -> {
@@ -60,10 +60,10 @@ class Tooltips {
                 }
             })
             .register();
-        // #endregion stringSuggestionTooltipsExampleRegister
+        // #endregion registerEmoteCommand
     }
 
-    // #region customTooltipExampleDeclare
+    // #region createCustomItemClass
     @SuppressWarnings("deprecation")
     class CustomItem implements IStringTooltip {
         private ItemStack itemstack;
@@ -96,10 +96,10 @@ class Tooltips {
             return BukkitTooltip.messageFromString(this.itemstack.getItemMeta().getLore().get(0));
         }
     }
-    // #endregion customTooltipExampleDeclare
+    // #endregion createCustomItemClass
 
     {
-        // #region customTooltipExampleRegister
+        // #region registerCustomItemCommand
         CustomItem[] customItems = new CustomItem[]{
             new CustomItem(new ItemStack(Material.DIAMOND_SWORD), "God sword", "A sword from the heavens"),
             new CustomItem(new ItemStack(Material.PUMPKIN_PIE), "Sweet pie", "Just like grandma used to make")
@@ -119,11 +119,9 @@ class Tooltips {
                 }
             })
             .register();
-        // #endregion customTooltipExampleRegister
-    }
+        // #endregion registerCustomItemCommand
 
-    {
-        // #region tooltipsWithSafeSuggestionsExampleDeclare
+        // #region createArgumentsWithTooltipsAndSafeSuggestions
         List<Argument<?>> arguments = new ArrayList<>();
         arguments.add(new LocationArgument("location")
             .replaceSafeSuggestions(SafeSuggestions.tooltips(info -> {
@@ -135,15 +133,15 @@ class Tooltips {
                     BukkitTooltip.ofString(player.getTargetBlockExact(256).getLocation(), "Target block")
                 );
             })));
-        // #endregion tooltipsWithSafeSuggestionsExampleDeclare
+        // #endregion createArgumentsWithTooltipsAndSafeSuggestions
 
-        // #region tooltipsWithSafeSuggestionsExampleRegister
+        // #region registerWarpCommand
         new CommandAPICommand("warp")
             .withArguments(arguments)
             .executesPlayer((player, args) -> {
                 player.teleport((Location) args.get("location"));
             })
             .register();
-        // #endregion tooltipsWithSafeSuggestionsExampleRegister
+        // #endregion registerWarpCommand
     }
 }

@@ -1,9 +1,11 @@
 ---
 order: 6
+title: Async suggestions
 authors:
   - DerEchtePilz
   - willkroboth
   - JorelAli
+  - MC-XiaoHei
 ---
 
 # Asynchronous suggestions
@@ -42,7 +44,6 @@ As with all asynchronous operations running in a Minecraft server, you should **
 
 ```java
 CompletableFuture.supplyAsync(() -> {
-
    Bukkit.getScheduler().scheduleAsyncDelayedTask(plugin, () -> 
        // Your code here
    );
@@ -66,13 +67,11 @@ We make use of the `ArgumentSuggestions.stringsAsync` method to provide asynchro
 
 :::tabs
 ===Java
-```java
-// todo {{#include ../../commandapi-documentation-code/src/main/java/dev/jorel/commandapi/examples/java/Examples.java:asyncSuggestions1}}
-```
+<<< @/../reference-code/src/main/java/createcommands/arguments/suggestions/AsyncSuggestions.java#asyncSuggestionsExample
 ===Kotlin
-```kotlin
-// todo {{#include ../../commandapi-documentation-code/src/main/kotlin/dev/jorel/commandapi/examples/kotlin/Examples.kt:asyncSuggestions1}}
-```
+<<< @/../reference-code/src/main/kotlin/createcommands/arguments/suggestions/AsyncSuggestions.kt#asyncSuggestionsExample
+===Kotlin DSL
+<<< @/../reference-code/src/main/kotlin/createcommands/arguments/suggestions/AsyncSuggestions.kt#asyncSuggestionsExampleDSL
 :::
 
 ::::

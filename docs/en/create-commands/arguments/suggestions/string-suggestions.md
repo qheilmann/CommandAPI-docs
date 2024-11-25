@@ -24,13 +24,9 @@ We then implement our warp teleporting command using `replaceSuggestions()` on t
 
 :::tabs
 ===Java
-```java
-// todo {{#include ../../commandapi-documentation-code/src/main/java/dev/jorel/commandapi/examples/java/Examples.java:stringArgumentSuggestions1}}
-```
+<<< @/../reference-code/src/main/java/createcommands/arguments/suggestions/StringSuggestions.java#createWarpCommand
 ===Kotlin
-```kotlin
-// todo {{#include ../../commandapi-documentation-code/src/main/kotlin/dev/jorel/commandapi/examples/kotlin/Examples.kt:stringArgumentSuggestions1}}
-```
+<<< @/../reference-code/src/main/kotlin/createcommands/arguments/suggestions/StringSuggestions.kt#createWarpCommand
 :::
 
 ::::
@@ -53,26 +49,18 @@ Let's say we have a simple class to get the friends of a command sender:
 
 :::tabs
 ===Java
-```java
-// todo public {{#include ../../commandapi-documentation-code/src/main/java/dev/jorel/commandapi/examples/java/Examples.java:stringArgumentSuggestions2}}
-```
+<<< @/../reference-code/src/main/java/createcommands/arguments/suggestions/StringSuggestions.java#createFriendsClass
 ===Kotlin
-```kotlin
-// todo {{#include ../../commandapi-documentation-code/src/main/kotlin/dev/jorel/commandapi/examples/kotlin/Examples.kt:stringArgumentSuggestions2}}
-```
+<<< @/../reference-code/src/main/kotlin/createcommands/arguments/suggestions/StringSuggestions.kt#createFriendsClass
 :::
 
 We can then use this to generate our suggested list of friends:
 
 :::tabs
 ===Java
-```java
-// todo {{#include ../../commandapi-documentation-code/src/main/java/dev/jorel/commandapi/examples/java/Examples.java:stringArgumentSuggestions3}}
-```
+<<< @/../reference-code/src/main/java/createcommands/arguments/suggestions/StringSuggestions.java#createFriendCommand
 ===Kotlin
-```kotlin
-// todo {{#include ../../commandapi-documentation-code/src/main/kotlin/dev/jorel/commandapi/examples/kotlin/Examples.kt:stringArgumentSuggestions3}}
-```
+<<< @/../reference-code/src/main/kotlin/createcommands/arguments/suggestions/StringSuggestions.kt#createFriendCommand
 :::
 
 ::::
@@ -117,13 +105,9 @@ When run, this command will send a message to a target player within the provide
 
 :::tabs
 ===Java
-```java
-// todo {{#include ../../commandapi-documentation-code/src/main/java/dev/jorel/commandapi/examples/java/Examples.java:stringArgumentSuggestions4}}
-```
+<<< @/../reference-code/src/main/java/createcommands/arguments/suggestions/StringSuggestions.java#createLocalMessageCommand
 ===Kotlin
-```kotlin
-// todo {{#include ../../commandapi-documentation-code/src/main/kotlin/dev/jorel/commandapi/examples/kotlin/Examples.kt:stringArgumentSuggestions4}}
-```
+<<< @/../reference-code/src/main/kotlin/createcommands/arguments/suggestions/StringSuggestions.kt#createLocalMessageCommand
 :::
 
 As shown in this code, we use the `previousArgs()` method access the previously declared arguments. In this example, `info.previousArgs()` will be `{ int }`, where this `int` refers to the radius. Note how this object array only has the previously declared arguments (and not for example `{ int, Player, String }`).
