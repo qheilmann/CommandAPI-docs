@@ -4,6 +4,7 @@ authors:
   - DerEchtePilz
   - willkroboth
   - JorelAli
+  - MC-XiaoHei
 ---
 
 # Listed arguments
@@ -30,13 +31,11 @@ Let's also say that in our implementation of this command, we don't actually per
 
 :::tabs
 ===Java
-```java
-// todo {{#include ../../commandapi-documentation-code/src/main/java/dev/jorel/commandapi/examples/java/Examples.java:listed1}}
-```
+<<< @/../reference-code/src/main/java/createcommands/arguments/ListedArguments.java#listedArgumentsExample
 ===Kotlin
-```kotlin
-{{#include ../../commandapi-documentation-code/src/main/kotlin/dev/jorel/commandapi/examples/kotlin/Examples.kt:listed1}}
-```
+<<< @/../reference-code/src/main/kotlin/createcommands/arguments/ListedArguments.kt#listedArgumentsExample
+===Kotlin DSL
+<<< @/../reference-code/src/main/kotlin/createcommands/arguments/ListedArguments.kt#listedArgumentsExampleDSL
 :::
 
 In this scenario, the argument `<value>` is not present in the [`CommandArguments args`](./command-arguments) for the executor.

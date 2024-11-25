@@ -34,17 +34,11 @@ For that, we’re going to register a command `/sayhi`. To add optional argument
 
 :::tabs
 ===Java
-```java
-// todo {{#include ../../commandapi-documentation-code/src/main/java/dev/jorel/commandapi/examples/java/Examples.java:optionalArguments1}}
-```
+<<< @/../reference-code/src/main/java/createcommands/arguments/OptionalArguments.java#simpleOptionalArgumentsExample
 ===Kotlin
-```kotlin
-// todo {{#include ../../commandapi-documentation-code/src/main/kotlin/dev/jorel/commandapi/examples/kotlin/Examples.kt:optionalArguments1}}
-```
+<<< @/../reference-code/src/main/kotlin/createcommands/arguments/OptionalArguments.kt#simpleOptionalArgumentsExample
 ===Kotlin DSL
-```kotlin
-// todo {{#include ../../commandapi-documentation-code/src/main/kotlin/dev/jorel/commandapi/examples/kotlin/ExamplesKotlinDSL.kt:optionalArguments1}}
-```
+<<< @/../reference-code/src/main/kotlin/createcommands/arguments/OptionalArguments.kt#simpleOptionalArgumentsExampleDSL
 :::
 
 
@@ -109,17 +103,11 @@ This is how the `getOptional` method is being implemented:
 
 :::tabs
 ===Java
-```java
-// todo {{#include ../../commandapi-documentation-code/src/main/java/dev/jorel/commandapi/examples/java/Examples.java:optionalArguments2}}
-```
+<<< @/../reference-code/src/main/java/createcommands/arguments/OptionalArguments.java#getOptionalExample
 ===Kotlin
-```kotlin
-// todo {{#include ../../commandapi-documentation-code/src/main/kotlin/dev/jorel/commandapi/examples/kotlin/Examples.kt:optionalArguments2}}
-```
+<<< @/../reference-code/src/main/kotlin/createcommands/arguments/OptionalArguments.kt#getOptionalExample
 ===Kotlin DSL
-```kotlin
-// todo {{#include ../../commandapi-documentation-code/src/main/kotlin/dev/jorel/commandapi/examples/kotlin/ExamplesKotlinDSL.kt:optionalArguments2}}
-```
+<<< @/../reference-code/src/main/kotlin/createcommands/arguments/OptionalArguments.kt#getOptionalExampleDSL
 :::
 
 ::::
@@ -188,17 +176,11 @@ To implement that structure, we make use of the `combineWith` method to make the
 
 :::tabs
 ===Java
-```java
-// todo {{#include ../../commandapi-documentation-code/src/main/java/dev/jorel/commandapi/examples/java/Examples.java:optionalArguments3}}
-```
+<<< @/../reference-code/src/main/java/createcommands/arguments/OptionalArguments.java#argumentsAfterOptionalArgumentsExample
 ===Kotlin
-```kotlin
-// todo {{#include ../../commandapi-documentation-code/src/main/kotlin/dev/jorel/commandapi/examples/kotlin/Examples.kt:optionalArguments3}}
-```
+<<< @/../reference-code/src/main/kotlin/createcommands/arguments/OptionalArguments.kt#argumentsAfterOptionalArgumentsExample
 ===Kotlin DSL
-```kotlin
-// todo {{#include ../../commandapi-documentation-code/src/main/kotlin/dev/jorel/commandapi/examples/kotlin/ExamplesKotlinDSL.kt:optionalArguments3}}
-```
+<<< @/../reference-code/src/main/kotlin/createcommands/arguments/OptionalArguments.kt#argumentsAfterOptionalArgumentsExampleDSL
 :::
 
 ::::
