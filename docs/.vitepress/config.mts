@@ -1,6 +1,6 @@
 // @ts-ignore
 import {repository, homepage} from '../../package.json';
-import {defineConfig, UserConfig, type DefaultTheme} from 'vitepress';
+import {defineConfig, UserConfig} from 'vitepress';
 import {withI18n} from 'vitepress-i18n';
 import {VitePressI18nOptions} from 'vitepress-i18n/dist/types';
 import {VitePressSidebarOptions, withSidebar} from "vitepress-sidebar";
@@ -11,7 +11,9 @@ const supportLocales: string[] = [defaultLocale, 'zhHans'];
 const editLinkPattern = `${repository.url}/edit/master/docs/:path`;
 
 const commonSidebarOptions: VitePressSidebarOptions = {
+    excludeFilesByFrontmatterFieldName: "hidden",
     collapsed: false,
+    collapseDepth: 4,
     capitalizeFirst: true,
     useTitleFromFileHeading: true,
     useTitleFromFrontmatter: true,
@@ -25,6 +27,7 @@ const vitepressOptions: UserConfig = {
     description: "Docs of CommandAPI",
     cleanUrls: true,
     metaChunk: true,
+    base: '', // place to put the version
     ignoreDeadLinks: true, // TODO remove when all things are done
     rewrites: {
         'en/:rest*': ':rest*'
@@ -84,6 +87,7 @@ const vitepressOptions: UserConfig = {
                     name: "entity.mccmd",
                     match: "\\b(align|anchored|as|at|facing|in|positioned|rotated|run|if|store|result|score|matches)\\b"
                 }]
+            }).then(_ => {
             })
         },
         config: (md) => {

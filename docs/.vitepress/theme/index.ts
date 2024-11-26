@@ -6,8 +6,8 @@ import {provideTabsSharedState} from './tabs/useTabsSelectedState'
 import PreferenceSwitch from './components/PreferenceSwitch.vue';
 import mediumZoom from "medium-zoom";
 import {onMounted, watch, nextTick, h} from 'vue'
-import {useRoute} from 'vitepress'
-import AuthorsComponent from "./components/AuthorsComponent.vue";
+import {useData, useRoute} from 'vitepress'
+import AuthorsComponent from "./components/Authors.vue";
 import {NolebaseEnhancedReadabilitiesMenu, NolebaseEnhancedReadabilitiesScreenMenu} from "@nolebase/vitepress-plugin-enhanced-readabilities";
 
 import './style/global.css'
