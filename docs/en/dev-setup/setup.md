@@ -34,7 +34,7 @@ dependencies:
 
 :::
 
-## Using Build System (Recommended)
+## Using a build system (Recommended)
 
 :::info **Developer's Note:**
 

@@ -103,31 +103,31 @@ In the example above, we used the "range type" in the form `[0..10]`. This is a 
 
 ::: tip Example – Declaring "range type" arguments
 
-To declare the range \\(10 \le x \le 50\\) (a value must be between 10 and 50 (inclusive)):
+To declare the range $0 \le x \le 50$ (a value must be between 10 and 50 (inclusive)):
 
 ```mccmd
 <name>[10..50]
 ```
 
-To declare the range \\(10 \le x\\) (a value must be bigger than or equal to 10):
+To declare the range $10 \le x$ (a value must be bigger than or equal to 10):
 
 ```mccmd
 <name>[10..]
 ```
 
-To declare the range \\(x \le 50\\) (a value must be less than or equal to 50):
+To declare the range $x \le 50$ (a value must be less than or equal to 50):
 
 ```mccmd
 <name>[..50]
 ```
 
-To declare the range \\(0 \le x \le 1\\), where \\(x\\) is a decimal value:
+To declare the range $0 \le x \le 1$, where $x$ is a decimal value:
 
 ```mccmd
 <name>[0.0..1.0]
 ```
 
-To declare a value \\(x\\) that can take any range of values and is a decimal number:
+To declare a value $x$ that can take any range of values and is a decimal number:
 
 ```mccmd
 <name>[brigadier:double]

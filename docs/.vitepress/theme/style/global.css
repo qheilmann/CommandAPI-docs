@@ -14,3 +14,12 @@
 .MathJax {
     overflow: hidden;
 }
+
+.DocSearch-Button .DocSearch-Button-Key {
+    border: none;
+}
+
+
+.DocSearch-Button .DocSearch-Button-Key + .DocSearch-Button-Key {
+    border: none;
+}
