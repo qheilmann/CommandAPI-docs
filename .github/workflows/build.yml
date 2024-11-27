@@ -1,0 +1,49 @@
+name: Build
+
+on:
+  push:
+    branches:
+      - master
+      - 'ver/**'
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout Branch
+        uses: actions/checkout@v2
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v2
+        with:
+          node-version: '14'
+
+      - name: Install Dependencies
+        run: yarn install
+
+      - name: Build Docs
+        run: 'yarn run docs:build'
+
+      - name: Push to Publish Branch
+        run: |
+          git config --global user.name 'github-actions[bot]'
+          git config --global user.email 'github-actions[bot]@users.noreply.github.com'
+
+          if [ "${GITHUB_REF}" == "refs/heads/master" ]; then
+            TARGET_DIR="."
+          else
+            VERSION=$(echo ${GITHUB_REF} | sed -e 's/refs\/heads\/ver\///')
+            TARGET_DIR="${VERSION}"
+          fi
+
+          git fetch origin publish
+          git checkout -b publish origin/publish
+
+          mkdir -p ${TARGET_DIR}
+          find "$TARGET_DIR" -mindepth 1 -not -regex '.*/[0-9]+\.[0-9]+\.[0-9]+$' -exec rm -rf {} +
+          cp -r dist/* ${TARGET_DIR}/
+
+          git add .
+          git commit -C ${GITHUB_SHA}
+          git push origin publish
