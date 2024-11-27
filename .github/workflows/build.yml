@@ -30,27 +30,13 @@ jobs:
           git config --global user.name 'github-actions[bot]'
           git config --global user.email 'github-actions[bot]@users.noreply.github.com'
 
-          if [ "${GITHUB_REF}" == "refs/heads/master" ]; then
-            TARGET_DIR="."
-          else
-            VERSION=$(echo ${GITHUB_REF} | sed -e 's/refs\/heads\/ver\///')
-            TARGET_DIR="${VERSION}"
-          fi
+          BRANCH=$(echo ${GITHUB_REF} | sed -e 's/refs\/heads\///')
+          TARGET_BRANCH="build/${BRANCH}"
+          COMMIT_MSG=$(git log -1 --pretty=%B)
 
-          git fetch origin
-          if ! git show-ref --quiet refs/heads/publish; then
-            git checkout --orphan publish
-            git rm -rf .
-            git commit --allow-empty -m "Initial"
-            git push origin publish
-          else
-            git checkout -b publish origin/publish
-          fi
-
-          mkdir -p ${TARGET_DIR}
-          find "$TARGET_DIR" -mindepth 1 -not -regex '.*/[0-9]+\.[0-9]+\.[0-9]+$' -exec rm -rf {} +
-          cp -r dist/* ${TARGET_DIR}/
-
+          cd docs/.vitepress/dist
+          
+          git init
           git add .
-          git commit -C ${GITHUB_SHA}
-          git push origin publish
+          git commit -m ${COMMIT_MSG}
+          git push origin ${TARGET_BRANCH}
