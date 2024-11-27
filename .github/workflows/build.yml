@@ -34,8 +34,6 @@ jobs:
           TARGET_BRANCH="build/${BRANCH}"
           COMMIT_MSG=$(git log -1 --pretty=%B)
           ORIGIN_URL=$(git config --get remote.origin.url)
-
-          cd docs/.vitepress/dist
           
           git subtree push --prefix=docs/.vitepress/dist origin ${TARGET_BRANCH}
           
