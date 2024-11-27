@@ -45,7 +45,9 @@ jobs:
           
             mkdir -p ${LOCAL_DIR}
             wget --max-redirect=10 -O ${LOCAL_DIR}/dist.zip ${TARGET_ZIP}
-            unzip ${LOCAL_DIR}/dist.zip -d ${LOCAL_DIR}
+            TEMP_DIR=$(mktemp -d)
+            unzip ${LOCAL_DIR}/dist.zip -d ${TEMP_DIR}
+            mv ${TEMP_DIR}/*/* ${LOCAL_DIR}
             rm ${LOCAL_DIR}/dist.zip
           done
           
