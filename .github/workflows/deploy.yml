@@ -50,5 +50,6 @@ jobs:
           done
           
           git add .
+          git commit -m "GitHub Actions Auto Deploy"
           
           git push origin "${TARGET_BRANCH}"
