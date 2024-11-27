@@ -35,7 +35,7 @@ jobs:
           COMMIT_MSG=$(git log -1 --pretty=%B)
           
           if git ls-remote --heads origin ${TARGET_BRANCH} | grep ${TARGET_BRANCH}; then
-            git push origin --delete 
+            git push origin --delete ${TARGET_BRANCH}
           fi
           
           find . -mindepth 1 -maxdepth 1 ! -name 'docs' ! -name '.git' -exec rm -rf {} +
