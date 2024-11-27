@@ -32,11 +32,11 @@ jobs:
           git fetch origin
           git checkout -b ${TARGET_BRANCH} ${BASE_BRANCH}
           
-          branches=$(git branch -r | grep 'origin/build/ver/')
+          BRANCHES=$(git branch -r | grep 'origin/build/ver/')
           
-          for branch in $branches; do
-            BRANCH_NAME=$(echo $branch | sed 's|origin/||')
-            LOCAL_DIR=$(echo $branch_name | sed 's|build/ver/||')
+          for BRANCH in BRANCHES; do
+            BRANCH_NAME=$(echo BRANCH | sed 's|origin/||')
+            LOCAL_DIR=$(echo BRANCH_NAME | sed 's|build/ver/||')
             TARGET_ZIP="${TARGET_URL}/archive/refs/heads/${BRANCH_NAME}.zip"
           
             echo "Branch: ${BRANCH_NAME}"
