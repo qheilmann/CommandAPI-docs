@@ -14,18 +14,17 @@ jobs:
       - name: Checkout Branch
         uses: actions/checkout@v2
 
-      - name: Set Base Url
+      - name: Inject Base Url
         run: |
           BRANCH=$(echo ${GITHUB_REF} | sed -e 's/refs\/heads\///')
-          BEFORE='@base@'
-          if [[ $BRANCH == ver/* ]]; then
-            BRANCH_NAME=$(echo $BRANCH | sed 's|origin/||')
-            AFTER=$(echo $BRANCH_NAME | sed 's|build/ver/||')
-          else
-            AFTER=''
+          BRANCH_NAME=$(echo $BRANCH | sed 's|origin/||')
+          if [[ $BRANCH_NAME == ver/* ]]; then
+            VER=$(echo $BRANCH_NAME | sed 's|build/ver/||')
+            echo sed -i "s/BASE_INJECT_POINT/${VER}/g" ./docs/.vitepress/config.mts > replace.sh
+            chmod +x replace.sh
+            ./replace.sh
+            rm replace.sh
           fi
-          echo $AFTER
-          sed -i "s/${BEFORE}/${AFTER}/g" ./docs/.vitepress/config.mts
 
       - name: Setup Node.js
         uses: actions/setup-node@v2

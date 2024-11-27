@@ -27,11 +27,11 @@ const vitepressOptions: UserConfig = {
     description: "Docs of CommandAPI",
     cleanUrls: true,
     metaChunk: true,
-    base: "@base@",
     ignoreDeadLinks: true, // TODO remove when all things are done
     rewrites: {
         'en/:rest*': ':rest*'
     },
+    base: 'BASE_INJECT_POINT',
     vite: {
         optimizeDeps: {
             exclude: [
