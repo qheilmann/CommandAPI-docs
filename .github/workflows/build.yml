@@ -19,11 +19,13 @@ jobs:
           BRANCH=$(echo ${GITHUB_REF} | sed -e 's/refs\/heads\///')
           BEFORE='base: '''
           if [[ $BRANCH == ver/* ]]; then
-            AFTER=$(echo $BRANCH | sed 's|^ver/||')
+            BRANCH_NAME=$(echo $BRANCH | sed 's|origin/||')
+            AFTER=$(echo $BRANCH_NAME | sed 's|build/ver/||')
             AFTER="base: '/${AFTER}/'"
           else
             AFTER='base: '''
           fi
+          echo $AFTER
           sed -i "s/${BEFORE}/${AFTER}/g" "./docs/.vitepress/config.mts"
 
       - name: Setup Node.js
