@@ -17,13 +17,12 @@ jobs:
       - name: Set Base Url
         run: |
           BRANCH=$(echo ${GITHUB_REF} | sed -e 's/refs\/heads\///')
-          BEFORE='base: ""'
+          BEFORE='---base---'
           if [[ $BRANCH == ver/* ]]; then
             BRANCH_NAME=$(echo $BRANCH | sed 's|origin/||')
             AFTER=$(echo $BRANCH_NAME | sed 's|build/ver/||')
-            AFTER="base: '${AFTER}'"
           else
-            AFTER='base: ""'
+            AFTER=''
           fi
           echo $AFTER
           sed -i "s/${BEFORE}/${AFTER}/g" ./docs/.vitepress/config.mts
