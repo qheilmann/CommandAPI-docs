@@ -21,7 +21,7 @@ jobs:
           if [[ $BRANCH == ver/* ]]; then
             BRANCH_NAME=$(echo $BRANCH | sed 's|origin/||')
             AFTER=$(echo $BRANCH_NAME | sed 's|build/ver/||')
-            AFTER='base: "${AFTER}"'
+            AFTER="base: '${AFTER}'"
           else
             AFTER='base: ""'
           fi
