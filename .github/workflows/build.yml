@@ -40,7 +40,7 @@ jobs:
           find . -mindepth 1 -maxdepth 1 ! -name 'docs' ! -name '.git' -exec rm -rf {} +
           find docs -mindepth 1 -maxdepth 1 ! -name '.vitepress' -exec rm -rf {} +
           cp -r docs/.vitepress/dist/* .
-          rm -rf docs/.vitepress/dist
+          rm -rf docs
 
           git checkout -b "${TARGET_BRANCH}"
           git add .
