@@ -44,7 +44,7 @@ jobs:
             echo "Local: ${LOCAL_DIR}"
           
             mkdir -p ${LOCAL_DIR}
-            wget --max-redirect=10 -O ${LOCAL_DIR}/dist.zip $url
+            wget --max-redirect=10 -O ${LOCAL_DIR}/dist.zip ${TARGET_ZIP}
             unzip ${LOCAL_DIR}/dist.zip -d ${LOCAL_DIR}
             rm ${LOCAL_DIR}/dist.zip
           done
