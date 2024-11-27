@@ -36,7 +36,7 @@ jobs:
 
           cd docs/.vitepress/dist
           
-          git init
+          git init --initial-branch=${TARGET_BRANCH}
           git add .
           git commit -m "${COMMIT_MSG}"
           git push origin ${TARGET_BRANCH}
