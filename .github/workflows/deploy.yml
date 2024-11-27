@@ -16,6 +16,8 @@ jobs:
 
       - name: Merge Build Branches
         run: |
+          CNAME='commandapi-docs.xor7.cn'
+          
           git config --global user.name 'github-actions[bot]'
           git config --global user.email 'github-actions[bot]@users.noreply.github.com'
           
@@ -46,6 +48,8 @@ jobs:
             mv ${TEMP_DIR}/*/* ${LOCAL_DIR}
             rm ${LOCAL_DIR}/dist.zip
           done
+          
+          echo ${CNAME} > CNAME
           
           git add .
           git commit -m "GitHub Actions Auto Deploy"
