@@ -24,10 +24,6 @@ jobs:
           ORIGIN_URL=$(git remote get-url origin)
           SUFFIX=".git"
           TARGET_URL=${ORIGIN_URL%$SUFFIX}
-
-          if git ls-remote --heads origin ${TARGET_BRANCH} | grep ${TARGET_BRANCH}; then
-            git push origin --delete ${TARGET_BRANCH}
-          fi
           
           git fetch origin
           git checkout -b ${TARGET_BRANCH} ${BASE_BRANCH}
@@ -54,4 +50,4 @@ jobs:
           git add .
           git commit -m "GitHub Actions Auto Deploy"
           
-          git push origin "${TARGET_BRANCH}"
+          git push -f origin "${TARGET_BRANCH}"
