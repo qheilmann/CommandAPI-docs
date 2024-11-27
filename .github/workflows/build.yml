@@ -18,8 +18,7 @@ jobs:
         run: |
           BRANCH=$(echo ${GITHUB_REF} | sed -e 's/refs\/heads\///')
           if [[ $BRANCH == ver/* ]]; then
-            VER=$(echo $BRANCH | sed 's|build/ver/||')
-            echo ${VER} > VER
+            VER=$(echo $BRANCH | sed 's|ver/||')            echo ${VER} > VER
           fi
 
       - name: Setup Node.js
