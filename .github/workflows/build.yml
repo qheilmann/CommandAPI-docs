@@ -41,4 +41,4 @@ jobs:
           git remote add origin ${ORIGIN_URL}
           git add .
           git commit -m "${COMMIT_MSG}"
-          git push origin ${TARGET_BRANCH}
+          git push origin "${TARGET_BRANCH}"
