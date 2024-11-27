@@ -25,14 +25,13 @@ jobs:
       - name: Build Docs
         run: 'yarn run docs:build'
 
-      - name: Push to Publish Branch
+      - name: Push to Build Branch
         run: |
           git config --global user.name 'github-actions[bot]'
           git config --global user.email 'github-actions[bot]@users.noreply.github.com'
 
           BRANCH=$(echo ${GITHUB_REF} | sed -e 's/refs\/heads\///')
           TARGET_BRANCH="build/${BRANCH}"
-          COMMIT_MSG=$(git log -1 --pretty=%B)
           
           if git ls-remote --heads origin ${TARGET_BRANCH} | grep ${TARGET_BRANCH}; then
             git push origin --delete ${TARGET_BRANCH}
@@ -45,10 +44,9 @@ jobs:
 
           git checkout -b "${TARGET_BRANCH}"
           git add .
-          git commit -m "${COMMIT_MSG}"
+          git commit -m "GitHub Actions Auto Build ${BRANCH}"
           
           echo "Branch: ${BRANCH}"
           echo "Pushing to ${TARGET_BRANCH}"
-          echo "Commit Message: ${COMMIT_MSG}"
           
           git push origin "${TARGET_BRANCH}"
