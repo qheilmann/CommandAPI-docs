@@ -18,7 +18,7 @@ jobs:
         run: |
           BRANCH=$(echo ${GITHUB_REF} | sed -e 's/refs\/heads\///')
           BRANCH_NAME=$(echo $BRANCH | sed 's|origin/||')
-          if [[ $BRANCH_NAME == ver/* ]]; then
+          if [[ $BRANCH_NAME == build/ver/* ]]; then
             VER=$(echo $BRANCH_NAME | sed 's|build/ver/||')
             echo ${VER} > VER
           fi
