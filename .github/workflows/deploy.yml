@@ -49,4 +49,6 @@ jobs:
             rm ${LOCAL_DIR}/dist.zip
           done
           
+          git add .
+          
           git push origin "${TARGET_BRANCH}"
