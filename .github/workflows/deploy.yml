@@ -1,0 +1,46 @@
+name: Deploy
+
+on:
+  workflow_run:
+    workflows: [Build]
+    types: [completed]
+
+jobs:
+  on-success:
+    runs-on: ubuntu-latest
+    if: ${{ github.event.workflow_run.conclusion == 'success' }}
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+
+      - name: Merge Build Branches
+        run: |
+          git config --global user.name 'github-actions[bot]'
+          git config --global user.email 'github-actions[bot]@users.noreply.github.com'
+          
+          TARGET_BRANCH="deploy"
+          BASE_BRANCH="origin/build/master"
+
+          if git ls-remote --heads origin ${TARGET_BRANCH} | grep ${TARGET_BRANCH}; then
+            git push origin --delete ${TARGET_BRANCH}
+          fi
+          
+          git fetch origin
+          git checkout -b ${TARGET_BRANCH} ${BASE_BRANCH}
+          
+          branches=$(git branch -r | grep 'origin/build/ver/')
+          
+          for branch in $branches; do
+            branch_name=$(echo $branch | sed 's|origin/||')
+            local_dir=$(echo $branch_name | sed 's|build/ver/||')
+
+            git checkout -b $branch_name $branch
+
+            mkdir -p ./$local_dir
+
+            rsync -av --exclude='.git' ./ ./$local_dir
+
+            git checkout ${BASE_BRANCH}
+            git branch -D $branch_name
+          done
