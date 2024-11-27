@@ -33,9 +33,18 @@ jobs:
           BRANCH=$(echo ${GITHUB_REF} | sed -e 's/refs\/heads\///')
           TARGET_BRANCH="build/${BRANCH}"
           COMMIT_MSG=$(git log -1 --pretty=%B)
+          
+          if git ls-remote --heads origin ${TARGET_BRANCH} | grep ${TARGET_BRANCH}; then
+            git push origin --delete 
+          fi
+          
+          find . -mindepth 1 -maxdepth 1 ! -name 'docs' ! -name '.git' -exec rm -rf {} +
+          find docs -mindepth 1 -maxdepth 1 ! -name '.vitepress' -exec rm -rf {} +
+          cp -r docs/.vitepress/docs/* .
+          rm -rf docs/.vitepress/docs
 
           git checkout -b "${TARGET_BRANCH}"
-          git add -f docs/.vitepress/dist
+          git add .
           git commit -m "${COMMIT_MSG}"
           
           echo "Branch: ${BRANCH}"
