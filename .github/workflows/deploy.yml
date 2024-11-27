@@ -38,6 +38,11 @@ jobs:
             BRANCH_NAME=$(echo $branch | sed 's|origin/||')
             LOCAL_DIR=$(echo $branch_name | sed 's|build/ver/||')
             TARGET_ZIP="${TARGET_URL}/archive/refs/heads/${BRANCH_NAME}.zip"
+          
+            echo "Branch: ${BRANCH_NAME}"
+            echo "URL: ${TARGET_ZIP}"
+            echo "Local: ${LOCAL_DIR}"
+          
             mkdir -p ${LOCAL_DIR}
             wget --max-redirect=10 -O ${LOCAL_DIR}/dist.zip $url
             unzip ${LOCAL_DIR}/dist.zip -d ${LOCAL_DIR}
