@@ -26,6 +26,8 @@ jobs:
         run: 'yarn run docs:build'
 
       - name: Push to Publish Branch
+        env:
+          GITHUB_TOKEN: ${{ secrets.ACCESS_TOKEN }
         run: |
           git config --global user.name 'github-actions[bot]'
           git config --global user.email 'github-actions[bot]@users.noreply.github.com'
@@ -33,11 +35,13 @@ jobs:
           BRANCH=$(echo ${GITHUB_REF} | sed -e 's/refs\/heads\///')
           TARGET_BRANCH="build/${BRANCH}"
           COMMIT_MSG=$(git log -1 --pretty=%B)
-          ORIGIN_URL=$(git config --get remote.origin.url)
-          
-          git subtree push --prefix=docs/.vitepress/dist origin ${TARGET_BRANCH}
+
+          git checkout -b "${TARGET_BRANCH}"
+          git add -f docs/.vitepress/dist
+          git commit -m "${COMMIT_MSG}"
           
           echo "Branch: ${BRANCH}"
           echo "Pushing to ${TARGET_BRANCH}"
-          echo "Origin URL: ${ORIGIN_URL}"
           echo "Commit Message: ${COMMIT_MSG}"
+          
+          git push origin "${TARGET_BRANCH}"
