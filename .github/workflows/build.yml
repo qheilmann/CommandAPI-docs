@@ -14,6 +14,17 @@ jobs:
       - name: Checkout Branch
         uses: actions/checkout@v2
 
+      - name: Set Base Url
+        run: |
+          BRANCH=$(echo ${GITHUB_REF} | sed -e 's/refs\/heads\///')
+          BEFORE=base: ''
+          if [[ $BRANCH == ver/* ]]; then
+            AFTER=$(echo $BRANCH | sed 's|^ver/||')
+          else
+            AFTER=base: ''
+          fi
+          sed -i "s/${BEFORE}/${AFTER}/g" "./docs/.vitepress/config.mts"
+
       - name: Setup Node.js
         uses: actions/setup-node@v2
         with:
