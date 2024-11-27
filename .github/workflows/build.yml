@@ -37,14 +37,9 @@ jobs:
 
           cd docs/.vitepress/dist
           
-          git init --initial-branch=${TARGET_BRANCH}
-          git remote add origin ${ORIGIN_URL}
-          git add .
-          git commit -m "${COMMIT_MSG}"
+          git subtree push --prefix=docs/.vitepress/dist origin ${TARGET_BRANCH}
           
           echo "Branch: ${BRANCH}"
           echo "Pushing to ${TARGET_BRANCH}"
           echo "Origin URL: ${ORIGIN_URL}"
           echo "Commit Message: ${COMMIT_MSG}"
-          
-          git push origin "${TARGET_BRANCH}"
