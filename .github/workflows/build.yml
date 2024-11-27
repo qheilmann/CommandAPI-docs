@@ -33,10 +33,12 @@ jobs:
           BRANCH=$(echo ${GITHUB_REF} | sed -e 's/refs\/heads\///')
           TARGET_BRANCH="build/${BRANCH}"
           COMMIT_MSG=$(git log -1 --pretty=%B)
+          ORIGIN_URL=$(git config --get remote.origin.url)
 
           cd docs/.vitepress/dist
           
           git init --initial-branch=${TARGET_BRANCH}
+          git remote add origin ${ORIGIN_URL}
           git add .
           git commit -m "${COMMIT_MSG}"
           git push origin ${TARGET_BRANCH}
