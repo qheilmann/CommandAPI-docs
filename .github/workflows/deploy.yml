@@ -44,3 +44,5 @@ jobs:
             git checkout ${BASE_BRANCH}
             git branch -D $branch_name
           done
+          
+          git push origin "${TARGET_BRANCH}"
