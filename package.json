@@ -13,6 +13,7 @@
     "@nolebase/vitepress-plugin-enhanced-readabilities": "^2.10.0",
     "@types/markdown-it": "^14.1.2",
     "@types/markdown-it-container": "^2.0.10",
+    "fs": "^0.0.1-security",
     "markdown-it": "^14.1.0",
     "markdown-it-container": "^4.0.0",
     "markdown-it-mathjax3": "^4.3.2",

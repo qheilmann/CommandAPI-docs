@@ -5,6 +5,7 @@ import {withI18n} from 'vitepress-i18n';
 import {VitePressI18nOptions} from 'vitepress-i18n/dist/types';
 import {VitePressSidebarOptions, withSidebar} from "vitepress-sidebar";
 import {tabsPlugin} from "./theme/tabs/codesMarkdownPlugin";
+import fs from "fs";
 
 const defaultLocale: string = 'en';
 const supportLocales: string[] = [defaultLocale, 'zhHans'];
@@ -31,7 +32,7 @@ const vitepressOptions: UserConfig = {
     rewrites: {
         'en/:rest*': ':rest*'
     },
-    base: 'BASE_INJECT_POINT',
+    base: getBase(),
     vite: {
         optimizeDeps: {
             exclude: [
@@ -138,5 +139,13 @@ const vitepressSidebarOptions = [
         };
     })
 ];
+
+function getBase(): string {
+    if (fs.existsSync("VER")) {
+        return `/${fs.readFileSync("VER", 'utf8')}/`;
+    } else {
+        return '';
+    }
+}
 
 export default defineConfig(withSidebar(withI18n(vitepressOptions, vitePressI18nOptions), vitepressSidebarOptions))

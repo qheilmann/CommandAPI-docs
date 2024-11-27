@@ -20,10 +20,7 @@ jobs:
           BRANCH_NAME=$(echo $BRANCH | sed 's|origin/||')
           if [[ $BRANCH_NAME == ver/* ]]; then
             VER=$(echo $BRANCH_NAME | sed 's|build/ver/||')
-            echo sed -i "s/BASE_INJECT_POINT/${VER}/g" ./docs/.vitepress/config.mts > replace.sh
-            chmod +x replace.sh
-            ./replace.sh
-            rm replace.sh
+            echo ${VER} > VER
           fi
 
       - name: Setup Node.js
