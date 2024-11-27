@@ -37,8 +37,15 @@ jobs:
             TARGET_DIR="${VERSION}"
           fi
 
-          git fetch origin publish
-          git checkout -b publish origin/publish
+          git fetch origin
+          if ! git show-ref --quiet refs/heads/publish; then
+            git checkout --orphan publish
+            git rm -rf .
+            git commit --allow-empty -m "Initial"
+            git push origin publish
+          else
+            git checkout -b publish origin/publish
+          fi
 
           mkdir -p ${TARGET_DIR}
           find "$TARGET_DIR" -mindepth 1 -not -regex '.*/[0-9]+\.[0-9]+\.[0-9]+$' -exec rm -rf {} +
