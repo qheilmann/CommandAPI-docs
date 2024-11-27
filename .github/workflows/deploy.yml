@@ -35,8 +35,8 @@ jobs:
           BRANCHES=$(git branch -r | grep 'origin/build/ver/')
           
           for BRANCH in BRANCHES; do
-            BRANCH_NAME=$(echo BRANCH | sed 's|origin/||')
-            LOCAL_DIR=$(echo BRANCH_NAME | sed 's|build/ver/||')
+            BRANCH_NAME=$(echo $BRANCH | sed 's|origin/||')
+            LOCAL_DIR=$(echo $BRANCH_NAME | sed 's|build/ver/||')
             TARGET_ZIP="${TARGET_URL}/archive/refs/heads/${BRANCH_NAME}.zip"
           
             echo "Branch: ${BRANCH_NAME}"
