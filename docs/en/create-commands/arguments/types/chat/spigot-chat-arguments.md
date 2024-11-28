@@ -116,11 +116,11 @@ Now we can create our book command. We use the player as the main target by usin
 
 :::tabs
 ===Java
-
+<<< @/../reference-code/src/main/java/createcommands/arguments/types/chat/SpigotChatArguments.java#setPagesExample
 ===Kotlin
-
+<<< @/../reference-code/src/main/kotlin/createcommands/arguments/types/chat/SpigotChatArguments.kt#setPagesExample
 ===Kotlin DSL
-
+<<< @/../reference-code/src/main/kotlin/createcommands/arguments/types/chat/SpigotChatArguments.kt#setPagesExampleDSL
 :::
 
 ::::
@@ -153,11 +153,11 @@ _Bob_ would receive the message "Hello Bob", whereas _Michael_ would receive the
 
 :::tabs
 ===Java
-
+<<< @/../reference-code/src/main/java/createcommands/arguments/types/chat/SpigotChatArguments.java#chatArgumentExample
 ===Kotlin
-
+<<< @/../reference-code/src/main/kotlin/createcommands/arguments/types/chat/SpigotChatArguments.kt#chatArgumentExample
 ===kotlin,Kotlin DSL
-
+<<< @/../reference-code/src/main/kotlin/createcommands/arguments/types/chat/SpigotChatArguments.kt#chatArgumentExampleDSL
 :::
 
 ::::
