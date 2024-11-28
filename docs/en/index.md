@@ -3,7 +3,7 @@
 layout: home
 
 hero:
-    name: "Command API"
+    name: "CommandAPI"
     tagline: An API for the command UI introduced in Minecraft 1.13
     actions:
         -   theme: brand
