@@ -3,23 +3,24 @@
 layout: home
 
 hero:
-  name: "CommandAPI"
-  text: "Docs of CommandAPI"
-  tagline: My great project tagline
+  name: "Command API"
+  tagline: An API for the command UI introduced in Minecraft 1.13
   actions:
     - theme: brand
       text: Introduction
       link: /intro
-#    - theme: alt
-#      text: API Examples
-#      link: /api-examples
+    - theme: alt
+      text: Download
+      link: https://github.com/CommandAPI/CommandAPI/releases/latest
 
 features:
-  - title: Feature A
-    details: Lorem ipsum dolor sit amet, consectetur adipiscing elit
-  - title: Feature B
-    details: Lorem ipsum dolor sit amet, consectetur adipiscing elit
-  - title: Feature C
-    details: Lorem ipsum dolor sit amet, consectetur adipiscing elit
+  - title: Better Commands & Arguments
+    details: Prevent invalid commands and support over 50 arguments with built-in error checking, suggestions, tooltips, and precise permission.
+  - title: Just Like Vanilla Commands
+    details: Let your command to be executed by the built in <code>/execute</code> command, commandblocks, functions and tags.
+  - title: Easy to Register
+    details: No need to edit <code>plugin.yml</code>, supports Kotlin DSL, and Brigadier-like <code>CommandTree</code>. And provide detailed documentation.
+
 ---
 
+<br/>

@@ -1,4 +1,5 @@
 <!--modified from https://github.com/FabricMC/fabric-docs , original license is CC BY-NC-SA 4.0 -->
+<!--this file is licensed under CC BY-NC-SA 4.0-->
 
 <script setup lang="ts">
 import {onContentUpdated, useData, useRoute} from "vitepress";
