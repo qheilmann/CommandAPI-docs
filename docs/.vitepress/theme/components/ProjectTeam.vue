@@ -12,14 +12,14 @@ const coreMembers = [
     }, {
         avatar: avatar('willkroboth'),
         name: 'Will Kroboth',
-        title: '✨ Special Contributors ✨',
+        title: '✨ Special Contributor ✨',
         links: [
             githubSocialLink('willkroboth')
         ]
     }, {
         avatar: avatar('DerEchtePilz'),
         name: 'DerEchtePilz',
-        title: '✨ Special Contributors ✨',
+        title: '✨ Special Contributor ✨',
         links: [
             githubSocialLink('DerEchtePilz')
         ]
