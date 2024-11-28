@@ -33,6 +33,7 @@ const vitepressOptions: UserConfig = {
     rewrites: {
         'en/:rest*': ':rest*'
     },
+    head: [['link', { rel: 'icon', href: '/favicon.svg' }]],
     base: getBase(),
     vite: {
         optimizeDeps: {
