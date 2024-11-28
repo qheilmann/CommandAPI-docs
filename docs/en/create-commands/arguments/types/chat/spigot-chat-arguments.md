@@ -156,7 +156,7 @@ _Bob_ would receive the message "Hello Bob", whereas _Michael_ would receive the
 <<< @/../reference-code/src/main/java/createcommands/arguments/types/chat/SpigotChatArguments.java#chatArgumentExample
 ===Kotlin
 <<< @/../reference-code/src/main/kotlin/createcommands/arguments/types/chat/SpigotChatArguments.kt#chatArgumentExample
-===kotlin,Kotlin DSL
+===Kotlin DSL
 <<< @/../reference-code/src/main/kotlin/createcommands/arguments/types/chat/SpigotChatArguments.kt#chatArgumentExampleDSL
 :::
 
