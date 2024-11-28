@@ -29,7 +29,7 @@ const commonSidebarOptions: VitePressSidebarOptions = {
 const vitepressOptions: UserConfig = {
     title: "CommandAPI",
     lastUpdated: true,
-    description: "Docs of CommandAPI",
+    description: "Website of CommandAPI",
     cleanUrls: true,
     metaChunk: true,
     ignoreDeadLinks: true, // TODO remove when all things are done
