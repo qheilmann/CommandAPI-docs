@@ -9,7 +9,10 @@ import fs from "fs";
 import {exampleAutoAnchorPreprocessor} from "./theme/anchor/exampleAutoAnchorPreprocessor";
 
 const defaultLocale: string = 'en';
-const supportLocales: string[] = [defaultLocale, 'zhHans'];
+const supportLocales: string[] = [
+    defaultLocale,
+    // 'zhHans'
+];
 const editLinkPattern = `${repository.url}/edit/master/docs/:path`;
 
 const commonSidebarOptions: VitePressSidebarOptions = {
@@ -115,20 +118,11 @@ const vitePressI18nOptions: VitePressI18nOptions = {
             },
             nav: [
                 {
+                    text: 'Home',
+                    link: '/'
+                }, {
                     text: 'Introduction',
                     link: '/intro'
-                },
-            ]
-        },
-        zhHans: {
-            outline: {
-                level: "2-3",
-                label: "在本页"
-            },
-            nav: [
-                {
-                    text: '介绍',
-                    link: '/zhHans/intro'
                 },
             ]
         }
