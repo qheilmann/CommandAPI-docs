@@ -17,7 +17,7 @@ The CommandAPI has two ways of doing this:
 
 To convert a single command, you need to first populate the `config.yml` with the name of the plugin and commands to be converted. To illustrate this, we'll use an example:
 
-::: tip Example - Converting plugin commands
+::::tip Example – Converting plugin commands
 
 Say we're using [EssentialsX](https://www.spigotmc.org/resources/essentialsx.9089/) on our server, and we want to be able to use `/afk` and `/hat` in command blocks. This would allow us to use (for example) the following commands in command blocks:
 
@@ -66,6 +66,8 @@ commands:
 ```
 
 :::
+
+::::
 
 ## Arbitrary command conversion
 

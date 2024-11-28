@@ -6,6 +6,7 @@ import {VitePressI18nOptions} from 'vitepress-i18n/dist/types';
 import {VitePressSidebarOptions, withSidebar} from "vitepress-sidebar";
 import {tabsPlugin} from "./theme/tabs/codesMarkdownPlugin";
 import fs from "fs";
+import {exampleAutoAnchorPreprocessor} from "./theme/anchor/exampleAutoAnchorPreprocessor";
 
 const defaultLocale: string = 'en';
 const supportLocales: string[] = [defaultLocale, 'zhHans'];
@@ -92,7 +93,8 @@ const vitepressOptions: UserConfig = {
             })
         },
         config: (md) => {
-            tabsPlugin(md)
+            tabsPlugin(md);
+            exampleAutoAnchorPreprocessor(md);
         }
     }
 }

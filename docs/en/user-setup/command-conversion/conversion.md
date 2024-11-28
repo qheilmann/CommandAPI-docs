@@ -49,7 +49,7 @@ If you're uncertain if your configuration is valid (or you're getting weird erro
 
 To convert all the commands that a plugin has, add the name of the plugin, followed by a `~` character to the list of plugins to convert in the `config.yml` file.
 
-::: tip **Example – Converting all commands from EssentialsX**
+::: tip Example – Converting all commands from EssentialsX
 
 For example, if you wanted to convert all commands that [EssentialsX](https://www.spigotmc.org/resources/essentialsx.9089/) has, you can use the following `config.yml`:
 

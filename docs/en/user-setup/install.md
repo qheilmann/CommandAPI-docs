@@ -65,7 +65,7 @@ This can be mitigated by running a [Paper](https://papermc.io/) Minecraft server
 ```
 
 
-::: tip **Example - Running the CommandAPI using Java 17 and Minecraft 1.13.2**
+::: tip Example - Running the CommandAPI using Java 17 and Minecraft 1.13.2
 
 For example, to use the CommandAPI with Java 17 and Minecraft 1.13.2:
 

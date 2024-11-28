@@ -255,7 +255,7 @@ Controls the list of plugins to process for command conversion. See [Command con
 plugins-to-convert: []
 ```
 
-**Example values**
+**Example value**
 
 ```yml
 plugins-to-convert:

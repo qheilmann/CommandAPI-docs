@@ -74,7 +74,7 @@ This is converted into Spigot's `BaseComponent[]`, which can be used for the fol
   sender.spigot().sendMessage(BaseComponent[]);
   ```
 
-::::tip Example - Book made from raw JSON
+::::tip Example – Book made from raw JSON
 
 Say we want to generate a book using raw JSON. For this example, we'll use the following JSON (generated from [minecraftjson.com](https://minecraftjson.com/)) to generate our book:
 
