@@ -1,7 +1,7 @@
 <!--copy from https://github.com/sapphi-red/vitepress-plugins , original license is MIT-->
 
 <script setup lang="ts">
-import { useTabsSingleState } from '../tabs/useTabsSingleState'
+import { useTabsSingleState } from './useTabsSingleState'
 
 defineProps<{ label: string }>()
 

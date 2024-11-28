@@ -1,13 +1,13 @@
 import type {Theme} from 'vitepress'
 import DefaultTheme from 'vitepress/theme'
-import PluginTabs from './components/PluginTabs.vue'
-import PluginTabsTab from './components/PluginTabsTab.vue'
+import PluginTabs from './tabs/PluginTabs.vue'
+import PluginTabsTab from './tabs/PluginTabsTab.vue'
 import {provideTabsSharedState} from './tabs/useTabsSelectedState'
-import PreferenceSwitch from './components/PreferenceSwitch.vue';
+import PreferenceSwitch from './prefer/PreferenceSwitch.vue';
 import mediumZoom from "medium-zoom";
 import {onMounted, watch, nextTick, h} from 'vue'
 import {useData, useRoute} from 'vitepress'
-import AuthorsComponent from "./components/Authors.vue";
+import AuthorsComponent from "./components/PageAuthors.vue";
 import {NolebaseEnhancedReadabilitiesMenu, NolebaseEnhancedReadabilitiesScreenMenu} from "@nolebase/vitepress-plugin-enhanced-readabilities";
 
 import './style/global.css'

@@ -13,7 +13,7 @@ import {
   preferMavenKey,
   preferMojmap,
   preferMojmapKey,
-} from "../prefer/prefer";
+} from "./prefer";
 
 const {frontmatter} = useData();
 let preferencesToDisplay: Ref<string[]> = ref();

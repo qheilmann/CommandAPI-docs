@@ -3,24 +3,29 @@
 layout: home
 
 hero:
-  name: "Command API"
-  tagline: An API for the command UI introduced in Minecraft 1.13
-  actions:
-    - theme: brand
-      text: Introduction
-      link: /intro
-    - theme: alt
-      text: Download
-      link: https://github.com/CommandAPI/CommandAPI/releases/latest
+    name: "Command API"
+    tagline: An API for the command UI introduced in Minecraft 1.13
+    actions:
+        -   theme: brand
+            text: Introduction
+            link: /intro
+        -   theme: alt
+            text: Download
+            link: https://github.com/CommandAPI/CommandAPI/releases/latest
 
 features:
-  - title: Better Commands & Arguments
-    details: Prevent invalid commands and support over 50 arguments with built-in error checking, suggestions, tooltips, and precise permission.
-  - title: Just Like Vanilla Commands
-    details: Let your command to be executed by the built in <code>/execute</code> command, commandblocks, functions and tags.
-  - title: Easy to Register
-    details: No need to edit <code>plugin.yml</code>, supports Kotlin DSL, and Brigadier-like <code>CommandTree</code>. And provide detailed documentation.
-
+    -   title: Better Commands & Arguments
+        details: Prevent invalid commands and support over 50 arguments with built-in error checking, suggestions, tooltips, and precise permission.
+    -   title: Just Like Vanilla Commands
+        details: Let your command to be executed by the built in <code>/execute</code> command, commandblocks, functions and tags.
+    -   title: Easy to Register
+        details: No need to edit <code>plugin.yml</code>, supports Kotlin DSL, and Brigadier-like <code>CommandTree</code>. And provide detailed documentation.
 ---
 
-<br/>
+<script setup>
+
+import ProjectTeam from '../.vitepress/theme/components/ProjectTeam.vue';
+
+</script>
+
+<ProjectTeam></ProjectTeam>
