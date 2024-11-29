@@ -57,6 +57,7 @@ const vitepressOptions: UserConfig = {
         hostname: homepage
     },
     themeConfig: {
+        logo: '/favicon.svg',
         editLink: {
             pattern: editLinkPattern
         },
