@@ -19,7 +19,7 @@ features:
     -   title: Just Like Vanilla Commands
         details: Let your command to be executed by the built in <code>/execute</code> command, commandblocks, functions and tags.
     -   title: Easy to Register
-        details: No need to edit <code>plugin.yml</code>, supports Kotlin DSL, and Brigadier-like <code>CommandTree</code>. And provide detailed documentation.
+        details: No need to edit <code>plugin.yml</code>, supports Kotlin DSL, and Brigadier-like <code>CommandTree</code>. Also provide detailed documentation.
 ---
 
 <script setup>
