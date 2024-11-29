@@ -124,7 +124,9 @@ const vitePressI18nOptions: VitePressI18nOptions = {
                 }, {
                     text: 'Introduction',
                     link: '/intro'
-                },
+                }, {
+                    component: 'VersionSwitcher'
+                }
             ]
         }
     }

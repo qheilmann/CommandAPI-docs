@@ -6,17 +6,19 @@ import {provideTabsSharedState} from './tabs/useTabsSelectedState'
 import PreferenceSwitch from './prefer/PreferenceSwitch.vue';
 import mediumZoom from "medium-zoom";
 import {onMounted, watch, nextTick, h} from 'vue'
-import {useData, useRoute} from 'vitepress'
+import {useRoute} from 'vitepress'
 import AuthorsComponent from "./components/PageAuthors.vue";
 import {NolebaseEnhancedReadabilitiesMenu, NolebaseEnhancedReadabilitiesScreenMenu} from "@nolebase/vitepress-plugin-enhanced-readabilities";
 
 import './style/global.css'
 import '@nolebase/vitepress-plugin-enhanced-readabilities/client/style.css'
+import VersionSwitcher from "./components/VersionSwitcher.vue";
 
 export default {
     extends: DefaultTheme,
     enhanceApp({app}) {
         provideTabsSharedState(app)
+        app.component('VersionSwitcher', VersionSwitcher)
         app.component('PluginTabs', PluginTabs)
         app.component('PluginTabsTab', PluginTabsTab)
     },
