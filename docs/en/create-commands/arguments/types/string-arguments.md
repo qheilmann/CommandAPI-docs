@@ -55,7 +55,7 @@ Rejected `TextArgument` values:
 
 ```txt
 hello world
-你好世界
+私
 "speech marks: ""
 ```
 
