@@ -14,7 +14,7 @@
         <maven.build.timestamp.format>dd_MMM_yyyy_(hh-mm-ssa)</maven.build.timestamp.format>
         <maven.compiler.source>21</maven.compiler.source>
         <maven.compiler.target>21</maven.compiler.target>
-        <java.version>16</java.version>
+        <java.version>21</java.version>
         <kotlin.version>2.0.0</kotlin.version>
         <paper.version>1.21-R0.1-SNAPSHOT</paper.version>
         <commandapi.version>9.6.1</commandapi.version>
@@ -52,6 +52,7 @@
                                 <sourceDir>${project.basedir}/src/main/java</sourceDir>
                                 <sourceDir>${project.basedir}/src/main/kotlin</sourceDir>
                             </sourceDirs>
+                            <jvmTarget>${maven.compiler.target}</jvmTarget>
                         </configuration>
                         <goals>
                             <goal>compile</goal>
