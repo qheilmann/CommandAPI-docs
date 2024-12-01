@@ -105,7 +105,7 @@ Because the `ChatArgument` and `AdventureChatArgument` can support entity select
 
 For execution, we do the same procedure, because the text that the user enters still has `&` characters that need to be converted into a component.
 
-**Using Adventure Chat API**
+#### Use Adventure Chat API
 
 :::tabs
 ===Java
@@ -114,7 +114,7 @@ For execution, we do the same procedure, because the text that the user enters s
 <<< @/../reference-code/src/main/kotlin/createcommands/arguments/types/chat/ChatPreview.kt#chatPreviewAdventureExample
 :::
 
-**Using Legacy Chat API**
+#### Use Legacy Chat API
 
 :::tabs
 ===Java
