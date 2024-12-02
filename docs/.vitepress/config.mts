@@ -4,7 +4,7 @@ import {defineConfig, UserConfig} from 'vitepress';
 import {withI18n} from 'vitepress-i18n';
 import {VitePressI18nOptions} from 'vitepress-i18n/dist/types';
 import {VitePressSidebarOptions, withSidebar} from "vitepress-sidebar";
-import {tabsPlugin} from "./theme/tabs/codesMarkdownPlugin";
+import {tabsPlugin} from "./theme/tabs/markdownPlugin";
 import fs from "fs";
 import {exampleAutoAnchorPreprocessor} from "./theme/anchor/exampleAutoAnchorPreprocessor";
 

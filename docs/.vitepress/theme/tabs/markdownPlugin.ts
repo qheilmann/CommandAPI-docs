@@ -10,22 +10,23 @@ type Params = {
     shareStateKey: string | undefined
 }
 
-const parseTabsParams = (): Params => {
-    return {
-        shareStateKey: "always"
-    }
-}
-
 export const tabsPlugin = (md: MarkdownIt) => {
     md.use(container, 'tabs', {
         render(tokens: Token[], index: number) {
+            let i = index + 1;
+            let tabsCnt = 0;
+            while(tokens[i].type !== 'container_tabs_close') {
+                if (tokens[i].type === 'tab_open') {
+                    tabsCnt++;
+                }
+                i++;
+                if (i >= tokens.length) {
+                    break;
+                }
+            }
             const token = tokens[index]
             if (token.nesting === 1) {
-                const params = parseTabsParams()
-                const shareStateKeyProp = params.shareStateKey
-                    ? `sharedStateKey="${md.utils.escapeHtml(params.shareStateKey)}"`
-                    : ''
-                return `<PluginTabs ${shareStateKeyProp}>\n`
+                return `<PluginTabs sharedStateKey="${tabsCnt}">\n`
             } else {
                 return `</PluginTabs>\n`
             }
