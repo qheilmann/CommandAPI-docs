@@ -7,6 +7,7 @@ import {VitePressSidebarOptions, withSidebar} from "vitepress-sidebar";
 import {tabsPlugin} from "./theme/tabs/markdownPlugin";
 import fs from "fs";
 import {exampleAutoAnchorPreprocessor} from "./theme/anchor/exampleAutoAnchorPreprocessor";
+import {mathjaxContainerPreprocessor} from "./theme/mathjax/mathjaxContainerPreprocessor";
 
 const defaultLocale: string = 'en';
 const supportLocales: string[] = [
@@ -103,6 +104,7 @@ const vitepressOptions: UserConfig = {
         config: (md) => {
             tabsPlugin(md);
             exampleAutoAnchorPreprocessor(md);
+            mathjaxContainerPreprocessor(md);
         }
     }
 }

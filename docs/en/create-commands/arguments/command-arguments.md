@@ -4,6 +4,7 @@ authors:
   - DerEchtePilz
   - willkroboth
   - JorelAli
+title: CommandArguments class
 ---
 
 # The `CommandArguments` class
