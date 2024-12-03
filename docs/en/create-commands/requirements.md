@@ -41,9 +41,9 @@ We want to put a requirement on this command that the player needs to have at le
 
 :::tabs
 ===Java
-
+<<< @/../reference-code/src/main/java/createcommands/Requirements.java#baseOnPlayerLevelExample
 ===Kotlin
-
+<<< @/../reference-code/src/main/kotlin/createcommands/Requirements.kt#baseOnPlayerLevelExample
 :::
 
 It's important to note that in this example, we case the `sender` to a `player` for the requirement method. We know that the sender is definitely a player because we use `executesPlayer()`, which ensures that this is the case. Now that we've got this, **we need to make sure we update the player's requirements _when their exp changes_**. This is covered in more detail in the section about updating requirements below.
@@ -69,18 +69,18 @@ To represent our party in code, we'll use a simple `Map` called `partyMembers` w
 
 :::tabs
 ===Java
-
+<<< @/../reference-code/src/main/java/createcommands/Requirements.java#partySystemExampleStep1
 ===Kotlin
-
+<<< @/../reference-code/src/main/kotlin/createcommands/Requirements.kt#partySystemExampleStep1
 :::
 
 To begin with, let's create the `/party create <partyName>` command. First, we must declare our arguments:
 
 :::tabs
 ===Java
-
+<<< @/../reference-code/src/main/java/createcommands/Requirements.java#partySystemExampleStep2
 ===Kotlin
-
+<<< @/../reference-code/src/main/kotlin/createcommands/Requirements.kt#partySystemExampleStep2
 :::
 
 In this argument declaration, we put a requirement on the literal `create`, where the player does not have a party. In other words, if the player does not have a party, they are allowed to run `/party create <partyName>`. If a player already has a party, then they won't be allowed to run this command.
@@ -89,18 +89,18 @@ Now that we've declared our arguments, we can now declare our main command `/par
 
 :::tabs
 ===Java
-
+<<< @/../reference-code/src/main/java/createcommands/Requirements.java#partySystemExampleStep3
 ===Kotlin
-
+<<< @/../reference-code/src/main/kotlin/createcommands/Requirements.kt#partySystemExampleStep3
 :::
 
 So now we've added the ability to create a party if we're not already in it. Now we need to implement our `party tp <player>` command. Again, we must start by declaring our arguments:
 
 :::tabs
 ===Java
-
+<<< @/../reference-code/src/main/java/createcommands/Requirements.java#partySystemExampleStep4
 ===Kotlin
-
+<<< @/../reference-code/src/main/kotlin/createcommands/Requirements.kt#partySystemExampleStep4
 :::
 
 Notice something here? There's some code repetition for the `withRequirement` method - this is the same predicate that we used earlier, except we remove the negation. If you are interested, you can view the section [Predicate tips](./predicatetips.md) for a method to improve code reuse.
@@ -109,9 +109,9 @@ Once the arguments have been declared, we can now implement our party teleportat
 
 :::tabs
 ===Java
-
+<<< @/../reference-code/src/main/java/createcommands/Requirements.java#partySystemExampleStep5
 ===Kotlin
-
+<<< @/../reference-code/src/main/kotlin/createcommands/Requirements.kt#partySystemExampleStep5
 :::
 
 What's important to note in this example is that if you spend the time to set up the arguments properly, it severely decreases the amount of code required to write your command. This makes the commands you declare easier to understand and follow and you don't end up having to put all of these checks in the body of your command executor.
@@ -132,13 +132,11 @@ The CommandAPI handles this in a very simple method call:
 CommandAPI.updateRequirements(player);
 ```
 
-<div class="warning">
-
-**Developer's Note:**
+:::danger Developer's Note:
 
 The `CommandAPI.updateRequirements(player);` method can be used anywhere, **except** for the `withRequirement` method. Using it inside this method will crash the server. This is by design – just make sure you don't use it within the `withRequirement` method and everything will be fine!
 
-</div>
+:::
 
 To illustrate how to use this, we'll go over the two examples above:
 
@@ -183,9 +181,9 @@ When a player creates a new party, we need to ensure that their requirements are
 
 :::tabs
 ===Java
-
+<<< @/../reference-code/src/main/java/createcommands/Requirements.java#updateRequirementsExample
 ===Kotlin
-
+<<< @/../reference-code/src/main/kotlin/createcommands/Requirements.kt#updateRequirementsExample
 :::
 
 That's it!
@@ -202,9 +200,9 @@ For example, you can apply multiple requirements for a command by calling the `w
 
 :::tabs
 ===Java
-
+<<< @/../reference-code/src/main/java/createcommands/Requirements.java#multipleRequirementsExample
 ===Kotlin
-
+<<< @/../reference-code/src/main/kotlin/createcommands/Requirements.kt#multipleRequirementsExample
 :::
 
 ::::
