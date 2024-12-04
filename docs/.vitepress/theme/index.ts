@@ -14,6 +14,7 @@ import './style/global.css'
 import '@nolebase/vitepress-plugin-enhanced-readabilities/client/style.css'
 import VersionSwitcher from "./components/VersionSwitcher.vue";
 
+// noinspection JSUnusedGlobalSymbols
 export default {
     extends: DefaultTheme,
     enhanceApp({app}) {
@@ -34,16 +35,25 @@ export default {
         return h(DefaultTheme.Layout, null, children);
     },
     setup() {
-        const route = useRoute()
-        const initZoom = () => {
-            mediumZoom('.main img', {background: 'var(--vp-c-bg)'})
-        }
-        onMounted(() => {
+        const route = useRoute();
+        onMounted(async () => {
             initZoom()
-        })
-        watch(
-            () => route.path,
-            () => nextTick(() => initZoom())
-        )
+            await nextTick(() => scrollToActiveSidebarItem())
+        });
+        watch(() => route.path, () => nextTick(() => {
+            scrollToActiveSidebarItem()
+            initZoom()
+        }));
     }
 } satisfies Theme
+
+function initZoom() {
+    mediumZoom('.main img', {background: 'var(--vp-c-bg)'})
+}
+
+function scrollToActiveSidebarItem() {
+    const activeLink = document.querySelector('#VPSidebarNav div.is-link.is-active.has-active')
+    if (activeLink) {
+        activeLink.scrollIntoView({behavior: 'smooth', block: 'center'})
+    }
+}
