@@ -41,6 +41,10 @@ Using the search icon in the top left corner, you can search for anything in thi
 
 Here's the list of changes to the documentation between each update. You can view the current documentation version at the top of this page.
 
+### Documentation changes 9.4.1 → 9.7.0
+- Updates [Particle data (1.20.5+)](./create-commands/arguments/types/misc/particle-arguments) page with new `Trail` particle information.
+- Adds new [`thenNested()`](./create-commands/command-trees#reduce-indentation-with-nested-arguments) method to command trees.
+
 ### 9.4.0 → 9.4.1
 
 - Updates [Configuration for server owners](./user-setup/config) page with new `skip-initial-datapack-reload` option.
@@ -50,9 +54,9 @@ Here's the list of changes to the documentation between each update. You can vie
 - Updates [Shading the CommandAPI in your plugins](./dev-setup/shading) page with spigot-mapped and mojang-mapped dependencies
 - Adds [Velocity](./velocity_intro) page to outline how to set up the CommandAPI for Velocity
 - Updates [CommandArguments](./create-commands/arguments/command-arguments) to document new additions for safe arguments
-- Updates [Potion effect arguments](./argument_potion) to include examples for the newly added `NamespacedKey` variant for the `PotionEffectArgument`
+- Updates [Potion effect arguments](./create-commands/arguments/types/misc/potion-arguments) to include examples for the newly added `NamespacedKey` variant for the `PotionEffectArgument`
 - Updates [Arguments](./create-commands/arguments/arguments) to list the newly added `PotionEffectArgument.NamespacedKey` argument
-- Updates [Particles](./argument_particles) page to include both [old particle information](./argument_particle_old) and [new particle information](./argument_particle_new)
+- Updates [Particles](./create-commands/arguments/types/misc/particle-arguments) page to include both [old particle information](./create-commands/arguments/types/misc/particle-arguments) and [new particle information](./create-commands/arguments/types/misc/particle-arguments)
 
 ### 9.2.0 → 9.3.0
 
