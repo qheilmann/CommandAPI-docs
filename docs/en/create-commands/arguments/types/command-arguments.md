@@ -104,18 +104,17 @@ To demonstrate restricting commands, let's create a command argument that allows
 
 Let's also add a restriction that the player can only use diamonds or dirt for the `/give` command, and they can only specify an amount if they selected dirt. Overall, our command argument should allow players to follow this path:
 
-$$\begin{gather}
-\texttt{(start)}\\\\
-\swarrow\hspace{1.2cm}\searrow\\\\
-\texttt{tp}\hspace{2cm}\texttt{give}\\\\
-\swarrow\hspace{3cm}\searrow\\\\
-\texttt{player}\hspace{3.25cm}\texttt{player}\\\\
-\hspace{0.25cm}\swarrow\hspace{3.75cm}\swarrow\hspace{1cm}\searrow\\\\
-\hspace{0.25cm}\texttt{target}\hspace{3cm}\texttt{diamond}\hspace{1.75cm}\texttt{dirt}\\\\
-\hspace{4.9cm}\texttt{minecraft:diamond}\hspace{1.75cm}\texttt{minecraft:dirt}\\\\
-\hspace{10cm}\downarrow\\\\
-\hspace{10cm}\texttt{(amount)}\\\\
-\end{gather}$$
+```mermaid
+graph TD
+    A((Start)) --> B(tp)
+    B --> C(player)
+    C --> D(target)
+    A --> E(give)
+    E --> F(player)
+    F --> G(diamond<br/>or<br/>minecraft:diamond)
+    F --> I(dirt<br/>or<br/>minecraft:dirt)
+    I --> J(amount)
+```
 
 In our diagram above, we have two main branches: `/tp` and `/give`. The `/tp` branch has `player` followed by `target`, and the `/give` branch has `player` and then that branches off into two new sections.
 

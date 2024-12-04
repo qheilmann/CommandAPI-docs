@@ -8,6 +8,7 @@ import {tabsPlugin} from "./theme/tabs/markdownPlugin";
 import fs from "fs";
 import {exampleAutoAnchorPreprocessor} from "./theme/anchor/exampleAutoAnchorPreprocessor";
 import {mathjaxContainerPreprocessor} from "./theme/mathjax/mathjaxContainerPreprocessor";
+import {withMermaid} from "vitepress-plugin-mermaid";
 
 const defaultLocale: string = 'en';
 const supportLocales: string[] = [
@@ -153,4 +154,4 @@ function getBase(): string {
     }
 }
 
-export default defineConfig(withSidebar(withI18n(vitepressOptions, vitePressI18nOptions), vitepressSidebarOptions))
+export default withMermaid(withSidebar(withI18n(vitepressOptions, vitePressI18nOptions), vitepressSidebarOptions))
