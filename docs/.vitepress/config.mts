@@ -85,13 +85,13 @@ const vitepressOptions: UserConfig = {
                 scopeName: "source.mccmd",
                 patterns: [{
                     name: "constant.language.mccmd",
-                    match: "(?<=^\\/)[a-zA-Z0-9]+"
+                    match: "(?<=^\\/)\\b[a-zA-Z0-9]+\\b"
                 }, {
                     name: "entity.name.tag.mccmd",
                     match: "@[aeprs](\\[.+\\])?"
                 }, {
                     name: "variable.mccmd",
-                    match: "-?[0-9]+"
+                    match: "(?<=\\s|^)-?[0-9]+(?=\\s|$)"
                 }, {
                     name: "comment.mccmd",
                     match: "<[^>]+>"
