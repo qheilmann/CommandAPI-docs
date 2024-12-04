@@ -11,7 +11,13 @@ export const mathjaxContainerPreprocessor = (md: MarkdownIt) => {
 
 ${line}
 `;
-            } else if (line.endsWith("}$$")) {
+            } else if (line.trim().endsWith("}$$")) {
+                console.log(`
+${line}
+
+</div>
+</div>
+`)
                 return `
 ${line}
 
