@@ -121,7 +121,7 @@ onMounted(() => {
           />
           <label class="maven-label" @click="toggleMaven(true)">Maven</label>
         </div>
-        <div v-if="!preferMaven" class="switch-container">
+        <div v-if="preferencesToDisplay.includes('build-system') && !preferMaven" class="switch-container">
           <label class="groovy-label" @click="toggleGradleDsl(false)">.gradle</label>
           <VTSwitch
               class="dsl-switch"
