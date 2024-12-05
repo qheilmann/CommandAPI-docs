@@ -22,13 +22,15 @@ export const tabsPlugin = (md: MarkdownIt) => {
         render(tokens: Token[], index: number) {
             let i = index + 1;
             let tabsCnt = 0;
-            while(tokens[i].type !== 'container_tabs_close') {
-                if (tokens[i].type === 'tab_open') {
-                    tabsCnt++;
-                }
-                i++;
-                if (i >= tokens.length) {
-                    break;
+            if (tokens.length > i) {
+                while (tokens[i].type !== 'container_tabs_close') {
+                    if (tokens[i].type === 'tab_open') {
+                        tabsCnt++;
+                    }
+                    i++;
+                    if (i >= tokens.length) {
+                        break;
+                    }
                 }
             }
             const token = tokens[index]

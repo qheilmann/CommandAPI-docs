@@ -16,6 +16,8 @@ The CommandAPI offers an additional way to access arguments when using Kotlin: [
 
    If you are already using the Kotlin DSL to create your commands, you can already use delegated properties. `commandapi-core-kotlin` is included in `commandapi-bukkit-kotlin`.
 
+
+
 ### Access arguments using delegated properties
 
 To be able to access arguments by using delegated properties, your variable name needs to match the node name of the argument. This could look like this:
