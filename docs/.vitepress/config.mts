@@ -96,7 +96,7 @@ const vitepressOptions: UserConfig = {
                     name: "variable.mccmd",
                     match: "(?<=\\s|^)-?[0-9]+(?=\\s|$)"
                 }, {
-                    name: "comment.mccmd",
+                    name: "entity.other.attribute-name.mccmd",
                     match: "<[^>]+>"
                 }, {
                     name: "entity.mccmd",
