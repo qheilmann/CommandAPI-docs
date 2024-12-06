@@ -60,20 +60,6 @@
                     </execution>
                 </executions>
             </plugin>
-            <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-compiler-plugin</artifactId>
-                <version>3.8.1</version>
-                <configuration>
-                    <annotationProcessorPaths>
-                        <path>
-                            <groupId>dev.jorel</groupId>
-                            <artifactId>commandapi-annotations</artifactId>
-                            <version>9.6.2-SNAPSHOT</version>
-                        </path>
-                    </annotationProcessorPaths>
-                </configuration>
-            </plugin>
         </plugins>
     </build>
 
@@ -98,13 +84,32 @@
             <groupId>net.kyori</groupId>
             <artifactId>adventure-platform-bukkit</artifactId>
             <version>4.2.0</version>
-            <scope>test</scope>
         </dependency>
         <dependency>
             <groupId>io.papermc.paper</groupId>
             <artifactId>paper-api</artifactId>
             <version>${paper.version}</version>
             <scope>provided</scope>
+        </dependency>
+
+        <!-- Testing -->
+        <dependency>
+            <groupId>org.junit.jupiter</groupId>
+            <artifactId>junit-jupiter</artifactId>
+            <version>5.11.0</version>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <!-- Note: This is before the other CommandAPI dependencies, so example `testLoadMockCommandAPI2`
+                 can resolve the correct instance of the CommandAPIVersionHandler class -->
+            <groupId>dev.jorel</groupId>
+            <artifactId>commandapi-bukkit-test-toolkit</artifactId>
+            <version>${commandapi.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>com.github.seeseemelk</groupId>
+            <artifactId>MockBukkit-v1.21</artifactId>
+            <version>3.133.2</version>
         </dependency>
 
         <!-- CommandAPI -->

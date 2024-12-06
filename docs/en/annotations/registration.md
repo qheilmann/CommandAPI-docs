@@ -16,7 +16,7 @@ CommandAPI.registerCommand(className)
 
 Say we have a simple command `/warp` that is defined as follows:
 
-<<< @/../reference-code/src/main/java/annotations/Intro.java#annotationsExample
+<<< @/../reference-code/src/main/java/annotations/WarpCommand.java#annotationsExample
 
 We can register this in our `onLoad()` method so we can use this command from within Minecraft functions:
 

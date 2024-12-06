@@ -51,7 +51,7 @@ Seems fairly straightforward, given everything else covered in this documentatio
 
 I think it's best to show the example and the explain it afterwards:
 
-<<< @/../reference-code/src/main/java/annotations/Intro.java#annotationsExample
+<<< @/../reference-code/src/main/java/annotations/WarpCommand.java#annotationsExample
 
 <<< @/../reference-code/src/main/java/annotations/Intro.java#annotationsRegisterExample
 
@@ -59,14 +59,14 @@ As we can see, the code certainly _looks_ very different to the normal registrat
 
 #### Command declaration
 
-<<< @/../reference-code/src/main/java/annotations/Intro.java#declareCommand
+<<< @/../reference-code/src/main/java/annotations/WarpCommand.java#declareCommand
 
 Firstly, we declare our command `warp`. To do this, we use the `@Command` annotation and simply state the name of the command in the annotation. This annotation is attached to the class `WarpCommand`, which indicates that the whole class `WarpCommand` will be housing our command.
 
 The annotation framework is designed in such a way that an entire command is represented by a single class. This provides a more modular approach to command declaration that allows you to easily contain the methods of a command in one location.
 
 #### Default command
-<<< @/../reference-code/src/main/java/annotations/Intro.java#defaultExample
+<<< @/../reference-code/src/main/java/annotations/WarpCommand.java#defaultExample
 
 Here, declare the main command implementation using the `@Default` annotation. The `@Default` annotation informs the CommandAPI that the method it is attached to does not have any subcommands. This is effectively the same as registering a regular command without using `.withSubcommand()`.
 
@@ -74,7 +74,7 @@ Here, we simply write what happens when no arguments are run (i.e. the user just
 
 #### Default command (again!)
 
-<<< @/../reference-code/src/main/java/annotations/Intro.java#anotherDefaultExample
+<<< @/../reference-code/src/main/java/annotations/WarpCommand.java#anotherDefaultExample
 
 We also have a second `@Default` annotated method, which handles our `/warp <warp>` command. Because this isn't a subcommand (the warp to teleport to is not a subcommand, it's an argument), we still using the `@Default` annotation. In this method, we include an argument with this command by using the `@AStringArgument` annotation. This argument uses the `StringArgument` class, and the name of this argument is "warpName", which is extracted from the name of the variable. Simply put, **the Annotation for an argument is A** followed by the name of the argument. This is synonymous with using the following:
 
@@ -88,7 +88,7 @@ The second argument is a `String` object, which represents the result of our arg
 
 #### Subcommand
 
-<<< @/../reference-code/src/main/java/annotations/Intro.java#subcommandExample
+<<< @/../reference-code/src/main/java/annotations/WarpCommand.java#subcommandExample
 
 Lastly, we declare a subcommand to allow us to run `/warp create <name>`. To do this, we simply use the `@Subcommand` annotation. In this example, we also apply a permission node that is required to run the command by using the `@Permission` annotation. The rest is fairly straight forward - we declare an argument, in this case it's another `StringArgument` , so we use `@AStringArgument` and then declare everything else in a similar fashion to the default command executor.
 
