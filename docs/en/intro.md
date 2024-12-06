@@ -40,4 +40,4 @@ Using the search icon in the top left corner, you can search for anything in thi
 ## Latest documentation changes ( `9.4.1 → 9.7.0` )
 - Updates [Particle data (1.20.5+)](./create-commands/arguments/types/misc/particle-arguments) page with new `Trail` particle information.
 - Adds new [`thenNested()`](./create-commands/command-trees#reduce-indentation-with-nested-arguments) method to command trees.
-- Adds [tools](./test) for running unit tests on commands.
+- Adds [tools](./test/) for running unit tests on commands.

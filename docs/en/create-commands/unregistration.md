@@ -145,7 +145,7 @@ depend:
 
 :::info
 
-If you can't find the code where a CommandAPI command is registered or just don't have access to the code of a plugin, you can still figure out when a command is registered. If you set [`verbose-outputs`](./config.md#verbose-outputs) to `true` in the CommandAPI's configuration, it will log command registration.
+If you can't find the code where a CommandAPI command is registered or just don't have access to the code of a plugin, you can still figure out when a command is registered. If you set [`verbose-outputs`](../user-setup/config#verbose-outputs) to `true` in the CommandAPI's configuration, it will log command registration.
 
 For the ExamplePlugin, setting `verbose-outputs` to `true` gives this:
 

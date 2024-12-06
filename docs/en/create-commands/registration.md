@@ -22,13 +22,13 @@ I think the easiest way to explain it is with an example:
 
 - First, we create a new `CommandAPICommand`, with the name of the command that the sender must enter to run it.
 
-- Then, we create an argument to add to the command using `withArguments`. This is described in more detail in [the section on arguments](./arguments).
+- Then, we create an argument to add to the command using `withArguments`. This is described in more detail in [the section on arguments](./arguments/arguments).
 
 - In this example, we add an alias, "broadcast", to the command. This allows the sender to use either `/broadcastmsg <message>` or `/broadcast <message>`.
 
 - By using `withPermission`, we require the sender to be an OP to run the command.
 
-- We control what the command does using `executes` (this is described in more detail in [the section on command executors](./executors)).
+- We control what the command does using `executes` (this is described in more detail in [the section on command executors](./executors/command-executors)).
 
 - Finally, we register the command to the CommandAPI using `register`.
 
@@ -62,7 +62,7 @@ CommandAPICommand withPermission(CommandPermission)
 CommandAPICommand withPermission(String)
 ```
 
-The `withPermission` method is used to assign a permission required to execute the command. (See [the section on permissions](permissions) for more info).
+The `withPermission` method is used to assign a permission required to execute the command. (See [the section on permissions](./permissions) for more info).
 
 ```java
 CommandAPICommand withRequirements(sender -> {})
@@ -140,7 +140,7 @@ CommandAPICommand executesNative((proxy, args) -> {})
 CommandAPICommand executesNative(info -> {})
 ```
 
-Executes a command regardless of what the command sender is, using the `NativeProxyCommandSender`.  Read more about native proxied command senders [here](./native).
+Executes a command regardless of what the command sender is, using the `NativeProxyCommandSender`.  Read more about native proxied command senders [here](./executors/native-sender).
 
 :::info
 
@@ -199,9 +199,9 @@ Register the command with the provided plugin's name.
 
 It is recommended to register commands in either the `onLoad()` or `onEnable()` method. With the CommandAPI, depending on whether you use `onLoad()` or `onEnable()` to load your commands depends on whether your plugin is used with Minecraft's functions:
 
-| When to load        | What to do                                                                                                  |
-|---------------------|-------------------------------------------------------------------------------------------------------------|
-| `onLoad()` method   | Register commands to be used in Minecraft functions ([see the Function section for more info](./functions)) |
-| `onEnable()` method | Register regular commands                                                                                   |
+| When to load        | What to do                                                                                                                     |
+|---------------------|--------------------------------------------------------------------------------------------------------------------------------|
+| `onLoad()` method   | Register commands to be used in Minecraft functions ([see the Function section for more info](./functions-and-tags/functions)) |
+| `onEnable()` method | Register regular commands                                                                                                      |
 
 The CommandAPI does support registering commands outside of these methods while the server is running. Commands registered after the server is done loading _should_ work the same as commands registered in `onEnable`.

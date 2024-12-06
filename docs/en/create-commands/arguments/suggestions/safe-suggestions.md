@@ -42,41 +42,41 @@ Not all arguments support safe suggestions. This is mostly due to implementation
 
 The list of supported arguments is displayed in the following table. The parameter `T` (shown in the method the signatures above) are also provided for each argument. This parameter is the same as the cast argument described in [Argument Casting](../command-arguments#argument-casting), except for a few exceptions which are outlined in **bold**.
 
-|                                                                         Argument | Class (T)                                      |
-|---------------------------------------------------------------------------------:|:-----------------------------------------------|
-|                                [`AdvancementArgument`](./advancementargument.md) | `org.bukkit.advancement.Advancement`           |
-|                                             [`AxisArgument`](./argument_axis.md) | `java.util.EnumSet<org.bukkit.Axis>`           |
-|                                           [`BiomeArgument`](./argument_biome.md) | `org.bukkit.block.Biome`                       |
-|                  [`BooleanArgument`](./argument_primitives.md#boolean-arguments) | **`Boolean`**                                  |
-|                   [`ChatColorArgument`](./argument_chats.md#chat-color-argument) | `org.bukkit.ChatColor`                         |
-|                 [`DoubleArgument`](./argument_primitives.md#numerical-arguments) | **`Double`**                                   |
-|                               [`EnchantmentArgument`](./argument_enchantment.md) | `org.bukkit.enchantments.Enchantment`          |
-|              [`EntityTypeArgument`](./argument_entities.md#entity-type-argument) | `org.bukkit.entity.EntityType`                 |
-|                  [`FloatArgument`](./argument_primitives.md#numerical-arguments) | **`Float`**                                    |
-|   [`FloatRangeArgument`](./argument_range.md#the-integerrange--floatrange-class) | `dev.jorel.commandapi.wrappers.FloatRange`     |
-|                                       [`FunctionArgument`](./functionwrapper.md) | **`org.bukkit.NamespacedKey`**                 |
-|           [`GreedyStringArgument`](./argument_strings.md#greedy-string-argument) | `String`                                       |
-|                [`IntegerArgument`](./argument_primitives.md#numerical-arguments) | **`Integer`**                                  |
-| [`IntegerRangeArgument`](./argument_range.md#the-integerrange--floatrange-class) | `dev.jorel.commandapi.wrappers.IntegerRange`   |
-|                                   [`ItemStackArgument`](./argument_itemstack.md) | `org.bukkit.inventory.ItemStack`               |
-|                [`Location2DArgument`](./argument_locations.md#location-2d-space) | `dev.jorel.commandapi.wrappers.Location2D`     |
-|                  [`LocationArgument`](./argument_locations.md#location-3d-space) | `org.bukkit.Location`                          |
-|                   [`LongArgument`](./argument_primitives.md#numerical-arguments) | **`Long`**                                     |
-|                                   [`LootTableArgument`](./argument_loottable.md) | `org.bukkit.loot.LootTable`                    |
-|                           [`MathOperationArgument`](./argument_mathoperation.md) | `dev.jorel.commandapi.wrappers.MathOperation`  |
-|                                       [`NBTCompoundArgument`](./argument_nbt.md) | `de.tr7zw.nbtapi.NBTContainer`                 |
-|               [`ObjectiveArgument`](./argument_objectives.md#objective-argument) | **`org.bukkit.scoreboard.Objective`**          |
-|                [`OfflinePlayerArgument`](./argument_entities.md#player-argument) | `org.bukkit.OfflinePlayer`                     |
-|                                    [`ParticleArgument`](./argument_particles.md) | `org.bukkit.Particle`                          |
-|                       [`PlayerArgument`](./argument_entities.md#player-argument) | `org.bukkit.entity.Player`                     |
-|                                   [`PotionEffectArgument`](./argument_potion.md) | `org.bukkit.potion.PotionEffectType`           |
-|                                         [`RecipeArgument`](./argument_recipe.md) | `org.bukkit.inventory.Recipe`                  |
-|                                     [`RotationArgument`](./argument_rotation.md) | `dev.jorel.commandapi.wrappers.Rotation`       |
-|   [`ScoreboardSlotArgument`](./argument_scoreboards.md#scoreboard-slot-argument) | `dev.jorel.commandapi.wrappers.ScoreboardSlot` |
-|                                           [`SoundArgument`](./argument_sound.md) | `org.bukkit.Sound`                             |
-|                                             [`TeamArgument`](./argument_team.md) | **`org.bukkit.scoreboard.Team`**               |
-|                                             [`TimeArgument`](./argument_time.md) | **`dev.jorel.commandapi.wrappers.Time`**       |
-|                                           [`WorldArgument`](./argument_world.md) | `org.bukkit.World`                             |
+|                                                                                      Argument | Class (T)                                      |
+|----------------------------------------------------------------------------------------------:|:-----------------------------------------------|
+|                                  [`AdvancementArgument`](../types/misc/advancement-arguments) | `org.bukkit.advancement.Advancement`           |
+|                                            [`AxisArgument`](../types/position/axis-arguments) | `java.util.EnumSet<org.bukkit.Axis>`           |
+|                                              [`BiomeArgument`](../types/misc/biome-arguments) | `org.bukkit.block.Biome`                       |
+|                                             [`BooleanArgument`](../types/primitive-arguments) | **`Boolean`**                                  |
+|                [`ChatColorArgument`](../types/chat/spigot-chat-arguments#chat-color-argument) | `org.bukkit.ChatColor`                         |
+|                          [`DoubleArgument`](../types/primitive-arguments#numerical-arguments) | **`Double`**                                   |
+|                                  [`EnchantmentArgument`](../types/misc/enchantment-arguments) | `org.bukkit.enchantments.Enchantment`          |
+|                      [`EntityTypeArgument`](../types/entities-arguments#entity-type-argument) | `org.bukkit.entity.EntityType`                 |
+|                           [`FloatArgument`](../types/primitive-arguments#numerical-arguments) | **`Float`**                                    |
+|          [`FloatRangeArgument`](../types/ranged-arguments#the-integerrange--floatrange-class) | `dev.jorel.commandapi.wrappers.FloatRange`     |
+|                             [`FunctionArgument`](../../functions-and-tags/function-arguments) | **`org.bukkit.NamespacedKey`**                 |
+|                    [`GreedyStringArgument`](../types/string-arguments#greedy-string-argument) | `String`                                       |
+|                         [`IntegerArgument`](../types/primitive-arguments#numerical-arguments) | **`Integer`**                                  |
+|        [`IntegerRangeArgument`](../types/ranged-arguments#the-integerrange--floatrange-class) | `dev.jorel.commandapi.wrappers.IntegerRange`   |
+|                                      [`ItemStackArgument`](../types/misc/itemstack-arguments) | `org.bukkit.inventory.ItemStack`               |
+|                      [`Location2DArgument`](../types/position/location-arguments#2d-location) | `dev.jorel.commandapi.wrappers.Location2D`     |
+|                        [`LocationArgument`](../types/position/location-arguments#3d-location) | `org.bukkit.Location`                          |
+|                            [`LongArgument`](../types/primitive-arguments#numerical-arguments) | **`Long`**                                     |
+|                                      [`LootTableArgument`](../types/misc/loottable-arguments) | `org.bukkit.loot.LootTable`                    |
+|                              [`MathOperationArgument`](../types/misc/mathoperation-arguments) | `dev.jorel.commandapi.wrappers.MathOperation`  |
+|                                               [`NBTCompoundArgument`](../types/nbt-arguments) | `de.tr7zw.nbtapi.NBTContainer`                 |
+|             [`ObjectiveArgument`](../types/scoreboard/objective-arguments#objective-argument) | **`org.bukkit.scoreboard.Objective`**          |
+|                        [`OfflinePlayerArgument`](../types/entities-arguments#player-argument) | `org.bukkit.OfflinePlayer`                     |
+|                                        [`ParticleArgument`](../types/misc/particle-arguments) | `org.bukkit.Particle`                          |
+|                               [`PlayerArgument`](../types/entities-arguments#player-argument) | `org.bukkit.entity.Player`                     |
+|                                      [`PotionEffectArgument`](../types/misc/potion-arguments) | `org.bukkit.potion.PotionEffectType`           |
+|                                            [`RecipeArgument`](../types/misc/recipe-arguments) | `org.bukkit.inventory.Recipe`                  |
+|                                    [`RotationArgument`](../types/position/rotation-arguments) | `dev.jorel.commandapi.wrappers.Rotation`       |
+| [`ScoreboardSlotArgument`](../types/scoreboard/scoreboard-arguments#scoreboard-slot-argument) | `dev.jorel.commandapi.wrappers.ScoreboardSlot` |
+|                                              [`SoundArgument`](../types/misc/sound-arguments) | `org.bukkit.Sound`                             |
+|                                          [`TeamArgument`](../types/scoreboard/team-arguments) | **`org.bukkit.scoreboard.Team`**               |
+|                                                [`TimeArgument`](../types/misc/time-arguments) | **`dev.jorel.commandapi.wrappers.Time`**       |
+|                                              [`WorldArgument`](../types/misc/world-arguments) | `org.bukkit.World`                             |
 
 ## Safe time arguments
 
