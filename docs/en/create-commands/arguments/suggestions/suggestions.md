@@ -26,7 +26,7 @@ Because argument suggestions are arguably the most powerful feature that the Com
 
 ## The `ArgumentSuggestions` interface
 
-The two methods above require an `ArgumentSuggestions` object, which is a functional interface that takes in a `SuggestionInfo` record and the current Brigadier `SuggestionsBuilder` and returns a `CompletableFuture<Suggestions>` object. This may sound a bit complicated, but this allows you to implement very powerful suggestions using a combination of the CommandAPI and raw Brigadier API methods. More information about using Brigadier-level suggestions can be found in the [brigadier suggestions](./brigadiersuggestions.md) section.
+The two methods above require an `ArgumentSuggestions` object, which is a functional interface that takes in a `SuggestionInfo` record and the current Brigadier `SuggestionsBuilder` and returns a `CompletableFuture<Suggestions>` object. This may sound a bit complicated, but this allows you to implement very powerful suggestions using a combination of the CommandAPI and raw Brigadier API methods. More information about using Brigadier-level suggestions can be found in the [brigadier suggestions](../../../internal/brigadier-suggestions) section.
 
 To simplify this, the CommandAPI provides a number of methods to generate suggestions:
 

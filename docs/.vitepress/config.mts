@@ -34,7 +34,6 @@ const vitepressOptions: UserConfig = {
     description: "Website of CommandAPI",
     cleanUrls: true,
     metaChunk: true,
-    ignoreDeadLinks: true, // TODO remove when all things are done
     rewrites: {
         'en/:rest*': ':rest*'
     },

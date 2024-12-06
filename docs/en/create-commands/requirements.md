@@ -103,7 +103,7 @@ So now we've added the ability to create a party if we're not already in it. Now
 <<< @/../reference-code/src/main/kotlin/createcommands/Requirements.kt#partySystemExampleStep4
 :::
 
-Notice something here? There's some code repetition for the `withRequirement` method - this is the same predicate that we used earlier, except we remove the negation. If you are interested, you can view the section [Predicate tips](./predicatetips.md) for a method to improve code reuse.
+Notice something here? There's some code repetition for the `withRequirement` method - this is the same predicate that we used earlier, except we remove the negation. If you are interested, you can view the section [Predicate tips](../tips/predicate-tips) for a method to improve code reuse.
 
 Once the arguments have been declared, we can now implement our party teleportation command:
 
