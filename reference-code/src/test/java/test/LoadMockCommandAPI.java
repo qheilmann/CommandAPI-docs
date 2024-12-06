@@ -10,6 +10,7 @@ import dev.jorel.commandapi.MockCommandAPIPlugin;
 import org.junit.jupiter.api.BeforeEach;
 
 class LoadMockCommandAPI {
+    test
     // #region loadMockCommandAPIExample
     @BeforeEach
     public void setUp() {
