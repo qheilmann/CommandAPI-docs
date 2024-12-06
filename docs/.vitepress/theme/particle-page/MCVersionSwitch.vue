@@ -8,6 +8,10 @@ function useToggleFn(
     state: Ref<boolean>,
     className: string
 ) {
+    if (typeof localStorage === 'undefined') {
+        return () => {
+        }
+    }
     const classList = document.documentElement.classList;
     return (value = !state.value) => {
         if ((state.value = value)) {
