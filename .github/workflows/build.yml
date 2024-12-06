@@ -34,7 +34,7 @@ jobs:
           cd ./reference-code
           mvn verify
 
-      - name: Cache local Maven repository
+      - name: Cache Maven Dependencies
         uses: actions/cache@v3
         with:
           path: ~/.m2/repository
