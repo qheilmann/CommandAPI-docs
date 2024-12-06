@@ -22,12 +22,22 @@ jobs:
             echo ${VER} > VER
           fi
 
+      - name: Setup Java
+        uses: actions/setup-java@v4
+        with:
+          java-version: '21'
+          distribution: 'temurin'
+          architecture: x64
+
+      - name: Verify Reference Codes
+        run: mvn verify
+
       - name: Setup Node.js
         uses: actions/setup-node@v2
         with:
           node-version: '18'
 
-      - name: Install Dependencies
+      - name: Install Docs Dependencies
         run: yarn install
 
       - name: Build Docs
