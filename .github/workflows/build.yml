@@ -29,18 +29,20 @@ jobs:
           distribution: 'temurin'
           architecture: x64
 
+      - name: Restore Maven Cache
+        uses: skjolber/maven-cache-github-action@v3.1.1
+        with:
+          step: restore
+
       - name: Verify Reference Codes
         run: |
           cd ./reference-code
           mvn verify
 
-      - name: Cache Maven Dependencies
-        uses: actions/cache@v3
+      - name: Save Maven Cache
+        uses: skjolber/maven-cache-github-action@v3.1.1
         with:
-          path: ~/.m2/repository
-          key: ${{ runner.os }}-maven-${{ hashFiles('**/pom.xml') }}
-          restore-keys: |
-            ${{ runner.os }}-maven-
+          step: save
 
       - name: Setup Node.js
         uses: actions/setup-node@v2
