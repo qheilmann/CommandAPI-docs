@@ -30,7 +30,9 @@ jobs:
           architecture: x64
 
       - name: Verify Reference Codes
-        run: mvn verify
+        run: |
+          cd ./reference-code
+          mvn verify
 
       - name: Setup Node.js
         uses: actions/setup-node@v2
