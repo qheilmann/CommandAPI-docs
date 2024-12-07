@@ -9,6 +9,7 @@ import fs from "fs";
 import {exampleAutoAnchorPreprocessor} from "./theme/anchor/exampleAutoAnchorPreprocessor";
 import {mathjaxContainerPreprocessor} from "./theme/mathjax/mathjaxContainerPreprocessor";
 import {withMermaid} from "vitepress-plugin-mermaid";
+import {mermaidSpaceConverter} from "./theme/mermaid/mermaidSpaceConverter";
 
 const defaultLocale: string = 'en';
 const supportLocales: string[] = [
@@ -106,6 +107,7 @@ const vitepressOptions: UserConfig = {
         },
         config: (md) => {
             tabsPlugin(md);
+            mermaidSpaceConverter(md);
             exampleAutoAnchorPreprocessor(md);
             mathjaxContainerPreprocessor(md);
         }

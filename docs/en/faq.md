@@ -42,21 +42,11 @@ No. That message is handled client-side and isn't controlled by the CommandAPI. 
 
 ```java
 new CommandAPICommand("mycommand")
-    .withPermission("some.permission")
+    .withPermission("some.permission") // [!code --]
     .executes((sender, args) -> {
-        sender.sendMessage("Hello!");
-    })
-    .register();
-```
-
-$$\downarrow$$
-
-```java
-new CommandAPICommand("mycommand")
-    .executes((sender, args) -> {
-        if(!sender.hasPermission("some.permission")) {
-            throw CommandAPI.failWithString("You don't have permission to run /mycommand!");
-        }
+        if(!sender.hasPermission("some.permission")) { // [!code ++]
+            throw CommandAPI.failWithString("You don't have permission to run /mycommand!"); // [!code ++]
+        } // [!code ++]
         sender.sendMessage("Hello!");
     })
     .register();
@@ -73,11 +63,7 @@ Arguments with suggestions provided using `ArgumentSuggestions.strings(String...
 The easiest way to do this is to add `info ->` at the start of your array:
 
 ```java
-ArgumentSuggestions.strings(SomeClass.someArray);
-```
+ArgumentSuggestions.strings(SomeClass.someArray); // [!code --]
 
-$$\downarrow$$
-
-```java
-ArgumentSuggestions.strings(info -> SomeClass.someArray);
+ArgumentSuggestions.strings(info -> SomeClass.someArray); // [!code ++]
 ```

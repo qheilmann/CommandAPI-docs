@@ -74,7 +74,7 @@ In this scenario, if we ran this command, we would expect "Hello!" to appear in 
 ```mermaid
 graph TD
     A(execute) --> B(if)
-    B --> C("randomchance&nbsp;&lt;numerator&gt;&nbsp;&lt;denominator&gt;")
+    B --> C("randomchance &lt;numerator&gt; &lt;denominator&gt;")
 ```
 
 - After entering our predicate, we want to route back to `execute` (because the argument after `execute` is `run`, which is used in our example command above):
@@ -82,7 +82,7 @@ graph TD
 ```mermaid
 graph TD
     A(execute) --> B(if)
-    B --> C("randomchance&nbsp;&lt;numerator&gt;&nbsp;&lt;denominator&gt;")
+    B --> C("randomchance &lt;numerator&gt; &lt;denominator&gt;")
     C --> D(execute)
 ```
 

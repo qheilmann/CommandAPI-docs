@@ -104,17 +104,15 @@ This saves having to use `instanceof` multiple times to check the type of the `C
 
 The different command sender priority is the following (from the highest priority to the lowest priority):
 
-$$
-\begin{align}
-&\quad\texttt{.executesNative()} && \texttt{(Always chosen if used)}\\\\
-&\quad\texttt{.executesPlayer()} \\\\
-&\quad\texttt{.executesEntity()} \\\\
-&\quad\texttt{.executesConsole()} \\\\
-&\quad\texttt{.executesCommandBlock()} \\\\
-&\quad\texttt{.executesProxy()} \\\\
-&\quad\texttt{.executes()}
-\end{align}
-$$
+```mermaid
+graph TD
+    A(".executesNative() (Always chosen if used)") --> B(".executesPlayer()")
+    B --> C(".executesEntity()")
+    C --> D(".executesConsole()")
+    D --> E(".executesCommandBlock()")
+    E --> F(".executesProxy()")
+    F --> G(".executes()")
+```
 
 ## Multiple command executors with the same implementation
 

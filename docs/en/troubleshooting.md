@@ -20,16 +20,8 @@ This is most likely caused by using a constant array instead of using a lambda t
 ```java
 new StringArgument("players")
     .replaceSuggestions(ArgumentSuggestions.strings( 
-        Bukkit.getOnlinePlayers().stream().map(Player::getName).toArray(String[]::new)
-    ));
-```
-
-$$\downarrow$$
-
-```java
-new StringArgument("players")
-    .replaceSuggestions(ArgumentSuggestions.strings( 
-        info -> Bukkit.getOnlinePlayers().stream().map(Player::getName).toArray(String[]::new)
+        Bukkit.getOnlinePlayers().stream().map(Player::getName).toArray(String[]::new)  // [!code --]
+        info -> Bukkit.getOnlinePlayers().stream().map(Player::getName).toArray(String[]::new)  // [!code ++]
     ));
 ```
 
