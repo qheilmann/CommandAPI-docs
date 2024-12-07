@@ -10,7 +10,7 @@ import {exampleAutoAnchorPreprocessor} from "./theme/anchor/exampleAutoAnchorPre
 import {mathjaxContainerPreprocessor} from "./theme/mathjax/mathjaxContainerPreprocessor";
 import {withMermaid} from "vitepress-plugin-mermaid";
 import {mermaidSpaceConverter} from "./theme/mermaid/mermaidSpaceConverter";
-import {injectUpgradePartsPlugin} from "./theme/upgrade/injectUpgradePartsPlugin";
+import {injectUpgradingPartsPlugin} from "./theme/upgrading/injectUpgradingPartsPlugin";
 
 const defaultLocale: string = 'en';
 const supportLocales: string[] = [
@@ -109,7 +109,7 @@ const vitepressOptions: UserConfig = {
         },
         config: (md) => {
             tabsPlugin(md);
-            injectUpgradePartsPlugin(md);
+            injectUpgradingPartsPlugin(md);
             mermaidSpaceConverter(md);
             exampleAutoAnchorPreprocessor(md);
             mathjaxContainerPreprocessor(md);

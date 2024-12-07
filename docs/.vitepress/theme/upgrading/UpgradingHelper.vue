@@ -1,12 +1,12 @@
 <script setup lang="ts">
 
 import {onMounted, onUnmounted, ref, watch} from "vue";
-import {getChanges, getVersionsAfter, getVersionsBefore, keyVersions, nowChanges, nowUpgradeInfo} from "./upgrade";
+import {getChanges, getVersionsAfter, getVersionsBefore, keyVersions, nowChanges, nowUpgradingInfo} from "./upgrading";
 
 const fromOptions = ref([]);
 const toOptions = ref([]);
-const nowFrom = ref(nowUpgradeInfo.value.from);
-const nowTo = ref(nowUpgradeInfo.value.to);
+const nowFrom = ref(nowUpgradingInfo.value.from);
+const nowTo = ref(nowUpgradingInfo.value.to);
 const isFromDropdownOpen = ref(false);
 const isToDropdownOpen = ref(false);
 
@@ -52,16 +52,16 @@ function selectTo(version: string) {
 }
 
 function update() {
-    nowUpgradeInfo.value = {
+    nowUpgradingInfo.value = {
         from: nowFrom.value,
         to: nowTo.value
     };
-    window.location.hash = `#${nowUpgradeInfo.value.from}-${nowUpgradeInfo.value.to}`;
-    fromOptions.value = getVersionsBefore(nowUpgradeInfo.value.to);
-    toOptions.value = getVersionsAfter(nowUpgradeInfo.value.from);
-    nowChanges.value = getChanges(nowUpgradeInfo.value);
+    window.location.hash = `#${nowUpgradingInfo.value.from}-${nowUpgradingInfo.value.to}`;
+    fromOptions.value = getVersionsBefore(nowUpgradingInfo.value.to);
+    toOptions.value = getVersionsAfter(nowUpgradingInfo.value.from);
+    nowChanges.value = getChanges(nowUpgradingInfo.value);
     const changes = nowChanges.value.map(change => `${change.from}-to-${change.to}`);
-    document.querySelectorAll('.upgrade-parts-container div').forEach(ele => {
+    document.querySelectorAll('.upgrading-parts-container div').forEach(ele => {
         if (changes.includes(ele.id)) {
             ele.classList.add('show');
         } else {
@@ -129,15 +129,19 @@ function reload() {
 
 .dropdown-content {
     opacity: 0;
-    overflow: hidden;
+    overflow-x: hidden;
+    -ms-overflow-x: hidden;
+    overflow-y: auto;
+    -ms-overflow-y: auto;
     display: block;
     position: absolute;
     background-color: var(--vp-c-bg-elv);
     border-radius: 4px;
     border: 1px solid var(--vp-c-divider);
     box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
-    z-index: 1;
+    z-index: 5;
     transition: opacity 0.25s;
+    max-height: 32vh;
 }
 
 .dropdown-content a {
