@@ -17,7 +17,7 @@ Similar to the `ListArgument`, this argument also uses a builder class to constr
 
 ```mermaid
 graph TD
-    A(Create a MapArgumentBuilder<br/>possibly provide the delimiter or separator) --> B(Provide the mapper from a string to an object of the provided key type)
+    A(Create a MapArgumentBuilder and possibly provide the delimiter or separator) --> B(Provide the mapper from a string to an object of the provided key type)
     B --> C(Provide the mapper from a string to an object of the provided value type)
     C --> D(Provide the list with keys to pull suggestions from)
     D --> E(Provide the list with values to pull suggestions from)
