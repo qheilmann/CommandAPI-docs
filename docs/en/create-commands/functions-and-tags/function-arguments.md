@@ -14,7 +14,7 @@ The `FunctionArgument` class is used to represent a function or a tag in Minecra
 
 Therefore, if a user supplies a single function, the `FunctionWrapper[]` will be of size 1, and if the user supplies a tag which can consist of multiple functions, the `FunctionWrapper[]` will consist of the array of functions as declared by that tag.
 
-::::tip Example – Minecraft's /function command
+::::tip Example – Minecraft's `/function` command
 
 Since it's a little difficult to demonstrate a custom use for the `FunctionArgument`, we will show how you can implement Vanilla Minecraft's `/function` command. In this example, we want a command that uses the following syntax:
 
