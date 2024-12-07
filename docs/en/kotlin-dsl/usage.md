@@ -73,7 +73,7 @@ However, when using this DSL it is implemented like this:
 integerArgument("integer", 0, 10)
 ```
 
-:::warning Developer's Note:
+:::danger Developer's Note:
 
 There are a few arguments not having a method which directly corresponds to their respective argument.
 
