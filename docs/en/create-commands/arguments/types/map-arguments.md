@@ -154,7 +154,7 @@ To implement that, we create a command that uses a `MapArgument` and use `Player
 <<< @/../reference-code/src/main/kotlin/createcommands/arguments/types/MapArguments.kt#mapArgumentsExampleDSL
 :::
 
-:::warning Developer's Note:
+:::danger Developer's Note:
 
 The `MapArgument` is very strict and doesn't have room for any errors. A key must always be followed by the delimiter, then a value. One value and the next key must always be separated by the separator. Both keys and values also have the option to be surrounded by quotes.
 
