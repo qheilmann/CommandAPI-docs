@@ -10,6 +10,7 @@ import {exampleAutoAnchorPreprocessor} from "./theme/anchor/exampleAutoAnchorPre
 import {mathjaxContainerPreprocessor} from "./theme/mathjax/mathjaxContainerPreprocessor";
 import {withMermaid} from "vitepress-plugin-mermaid";
 import {mermaidSpaceConverter} from "./theme/mermaid/mermaidSpaceConverter";
+import {injectUpgradePartsPlugin} from "./theme/upgrade/injectUpgradePartsPlugin";
 
 const defaultLocale: string = 'en';
 const supportLocales: string[] = [
@@ -20,6 +21,7 @@ const editLinkPattern = `${repository.url}/edit/master/docs/:path`;
 
 const commonSidebarOptions: VitePressSidebarOptions = {
     excludeFilesByFrontmatterFieldName: "hidden",
+    excludeFolders: ["upgrade-parts"],
     collapsed: false,
     collapseDepth: 4,
     capitalizeFirst: true,
@@ -107,6 +109,7 @@ const vitepressOptions: UserConfig = {
         },
         config: (md) => {
             tabsPlugin(md);
+            injectUpgradePartsPlugin(md);
             mermaidSpaceConverter(md);
             exampleAutoAnchorPreprocessor(md);
             mathjaxContainerPreprocessor(md);

@@ -50,3 +50,11 @@ kbd:not(.DocSearch-Button-Key) {
     padding: 5px;
     white-space: nowrap;
 }
+
+.menu .VPMenu {
+    max-height: 64vh;
+}
+
+.hide-anchor .header-anchor {
+    display: none;
+}

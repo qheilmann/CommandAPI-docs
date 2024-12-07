@@ -6,6 +6,7 @@ import VPMenuLink from 'vitepress/dist/client/theme-default/components/VPMenuLin
 import VPFlyout from 'vitepress/dist/client/theme-default/components/VPFlyout.vue'
 import {parse} from "yaml";
 import {useRoute} from "vitepress";
+import {currentVersion, latestVersion} from "./version";
 
 const props = defineProps<{
     screenMenu?: boolean
@@ -13,8 +14,6 @@ const props = defineProps<{
 const route = useRoute();
 
 let versionList: string[] = [];
-const currentVersion = ref('');
-const latestVersion = ref('');
 const versions = ref<string[]>([]);
 
 function refresh() {

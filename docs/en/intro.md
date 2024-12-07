@@ -37,7 +37,7 @@ You can use the sidebar on the left to access the various sections of the docume
 
 Using the search icon in the top left corner, you can search for anything in this entire documentation. For example, typing "Example" will show a list of examples which are included throughout the documentation.
 
-## Latest documentation changes ( `9.4.1 → 9.7.0` )
+## Latest documentation changes ( `9.4.1 → 9.7.0` ) {#latest-changes}
 - Updates [Particle data (1.20.5+)](./create-commands/arguments/types/misc/particle-arguments) page with new `Trail` particle information.
 - Adds new [`thenNested()`](./create-commands/command-trees#reduce-indentation-with-nested-arguments) method to command trees.
 - Adds [tools](./test/intro) for running unit tests on commands.
