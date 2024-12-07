@@ -12,7 +12,8 @@ export const injectUpgradingPartsPlugin = (md: MarkdownIt) => {
 ${state.src.replace(INJECT_UPGRADING_PARTS, upgradingInfos
             .map(info => {
                 const targetPartFile = `./docs/en/upgrading-parts/${info.from}-to-${info.to}.md`;
-                const targetPartContent = fs.readFileSync(targetPartFile, 'utf-8');
+                const targetPartContent = fs.readFileSync(targetPartFile, 'utf-8')
+                    .replace(new RegExp("]\\(\\.\\./", 'g'), "](./");
                 return `
 <div id="${info.from}-to-${info.to}" class="default-hide">
 

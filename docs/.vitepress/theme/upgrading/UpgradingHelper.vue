@@ -57,8 +57,8 @@ function update() {
         to: nowTo.value
     };
     window.location.hash = `#${nowUpgradingInfo.value.from}-${nowUpgradingInfo.value.to}`;
-    fromOptions.value = getVersionsBefore(nowUpgradingInfo.value.to);
-    toOptions.value = getVersionsAfter(nowUpgradingInfo.value.from);
+    fromOptions.value = getVersionsBefore(nowUpgradingInfo.value.to).reverse();
+    toOptions.value = getVersionsAfter(nowUpgradingInfo.value.from).reverse();
     nowChanges.value = getChanges(nowUpgradingInfo.value);
     const changes = nowChanges.value.map(change => `${change.from}-to-${change.to}`);
     document.querySelectorAll('.upgrading-parts-container div').forEach(ele => {
