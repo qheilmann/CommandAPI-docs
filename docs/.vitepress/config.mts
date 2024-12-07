@@ -21,7 +21,7 @@ const editLinkPattern = `${repository.url}/edit/master/docs/:path`;
 
 const commonSidebarOptions: VitePressSidebarOptions = {
     excludeFilesByFrontmatterFieldName: "hidden",
-    excludeFolders: ["upgrade-parts"],
+    excludePattern: ['upgrading-parts/**'],
     collapsed: false,
     collapseDepth: 4,
     capitalizeFirst: true,
