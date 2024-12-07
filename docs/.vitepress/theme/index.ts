@@ -7,12 +7,12 @@ import PreferenceSwitch from './prefer/PreferenceSwitch.vue';
 import mediumZoom from "medium-zoom";
 import {onMounted, watch, nextTick, h} from 'vue'
 import {useRoute} from 'vitepress'
-import AuthorsComponent from "./components/PageAuthors.vue";
+import AuthorsComponent from "./author/PageAuthors.vue";
 import {NolebaseEnhancedReadabilitiesMenu, NolebaseEnhancedReadabilitiesScreenMenu} from "@nolebase/vitepress-plugin-enhanced-readabilities";
 
 import './style/global.css'
 import '@nolebase/vitepress-plugin-enhanced-readabilities/client/style.css'
-import VersionSwitcher from "./components/VersionSwitcher.vue";
+import VersionSwitcher from "./versioning/VersionSwitcher.vue";
 
 // noinspection JSUnusedGlobalSymbols
 export default {

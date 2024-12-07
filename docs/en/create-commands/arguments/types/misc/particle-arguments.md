@@ -10,7 +10,7 @@ authors:
 
 <script setup>
 
-import MCVersionSwitch from '../../../../../.vitepress/theme/particle-page/MCVersionSwitch.vue';
+import MCVersionSwitch from '../../../../../.vitepress/theme/components/MCVersionSwitch.vue';
 
 </script>
 

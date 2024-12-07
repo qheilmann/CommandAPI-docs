@@ -24,7 +24,7 @@ features:
 
 <script setup>
 
-import ProjectTeam from '../.vitepress/theme/components/ProjectTeam.vue';
+import ProjectTeam from '../.vitepress/theme/author/ProjectTeam.vue';
 
 </script>
 
