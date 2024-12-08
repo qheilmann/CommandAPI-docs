@@ -7,7 +7,7 @@ import dev.jorel.commandapi.arguments.TextArgument;
 import org.bukkit.plugin.java.JavaPlugin;
 
 class PrimitiveArguments {
-    {
+    static {
         new JavaPlugin() {
             @Override
             public void onEnable() {

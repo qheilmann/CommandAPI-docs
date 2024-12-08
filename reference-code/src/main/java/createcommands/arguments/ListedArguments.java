@@ -7,7 +7,7 @@ import dev.jorel.commandapi.arguments.PlayerArgument;
 import org.bukkit.entity.Player;
 
 class ListedArguments {
-    {
+    static {
         // #region listedArgumentsExample
         new CommandAPICommand("mycommand")
             .withArguments(new PlayerArgument("player"))

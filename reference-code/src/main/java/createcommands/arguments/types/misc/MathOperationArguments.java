@@ -8,7 +8,7 @@ import dev.jorel.commandapi.wrappers.MathOperation;
 import org.bukkit.entity.Player;
 
 class MathOperationArguments {
-    {
+    static {
         // #region mathOperationArgumentsExample
         new CommandAPICommand("changelevel")
             .withArguments(new PlayerArgument("player"))

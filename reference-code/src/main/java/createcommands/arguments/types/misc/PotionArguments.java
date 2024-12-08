@@ -11,7 +11,7 @@ import org.bukkit.potion.PotionEffect;
 import org.bukkit.potion.PotionEffectType;
 
 class PotionArguments {
-    {
+    static {
         // #region potionEffectArgumentsExample
         new CommandAPICommand("potion")
             .withArguments(new PlayerArgument("target"))

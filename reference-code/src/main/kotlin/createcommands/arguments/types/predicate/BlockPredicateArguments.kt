@@ -74,7 +74,7 @@ fun blockPredicateArgumentsDSL() {
             for (x in -radius until radius + 1) {
                 for (y in -radius until radius + 1) {
                     for (z in -radius until radius + 1) {
-                        if (Math.sqrt((x * x + y * y + z * z).toDouble()) <= radius) {
+                        if (sqrt((x * x + y * y + z * z).toDouble()) <= radius) {
                             val block = center.world.getBlockAt(x + center.blockX, y + center.blockY, z + center.blockZ)
 
                             // If that block matches a block from the predicate, set it

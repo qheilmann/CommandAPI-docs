@@ -16,7 +16,9 @@ import java.util.concurrent.ThreadLocalRandom;
 
 class Intro {
     class ExamplePlugin {
+        @SuppressWarnings("FieldCanBeLocal")
         private final ProxyServer server;
+        @SuppressWarnings("FieldCanBeLocal")
         private final Logger logger;
 
         // #region loadCommandAPIExample
@@ -38,7 +40,7 @@ class Intro {
     }
     // #endregion enableCommandAPIExample
 
-    {
+    static {
         // #region registerCommandExample
         new CommandAPICommand("randomnumber")
             .withArguments(new IntegerArgument("min"))

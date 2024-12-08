@@ -22,7 +22,7 @@ import java.util.Map.Entry;
 import java.util.UUID;
 
 class Requirements {
-    {
+    static {
         // #region baseOnPlayerLevelExample
         new CommandAPICommand("repair")
             .withRequirement(sender -> ((Player) sender).getLevel() >= 30)

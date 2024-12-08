@@ -11,7 +11,7 @@ import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
 
 class CommandArguments {
-    {
+    static {
         // #region sudoCommandExample
         new CommandAPICommand("sudo")
             .withArguments(new PlayerArgument("target"))

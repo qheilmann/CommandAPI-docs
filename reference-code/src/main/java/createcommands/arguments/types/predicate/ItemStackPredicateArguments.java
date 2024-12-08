@@ -7,7 +7,7 @@ import org.bukkit.inventory.ItemStack;
 import java.util.function.Predicate;
 
 class ItemStackPredicateArguments {
-    {
+    static {
         // #region itemStackPredicateArgumentsExample
         // Register our command
         new CommandAPICommand("rem")

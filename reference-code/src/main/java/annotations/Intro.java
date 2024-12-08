@@ -10,7 +10,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 class Intro {
-    {
+    static {
         // #region legacyExample
         Map<String, Location> warps = new HashMap<>();
 

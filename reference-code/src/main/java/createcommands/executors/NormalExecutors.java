@@ -9,7 +9,7 @@ import org.bukkit.command.ProxiedCommandSender;
 import org.bukkit.entity.LivingEntity;
 
 class NormalExecutors {
-    {
+    static {
         // #region broadcastExample
         // Create our command
         new CommandAPICommand("broadcastmsg")

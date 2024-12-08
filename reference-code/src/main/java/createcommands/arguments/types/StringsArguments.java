@@ -6,7 +6,7 @@ import dev.jorel.commandapi.arguments.PlayerArgument;
 import org.bukkit.entity.Player;
 
 class StringsArguments {
-    {
+    static {
         // #region greedyStringArgumentsExample
         new CommandAPICommand("message")
             .withArguments(new PlayerArgument("target"))

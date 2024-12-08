@@ -4,7 +4,7 @@ import dev.jorel.commandapi.CommandAPICommand;
 import org.bukkit.Location;
 
 class NativeSender {
-    {
+    static {
         // #region breakCommandExample
         new CommandAPICommand("break")
             .executesNative((sender, args) -> {

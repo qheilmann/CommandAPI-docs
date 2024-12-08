@@ -6,7 +6,7 @@ import dev.jorel.commandapi.arguments.IntegerArgument;
 import org.bukkit.enchantments.Enchantment;
 
 class EnchantmentArguments {
-    {
+    static {
         // #region enchantmentArgumentsExample
         new CommandAPICommand("enchantitem")
             .withArguments(new EnchantmentArgument("enchantment"))

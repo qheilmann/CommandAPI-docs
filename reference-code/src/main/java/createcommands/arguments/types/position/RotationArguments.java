@@ -9,7 +9,7 @@ import org.bukkit.entity.Entity;
 import org.bukkit.util.EulerAngle;
 
 class RotationArguments {
-    {
+    static {
         // #region rotationArgumentsExample
         new CommandAPICommand("rotate")
             .withArguments(new RotationArgument("rotation"))

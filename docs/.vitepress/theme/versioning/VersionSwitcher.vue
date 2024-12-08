@@ -8,6 +8,7 @@ import {parse} from "yaml";
 import {useRoute} from "vitepress";
 import {currentVersion, latestVersion} from "./version";
 
+// noinspection JSUnusedGlobalSymbols
 const props = defineProps<{
     screenMenu?: boolean
 }>();

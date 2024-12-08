@@ -22,7 +22,7 @@ import java.util.Collections;
 import java.util.List;
 
 class Tooltips {
-    {
+    static {
         // #region createArgumentsWithTooltips
         List<Argument<?>> arguments = new ArrayList<>();
         arguments.add(new StringArgument("emote")

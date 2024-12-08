@@ -12,7 +12,7 @@ import org.bukkit.block.data.BlockData;
 import java.util.function.Predicate;
 
 class BlockPredicateArguments {
-    {
+    static {
         // #region useBlockStateArgumentsExample
         Argument<?>[] arguments = new Argument<?>[] {
             new IntegerArgument("radius"),

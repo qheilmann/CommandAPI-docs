@@ -14,7 +14,7 @@ import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.BookMeta;
 
 class SpigotChatArguments {
-    {
+    static {
         // #region chatColorArgumentExample
         new CommandAPICommand("namecolor")
             .withArguments(new ChatColorArgument("chatcolor"))

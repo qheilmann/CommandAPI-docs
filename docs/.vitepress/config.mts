@@ -1,6 +1,6 @@
 // @ts-ignore
 import {repository, homepage} from '../../package.json';
-import {defineConfig, UserConfig} from 'vitepress';
+import {UserConfig} from 'vitepress';
 import {withI18n} from 'vitepress-i18n';
 import {VitePressI18nOptions} from 'vitepress-i18n/dist/types';
 import {VitePressSidebarOptions, withSidebar} from "vitepress-sidebar";

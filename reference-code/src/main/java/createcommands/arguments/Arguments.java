@@ -12,7 +12,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 class Arguments {
-    {
+    static {
         // #region registerArgumentsExample
         new CommandAPICommand("mycommand")
             .withArguments(new StringArgument("arg0"))

@@ -9,7 +9,7 @@ import org.bukkit.plugin.java.JavaPlugin;
 import java.util.concurrent.CompletableFuture;
 
 class AsyncSuggestions {
-    {
+    static {
         JavaPlugin plugin = null;
         // #region asyncSuggestionsExample
         new CommandAPICommand("setconfig")

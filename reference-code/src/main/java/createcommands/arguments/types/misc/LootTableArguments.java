@@ -11,7 +11,7 @@ import org.bukkit.loot.LootTable;
 import org.bukkit.loot.Lootable;
 
 class LootTableArguments {
-    {
+    static {
         // #region lootTableArgumentsExample
         new CommandAPICommand("giveloottable")
             .withArguments(new LootTableArgument("lootTable"))

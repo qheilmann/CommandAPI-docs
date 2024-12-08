@@ -5,7 +5,7 @@ import dev.jorel.commandapi.arguments.MultiLiteralArgument;
 import org.bukkit.GameMode;
 
 class MultiLiteralArguments {
-    {
+    static {
         // #region multiliteralArgumentsExample
         new CommandAPICommand("gamemode")
             .withArguments(new MultiLiteralArgument("gamemodes", "adventure", "creative", "spectator", "survival"))

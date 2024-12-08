@@ -7,7 +7,7 @@ import org.bukkit.entity.Player;
 import org.bukkit.inventory.ComplexRecipe;
 
 class RecipeArguments {
-    {
+    static {
         // #region getResultExample
         new CommandAPICommand("giverecipe")
             .withArguments(new RecipeArgument("recipe"))

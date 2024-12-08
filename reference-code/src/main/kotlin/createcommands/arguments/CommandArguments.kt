@@ -1,11 +1,7 @@
 package createcommands.arguments
 
 import dev.jorel.commandapi.CommandAPICommand
-import dev.jorel.commandapi.arguments.EntitySelectorArgument
-import dev.jorel.commandapi.arguments.GreedyStringArgument
-import dev.jorel.commandapi.arguments.IntegerArgument
-import dev.jorel.commandapi.arguments.PlayerArgument
-import dev.jorel.commandapi.arguments.StringArgument
+import dev.jorel.commandapi.arguments.*
 import dev.jorel.commandapi.executors.PlayerCommandExecutor
 import org.bukkit.entity.Player
 
@@ -25,7 +21,7 @@ fun commandArguments() {
             val message = args.getOptional("message").orElse("Hello!") as String // Access arguments using the getOptional(String) method
             // Do whatever with these values
         })
-        .register();
+        .register()
     // #endregion getArgExample
 
     // #region getRawExample
@@ -35,7 +31,7 @@ fun commandArguments() {
             val entitySelector = args.getRaw("entities")!! // Access the raw argument with getRaw(String)
             // Do whatever with the entity selector
         })
-        .register();
+        .register()
     // #endregion getRawExample
 
     // #region getUncheckedExample
@@ -45,7 +41,7 @@ fun commandArguments() {
             val p: Player = args.getUnchecked("player")!!
             // Do whatever with the player
         })
-        .register();
+        .register()
     // #endregion getUncheckedExample
 
     // #region getByArgumentExample
@@ -69,6 +65,6 @@ fun commandArguments() {
             val message: String = args.getOptionalByArgument(messageArgument).orElse("Hello!")
             // Do whatever with these values
         })
-        .register();
+        .register()
     // #endregion getByArgumentExample
 }

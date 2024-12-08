@@ -13,7 +13,7 @@ import java.util.UUID;
 import java.util.function.Predicate;
 
 class PredicateTips {
-    {
+    static {
         Map<UUID, String> partyMembers = null;
         // #region exampleStep1
         List<Argument<?>> arguments = new ArrayList<>();

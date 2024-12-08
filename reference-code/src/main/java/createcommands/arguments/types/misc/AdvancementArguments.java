@@ -8,7 +8,7 @@ import org.bukkit.advancement.AdvancementProgress;
 import org.bukkit.entity.Player;
 
 class AdvancementArguments {
-    {
+    static {
         // #region advancementArgumentsExample
         new CommandAPICommand("award")
             .withArguments(new PlayerArgument("player"))

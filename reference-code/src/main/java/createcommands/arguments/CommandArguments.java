@@ -9,7 +9,7 @@ import dev.jorel.commandapi.arguments.StringArgument;
 import org.bukkit.entity.Player;
 
 class CommandArguments {
-    {
+    static {
         // #region getArgExample
         new CommandAPICommand("mycommand")
             .withArguments(new StringArgument("name"))

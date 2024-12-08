@@ -7,7 +7,7 @@ import dev.jorel.commandapi.arguments.PlayerArgument;
 import org.bukkit.entity.Player;
 
 class Permissions {
-    {
+    static {
         // #region withPermissionExample
         // Register the /god command with the permission node "command.god"
         new CommandAPICommand("god")

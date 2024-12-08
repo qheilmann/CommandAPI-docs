@@ -13,7 +13,7 @@ import org.bukkit.scoreboard.Scoreboard;
 import java.util.Collection;
 
 class ScoreboardArguments {
-    {
+    static {
         // #region scoreHolderArgumentExample
         new CommandAPICommand("reward")
             // We want multiple players, so we use ScoreHolderType.MULTIPLE in the constructor

@@ -8,7 +8,7 @@ import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
 
 class OptionalArguments {
-    {
+    static {
         // #region simpleOptionalArgumentsExample
         new CommandAPICommand("sayhi")
             .withOptionalArguments(new PlayerArgument("target"))

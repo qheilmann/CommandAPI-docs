@@ -11,7 +11,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 class BrigadierPlusCommandAPI {
-    {
+    static {
         // #region addPredicateExample
         // #region addPredicateExampleStep1
         // Register literal "randomchance"

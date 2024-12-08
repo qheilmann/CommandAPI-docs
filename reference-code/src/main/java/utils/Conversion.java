@@ -18,7 +18,7 @@ class Conversion {
     }
     // #endregion simpleConvertExample
 
-    {
+    static {
         // #region convertSpeedCommandExample
         JavaPlugin essentials = (JavaPlugin) Bukkit.getPluginManager().getPlugin("Essentials");
 

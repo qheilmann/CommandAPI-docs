@@ -6,7 +6,7 @@ import dev.jorel.commandapi.CommandAPICommand;
 import org.bukkit.plugin.java.JavaPlugin;
 
 class Shading {
-    {
+    static {
         JavaPlugin plugin = null;
         // #region bukkitConfigExample
         CommandAPI.onLoad(new CommandAPIBukkitConfig(plugin).silentLogs(true));

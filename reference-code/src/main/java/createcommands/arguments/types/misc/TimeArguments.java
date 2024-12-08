@@ -7,7 +7,7 @@ import org.bukkit.Bukkit;
 import org.bukkit.entity.Player;
 
 class TimeArguments {
-    {
+    static {
         // #region timeArgumentsExample
         new CommandAPICommand("bigmsg")
             .withArguments(new TimeArgument("duration"))

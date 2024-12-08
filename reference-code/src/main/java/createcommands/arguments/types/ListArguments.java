@@ -9,7 +9,7 @@ import org.bukkit.inventory.ItemStack;
 import java.util.List;
 
 class ListArguments {
-    {
+    static {
         // #region listArgumentsExample
         new CommandAPICommand("multigive")
             .withArguments(new IntegerArgument("amount", 1, 64))

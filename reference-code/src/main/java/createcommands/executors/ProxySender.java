@@ -4,7 +4,7 @@ import dev.jorel.commandapi.CommandAPICommand;
 import org.bukkit.entity.LivingEntity;
 
 class ProxySender {
-    {
+    static {
         // #region simpleKillCommandExample
         new CommandAPICommand("killme")
             .executesPlayer((player, args) -> {

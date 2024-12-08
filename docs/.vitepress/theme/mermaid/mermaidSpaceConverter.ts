@@ -1,5 +1,4 @@
 import MarkdownIt from "markdown-it";
-import slugify from "@sindresorhus/slugify";
 
 export const mermaidSpaceConverter = (md: MarkdownIt) => {
     md.core.ruler.before('normalize', 'mermaid-space-converter', (state) => {

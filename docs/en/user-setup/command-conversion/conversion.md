@@ -5,6 +5,7 @@ authors:
   - MC-XiaoHei
 ---
 
+<!--suppress HtmlUnknownAttribute, ES6UnusedImports -->
 <script setup>
 import PluginExtractor from '../../../.vitepress/theme/components/PluginExtractor.vue';
 import ConfigValidator from '../../../.vitepress/theme/components/ConfigValidator.vue';

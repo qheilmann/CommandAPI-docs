@@ -6,7 +6,7 @@ import dev.jorel.commandapi.arguments.GreedyStringArgument;
 import org.bukkit.Bukkit;
 
 class Registration {
-    {
+    static {
         // #region registrationExample
         // Create our command
         new CommandAPICommand("broadcastmsg")

@@ -8,7 +8,7 @@ import dev.jorel.commandapi.arguments.StringArgument;
 import java.util.Arrays;
 
 class HandleFailures {
-    {
+    static {
         // #region handleFailuresExample
         // Array of fruit
         String[] fruit = new String[]{"banana", "apple", "orange"};

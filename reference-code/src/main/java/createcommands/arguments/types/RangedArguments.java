@@ -14,7 +14,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 class RangedArguments {
-    {
+    static {
         // #region rangedArgumentsExample
         new CommandAPICommand("searchchests")
             .withArguments(new IntegerRangeArgument("range")) // Range argument

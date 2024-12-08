@@ -6,7 +6,7 @@ import org.bukkit.Chunk;
 import org.bukkit.block.Biome;
 
 class BiomeArguments {
-    {
+    static {
         // #region biomeArgumentsExample
         new CommandAPICommand("setbiome")
             .withArguments(new BiomeArgument("biome"))

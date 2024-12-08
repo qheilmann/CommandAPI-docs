@@ -3,7 +3,7 @@ package createcommands;
 import dev.jorel.commandapi.CommandAPICommand;
 
 class Aliases {
-    {
+    static {
         // #region aliasesExample
         new CommandAPICommand("getpos")
             // Declare your aliases

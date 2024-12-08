@@ -16,7 +16,7 @@ import org.bukkit.entity.Player;
 import java.util.Collection;
 
 class EntitiesArguments {
-    {
+    static {
         // #region entitySelectorArgumentExample
         new CommandAPICommand("remove")
             // Using a collective entity selector to select multiple entities

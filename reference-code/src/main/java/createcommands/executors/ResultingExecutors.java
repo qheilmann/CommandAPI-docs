@@ -10,7 +10,7 @@ import org.bukkit.inventory.ItemStack;
 import java.util.concurrent.ThreadLocalRandom;
 
 class ResultingExecutors {
-    {
+    static {
         // #region randomResultCommandExample
         new CommandAPICommand("randnum")
             .executes((sender, args) -> {

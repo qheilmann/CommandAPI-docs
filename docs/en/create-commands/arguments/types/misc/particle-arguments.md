@@ -8,10 +8,9 @@ authors:
     - willkroboth
 ---
 
+<!--suppress HtmlUnknownAttribute, ES6UnusedImports -->
 <script setup>
-
 import MCVersionSwitch from '../../../../../.vitepress/theme/components/MCVersionSwitch.vue';
-
 </script>
 
 # Particle arguments

@@ -4,7 +4,7 @@ import dev.jorel.commandapi.CommandAPICommand;
 import dev.jorel.commandapi.arguments.StringArgument;
 
 class Subcommands {
-    {
+    static {
         // #region subcommandsExampleStep1
         CommandAPICommand groupAdd = new CommandAPICommand("add")
             .withArguments(new StringArgument("permission"))

@@ -21,7 +21,7 @@ import java.util.Map;
 import java.util.UUID;
 
 class StringSuggestions {
-    {
+    static {
         // #region createWarpCommand
         Map<String, Location> warps = new HashMap<>();
         List<Argument<?>> arguments = new ArrayList<>();

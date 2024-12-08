@@ -10,7 +10,7 @@ import org.bukkit.scoreboard.Objective;
 import java.util.Set;
 
 class ObjectiveArguments {
-    {
+    static {
         // #region objectiveArgumentsExample
         new CommandAPICommand("sidebar")
             .withArguments(new ObjectiveArgument("objective"))

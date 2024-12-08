@@ -9,7 +9,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 class LiteralArguments {
-    {
+    static {
         // #region showLiteralArgumentsIsNotListed
         new CommandAPICommand("mycommand")
             .withArguments(new LiteralArgument("hello"))

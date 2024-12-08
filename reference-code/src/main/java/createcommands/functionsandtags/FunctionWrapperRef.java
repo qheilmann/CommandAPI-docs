@@ -5,7 +5,7 @@ import dev.jorel.commandapi.arguments.FunctionArgument;
 import dev.jorel.commandapi.wrappers.FunctionWrapper;
 
 class FunctionWrapperRef {
-    {
+    static {
         // #region runExample
         new CommandAPICommand("runfunc")
             .withArguments(new FunctionArgument("function"))

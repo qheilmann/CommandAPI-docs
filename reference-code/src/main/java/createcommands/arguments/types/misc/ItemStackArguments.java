@@ -5,7 +5,7 @@ import dev.jorel.commandapi.arguments.ItemStackArgument;
 import org.bukkit.inventory.ItemStack;
 
 class ItemStackArguments {
-    {
+    static {
         // #region itemStackArgumentsExample
         new CommandAPICommand("item")
             .withArguments(new ItemStackArgument("itemStack"))

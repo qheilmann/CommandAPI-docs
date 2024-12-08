@@ -5,7 +5,7 @@ import dev.jorel.commandapi.arguments.ParticleArgument;
 import dev.jorel.commandapi.wrappers.ParticleData;
 
 class ParticleArguments {
-    {
+    static {
         // #region withoutParticleDataExample
         new CommandAPICommand("showparticle")
             .withArguments(new ParticleArgument("particle"))

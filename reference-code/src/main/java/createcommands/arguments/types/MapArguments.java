@@ -9,7 +9,7 @@ import java.util.LinkedHashMap;
 import java.util.Map.Entry;
 
 class MapArguments {
-    {
+    static {
         // #region mapArgumentsExample
         new CommandAPICommand("sendmessage")
             // Parameter 'delimiter' is missing, delimiter will be a colon

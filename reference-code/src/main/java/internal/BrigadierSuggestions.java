@@ -18,7 +18,7 @@ import java.util.Map;
 import java.util.Map.Entry;
 
 class BrigadierSuggestions {
-    {
+    static {
         // #region emojiCommandExample
         Map<String, String> emojis = new HashMap<>();
         emojis.put("☻", "smile");

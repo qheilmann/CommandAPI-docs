@@ -12,7 +12,7 @@ import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
 
 class ChatPreview {
-    {
+    static {
         // #region chatPreviewAdventureExample
         new CommandAPICommand("broadcast")
             .withArguments(new AdventureChatArgument("message").withPreview(info -> {

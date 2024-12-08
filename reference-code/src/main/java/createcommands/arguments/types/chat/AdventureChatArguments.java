@@ -15,7 +15,7 @@ import org.bukkit.Server;
 import org.bukkit.entity.Player;
 
 class AdventureChatArguments {
-    {
+    static {
         // #region namedTextColorExample
         new CommandAPICommand("namecolor")
             .withArguments(new AdventureChatColorArgument("chatcolor"))

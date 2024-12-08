@@ -3,12 +3,11 @@ package createcommands.arguments.types.position;
 import dev.jorel.commandapi.CommandAPICommand;
 import dev.jorel.commandapi.arguments.LocationArgument;
 import dev.jorel.commandapi.arguments.LocationType;
-import org.bukkit.Bukkit;
 import org.bukkit.Location;
 import org.bukkit.Material;
 
 class LocationArguments {
-    {
+    static {
         // #region centerPositionExample
         new LocationArgument("location", LocationType.PRECISE_POSITION, true);
         // #endregion centerPositionExample

@@ -22,10 +22,9 @@ features:
         details: No need to edit <code>plugin.yml</code>, supports Kotlin DSL, and Brigadier-like <code>CommandTree</code>. Also provide detailed documentation.
 ---
 
+<!--suppress HtmlUnknownAttribute, ES6UnusedImports -->
 <script setup>
-
 import ProjectTeam from '../.vitepress/theme/author/ProjectTeam.vue';
-
 </script>
 
 <ProjectTeam></ProjectTeam>

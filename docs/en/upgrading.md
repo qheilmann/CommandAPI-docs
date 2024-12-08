@@ -9,11 +9,10 @@ authors:
 outline: false
 ---
 
+<!--suppress HtmlUnknownAttribute, ES6UnusedImports -->
 <script setup>
-
 import UpgradingHelper from '../.vitepress/theme/upgrading/UpgradingHelper.vue';
 import DoNotToDoAnythingTip from '../.vitepress/theme/upgrading/DoNotToDoAnythingTip.vue';
-
 </script>
 
 <div class="hide-anchor">

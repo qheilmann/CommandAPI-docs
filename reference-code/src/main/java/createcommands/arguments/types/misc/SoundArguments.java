@@ -6,7 +6,7 @@ import org.bukkit.NamespacedKey;
 import org.bukkit.Sound;
 
 class SoundArguments {
-    {
+    static {
         // #region soundArgumentsExample
         new CommandAPICommand("sound")
             .withArguments(new SoundArgument("sound"))

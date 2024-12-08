@@ -12,7 +12,7 @@ function getString(key: string, defaultValue: string) {
 export const currentVersion = ref(getString('current-version', ''));
 export const latestVersion = ref('');
 
-watch(currentVersion, (value) => {
+watch(currentVersion, (value: string) => {
     if (inBrowser) {
         localStorage.setItem('current-version', value);
     }

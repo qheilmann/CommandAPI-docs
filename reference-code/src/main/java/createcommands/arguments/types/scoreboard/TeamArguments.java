@@ -5,7 +5,7 @@ import dev.jorel.commandapi.arguments.TeamArgument;
 import org.bukkit.scoreboard.Team;
 
 class TeamArguments {
-    {
+    static {
         // #region teamArgumentsExample
         new CommandAPICommand("togglepvp")
             .withArguments(new TeamArgument("team"))

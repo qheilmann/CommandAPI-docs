@@ -6,7 +6,7 @@ import org.bukkit.block.Block;
 import org.bukkit.block.data.BlockData;
 
 class BlockStateArguments {
-    {
+    static {
         // #region blockStateArgumentsExample
         new CommandAPICommand("set")
             .withArguments(new BlockStateArgument("block"))

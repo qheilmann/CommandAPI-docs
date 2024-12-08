@@ -25,7 +25,7 @@ import java.util.List;
 import static org.bukkit.Bukkit.getServer;
 
 class SafeSuggestions {
-    {
+    static {
         JavaPlugin plugin = null;
         // #region registerCustomItem
         // Create our itemstack

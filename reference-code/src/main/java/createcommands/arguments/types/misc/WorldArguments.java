@@ -6,7 +6,7 @@ import org.bukkit.Bukkit;
 import org.bukkit.World;
 
 class WorldArguments {
-    {
+    static {
         // #region worldArgumentsExample
         new CommandAPICommand("unloadworld")
             .withArguments(new WorldArgument("world"))
