@@ -1,14 +1,13 @@
 ---
 order: 17
+title: Afterword
 authors:
   - JorelAli
 ---
 
-# Afterword
-
 <div style="text-align: center;">
 
-## A message from the CommandAPI's author
+<h2 style="border-top: none;margin: 0;padding: 0"> A message from the CommandAPI's author </h2>
 
 </div>
 
