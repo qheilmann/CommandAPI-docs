@@ -69,12 +69,12 @@ watch(
         <div class="items">
             <VPMenuLink v-if="!isLatest" :item="{
         text: latestVersion,
-        link: `/../`,
+        link: `/../index`,
       }"/>
             <template v-for="version in versions" :key="version">
                 <VPMenuLink v-if="currentVersion != version" :item="{
           text: version,
-          link: `${isLatest? '' : '/..'}/${version}/`,
+          link: `${isLatest? '' : '/..'}/${version}/index`,
         }"/>
             </template>
         </div>
@@ -88,12 +88,12 @@ watch(
         <div id="navbar-group-version" class="items">
             <VPMenuLink :item="{
         text: latestVersion,
-        link: `${isLatest? '' : '/..'}/`,
+        link: `${isLatest? '' : '/..'}/index`,
       }"/>
             <template v-for="version in versions" :key="version">
                 <VPMenuLink :item="{
           text: version,
-          link: `${isLatest? '' : '/..'}/${version}/`,
+          link: `${isLatest? '' : '/..'}/${version}/index`,
         }"/>
             </template>
         </div>
