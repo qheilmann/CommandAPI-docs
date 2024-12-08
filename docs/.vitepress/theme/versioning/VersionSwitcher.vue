@@ -20,6 +20,7 @@ const isLatest = ref(true);
 function refresh() {
     let version = latestVersion.value;
     let refreshPage = false;
+    isLatest.value = true;
 
     for (const v of versionList) {
         if (window.location.pathname.startsWith(`/${v}/`)) {
@@ -41,7 +42,7 @@ function refresh() {
 }
 
 async function init() {
-    const versionDataFileUrl = `${window.location.origin}/9.4.2/versions.yml`;
+    const versionDataFileUrl = `${window.location.origin}/versions.yml`;
     const versionDataFileContent = await (await fetch(versionDataFileUrl)).text();
     const versionData = parse(versionDataFileContent);
     versionList = versionData.versions;
