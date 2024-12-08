@@ -1,18 +1,19 @@
 import type {Theme} from 'vitepress'
+import {useRoute} from 'vitepress'
 import DefaultTheme from 'vitepress/theme'
 import PluginTabs from './tabs/PluginTabs.vue'
 import PluginTabsTab from './tabs/PluginTabsTab.vue'
 import {provideTabsSharedState} from './tabs/useTabsSelectedState'
 import PreferenceSwitch from './prefer/PreferenceSwitch.vue';
 import mediumZoom from "medium-zoom";
-import {onMounted, watch, nextTick, h} from 'vue'
-import {useRoute} from 'vitepress'
+import {h, nextTick, onMounted, watch} from 'vue'
 import AuthorsComponent from "./author/PageAuthors.vue";
 import {NolebaseEnhancedReadabilitiesMenu, NolebaseEnhancedReadabilitiesScreenMenu} from "@nolebase/vitepress-plugin-enhanced-readabilities";
 
 import './style/global.css'
 import '@nolebase/vitepress-plugin-enhanced-readabilities/client/style.css'
 import VersionSwitcher from "./versioning/VersionSwitcher.vue";
+import TitleAnchor from "./anchor/TitleAnchor.vue";
 
 // noinspection JSUnusedGlobalSymbols
 export default {
@@ -22,6 +23,7 @@ export default {
         app.component('VersionSwitcher', VersionSwitcher)
         app.component('PluginTabs', PluginTabs)
         app.component('PluginTabsTab', PluginTabsTab)
+        app.component('TitleAnchor', TitleAnchor)
     },
     Layout() {
         const children = {

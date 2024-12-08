@@ -11,6 +11,8 @@ import {mathjaxContainerPreprocessor} from "./theme/mathjax/mathjaxContainerPrep
 import {withMermaid} from "vitepress-plugin-mermaid";
 import {mermaidSpaceConverter} from "./theme/mermaid/mermaidSpaceConverter";
 import {injectUpgradingPartsPlugin} from "./theme/upgrading/injectUpgradingPartsPlugin";
+import {titleAnchorPreprocessor} from "./theme/anchor/titleAnchorPreprocessor";
+import slugifyTitle from "./theme/anchor/slugify";
 
 const defaultLocale: string = 'en';
 const supportLocales: string[] = [
@@ -76,6 +78,11 @@ const vitepressOptions: UserConfig = {
         ]
     },
     markdown: {
+        anchor: {
+            slugify(str: string): string {
+                return slugifyTitle(str);
+            }
+        },
         container: {
             infoLabel: '**Developer\'s Note:**',
         },
@@ -112,6 +119,7 @@ const vitepressOptions: UserConfig = {
             injectUpgradingPartsPlugin(md);
             mermaidSpaceConverter(md);
             exampleAutoAnchorPreprocessor(md);
+            titleAnchorPreprocessor(md);
             mathjaxContainerPreprocessor(md);
         }
     }
