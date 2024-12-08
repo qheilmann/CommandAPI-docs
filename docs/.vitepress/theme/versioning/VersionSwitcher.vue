@@ -24,19 +24,21 @@ function refresh() {
 
     for (const v of versionList) {
         if (window.location.pathname.startsWith(`/${v}/`)) {
-            if (currentVersion.value !== '' && v !== currentVersion.value) {
-                refreshPage = true;
-            }
             version = v;
             isLatest.value = false;
             break;
         }
     }
 
+    if (currentVersion.value !== version) {
+        refreshPage = true;
+    }
+
     currentVersion.value = version;
     versions.value = versionList;
 
     if (refreshPage) {
+        window.location.pathname = isLatest.value ? '/' : `/${version}/`;
         window.location.reload();
     }
 }
