@@ -7,7 +7,8 @@ export const titleAnchorPreprocessor = (md: MarkdownIt) => {
         const processedLines = lines.map((line) => {
             if (line.startsWith("#")) {
                 const title = line.replace(new RegExp("#", "g"), "");
-                const processedTitle = slugifyTitle(title);
+                const processedTitle = (line.includes("{") && line.includes("}")) ?
+                    extractAnchor(title) : slugifyTitle(title);
                 return `
 
 <TitleAnchor anchor="${processedTitle}">
@@ -23,4 +24,8 @@ ${line}
         });
         state.src = processedLines.join("\n");
     });
+}
+
+function extractAnchor(title: string): string {
+    return title.split("{")[1].split("}")[0];
 }
