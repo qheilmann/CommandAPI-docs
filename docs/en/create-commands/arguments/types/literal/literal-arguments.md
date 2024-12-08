@@ -26,7 +26,7 @@ It consists of a gamemode, followed by an optional player argument. The list of 
 
 Unlike regular commands (as those implemented by Bukkit for example), these four options are "hardcoded" - they're not "suggestions". The user can _only_ enter one of these four examples, no other values are allowed.
 
-:::warning Developer's Note:
+:::danger Developer's Note:
 
 There is a simpler alternative to the `LiteralArgument` class! Instead of having to deal with arguments not being present in the array of arguments, consider using the much more intuitive `MultiLiteralArgument`, which is described in more detail [here](./multiliteral-arguments)!
 

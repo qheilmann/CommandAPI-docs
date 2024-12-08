@@ -22,13 +22,13 @@ new SoundArgument("sound");
 new SoundArgument.NamespacedKey("sound");
 ```
 
-:::warning
+:::danger
 
 When using the `Sound` object, the CommandAPI will return `null` if the specified `Sound` could not be found. For this reason, it's recommended to use the `NamespacedKey` object for optimal compatibility with client-side resourcepacks.
 
 :::
 
-::::tip Example - Playing sound to yourself
+::::tip Example – Playing sound to yourself
 
 Say we want a simple command that plays a specific sound at your location. To do this, we will make the following command:
 

@@ -207,7 +207,7 @@ The particle argument requires additional data for a particle depending on what 
 
 Because certain particles (in the table above) require additional data, it is not recommended to spawn a particle without its corresponding data. This can result in particles not showing due to missing requirements.
 
-::::warning Example - Show particles at a player's location (without data)
+::::danger Example - Show particles at a player's location (without data)
 
 Say we wanted to have a command that displayed particles at a player's location. We will use the following command syntax:
 

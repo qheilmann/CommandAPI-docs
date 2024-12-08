@@ -207,7 +207,7 @@ Finally, `unregisterNamespaces` should be `false`, and since that's the default 
 
 With this code, `/gamemode` will execute as normal, but `/minecraft:gamemode` will give the unknown command message.
 
-::::warning Developer's Note:
+::::danger Developer's Note:
 
 Doing the opposite action here -- only unregistering `/gamemode` but keeping `/minecraft:gamemode` -- is not recommended. That would be the following code, where `commandName` is `"gamemode"` (or any command in the Vanilla CommandDispatcher), and `unregisterNamespaces` is `false`:
 

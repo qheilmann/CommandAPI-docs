@@ -14,7 +14,7 @@ Now forget all of that. Multi literal arguments are the same as literal argument
 
 The multi literal argument has all of the same benefits of a regular literal argument - they are hardcoded options that the user must enter – they don't allow other values.
 
-:::warning Developer's Note:
+:::danger Developer's Note:
 
 For 9.1.0, all previously existing `MultiLiteralArgument` constructors have been deprecated! They will be removed in a future version.
 

@@ -238,7 +238,7 @@ Here, we don't actually want to cast the argument, so we use unsafe arguments to
 
 ## Access safe arguments
 
-:::warning **Developer's Note:**
+:::danger **Developer's Note:**
 
 The following methods can’t be used to access a value returned by a `CustomArgument` as its return type depends on the base argument for it.
 

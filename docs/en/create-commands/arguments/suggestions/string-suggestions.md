@@ -69,7 +69,7 @@ We can then use this to generate our suggested list of friends:
 
 The `strings(Function<SuggestionInfo, String[]>)` method can also suggest arguments based on the values of previously inputted arguments, using the `previousArgs()` method in `SuggestionInfo`. This `previousArgs()` method returns a **list of previous arguments** which are parsed exactly like any regular CommandAPI command argument.
 
-:::warning
+:::danger
 
 The ability to use previously declared arguments _does not work via redirects_. This means that any command that comes before it that leads into a command that uses suggestions depending on previous arguments will not work. For example, if we had a command `/mycommand <arg1> <arg2> <arg3>` and ran it as normal, it would work as normal:
 
