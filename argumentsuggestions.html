@@ -3,7 +3,7 @@
     <head>
         <!-- Book generated using mdBook -->
         <meta charset="UTF-8">
-        <title>Argument suggestions - CommandAPI Documentation v9.6.0</title>
+        <title>Argument suggestions - CommandAPI Documentation v9.4.1</title>
 
 
         <!-- Custom HTML head -->
@@ -116,7 +116,7 @@
                         </button>
                     </div>
 
-                    <h1 class="menu-title">CommandAPI Documentation v9.6.0</h1>
+                    <h1 class="menu-title">CommandAPI Documentation v9.4.1</h1>
 
                     <div class="right-buttons">
                         <a href="https://www.jorel.dev/CommandAPI/" title="Back to main CommandAPI page" aria-label="Back to main CommandAPI page">
@@ -179,18 +179,12 @@ Argument includeSuggestions(ArgumentSuggestions suggestions);
 <p>The two methods above require an <code>ArgumentSuggestions</code> object, which is a functional interface that takes in a <code>SuggestionInfo</code> record and the current Brigadier <code>SuggestionsBuilder</code> and returns a <code>CompletableFuture&lt;Suggestions&gt;</code> object. This may sound a bit complicated, but this allows you to implement very powerful suggestions using a combination of the CommandAPI and raw Brigadier API methods. More information about using Brigadier-level suggestions can be found in the <a href="./brigadiersuggestions.html">brigadier suggestions</a> section.</p>
 <p>To simplify this, the CommandAPI provides a number of methods to generate suggestions:</p>
 <pre><code class="language-java">ArgumentSuggestions strings(String... suggestions);
-ArgumentSuggestions strings(Collection&lt;String&gt;);
 ArgumentSuggestions strings(Function&lt;SuggestionInfo, String[]&gt; suggestions);
-ArgumentSuggestions stringCollection(Function&lt;SuggestionInfo&lt;CommandSender&gt;, Collection&lt;String&gt;&gt;);
 ArgumentSuggestions stringsAsync(Function&lt;SuggestionInfo, CompletableFuture&lt;String[]&gt;&gt; suggestions);
-ArgumentSuggestions stringCollectionAsync(Function&lt;SuggestionInfo&lt;CommandSender&gt;, CompletableFuture&lt;Collection&lt;String&gt;&gt;&gt;);
 
 ArgumentSuggestions stringsWithTooltips(IStringTooltip... suggestions);
-ArgumentSuggestions stringsWithTooltips(Collection&lt;IStringTooltip&gt;);
 ArgumentSuggestions stringsWithTooltips(Function&lt;SuggestionInfo, IStringTooltip[]&gt; suggestions);
-ArgumentSuggestions stringsWithTooltipsCollection(Function&lt;SuggestionInfo&lt;CommandSender&gt;, Collection&lt;IStringTooltip&gt;&gt;);
 ArgumentSuggestions stringsWithTooltipsAsync(Function&lt;SuggestionInfo, CompletableFuture&lt;IStringTooltip[]&gt;&gt; suggestions);
-ArgumentSuggestions stringsWithTooltipsCollectionAsync(Function&lt;SuggestionInfo&lt;CommandSender&gt;, CompletableFuture&lt;Collection&lt;IStringTooltip&gt;&gt;&gt;);
 </code></pre>
 
                     </main>

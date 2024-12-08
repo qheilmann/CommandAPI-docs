@@ -3,7 +3,7 @@
     <head>
         <!-- Book generated using mdBook -->
         <meta charset="UTF-8">
-        <title>Entity &amp; player arguments - CommandAPI Documentation v9.6.0</title>
+        <title>Entity &amp; player arguments - CommandAPI Documentation v9.4.1</title>
 
 
         <!-- Custom HTML head -->
@@ -116,7 +116,7 @@
                         </button>
                     </div>
 
-                    <h1 class="menu-title">CommandAPI Documentation v9.6.0</h1>
+                    <h1 class="menu-title">CommandAPI Documentation v9.4.1</h1>
 
                     <div class="right-buttons">
                         <a href="https://www.jorel.dev/CommandAPI/" title="Back to main CommandAPI page" aria-label="Back to main CommandAPI page">
@@ -245,46 +245,6 @@
 <p><strong>Developer's Note:</strong></p>
 <p>The <code>PlayerArgument</code> internally uses the <code>GameProfile</code> class from Mojang's authlib, which means that this argument has a slight performance overhead compared to using <code>EntitySelectorArgument.OnePlayer</code></p>
 </blockquote>
-<div class="example">
-<h3 id="example---playerargument-without-entity-selectors"><a class="header" href="#example---playerargument-without-entity-selectors">Example - PlayerArgument without entity selectors</a></h3>
-<p>When registering a <code>PlayerArgument</code> you might notice that it includes <code>Entity Selectors</code> (<code>@a</code>, <code>@e</code>, <code>@r</code>, etc.). If you want to avoid those, you can use argument suggestions to only suggest the player names. For this example, let us create a /warp command:</p>
-<pre><code class="language-mccmd">/warp &lt;player&gt;
-</code></pre>
-<p>To get a <code>PlayerArgument</code> which only suggests the actual names, we can define it like this:</p>
-<div class="multi-pre">
-<pre><code class="language-java Java">Argument&lt;?&gt; noSelectorSuggestions = new PlayerArgument(&quot;target&quot;)
-    .replaceSafeSuggestions(SafeSuggestions.suggest(info -&gt;
-        Bukkit.getOnlinePlayers().toArray(new Player[0])
-    ));
-</code></pre>
-<pre><code class="language-kotlin Kotlin">val noSelectorSuggestions = PlayerArgument(&quot;target&quot;)
-    .replaceSafeSuggestions(SafeSuggestions.suggest {
-        Bukkit.getOnlinePlayers().toTypedArray()
-    })
-</code></pre>
-</div>
-<p>Now we can define the rest of the command and include our suggestion inside of it like this:</p>
-<div class="multi-pre">
-<pre><code class="language-java Java">new CommandAPICommand(&quot;warp&quot;)
-    .withArguments(noSelectorSuggestions)
-    .executesPlayer((player, args) -&gt; {
-        Player target = (Player) args.get(&quot;target&quot;);
-        player.teleport(target);
-    })
-    .register();
-</code></pre>
-<pre><code class="language-kotlin Kotlin">CommandAPICommand(&quot;warp&quot;)
-    .withArguments(noSelectorSuggestions)
-    .executesPlayer(PlayerCommandExecutor { player, args -&gt;
-        val target = args[&quot;target&quot;] as Player
-        player.teleport(target)
-    })
-    .register()
-</code></pre>
-</div>
-<p>And there we have it! One thing to note is that entity selectors are still a valid input, they are just not included in the suggestions.
-<img src="./images/entityselectorplayerexample.gif" alt="WarpCommand" /></p>
-</div>
 <hr />
 <h2 id="offlineplayer-argument"><a class="header" href="#offlineplayer-argument">OfflinePlayer argument</a></h2>
 <p>The <code>OfflinePlayerArgument</code> class is identical to the <code>PlayerArgument</code> class, but instead of returning a <code>Player</code> object, it returns an <code>OfflinePlayer</code> object. Internally, this argument makes calls to Mojang servers (via Mojang's authlib), meaning it can be slightly slower than alternative methods (such as using a <code>StringArgument</code> and suggesting a list of existing offline players).</p>

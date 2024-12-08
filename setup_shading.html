@@ -3,7 +3,7 @@
     <head>
         <!-- Book generated using mdBook -->
         <meta charset="UTF-8">
-        <title>Shading the CommandAPI in your plugins - CommandAPI Documentation v9.6.0</title>
+        <title>Shading the CommandAPI in your plugins - CommandAPI Documentation v9.4.1</title>
 
 
         <!-- Custom HTML head -->
@@ -116,7 +116,7 @@
                         </button>
                     </div>
 
-                    <h1 class="menu-title">CommandAPI Documentation v9.6.0</h1>
+                    <h1 class="menu-title">CommandAPI Documentation v9.4.1</h1>
 
                     <div class="right-buttons">
                         <a href="https://www.jorel.dev/CommandAPI/" title="Back to main CommandAPI page" aria-label="Back to main CommandAPI page">
@@ -180,7 +180,6 @@ CommandAPI.onEnable();
     CommandAPIConfig verboseOutput(boolean value); // Enables verbose logging
     CommandAPIConfig silentLogs(boolean value);    // Disables ALL logging (except errors)
     CommandAPIConfig useLatestNMSVersion(boolean value); // Whether the latest NMS implementation should be used or not
-    CommandAPIConfig beLenientForMinorVersions(boolean value); // Whether the CommandAPI should be more lenient with minor Minecraft versions
     CommandAPIConfig missingExecutorImplementationMessage(String value); // Set message to display when executor implementation is missing
     CommandAPIConfig dispatcherFile(File file); // If not null, the CommandAPI will create a JSON file with Brigadier's command tree
     CommandAPIConfig setNamespace(String namespace); // The namespace to use when the CommandAPI registers a command
@@ -190,13 +189,12 @@ CommandAPI.onEnable();
 }
 </code></pre>
 <p>The <code>CommandAPIConfig</code> class follows a typical builder pattern (without you having to run <code>.build()</code> at the end), which lets you easily construct configuration instances.</p>
-<p>However, the <code>CommandAPIConfig</code> class is abstract and cannot be used to configure the CommandAPI directly. Instead, you must use a subclass of <code>CommandAPIConfig</code> that corresponds to the platform you are developing for. For example, when developing for Bukkit, you should use the <code>CommandAPIBukkitConfig</code> class.</p>
+<p>However, the <code>CommandAPIConfig</code> class is abstract and cannot be used to configure the CommandAPI directly. Instead, you must use a subclass of <code>CommandAPIConfig</code> that corresponds to the platform you are developing for. For example, when developing for Bukkit, you should use the <code>CommandAPIBukkiConfig</code> class.</p>
 <!-- TODO: Add tabs and explanations for other platforms -->
 <pre><code class="language-java">public class CommandAPIBukkitConfig extends CommandAPIConfig {
     CommandAPIBukkitConfig(JavaPlugin plugin);
 
     CommandAPIBukkitConfig shouldHookPaperReload(boolean hooked); // Whether the CommandAPI should hook into the Paper-exclusive ServerResourcesReloadedEvent
-    CommandAPIBukkitConfig skipReloadDatapacks(boolean skip) // Whether the CommandAPI should reload datapacks on server load
 }
 </code></pre>
 <p>In order to create a <code>CommandAPIBukkitConfig</code> object, you must give it a reference to your <code>JavaPlugin</code> instance. The CommandAPI always uses this to registers events, so it is required when loading the CommandAPI on Bukkit. There are also Bukkit-specific features, such as the <code>hook-paper-reload</code> configuration option, which may be configured using a <code>CommandAPIBukkitConfig</code> instance.</p>
@@ -281,7 +279,7 @@ CommandAPI.onEnable();
     &lt;dependency&gt;
         &lt;groupId&gt;dev.jorel&lt;/groupId&gt;
         &lt;artifactId&gt;commandapi-bukkit-shade&lt;/artifactId&gt;
-        &lt;version&gt;9.6.0&lt;/version&gt;
+        &lt;version&gt;9.4.1&lt;/version&gt;
     &lt;/dependency&gt;
 &lt;/dependencies&gt;
 </code></pre>
@@ -289,18 +287,18 @@ CommandAPI.onEnable();
     &lt;dependency&gt;
         &lt;groupId&gt;dev.jorel&lt;/groupId&gt;
         &lt;artifactId&gt;commandapi-bukkit-shade-mojang-mapped&lt;/artifactId&gt;
-        &lt;version&gt;9.6.0&lt;/version&gt;
+        &lt;version&gt;9.4.1&lt;/version&gt;
     &lt;/dependency&gt;
 &lt;/dependencies&gt;
 </code></pre>
 </div>
-<p>You can shade the CommandAPI easily by adding the <code>maven-shade-plugin</code> to your build sequence:</p>
+<p>You can shade the CommandAPI easily by adding the <code>maven-shade-plugin</code> to your build sequence using version <code>3.3.0</code> (compatible with Java 16):</p>
 <pre><code class="language-xml">&lt;build&gt;
     &lt;plugins&gt;
         &lt;plugin&gt;
             &lt;groupId&gt;org.apache.maven.plugins&lt;/groupId&gt;
             &lt;artifactId&gt;maven-shade-plugin&lt;/artifactId&gt;
-            &lt;version&gt;3.6.0&lt;/version&gt;
+            &lt;version&gt;3.3.0&lt;/version&gt;
             &lt;executions&gt;
                 &lt;execution&gt;
                     &lt;id&gt;shade&lt;/id&gt;
@@ -327,16 +325,16 @@ CommandAPI.onEnable();
 <p>As we're shading the CommandAPI into your plugin, you <strong>don't</strong> need to add <code>depend: [CommandAPI]</code> to your <code>plugin.yml</code> file.</p>
 <hr />
 <h2 id="shading-with-gradle"><a class="header" href="#shading-with-gradle">Shading with Gradle</a></h2>
-<p>To shade the CommandAPI into a Gradle project, we'll use the <a href="https://gradleup.com/shadow/">GradleUp Shadow Plugin</a>. Add this to your list of plugins:</p>
+<p>To shade the CommandAPI into a Gradle project, we'll use the <a href="https://imperceptiblethoughts.com/shadow/">Gradle Shadow Plugin</a>. Add this to your list of plugins:</p>
 <div class="multi-pre">
 <pre><code class="language-groovy build.gradle">plugins {
     id 'java'
-    id 'com.gradleup.shadow' version '8.3.3'
+    id 'com.github.johnrengelman.shadow' version '7.1.2'
 }
 </code></pre>
 <pre><code class="language-kotlin build.gradle.kts">plugins {
     java
-    id(&quot;com.gradleup.shadow&quot;) version &quot;8.3.3&quot;
+    id(&quot;com.github.johnrengelman.shadow&quot;) version &quot;7.1.2&quot;
 }
 </code></pre>
 </div>
@@ -360,30 +358,56 @@ CommandAPI.onEnable();
 <p>Next, we declare our dependencies:</p>
 <div class="multi-pre">
 <pre><code class="language-groovy build.gradle_(Spigot_Mappings)">dependencies {
-    implementation &quot;dev.jorel:commandapi-bukkit-shade:9.6.0&quot;
+    implementation &quot;dev.jorel:commandapi-bukkit-shade:9.4.1&quot;
 }
 </code></pre>
 <pre><code class="language-groovy build.gradle_(Mojang_Mappings)">dependencies {
-    implementation &quot;dev.jorel:commandapi-bukkit-shade-mojang-mapped:9.6.0&quot;
+    implementation &quot;dev.jorel:commandapi-bukkit-shade-mojang-mapped:9.4.1&quot;
 }
 </code></pre>
 <pre><code class="language-kotlin build.gradle.kts_(Spigot_Mappings)">dependencies {
-    implementation(&quot;dev.jorel:commandapi-bukkit-shade:9.6.0&quot;)
+    implementation(&quot;dev.jorel:commandapi-bukkit-shade:9.4.1&quot;)
 }
 </code></pre>
 <pre><code class="language-kotlin build.gradle.kts_(Mojang_Mappings)">dependencies {
-    implementation(&quot;dev.jorel:commandapi-bukkit-shade-mojang-mapped:9.6.0&quot;)
+    implementation(&quot;dev.jorel:commandapi-bukkit-shade-mojang-mapped:9.4.1&quot;)
 }
 </code></pre>
 </div>
-<p>Then you just need to relocate the CommandAPI to your desired location in the <code>shadowJar</code> task configuration:</p>
+<p>Then we add it to the <code>shadowJar</code> task configuration and relocate the CommandAPI to your desired location:</p>
 <div class="multi-pre">
-<pre><code class="language-groovy build.gradle">shadowJar {
+<pre><code class="language-groovy build.gradle_(Spigot_Mappings)">shadowJar {
+    dependencies {
+        include dependency(&quot;dev.jorel:commandapi-bukkit-shade:9.4.1&quot;)
+    }
+
     // TODO: Change this to my own package name
     relocate(&quot;dev.jorel.commandapi&quot;, &quot;my.custom.package.commandapi&quot;)
 }
 </code></pre>
-<pre><code class="language-kotlin build.gradle.kts">tasks.withType&lt;ShadowJar&gt; {
+<pre><code class="language-groovy build.gradle_(Mojang_Mappings)">shadowJar {
+    dependencies {
+        include dependency(&quot;dev.jorel:commandapi-bukkit-shade-mojang-mapped:9.4.1&quot;)
+    }
+
+    // TODO: Change this to my own package name
+    relocate(&quot;dev.jorel.commandapi&quot;, &quot;my.custom.package.commandapi&quot;)
+}
+</code></pre>
+<pre><code class="language-kotlin build.gradle.kts_(Spigot_Mappings)">tasks.withType&lt;ShadowJar&gt; {
+    dependencies {
+        include(dependency(&quot;dev.jorel:commandapi-bukkit-shade:9.4.1&quot;))
+    }
+
+    // TODO: Change this to my own package name
+    relocate(&quot;dev.jorel.commandapi&quot;, &quot;my.custom.package.commandapi&quot;)
+}
+</code></pre>
+<pre><code class="language-kotlin build.gradle.kts_(Mojang_Mappings)">tasks.withType&lt;ShadowJar&gt; {
+    dependencies {
+        include(dependency(&quot;dev.jorel:commandapi-bukkit-shade-mojang-mapped:9.4.1&quot;))
+    }
+
     // TODO: Change this to my own package name
     relocate(&quot;dev.jorel.commandapi&quot;, &quot;my.custom.package.commandapi&quot;)
 }

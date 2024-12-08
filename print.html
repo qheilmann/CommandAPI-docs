@@ -3,7 +3,7 @@
     <head>
         <!-- Book generated using mdBook -->
         <meta charset="UTF-8">
-        <title>CommandAPI Documentation v9.6.0</title>
+        <title>CommandAPI Documentation v9.4.1</title>
         <meta name="robots" content="noindex" />
 
 
@@ -117,7 +117,7 @@
                         </button>
                     </div>
 
-                    <h1 class="menu-title">CommandAPI Documentation v9.6.0</h1>
+                    <h1 class="menu-title">CommandAPI Documentation v9.4.1</h1>
 
                     <div class="right-buttons">
                         <a href="https://www.jorel.dev/CommandAPI/" title="Back to main CommandAPI page" aria-label="Back to main CommandAPI page">
@@ -600,7 +600,11 @@ java.lang.IllegalArgumentException: Unsupported class file major version 60
 <p>The default <code>config.yml</code> is shown below:</p>
 <details>
   <summary><b>config.yml</b></summary>
-<pre><code class="language-yaml"># Verbose outputs (default: false)
+<pre><code class="language-yaml">################################################################################
+# Logging                                                                      #
+################################################################################
+
+# Verbose outputs (default: false)
 # If &quot;true&quot;, outputs command registration and unregistration logs in the console
 verbose-outputs: false
 
@@ -608,16 +612,24 @@ verbose-outputs: false
 # If &quot;true&quot;, turns off all logging from the CommandAPI, except for errors.
 silent-logs: false
 
+################################################################################
+# Messages                                                                     #
+################################################################################
+
 # Messages
 # Controls messages that the CommandAPI displays to players
 messages:
 
-    # Missing executor implementation (default: &quot;This command has no implementations for %s&quot;)
-    # The message to display to senders when a command has no executor. Available
-    # parameters are:
-    #   %s - the executor class (lowercase)
-    #   %S - the executor class (normal case)
-    missing-executor-implementation: This command has no implementations for %s
+  # Missing executor implementation (default: &quot;This command has no implementations for %s&quot;)
+  # The message to display to senders when a command has no executor. Available
+  # parameters are:
+  #   %s - the executor class (lowercase)
+  #   %S - the executor class (normal case)
+  missing-executor-implementation: &quot;This command has no implementations for %s&quot;
+
+################################################################################
+# Debugging                                                                    #
+################################################################################
 
 # Create dispatcher JSON (default: false)
 # If &quot;true&quot;, the CommandAPI creates a command_registration.json file showing the
@@ -630,13 +642,6 @@ create-dispatcher-json: false
 # when the CommandAPI is used. This avoids all checks to see if the latest NMS
 # implementation is actually compatible with the current Minecraft version.
 use-latest-nms-version: false
-
-# Be lenient with version checks when loading for new minor Minecraft versions (default: false)
-# If &quot;true&quot;, the CommandAPI loads NMS implementations for potentially unsupported Minecraft versions.
-# For example, this setting may allow updating from 1.21.1 to 1.21.2 as only the minor version is changing
-# but will not allow an update from 1.21.2 to 1.22.
-# Keep in mind that implementations may vary and actually updating the CommandAPI might be necessary.
-be-lenient-for-minor-versions: false
 
 # Hook into Paper's ServerResourcesReloadedEvent (default: true)
 # If &quot;true&quot;, and the CommandAPI detects it is running on a Paper server, it will
@@ -652,6 +657,10 @@ hook-paper-reload: true
 # loading. Datapacks will still be reloaded if performed manually when &quot;hook-paper-reload&quot;
 # is set to &quot;true&quot; and /minecraft:reload is run.
 skip-initial-datapack-reload: false
+
+################################################################################
+# Command conversion                                                           #
+################################################################################
 
 # Plugins to convert (default: [])
 # Controls the list of plugins to process for command conversion.
@@ -728,19 +737,6 @@ skip-sender-proxy: []
 <pre><code class="language-yml">use-latest-nms-version: true
 </code></pre>
 <hr />
-<h3 id="be-lenient-for-minor-versions"><a class="header" href="#be-lenient-for-minor-versions"><code>be-lenient-for-minor-versions</code></a></h3>
-<p>Controls whether the CommandAPI should be more lenient when updating to a new Minecraft version.</p>
-<p>Similar to the <a href="config.html#use-latest-nms-version"><code>use-latest-nms-version</code></a> setting, this can allow the CommandAPI to run on a version higher than it officially supports. As an example, this setting can allow updating to 1.21.2 from 1.21.1 but doesn't allow updating to 1.22 from 1.21.2.</p>
-<div class="warning">
-<p>Take the warning from the <a href="config.html#use-latest-nms-version"><code>use-latest-nms-version</code></a> and apply it here too. This is <em>not</em> guaranteed to work either and also may cause unexpected side-effects.</p>
-</div>
-<p><strong>Default value</strong></p>
-<pre><code class="language-yml">be-lenient-for-minor-versions: false
-</code></pre>
-<p><strong>Example value</strong></p>
-<pre><code class="language-yml">be-lenient-for-minor-versions: true
-</code></pre>
-<hr />
 <h3 id="hook-paper-reload"><a class="header" href="#hook-paper-reload"><code>hook-paper-reload</code></a></h3>
 <p>Controls whether the CommandAPI hooks into the Paper-exclusive <code>ServerResourcesReloadedEvent</code> when available.</p>
 <p>When the CommandAPI detects it is running on a Paper-based server, its default behavior will be to hook into the <code>ServerResourcesReloadedEvent</code>, which triggers when <code>/minecraft:reload</code> is run. During this event, the CommandAPI runs a custom datapack reloading sequence that helps commands registered with the CommandAPI work within datapacks. See <a href="./internal.html#reloading-datapacks">Reloading datapacks</a> for more information on this process.</p>
@@ -754,7 +750,7 @@ skip-sender-proxy: []
 <hr />
 <h3 id="skip-initial-datapack-reload"><a class="header" href="#skip-initial-datapack-reload"><code>skip-initial-datapack-reload</code></a></h3>
 <p>Controls whether the CommandAPI should perform its initial datapack reload when the server has finished loading.</p>
-<p>The CommandAPI automatically reloads all datapacks in a similar fashion to <code>/minecraft:reload</code> in order to propagate CommandAPI commands into datapack functions and tags. This operation may cause a slight delay to server startup and is not necessary if you are not using datapacks or functions that use CommandAPI commands. This operation can be skipped by setting this value to <code>true</code>.</p>
+<p>The CommandAPI automatically reloads all datapacks in a similar fashion to <code>/minecraft:reload</code> in order to propagate CommandAPI commands into datapack functions and tags. This operation may cause a slight delay to server startup and is not necessary if you are not using datapacks or functions that use CommandAPI commands. This operation can be skipped by setting this value to <code>false</code>.</p>
 <p>Note that datapacks will still be reloaded if performed manually when <code>hook-paper-reload</code> is set to <code>true</code> and you run <code>/minecraft:reload</code>.</p>
 <p><strong>Default value</strong></p>
 <pre><code class="language-yml">skip-initial-datapack-reload: false
@@ -1199,7 +1195,7 @@ dependencies:
     &lt;dependency&gt;
         &lt;groupId&gt;dev.jorel&lt;/groupId&gt;
         &lt;artifactId&gt;commandapi-bukkit-core&lt;/artifactId&gt;
-        &lt;version&gt;9.6.0&lt;/version&gt;
+        &lt;version&gt;9.4.1&lt;/version&gt;
         &lt;scope&gt;provided&lt;/scope&gt;
     &lt;/dependency&gt;
 &lt;/dependencies&gt;
@@ -1219,7 +1215,7 @@ dependencies:
 <li>
 <p>Add the dependency to your list of dependencies in your <code>build.gradle</code> file:</p>
 <pre><code class="language-gradle">dependencies {
-    compileOnly &quot;dev.jorel:commandapi-bukkit-core:9.6.0&quot;
+    compileOnly &quot;dev.jorel:commandapi-bukkit-core:9.4.1&quot;
 }
 </code></pre>
 </li>
@@ -1275,7 +1271,6 @@ CommandAPI.onEnable();
     CommandAPIConfig verboseOutput(boolean value); // Enables verbose logging
     CommandAPIConfig silentLogs(boolean value);    // Disables ALL logging (except errors)
     CommandAPIConfig useLatestNMSVersion(boolean value); // Whether the latest NMS implementation should be used or not
-    CommandAPIConfig beLenientForMinorVersions(boolean value); // Whether the CommandAPI should be more lenient with minor Minecraft versions
     CommandAPIConfig missingExecutorImplementationMessage(String value); // Set message to display when executor implementation is missing
     CommandAPIConfig dispatcherFile(File file); // If not null, the CommandAPI will create a JSON file with Brigadier's command tree
     CommandAPIConfig setNamespace(String namespace); // The namespace to use when the CommandAPI registers a command
@@ -1285,13 +1280,12 @@ CommandAPI.onEnable();
 }
 </code></pre>
 <p>The <code>CommandAPIConfig</code> class follows a typical builder pattern (without you having to run <code>.build()</code> at the end), which lets you easily construct configuration instances.</p>
-<p>However, the <code>CommandAPIConfig</code> class is abstract and cannot be used to configure the CommandAPI directly. Instead, you must use a subclass of <code>CommandAPIConfig</code> that corresponds to the platform you are developing for. For example, when developing for Bukkit, you should use the <code>CommandAPIBukkitConfig</code> class.</p>
+<p>However, the <code>CommandAPIConfig</code> class is abstract and cannot be used to configure the CommandAPI directly. Instead, you must use a subclass of <code>CommandAPIConfig</code> that corresponds to the platform you are developing for. For example, when developing for Bukkit, you should use the <code>CommandAPIBukkiConfig</code> class.</p>
 <!-- TODO: Add tabs and explanations for other platforms -->
 <pre><code class="language-java">public class CommandAPIBukkitConfig extends CommandAPIConfig {
     CommandAPIBukkitConfig(JavaPlugin plugin);
 
     CommandAPIBukkitConfig shouldHookPaperReload(boolean hooked); // Whether the CommandAPI should hook into the Paper-exclusive ServerResourcesReloadedEvent
-    CommandAPIBukkitConfig skipReloadDatapacks(boolean skip) // Whether the CommandAPI should reload datapacks on server load
 }
 </code></pre>
 <p>In order to create a <code>CommandAPIBukkitConfig</code> object, you must give it a reference to your <code>JavaPlugin</code> instance. The CommandAPI always uses this to registers events, so it is required when loading the CommandAPI on Bukkit. There are also Bukkit-specific features, such as the <code>hook-paper-reload</code> configuration option, which may be configured using a <code>CommandAPIBukkitConfig</code> instance.</p>
@@ -1376,7 +1370,7 @@ CommandAPI.onEnable();
     &lt;dependency&gt;
         &lt;groupId&gt;dev.jorel&lt;/groupId&gt;
         &lt;artifactId&gt;commandapi-bukkit-shade&lt;/artifactId&gt;
-        &lt;version&gt;9.6.0&lt;/version&gt;
+        &lt;version&gt;9.4.1&lt;/version&gt;
     &lt;/dependency&gt;
 &lt;/dependencies&gt;
 </code></pre>
@@ -1384,18 +1378,18 @@ CommandAPI.onEnable();
     &lt;dependency&gt;
         &lt;groupId&gt;dev.jorel&lt;/groupId&gt;
         &lt;artifactId&gt;commandapi-bukkit-shade-mojang-mapped&lt;/artifactId&gt;
-        &lt;version&gt;9.6.0&lt;/version&gt;
+        &lt;version&gt;9.4.1&lt;/version&gt;
     &lt;/dependency&gt;
 &lt;/dependencies&gt;
 </code></pre>
 </div>
-<p>You can shade the CommandAPI easily by adding the <code>maven-shade-plugin</code> to your build sequence:</p>
+<p>You can shade the CommandAPI easily by adding the <code>maven-shade-plugin</code> to your build sequence using version <code>3.3.0</code> (compatible with Java 16):</p>
 <pre><code class="language-xml">&lt;build&gt;
     &lt;plugins&gt;
         &lt;plugin&gt;
             &lt;groupId&gt;org.apache.maven.plugins&lt;/groupId&gt;
             &lt;artifactId&gt;maven-shade-plugin&lt;/artifactId&gt;
-            &lt;version&gt;3.6.0&lt;/version&gt;
+            &lt;version&gt;3.3.0&lt;/version&gt;
             &lt;executions&gt;
                 &lt;execution&gt;
                     &lt;id&gt;shade&lt;/id&gt;
@@ -1422,16 +1416,16 @@ CommandAPI.onEnable();
 <p>As we're shading the CommandAPI into your plugin, you <strong>don't</strong> need to add <code>depend: [CommandAPI]</code> to your <code>plugin.yml</code> file.</p>
 <hr />
 <h2 id="shading-with-gradle"><a class="header" href="#shading-with-gradle">Shading with Gradle</a></h2>
-<p>To shade the CommandAPI into a Gradle project, we'll use the <a href="https://gradleup.com/shadow/">GradleUp Shadow Plugin</a>. Add this to your list of plugins:</p>
+<p>To shade the CommandAPI into a Gradle project, we'll use the <a href="https://imperceptiblethoughts.com/shadow/">Gradle Shadow Plugin</a>. Add this to your list of plugins:</p>
 <div class="multi-pre">
 <pre><code class="language-groovy build.gradle">plugins {
     id 'java'
-    id 'com.gradleup.shadow' version '8.3.3'
+    id 'com.github.johnrengelman.shadow' version '7.1.2'
 }
 </code></pre>
 <pre><code class="language-kotlin build.gradle.kts">plugins {
     java
-    id(&quot;com.gradleup.shadow&quot;) version &quot;8.3.3&quot;
+    id(&quot;com.github.johnrengelman.shadow&quot;) version &quot;7.1.2&quot;
 }
 </code></pre>
 </div>
@@ -1455,30 +1449,56 @@ CommandAPI.onEnable();
 <p>Next, we declare our dependencies:</p>
 <div class="multi-pre">
 <pre><code class="language-groovy build.gradle_(Spigot_Mappings)">dependencies {
-    implementation &quot;dev.jorel:commandapi-bukkit-shade:9.6.0&quot;
+    implementation &quot;dev.jorel:commandapi-bukkit-shade:9.4.1&quot;
 }
 </code></pre>
 <pre><code class="language-groovy build.gradle_(Mojang_Mappings)">dependencies {
-    implementation &quot;dev.jorel:commandapi-bukkit-shade-mojang-mapped:9.6.0&quot;
+    implementation &quot;dev.jorel:commandapi-bukkit-shade-mojang-mapped:9.4.1&quot;
 }
 </code></pre>
 <pre><code class="language-kotlin build.gradle.kts_(Spigot_Mappings)">dependencies {
-    implementation(&quot;dev.jorel:commandapi-bukkit-shade:9.6.0&quot;)
+    implementation(&quot;dev.jorel:commandapi-bukkit-shade:9.4.1&quot;)
 }
 </code></pre>
 <pre><code class="language-kotlin build.gradle.kts_(Mojang_Mappings)">dependencies {
-    implementation(&quot;dev.jorel:commandapi-bukkit-shade-mojang-mapped:9.6.0&quot;)
+    implementation(&quot;dev.jorel:commandapi-bukkit-shade-mojang-mapped:9.4.1&quot;)
 }
 </code></pre>
 </div>
-<p>Then you just need to relocate the CommandAPI to your desired location in the <code>shadowJar</code> task configuration:</p>
+<p>Then we add it to the <code>shadowJar</code> task configuration and relocate the CommandAPI to your desired location:</p>
 <div class="multi-pre">
-<pre><code class="language-groovy build.gradle">shadowJar {
+<pre><code class="language-groovy build.gradle_(Spigot_Mappings)">shadowJar {
+    dependencies {
+        include dependency(&quot;dev.jorel:commandapi-bukkit-shade:9.4.1&quot;)
+    }
+
     // TODO: Change this to my own package name
     relocate(&quot;dev.jorel.commandapi&quot;, &quot;my.custom.package.commandapi&quot;)
 }
 </code></pre>
-<pre><code class="language-kotlin build.gradle.kts">tasks.withType&lt;ShadowJar&gt; {
+<pre><code class="language-groovy build.gradle_(Mojang_Mappings)">shadowJar {
+    dependencies {
+        include dependency(&quot;dev.jorel:commandapi-bukkit-shade-mojang-mapped:9.4.1&quot;)
+    }
+
+    // TODO: Change this to my own package name
+    relocate(&quot;dev.jorel.commandapi&quot;, &quot;my.custom.package.commandapi&quot;)
+}
+</code></pre>
+<pre><code class="language-kotlin build.gradle.kts_(Spigot_Mappings)">tasks.withType&lt;ShadowJar&gt; {
+    dependencies {
+        include(dependency(&quot;dev.jorel:commandapi-bukkit-shade:9.4.1&quot;))
+    }
+
+    // TODO: Change this to my own package name
+    relocate(&quot;dev.jorel.commandapi&quot;, &quot;my.custom.package.commandapi&quot;)
+}
+</code></pre>
+<pre><code class="language-kotlin build.gradle.kts_(Mojang_Mappings)">tasks.withType&lt;ShadowJar&gt; {
+    dependencies {
+        include(dependency(&quot;dev.jorel:commandapi-bukkit-shade-mojang-mapped:9.4.1&quot;))
+    }
+
     // TODO: Change this to my own package name
     relocate(&quot;dev.jorel.commandapi&quot;, &quot;my.custom.package.commandapi&quot;)
 }
@@ -1500,7 +1520,7 @@ CommandAPI.onEnable();
     &lt;dependency&gt;
         &lt;groupId&gt;dev.jorel&lt;/groupId&gt;
         &lt;artifactId&gt;commandapi-annotations&lt;/artifactId&gt;
-        &lt;version&gt;9.6.0&lt;/version&gt;
+        &lt;version&gt;9.4.1&lt;/version&gt;
         &lt;scope&gt;provided&lt;/scope&gt;
     &lt;/dependency&gt;
 &lt;/dependencies&gt;
@@ -1519,7 +1539,7 @@ CommandAPI.onEnable();
                     &lt;path&gt;
                         &lt;groupId&gt;dev.jorel&lt;/groupId&gt;
                         &lt;artifactId&gt;commandapi-annotations&lt;/artifactId&gt;
-                        &lt;version&gt;9.6.0&lt;/version&gt;
+                        &lt;version&gt;9.4.1&lt;/version&gt;
                     &lt;/path&gt;
                 &lt;/annotationProcessorPaths&gt;
             &lt;/configuration&gt;
@@ -1551,13 +1571,13 @@ CommandAPI.onEnable();
 <p>Add the dependency and annotation processor to your list of dependencies in your <code>build.gradle</code> file:</p>
 <div class="multi-pre">
 <pre><code class="language-groovy build.gradle">dependencies {
-    compileOnly &quot;dev.jorel:commandapi-annotations:9.6.0&quot;
-    annotationProcessor &quot;dev.jorel:commandapi-annotations:9.6.0&quot;
+    compileOnly &quot;dev.jorel:commandapi-annotations:9.4.1&quot;
+    annotationProcessor &quot;dev.jorel:commandapi-annotations:9.4.1&quot;
 }
 </code></pre>
 <pre><code class="language-kotlin build.gradle.kts">dependencies {
-    compileOnly(&quot;dev.jorel:commandapi-annotations:9.6.0&quot;)
-    annotationProcessor(&quot;dev.jorel:commandapi-annotations:9.6.0&quot;)
+    compileOnly(&quot;dev.jorel:commandapi-annotations:9.4.1&quot;)
+    annotationProcessor(&quot;dev.jorel:commandapi-annotations:9.4.1&quot;)
 }
 </code></pre>
 </div>
@@ -2424,7 +2444,6 @@ commandAPICommand(&quot;givereward&quot;) {
 throw CommandAPI.failWithMessage(Message message);
 throw CommandAPIBukkit.failWithBaseComponents(BaseComponent... message);
 throw CommandAPIBukkit.failWithAdventureComponent(Component message);
-throw CommandAPIBukkit.failWithAdventureComponent(ComponentLike message);
 </code></pre>
 <p>When the CommandAPI handles the fail method, it will cause the command to return a <em>success value</em> of 0, to indicate failure.</p>
 <div class="example">
@@ -2488,7 +2507,7 @@ List&lt;Argument&gt; arguments = new ArrayList&lt;&gt;();
 // Add an argument with the node &quot;target&quot;, which is a PlayerArgument
 arguments.add(new PlayerArgument(&quot;target&quot;));
 </code></pre>
-<p>The String value is the node that is registered into Minecraft's internal command graph. This name is also used as a prompt that is shown to a player when they are entering the command.</p>
+<p>The String value is the node that is registered into Minecraft's internal command graph. This is name is also used as a prompt that is shown to a player when they are entering the command.</p>
 <hr />
 <p>The CommandAPI is very flexible when it comes to registering arguments, and lets you use a number of different methods to suit your preference:</p>
 <div class="multi-pre">
@@ -3250,18 +3269,12 @@ Argument includeSuggestions(ArgumentSuggestions suggestions);
 <p>The two methods above require an <code>ArgumentSuggestions</code> object, which is a functional interface that takes in a <code>SuggestionInfo</code> record and the current Brigadier <code>SuggestionsBuilder</code> and returns a <code>CompletableFuture&lt;Suggestions&gt;</code> object. This may sound a bit complicated, but this allows you to implement very powerful suggestions using a combination of the CommandAPI and raw Brigadier API methods. More information about using Brigadier-level suggestions can be found in the <a href="./brigadiersuggestions.html">brigadier suggestions</a> section.</p>
 <p>To simplify this, the CommandAPI provides a number of methods to generate suggestions:</p>
 <pre><code class="language-java">ArgumentSuggestions strings(String... suggestions);
-ArgumentSuggestions strings(Collection&lt;String&gt;);
 ArgumentSuggestions strings(Function&lt;SuggestionInfo, String[]&gt; suggestions);
-ArgumentSuggestions stringCollection(Function&lt;SuggestionInfo&lt;CommandSender&gt;, Collection&lt;String&gt;&gt;);
 ArgumentSuggestions stringsAsync(Function&lt;SuggestionInfo, CompletableFuture&lt;String[]&gt;&gt; suggestions);
-ArgumentSuggestions stringCollectionAsync(Function&lt;SuggestionInfo&lt;CommandSender&gt;, CompletableFuture&lt;Collection&lt;String&gt;&gt;&gt;);
 
 ArgumentSuggestions stringsWithTooltips(IStringTooltip... suggestions);
-ArgumentSuggestions stringsWithTooltips(Collection&lt;IStringTooltip&gt;);
 ArgumentSuggestions stringsWithTooltips(Function&lt;SuggestionInfo, IStringTooltip[]&gt; suggestions);
-ArgumentSuggestions stringsWithTooltipsCollection(Function&lt;SuggestionInfo&lt;CommandSender&gt;, Collection&lt;IStringTooltip&gt;&gt;);
 ArgumentSuggestions stringsWithTooltipsAsync(Function&lt;SuggestionInfo, CompletableFuture&lt;IStringTooltip[]&gt;&gt; suggestions);
-ArgumentSuggestions stringsWithTooltipsCollectionAsync(Function&lt;SuggestionInfo&lt;CommandSender&gt;, CompletableFuture&lt;Collection&lt;IStringTooltip&gt;&gt;&gt;);
 </code></pre>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="the-suggestionsinfo-record"><a class="header" href="#the-suggestionsinfo-record">The <code>SuggestionsInfo</code> record</a></h1>
 <p>Argument suggestion methods can accept a function which takes in a <code>SuggestionsInfo</code> object and returns a suitable format for suggestions. The <code>SuggestionInfo</code> class is a record which contains the following methods:</p>
@@ -3732,7 +3745,7 @@ safeArguments.add(new EntityTypeArgument(&quot;mob&quot;).replaceSafeSuggestions
 <p>Say we wanted to remove a potion effect from a player. To do this, we'll use the following command syntax:</p>
 <pre><code class="language-mccmd">/removeeffect &lt;player&gt; &lt;potioneffect&gt;
 </code></pre>
-<p>Now, we don't want to remove a potion effect that doesn't exist on a player, so instead we'll use the safe arguments to find a list of potion effects on the target player and then only suggest those potion effects. To do this, we'll use the <code>previousArguments()</code> method, as it allows us to access the previously defined <code>&lt;player&gt;</code> argument.</p>
+<p>Now, we don't want to remove a potion effect that already exists on a player, so instead we'll use the safe arguments to find a list of potion effects on the target player and then only suggest those potion effects. To do this, we'll use the <code>previousArguments()</code> method, as it allows us to access the previously defined <code>&lt;player&gt;</code> argument.</p>
 <div class="multi-pre">
 <pre><code class="language-java Java">List&lt;Argument&lt;?&gt;&gt; safeArgs = new ArrayList&lt;&gt;();
 safeArgs.add(new EntitySelectorArgument.OnePlayer(&quot;target&quot;));
@@ -4396,13 +4409,11 @@ commandAPICommand(&quot;editconfig&quot;) {
 <p>There are three types of arguments that return Java's <code>String</code> object. Each have their own unique set of features which make them suitable for specific needs.</p>
 <hr />
 <h2 id="string-argument"><a class="header" href="#string-argument">String argument</a></h2>
-<p>The <code>StringArgument</code> class is used to represent a single word. These words <strong>can only contain alphanumeric characters (A-Z, a-z and 0-9) and the underscore (_), plus (+), minus (-) and period (.) characters.</strong></p>
+<p>The <code>StringArgument</code> class is used to represent a single word. These words <strong>can only contain alphanumeric characters (A-Z, a-z and 0-9), and the underscore character</strong>.</p>
 <p>Accepted <code>StringArgument</code> values:</p>
 <pre><code class="language-txt">Hello
 123
 hello123
-hello-123
-hello.WORLD
 Hello_world
 </code></pre>
 <p>Rejected <code>StringArgument</code> values:</p>
@@ -5305,46 +5316,6 @@ previews-chat=true
 <p><strong>Developer's Note:</strong></p>
 <p>The <code>PlayerArgument</code> internally uses the <code>GameProfile</code> class from Mojang's authlib, which means that this argument has a slight performance overhead compared to using <code>EntitySelectorArgument.OnePlayer</code></p>
 </blockquote>
-<div class="example">
-<h3 id="example---playerargument-without-entity-selectors"><a class="header" href="#example---playerargument-without-entity-selectors">Example - PlayerArgument without entity selectors</a></h3>
-<p>When registering a <code>PlayerArgument</code> you might notice that it includes <code>Entity Selectors</code> (<code>@a</code>, <code>@e</code>, <code>@r</code>, etc.). If you want to avoid those, you can use argument suggestions to only suggest the player names. For this example, let us create a /warp command:</p>
-<pre><code class="language-mccmd">/warp &lt;player&gt;
-</code></pre>
-<p>To get a <code>PlayerArgument</code> which only suggests the actual names, we can define it like this:</p>
-<div class="multi-pre">
-<pre><code class="language-java Java">Argument&lt;?&gt; noSelectorSuggestions = new PlayerArgument(&quot;target&quot;)
-    .replaceSafeSuggestions(SafeSuggestions.suggest(info -&gt;
-        Bukkit.getOnlinePlayers().toArray(new Player[0])
-    ));
-</code></pre>
-<pre><code class="language-kotlin Kotlin">val noSelectorSuggestions = PlayerArgument(&quot;target&quot;)
-    .replaceSafeSuggestions(SafeSuggestions.suggest {
-        Bukkit.getOnlinePlayers().toTypedArray()
-    })
-</code></pre>
-</div>
-<p>Now we can define the rest of the command and include our suggestion inside of it like this:</p>
-<div class="multi-pre">
-<pre><code class="language-java Java">new CommandAPICommand(&quot;warp&quot;)
-    .withArguments(noSelectorSuggestions)
-    .executesPlayer((player, args) -&gt; {
-        Player target = (Player) args.get(&quot;target&quot;);
-        player.teleport(target);
-    })
-    .register();
-</code></pre>
-<pre><code class="language-kotlin Kotlin">CommandAPICommand(&quot;warp&quot;)
-    .withArguments(noSelectorSuggestions)
-    .executesPlayer(PlayerCommandExecutor { player, args -&gt;
-        val target = args[&quot;target&quot;] as Player
-        player.teleport(target)
-    })
-    .register()
-</code></pre>
-</div>
-<p>And there we have it! One thing to note is that entity selectors are still a valid input, they are just not included in the suggestions.
-<img src="./images/entityselectorplayerexample.gif" alt="WarpCommand" /></p>
-</div>
 <hr />
 <h2 id="offlineplayer-argument"><a class="header" href="#offlineplayer-argument">OfflinePlayer argument</a></h2>
 <p>The <code>OfflinePlayerArgument</code> class is identical to the <code>PlayerArgument</code> class, but instead of returning a <code>Player</code> object, it returns an <code>OfflinePlayer</code> object. Internally, this argument makes calls to Mojang servers (via Mojang's authlib), meaning it can be slightly slower than alternative methods (such as using a <code>StringArgument</code> and suggesting a list of existing offline players).</p>
@@ -9877,7 +9848,7 @@ public class WarpCommand {
     &lt;dependency&gt;
         &lt;groupId&gt;dev.jorel&lt;/groupId&gt;
         &lt;artifactId&gt;commandapi-bukkit-kotlin&lt;/artifactId&gt;
-        &lt;version&gt;9.6.0&lt;/version&gt;
+        &lt;version&gt;9.4.1&lt;/version&gt;
     &lt;/dependency&gt;
 &lt;/dependencies&gt;
 </code></pre>
@@ -9935,11 +9906,11 @@ public class WarpCommand {
 <p>Next, you need to add the dependency:</p>
 <div class="multi-pre">
 <pre><code class="language-groovy build.gradle">dependencies {
-    implementation &quot;dev.jorel:commandapi-bukkit-kotlin:9.6.0&quot;
+    implementation &quot;dev.jorel:commandapi-bukkit-kotlin:9.4.1&quot;
 }
 </code></pre>
 <pre><code class="language-kotlin build.gradle.kts">dependencies {
-    implementation(&quot;dev.jorel:commandapi-bukkit-kotlin:9.6.0&quot;)
+    implementation(&quot;dev.jorel:commandapi-bukkit-kotlin:9.4.1&quot;)
 }
 </code></pre>
 </div>
@@ -10264,16 +10235,16 @@ We do, however, offer snapshot builds. This small section on Velocity will outli
     &lt;dependency&gt;
         &lt;groupId&gt;dev.jorel&lt;/groupId&gt;
         &lt;artifactId&gt;commandapi-velocity-shade&lt;/artifactId&gt;
-        &lt;version&gt;9.5.0-SNAPSHOT&lt;/version&gt;
+        &lt;version&gt;9.4.0-SNAPSHOT&lt;/version&gt;
     &lt;/dependency&gt;
 &lt;/dependencies&gt;
 </code></pre>
 <pre><code class="language-gradle build.gradle">dependencies {
-    implementation &quot;dev.jorel:commandapi-velocity-shade:9.5.0-SNAPSHOT&quot;
+    compile &quot;dev.jorel:commandapi-velocity-shade:9.4.0-SNAPSHOT&quot;
 }
 </code></pre>
 <pre><code class="language-gradle build.gradle.kts">dependencies {
-    implementation(&quot;dev.jorel:commandapi-velocity-shade:9.5.0-SNAPSHOT&quot;)
+    compileOnly(&quot;dev.jorel:commandapi-velocity-shade:9.4.0-SNAPSHOT&quot;)
 }
 </code></pre>
 </div>
@@ -11992,6 +11963,10 @@ arguments.add(new RecipeArgument(&quot;recipe&quot;).replaceSafeSuggestions(Safe
 <p>There are a few arguments that are incompatible with various versions of Minecraft. This page outlines the full list of incompatibilities that the CommandAPI has with what versions of Minecraft.</p>
 <hr />
 <h2 id="argument-changes-with-respect-to-minecraft-version"><a class="header" href="#argument-changes-with-respect-to-minecraft-version">Argument changes with respect to Minecraft version</a></h2>
+<h3 id="angleargument"><a class="header" href="#angleargument">AngleArgument</a></h3>
+<p>Incompatible with Minecraft versions <strong>less than 1.16.2</strong> <em>(1.16, 1.16.1)</em></p>
+<h3 id="chatargument"><a class="header" href="#chatargument">ChatArgument</a></h3>
+<p>Incompatible with Minecraft version <strong>1.16.1</strong> <em>(Works on 1.16.2)</em></p>
 <h3 id="chatarguments-chat-preview"><a class="header" href="#chatarguments-chat-preview">ChatArgument's chat preview</a></h3>
 <p>Incompatible with Minecraft versions <strong>less than 1.19 and greater than 1.19.2</strong> <em>(Works on 1.19, 1.19.1 and 1.19.2)</em></p>
 <h3 id="functionargument"><a class="header" href="#functionargument">FunctionArgument</a></h3>
@@ -12174,7 +12149,6 @@ Caused by: java.lang.IllegalArgumentException: Whilst parsing command on line 2:
 <ul>
 <li><strong><a href="https://github.com/willkroboth">willkroboth</a></strong>, the first <em>✨Special Contributor</em>, recognized for their above-and-beyond contribution to helping new CommandAPI Discord members.</li>
 <li><strong><a href="https://github.com/DerEchtePilz">DerEchtePilz</a></strong>, recognized for their significant contribution of creating a Kotlin DSL for the CommandAPI (with the help of Sparky from the CommandAPI Discord server).</li>
-<li><strong><a href="https://github.com/XHawk87">Hawk</a></strong>, recognized for becoming the lead developer of the CommandAPI annotation system.</li>
 </ul>
 <p>The CommandAPI would not be where it is currently without the community that has been established over the years in the CommandAPI Discord server. As such, I'd like to give a special thanks to some of the most active CommandAPI Discord server members that make the community feel lively:</p>
 <ul>
@@ -12182,7 +12156,6 @@ Caused by: java.lang.IllegalArgumentException: Whilst parsing command on line 2:
 <li>Brought To You By</li>
 <li>MineNash</li>
 <li>TheGates</li>
-<li>Strokkur24</li>
 </ul>
 <hr />
 <h3 id="acknowledgements-donators"><a class="header" href="#acknowledgements-donators">Acknowledgements (Donators)</a></h3>
