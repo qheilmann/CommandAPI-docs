@@ -30,7 +30,7 @@ function refresh() {
         }
     }
 
-    if (currentVersion.value !== version) {
+    if (currentVersion.value !== '' && currentVersion.value !== version) {
         refreshPage = true;
         changingVersion.value = true;
     }
