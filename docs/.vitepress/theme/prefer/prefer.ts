@@ -11,13 +11,13 @@ function getBoolean(key: string, defaultValue: boolean) {
 }
 
 export const openPreferenceKey = 'command-api-docs-prefer-open-preference'
-export const openPreference = ref(getBoolean(openPreferenceKey, false))
+export const openPreference = ref(getBoolean(openPreferenceKey, true))
 
 export const preferMavenKey = 'command-api-docs-prefer-maven'
-export const preferMaven = ref(getBoolean(preferMavenKey, true))
+export const preferMaven = ref(getBoolean(preferMavenKey, false))
 
-export const preferKotlinDslInGradleKey = 'command-api-docs-prefer-kotlin-dsl-in-gradle'
-export const preferKotlinDslInGradle = ref(getBoolean(preferKotlinDslInGradleKey, true))
+export const preferGroovyInGradleKey = 'command-api-docs-prefer-groovy-dsl-in-gradle'
+export const preferGroovyInGradle = ref(getBoolean(preferGroovyInGradleKey, false))
 
-export const preferMojmapKey = 'command-api-docs-prefer-mojmap'
-export const preferMojmap = ref(getBoolean(preferMojmapKey, true))
+export const preferReobfKey = 'command-api-docs-prefer-mojmap'
+export const preferReobf = ref(getBoolean(preferReobfKey, false))

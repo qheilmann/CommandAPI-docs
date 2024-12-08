@@ -4,7 +4,7 @@
 import {VTIconChevronDown, VTSwitch} from '@vue/theme'
 import {useData, useRoute} from 'vitepress'
 import {onMounted, ref, Ref, watch} from 'vue'
-import {openPreference, openPreferenceKey, preferKotlinDslInGradle, preferKotlinDslInGradleKey, preferMaven, preferMavenKey, preferMojmap, preferMojmapKey,} from "./prefer";
+import {openPreference, openPreferenceKey, preferGroovyInGradle, preferGroovyInGradleKey, preferMaven, preferMavenKey, preferReobf, preferReobfKey,} from "./prefer";
 
 const {frontmatter} = useData();
 let preferencesToDisplay: Ref<string[]> = ref();
@@ -43,15 +43,15 @@ const toggleMaven = useToggleFn(
 );
 
 const toggleGradleDsl = useToggleFn(
-    preferKotlinDslInGradleKey,
-    preferKotlinDslInGradle,
-    'prefer-kts'
+    preferGroovyInGradleKey,
+    preferGroovyInGradle,
+    'prefer-groovy'
 );
 
 const toggleMapping = useToggleFn(
-    preferMojmapKey,
-    preferMojmap,
-    'prefer-mojmap'
+    preferReobfKey,
+    preferReobf,
+    'prefer-reobf'
 )
 
 function useToggleFn(
@@ -78,8 +78,8 @@ refresh()
 
 onMounted(() => {
     toggleMaven(preferMaven.value);
-    toggleGradleDsl(preferKotlinDslInGradle.value);
-    toggleMapping(preferMojmap.value);
+    toggleGradleDsl(preferGroovyInGradle.value);
+    toggleMapping(preferReobf.value);
 });
 </script>
 
@@ -103,34 +103,34 @@ onMounted(() => {
         >
             <div class="mobile-wrapper switches">
                 <div v-if="preferencesToDisplay.includes('build-system')" class="switch-container">
-                    <label class="gradle-label" @click="toggleMaven(false)">Gradle</label>
+                    <label class="gradle-label prefer-label-left" @click="toggleMaven(false)">Gradle</label>
                     <VTSwitch
                         class="api-switch"
                         aria-label="prefer maven"
                         :aria-checked="preferMaven"
                         @click="toggleMaven()"
                     />
-                    <label class="maven-label" @click="toggleMaven(true)">Maven</label>
+                    <label class="maven-label prefer-label-right" @click="toggleMaven(true)">Maven</label>
                 </div>
                 <div v-if="preferencesToDisplay.includes('build-system') && !preferMaven" class="switch-container">
-                    <label class="groovy-label" @click="toggleGradleDsl(false)">.gradle</label>
+                    <label class="kts-label prefer-label-left" style="width: fit-content" @click="toggleGradleDsl(false)">.gradle.kts</label>
                     <VTSwitch
                         class="dsl-switch"
-                        aria-label="prefer kts"
-                        :aria-checked="preferKotlinDslInGradle"
+                        aria-label="prefer groovy"
+                        :aria-checked="preferGroovyInGradle"
                         @click="toggleGradleDsl()"
                     />
-                    <label class="kts-label" @click="toggleGradleDsl(true)">.gradle.kts</label>
+                    <label class="groovy-label prefer-label-right" @click="toggleGradleDsl(true)">.gradle</label>
                 </div>
                 <div v-if="preferencesToDisplay.includes('mapping')" class="switch-container">
-                    <label class="reobf-label" @click="toggleMapping(false)">Reobf</label>
+                    <label class="mojmap-label prefer-label-left" @click="toggleMapping(false)">Mojmap</label>
                     <VTSwitch
                         class="mapping-switch"
-                        aria-label="prefer mojmap"
-                        :aria-checked="preferMojmap"
+                        aria-label="prefer reobf"
+                        :aria-checked="preferReobf"
                         @click="toggleMapping()"
                     />
-                    <label class="mojmap-label" @click="toggleMapping(true)">Mojmap</label>
+                    <label class="reobf-label prefer-label-right" @click="toggleMapping(true)">Reobf</label>
                 </div>
             </div>
         </div>
@@ -139,6 +139,16 @@ onMounted(() => {
 </template>
 
 <style scoped>
+.prefer-label-left {
+    flex: 1;
+    text-align: left;
+}
+
+.prefer-label-right {
+    flex: 1;
+    text-align: right;
+}
+
 .preference-switch {
     font-size: 12px;
     border-bottom: 1px solid var(--vt-c-divider-light);
@@ -150,12 +160,6 @@ onMounted(() => {
     z-index: 5;
 }
 
-@media (max-width: 1279px) {
-    .hide-on-mobile {
-        display: none;
-    }
-}
-
 @media (min-width: 1280px) {
     .content-container > .preference-switch {
         display: none;
@@ -163,10 +167,35 @@ onMounted(() => {
 }
 
 @media (max-width: 1279px) {
+    .hide-on-mobile {
+        display: none;
+    }
+
     .mobile-wrapper {
         display: flex;
         flex-direction: row;
         gap: 8px;
+    }
+
+    .switch-container {
+        padding: 0 1em;
+    }
+
+    #preference-switches {
+        font-size: 11px;
+        padding: 8px 4px;
+    }
+
+    .vt-switch {
+        margin: auto;
+    }
+
+    .switch-link {
+        margin-left: auto;
+    }
+
+    .switch-container label:first-child {
+        width: 46px;
     }
 }
 
@@ -198,6 +227,7 @@ onMounted(() => {
 .vt-link-icon {
     position: relative;
     top: 1px;
+    transition: transform 0.5s
 }
 
 .vt-link-icon.open {
@@ -218,12 +248,6 @@ onMounted(() => {
     align-items: center;
 }
 
-@media (max-width: 959px) {
-    .switch-container {
-        padding: 0 1em;
-    }
-}
-
 .switch-container:not(:first-child) {
     margin-top: 10px;
 }
@@ -242,69 +266,40 @@ onMounted(() => {
     width: 50px;
 }
 
-.switch-link {
-    margin-left: 8px;
-    font-size: 11px;
-    min-width: 14px;
-    height: 14px;
-    line-height: 13px;
-    text-align: center;
-    color: var(--vt-c-green);
-    border: 1px solid var(--vt-c-green);
-    border-radius: 50%;
-}
 
-@media (max-width: 1439px) {
-    #preference-switches {
-        font-size: 11px;
-        padding: 8px 4px;
-    }
-
-    .vt-switch {
-        margin: auto;
-    }
-
-    .switch-link {
-        margin-left: auto;
-    }
-
-    .switch-container label:first-child {
-        width: 46px;
-    }
-}
 </style>
 
 <style>
 .maven,
-.kts,
-.mojmap {
+.groovy,
+.reobf {
     display: none;
 }
 
 .prefer-maven .gradle,
-.prefer-kts .groovy,
-.prefer-mojmap .reobf {
+.prefer-groovy .kts,
+.prefer-reobf .mojmap {
     display: none;
 }
 
 .prefer-maven .maven,
-.prefer-kts .kts,
-.prefer-mojmap .mojmap {
+.prefer-groovy .groovy,
+.prefer-reobf .reobf {
     display: initial;
 }
 
 .maven-label,
-.kts-label,
-.mojmap-label,
+.groovy-label,
+.reobf-label,
 .prefer-maven .gradle-label,
-.prefer-kts .groovy-label,
-.prefer-mojmap .reobf-label {
+.prefer-groovy .kts-label,
+.prefer-reobf .mojmap-label {
     color: var(--vt-c-text-3);
 }
 
 .prefer-maven .maven-label,
-.prefer-kts .kts-label,
-.prefer-mojmap .mojmap-label {
+.prefer-groovy .groovy-label,
+.prefer-reobf .reobf-label {
     color: var(--vt-c-text-1);
 }
 
@@ -312,11 +307,11 @@ onMounted(() => {
     transform: translateX(18px);
 }
 
-.prefer-kts .dsl-switch .vt-switch-check {
+.prefer-groovy .dsl-switch .vt-switch-check {
     transform: translateX(18px);
 }
 
-.prefer-mojmap .mapping-switch .vt-switch-check {
+.prefer-reobf .mapping-switch .vt-switch-check {
     transform: translateX(18px);
 }
 
