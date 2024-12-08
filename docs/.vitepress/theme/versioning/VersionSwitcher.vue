@@ -6,7 +6,7 @@ import VPMenuLink from 'vitepress/dist/client/theme-default/components/VPMenuLin
 import VPFlyout from 'vitepress/dist/client/theme-default/components/VPFlyout.vue'
 import {parse} from "yaml";
 import {useRoute} from "vitepress";
-import {currentVersion, latestVersion} from "./version";
+import {changingVersion, currentVersion, isLatest, latestVersion} from "./version";
 
 // noinspection JSUnusedGlobalSymbols
 const props = defineProps<{
@@ -16,7 +16,6 @@ const route = useRoute();
 
 let versionList: string[] = [];
 const versions = ref<string[]>([]);
-const isLatest = ref(true);
 
 function refresh() {
     let version = latestVersion.value;
@@ -33,6 +32,7 @@ function refresh() {
 
     if (currentVersion.value !== version) {
         refreshPage = true;
+        changingVersion.value = true;
     }
 
     currentVersion.value = version;
@@ -45,6 +45,7 @@ function refresh() {
 }
 
 async function init() {
+    changingVersion.value = false;
     const versionDataFileUrl = `${window.location.origin}/versions.yml`;
     const versionDataFileContent = await (await fetch(versionDataFileUrl)).text();
     const versionData = parse(versionDataFileContent);

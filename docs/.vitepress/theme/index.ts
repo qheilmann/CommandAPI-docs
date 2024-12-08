@@ -1,5 +1,5 @@
 import type {Theme} from 'vitepress'
-import {useRoute} from 'vitepress'
+import {useData, useRoute} from 'vitepress'
 import DefaultTheme from 'vitepress/theme'
 import PluginTabs from './tabs/PluginTabs.vue'
 import PluginTabsTab from './tabs/PluginTabsTab.vue'
@@ -14,6 +14,7 @@ import './style/global.css'
 import '@nolebase/vitepress-plugin-enhanced-readabilities/client/style.css'
 import VersionSwitcher from "./versioning/VersionSwitcher.vue";
 import TitleAnchor from "./anchor/TitleAnchor.vue";
+import NotFoundComponent from "./404/NotFoundComponent.vue";
 
 // noinspection JSUnusedGlobalSymbols
 export default {
@@ -33,6 +34,10 @@ export default {
             'nav-bar-content-after': () => h(NolebaseEnhancedReadabilitiesMenu),
             'nav-screen-content-after': () => h(NolebaseEnhancedReadabilitiesScreenMenu),
         };
+
+        if (useData().page.value.isNotFound) {
+            children["not-found"] = () => h(NotFoundComponent);
+        }
 
         return h(DefaultTheme.Layout, null, children);
     },
