@@ -4,7 +4,7 @@ import DefaultTheme from 'vitepress/theme'
 import PluginTabs from './tabs/PluginTabs.vue'
 import PluginTabsTab from './tabs/PluginTabsTab.vue'
 import {provideTabsSharedState} from './tabs/useTabsSelectedState'
-import PreferenceSwitch from './prefer/PreferenceSwitch.vue';
+import PreferenceSwitch from './preference/PreferenceSwitch.vue';
 import mediumZoom from "medium-zoom";
 import {h, nextTick, onMounted, watch} from 'vue'
 import AuthorsComponent from "./author/PageAuthors.vue";

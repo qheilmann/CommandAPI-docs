@@ -4,7 +4,7 @@
 import {VTIconChevronDown, VTSwitch} from '@vue/theme'
 import {useData, useRoute} from 'vitepress'
 import {onMounted, ref, Ref, watch} from 'vue'
-import {openPreference, openPreferenceKey, preferGroovyInGradle, preferGroovyInGradleKey, preferMaven, preferMavenKey, preferReobf, preferReobfKey,} from "./prefer";
+import {openPreference, openPreferenceKey, preferGroovyInGradle, preferGroovyInGradleKey, preferMaven, preferMavenKey, preferReobf, preferReobfKey,} from "./preference";
 
 const {frontmatter} = useData();
 let preferencesToDisplay: Ref<string[]> = ref();
@@ -155,7 +155,7 @@ onMounted(() => {
     transition: border-color 0.5s, background-color 0.5s ease;
     margin-bottom: 20px;
     top: -0.5px;
-    background-color: var(--vt-c-bg);
+    background-color: var(--vp-c-bg);
     padding-top: 10px;
     z-index: 5;
 }
