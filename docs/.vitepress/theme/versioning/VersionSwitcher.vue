@@ -19,21 +19,28 @@ const versions = ref<string[]>([]);
 function refresh() {
     let version = latestVersion.value;
     let refreshPage = false;
+    let lastVersion = undefined;
 
     for (const v of versionList) {
+        if (document.referrer.includes(`/${v}/`)) {
+            lastVersion = v;
+        }
         if (window.location.pathname.startsWith(`/${v}/`)) {
-            if(currentVersion.value !== '' && v !== currentVersion.value) {
+            if (currentVersion.value !== '' && v !== currentVersion.value) {
                 refreshPage = true;
             }
             version = v;
-            break;
         }
+    }
+
+    if (lastVersion !== undefined && lastVersion !== version) {
+        refreshPage = true;
     }
 
     currentVersion.value = version;
     versions.value = versionList;
 
-    if(refreshPage) {
+    if (refreshPage) {
         window.location.reload();
     }
 }
