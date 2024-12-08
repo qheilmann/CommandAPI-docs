@@ -38,7 +38,7 @@ These methods allow you to interact with the Minecraft function that this class 
 
 ### `run()`
 
-:::warning run() support in 1.20.3+
+:::danger run() support in 1.20.3+
 
 As of CommandAPI 9.3.0 (compatible with Minecraft versions 1.20.3 and 1.20.4), calling `run()` will always return a value of `1`, regardless of whether the command succeeds, fails, or returns a result.
 
@@ -55,7 +55,7 @@ The `run()` method runs the function. The command executor that runs this functi
 
 ### `runAs(Entity)`
 
-:::warning runAs(Entity) support in 1.20.3+
+:::danger runAs(Entity) support in 1.20.3+
 
 As of CommandAPI 9.3.0 (compatible with Minecraft versions 1.20.3 and 1.20.4), calling `runAs(Entity)` will always return a value of `1`, regardless of whether the command succeeds, fails, or returns a result.
 
