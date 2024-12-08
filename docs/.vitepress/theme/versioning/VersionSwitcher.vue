@@ -18,9 +18,13 @@ const versions = ref<string[]>([]);
 
 function refresh() {
     let version = latestVersion.value;
+    let refreshPage = false;
 
     for (const v of versionList) {
         if (window.location.pathname.startsWith(`/${v}/`)) {
+            if(currentVersion.value !== '' && v !== currentVersion.value) {
+                refreshPage = true;
+            }
             version = v;
             break;
         }
@@ -28,6 +32,10 @@ function refresh() {
 
     currentVersion.value = version;
     versions.value = versionList;
+
+    if(refreshPage) {
+        window.location.reload();
+    }
 }
 
 async function init() {
