@@ -1,6 +1,5 @@
 import {ref} from 'vue'
-
-export const inBrowser = typeof window !== 'undefined'
+import {inBrowser} from "vitepress";
 
 function getBoolean(key: string, defaultValue: boolean) {
     if (inBrowser) {
