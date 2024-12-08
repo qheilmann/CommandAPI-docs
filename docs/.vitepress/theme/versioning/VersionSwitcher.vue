@@ -15,6 +15,7 @@ const route = useRoute();
 
 let versionList: string[] = [];
 const versions = ref<string[]>([]);
+const isLatest = ref(true);
 
 function refresh() {
     let version = latestVersion.value;
@@ -22,10 +23,11 @@ function refresh() {
 
     for (const v of versionList) {
         if (window.location.pathname.startsWith(`/${v}/`)) {
-            if(currentVersion.value !== '' && v !== currentVersion.value) {
+            if (currentVersion.value !== '' && v !== currentVersion.value) {
                 refreshPage = true;
             }
             version = v;
+            isLatest.value = false;
             break;
         }
     }
@@ -33,13 +35,13 @@ function refresh() {
     currentVersion.value = version;
     versions.value = versionList;
 
-    if(refreshPage) {
+    if (refreshPage) {
         window.location.reload();
     }
 }
 
 async function init() {
-    const versionDataFileUrl = `${window.location.origin}/versions.yml`;
+    const versionDataFileUrl = `${window.location.origin}/9.4.2/versions.yml`;
     const versionDataFileContent = await (await fetch(versionDataFileUrl)).text();
     const versionData = parse(versionDataFileContent);
     versionList = versionData.versions;
@@ -64,14 +66,14 @@ watch(
     <VPFlyout v-if="!screenMenu" class="VPVersionSwitcher" icon="vpi-versioning" :button="currentVersion"
               :label="'Switch Version'">
         <div class="items">
-            <VPMenuLink v-if="currentVersion != latestVersion" :item="{
+            <VPMenuLink v-if="!isLatest" :item="{
         text: latestVersion,
-        link: `/`,
+        link: `/../`,
       }"/>
             <template v-for="version in versions" :key="version">
                 <VPMenuLink v-if="currentVersion != version" :item="{
           text: version,
-          link: `/${version}/`,
+          link: `${isLatest? '' : '/..'}/${version}/`,
         }"/>
             </template>
         </div>
@@ -85,12 +87,12 @@ watch(
         <div id="navbar-group-version" class="items">
             <VPMenuLink :item="{
         text: latestVersion,
-        link: `/`,
+        link: `${isLatest? '' : '/..'}/`,
       }"/>
             <template v-for="version in versions" :key="version">
                 <VPMenuLink :item="{
           text: version,
-          link: `/${version}/`,
+          link: `${isLatest? '' : '/..'}/${version}/`,
         }"/>
             </template>
         </div>
