@@ -1,7 +1,5 @@
 # CommandAPI-Docs
 
-**Working In Progress**
-
 Documentation for CommandAPI.
 
 ## License
