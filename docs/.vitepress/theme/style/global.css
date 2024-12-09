@@ -58,3 +58,13 @@ kbd:not(.DocSearch-Button-Key) {
 .hide-anchor .header-anchor {
     display: none;
 }
+
+.dark {
+    .tip.custom-block > .danger.custom-block {
+        background-color: #3e2129;
+    }
+}
+
+.tip.custom-block > .danger.custom-block {
+    background-color: #fde4e8;
+}
