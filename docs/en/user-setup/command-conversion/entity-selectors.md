@@ -20,7 +20,7 @@ EssentialsX includes a command `/ext` which lets you extinguish a player that is
 
 To convert this command, we could use the following `config.yml` file:
 
-```yml
+```yaml
 verbose-outputs: false
 create-dispatcher-json: false
 plugins-to-convert:
@@ -44,7 +44,7 @@ However, the above `config.yml` **will not** support the following commands:
 
 To handle this, we have to use the conversion with arguments (as described in the [previous section](./single-command-with-args)). For this `ext` command, we want to only use this command on _one or more players_, therefore, we want to use the `api:players` argument which is compatible with one or more players:
 
-```yml
+```yaml
 verbose-outputs: false
 create-dispatcher-json: false
 plugins-to-convert:

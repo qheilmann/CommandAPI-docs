@@ -128,7 +128,7 @@ We first declare the command as normal. Nothing fancy is going on here:
 
 In our **plugin.yml** we can also set up our permissions for example...
 
-```yml
+```yaml
 permissions:
   economy.*:
     description: Gives the user full access to the economy commands

@@ -96,13 +96,13 @@ If `true`, outputs command registration and unregistration logs in the console. 
 
 **Default value**
 
-```yml
+```yaml
 verbose-outputs: false
 ```
 
 **Example value**
 
-```yml
+```yaml
 verbose-outputs: true
 ```
 
@@ -112,13 +112,13 @@ If `true`, turns off all logging from the CommandAPI, except for errors.
 
 **Default value**
 
-```yml
+```yaml
 silent-logs: false
 ```
 
 **Example value**
 
-```yml
+```yaml
 silent-logs: true
 ```
 
@@ -132,7 +132,7 @@ Controls messages that the CommandAPI displays to players. Available messages:
 
 **Default value**
 
-```yml
+```yaml
 messages:
   missing-executor-implementation: "This command has no implementations for %s"
 ```
@@ -147,13 +147,13 @@ The `command_registration.json` JSON representation of commands is in the same f
 
 **Default value**
 
-```yml
+```yaml
 create-dispatcher-json: false
 ```
 
 **Example value**
 
-```yml
+```yaml
 create-dispatcher-json: true
 ```
 
@@ -171,13 +171,13 @@ This feature is very experimental and should only be used if you know what youâ€
 
 **Default value**
 
-```yml
+```yaml
 use-latest-nms-version: false
 ```
 
 **Example value**
 
-```yml
+```yaml
 use-latest-nms-version: true
 ```
 
@@ -195,13 +195,13 @@ Take the warning from the [`use-latest-nms-version`](#use-latest-nms-version) an
 
 **Default value**
 
-```yml
+```yaml
 be-lenient-for-minor-versions: false
 ```
 
 **Example value**
 
-```yml
+```yaml
 be-lenient-for-minor-versions: true
 ```
 
@@ -215,13 +215,13 @@ By default, this value is set to `true` and the CommandAPI will hook into the `S
 
 **Default value**
 
-```yml
+```yaml
 hook-paper-reload: true
 ```
 
 **Example value**
 
-```yml
+```yaml
 hook-paper-reload: false
 ```
 
@@ -235,13 +235,13 @@ Note that datapacks will still be reloaded if performed manually when `hook-pape
 
 **Default value**
 
-```yml
+```yaml
 skip-initial-datapack-reload: false
 ```
 
 **Example value**
 
-```yml
+```yaml
 skip-initial-datapack-reload: true
 ```
 
@@ -251,18 +251,18 @@ Controls the list of plugins to process for command conversion. See [Command con
 
 **Default value**
 
-```yml
+```yaml
 plugins-to-convert: []
 ```
 
 **Example value**
 
-```yml
+```yaml
 plugins-to-convert:
   - Essentials: ~
 ```
 
-```yml
+```yaml
 plugins-to-convert:
   - Essentials:
     - speed
@@ -272,7 +272,7 @@ plugins-to-convert:
   - MyOtherPlugin: ~
 ```
 
-```yml
+```yaml
 plugins-to-convert:
   - Essentials:
     - speed <speed>[0..10]
@@ -287,13 +287,13 @@ Determines whether the proxy sender should be skipped when converting a command.
 
 **Default value**
 
-```yml
+```yaml
 skip-sender-proxy: []
 ```
 
 **Example value**
 
-```yml
+```yaml
 skip-sender-proxy:
   - SkinsRestorer
   - MyPlugin
@@ -305,13 +305,13 @@ A list of other commands to convert. This should be used for commands which aren
 
 **Default value**
 
-```yml
+```yaml
 other-commands-to-convert: []
 ```
 
 **Example value**
 
-```yml
+```yaml
 other-commands-to-convert:
   - /set
   - mycommand

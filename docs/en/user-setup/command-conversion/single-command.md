@@ -85,7 +85,7 @@ To add commands to be converted, add them under the `other-command-to-convert` s
 
 In this example, we want to convert the `//set` command from WorldEdit, as well as a custom command `/mycommand`. Note that since WorldEdit's `//set` command has two forward slashes, we ignore the first one (because that is the symbol used to start commands), but must make sure that we include the second one as that is part of WorldEdit's command syntax. This is the following `config.yml` that you would need:
 
-```yml
+```yaml
 verbose-outputs: false
 create-dispatcher-json: false
 plugins-to-convert: []
