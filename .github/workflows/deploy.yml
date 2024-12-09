@@ -19,7 +19,7 @@ jobs:
 
       - name: Merge Build Branches
         run: |
-          CNAME='commandapi-docs.xor7.cn'
+          CNAME='docs.commandapi.dev'
           
           git config --global user.name 'github-actions[bot]'
           git config --global user.email 'github-actions[bot]@users.noreply.github.com'
