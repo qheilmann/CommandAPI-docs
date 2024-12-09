@@ -68,7 +68,7 @@ hello world
 
 ## Greedy string argument
 
-:::info
+:::info Greedy Arguments:
 
 The `GreedyStringArgument`, similar to the `ChatArgument` uses the entire argument array from its current position. This means that it never ends, therefore if it is used, it must be the last element of your `List` of arguments.
 
