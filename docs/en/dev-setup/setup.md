@@ -11,7 +11,7 @@ authors:
 
 To use the CommandAPI in your plugins, there are a few methods of adding it to your development environment. First things first, if you're using the CommandAPI plugin, you need to add the CommandAPI as a dependent in your `plugin.yml` or `paper-plugin.yml`:
 
-:::tabs
+:::tabs key:dev-setup
 ===plugin.yml (Bukkit/Spigot/Paper)
 ```yaml
 name: MyPlugin
