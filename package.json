@@ -1,13 +1,13 @@
 {
     "name": "commandapi-docs",
     "license": "MIT",
-    "homepage": "https://github.com/MC-XiaoHei/CommandAPI-Docs",
+    "homepage": "https://github.com/CommandAPI/CommandAPI-Docs",
     "repository": {
         "type": "git",
-        "url": "https://github.com/MC-XiaoHei/CommandAPI-Docs"
+        "url": "https://github.com/CommandAPI/CommandAPI-Docs"
     },
     "bugs": {
-        "url": "https://github.com/MC-XiaoHei/CommandAPI-Docs/issues"
+        "url": "https://github.com/CommandAPI/CommandAPI-Docs/issues"
     },
     "devDependencies": {
         "@nolebase/vitepress-plugin-enhanced-readabilities": "^2.10.0",
