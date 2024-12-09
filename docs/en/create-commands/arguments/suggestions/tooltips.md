@@ -77,7 +77,9 @@ public interface IStringTooltip {
 }
 ```
 
-> Note that the `Message` class is from the Brigadier library, which you will have to add as a dependency to your plugin. Information on how to do that can be found [here](https://github.com/Mojang/brigadier#installation).
+:::info
+Note that the `Message` class is from the Brigadier library, which you will have to add as a dependency to your plugin. Information on how to do that can be found [here](https://github.com/Mojang/brigadier#installation).
+:::
 
 This is incredibly useful if you’re using suggestions with custom objects, such as a plugin that has custom items.
 
