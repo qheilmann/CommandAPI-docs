@@ -12,7 +12,7 @@ authors:
 
 The `RecipeArgument` class lets you retrieve Bukkit's `ComplexRecipe` object.
 
-::::tip Example – Giving a player the result of a recipe
+::::tip Example - Giving a player the result of a recipe
 
 Say we want to give yourself the result of a specific recipe. Since Bukkit's `Recipe` class contains the `getResult()` method, we will use that in our example. We want to create the following command:
 
@@ -33,7 +33,7 @@ As such, we easily implement it by specifying the `RecipeArgument`, casting it a
 
 ::::
 
-::::tip Example – Unlocking a recipe for a player
+::::tip Example - Unlocking a recipe for a player
 
 In this example, we'll use the `ComplexRecipe`'s `getKey()` method to write an example to unlock a recipe for a player. For this command, we'll use the following syntax:
 

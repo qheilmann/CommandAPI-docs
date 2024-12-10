@@ -48,7 +48,7 @@ class OptionalArguments {
                     return;
                 }
 
-                // We know this is not null because rating is required if a topic is given
+                // We know this is not null because rating is required if topic is given
                 int rating = (int) args.get("rating");
 
                 // The target player is optional, so give it a default here

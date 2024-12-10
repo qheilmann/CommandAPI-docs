@@ -45,7 +45,7 @@ These methods are used to provide a basic implementation of these math operation
 | `MathOperation.MAX`      | `Math.max(val1, val2)` |
 | `MathOperation.SWAP`     | `val2`                 |
 
-::::tip Example – Changing a player's level
+::::tip Example - Changing a player's level
 
 Say we wanted to create a player's level. Typically, this is implemented in the following manner:
 

@@ -66,7 +66,7 @@ fun permissions() {
         .executesPlayer(PlayerCommandExecutor { player, args ->
             val target = args["target"] as Player
 
-            // send the executor the target balance
+            // send the executor the target's balance
             player.sendMessage(target.name + "'s balance: " + Economy.getBalance(target))
         })
         .register()
@@ -80,7 +80,7 @@ fun permissions() {
             val target = args["target"] as Player
             val amount = args["amount"] as Double
 
-            // update the target balance
+            // update the target's balance
             Economy.updateBalance(target, amount)
         })
         .register()
@@ -92,7 +92,7 @@ fun permissions() {
         .executesPlayer(PlayerCommandExecutor { player, args ->
             val target = args["target"] as Player
 
-            // reset the target balance
+            // reset the target's balance
             Economy.resetBalance(target)
         })
         .register()

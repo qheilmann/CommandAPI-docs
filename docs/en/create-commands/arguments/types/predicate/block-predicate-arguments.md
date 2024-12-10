@@ -13,7 +13,7 @@ The `BlockPredicateArgument` is used to represent a "test" for Minecraft blocks.
 
 For example, if we were to use the predicate `#leaves`, then the following blocks will be satisfied by that predicate: `jungle_leaves`, `oak_leaves`, `spruce_leaves`, `dark_oak_leaves`, `acacia_leaves`, `birch_leaves`.
 
-When used, this argument must be cast to a `Predicate<Block>`. As with other similar arguments with parameterized types, you can ignore Java's unchecked cast type safety warning.
+When used, this argument must be casted to a `Predicate<Block>`. As with other similar arguments with parameterized types, you can ignore Java's unchecked cast type safety warning.
 
 ::::tip Example – Replacing specific blocks in a radius
 
@@ -23,9 +23,9 @@ Say you want to replace blocks in a given radius. To do this, we'll use the foll
 /replace <radius> <fromBlock> <toBlock>
 ```
 
-Of course, we could simply use a `BlockStateArgument` or even an `ItemStackArgument` as our `<fromBlock>` in order to get the material to replace, but the block predicate argument provides a test for a given block, which is satisfied, allows certain code to be executed.
+Of course, we could simply use a `BlockStateArgument` or even an `ItemStackArgument` as our `<fromBlock>` in order to get the material to replace, but the block predicate argument provides a test for a given block, which if satisfied, allows certain code to be executed.
 
-First, we declare our arguments. We want to use the `BlockPredicateArgument` since it also allows us to use Minecraft tags to identify blocks, as well as individual blocks. We then use `BlockStateArgument` to set the block to a given type. The `BlockStateArgument` also allows the user to provide any block data (e.g., contents of a chest or a stair's orientation).
+First, we declare our arguments. We want to use the `BlockPredicateArgument` since it also allows us to use Minecraft tags to identify blocks, as well as individual blocks. We then use `BlockStateArgument` to set the block to a given type. The `BlockStateArgument` also allows the user to provide any block data (e.g. contents of a chest or a stair's orientation).
 
 :::tabs
 ===Java
@@ -34,7 +34,7 @@ First, we declare our arguments. We want to use the `BlockPredicateArgument` sin
 <<< @/../reference-code/src/main/kotlin/createcommands/arguments/types/predicate/BlockPredicateArguments.kt#useBlockStateArgumentsExample
 :::
 
-We then register our `/replace` command. First, we parse the arguments making sure to cast to `Predicate<Block>` and `BlockData` (and not `BlockState`). After that, we use a few simple loops to find the blocks within a radius sphere from the player.
+We then register our `/replace` command. First, we parse the arguments making sure to cast to `Predicate<Block>` and `BlockData` (and not `BlockState`). After that, we use a few simple for loops to find the blocks within a radius sphere from the player.
 
 In our most nested loop, we can then check if the block meets the requirements of our predicate. This is simply performed using `predicate.test(block)`, and if satisfied, we can set the block's type.
 

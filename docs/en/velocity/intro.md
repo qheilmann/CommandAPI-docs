@@ -13,13 +13,13 @@ authors:
 The CommandAPI hasn't been released for Velocity yet.
 We do, however, offer snapshot builds. This small section on Velocity will outline how to get the snapshot builds and what limitations the CommandAPI currently has on Velocity.
 
-This page focuses on outlining how to set up the CommandAPI for Velocity. It expects that you’re already familiar with how to set up a Velocity plugin.
+This page focuses on outlining how to set up the CommandAPI for Velocity. It expects that you are already familiar with how to set up a Velocity plugin.
 
 :::
 
 ## Adding the snapshot repository with Maven or Gradle
 
-Because we don’t have an official release yet, the snapshot builds aren’t published in the Maven Central repository. Instead you need to add our snapshot repository:
+Because we do not have an official release yet, the snapshot builds are not published in the Maven Central repository. Instead you need to add our snapshot repository:
 
 <div class="maven">
 
@@ -107,15 +107,14 @@ We will perform the CommandAPI's loading step in the construction phase first:
 
 <<< @/../reference-code/src/main/java/velocity/Intro.java#loadCommandAPIExample
 
-Next, we want to use Velocity's `ProxyInitializeEvent` to perform the CommandAPI's enabling step:
+Next, we want to utilise Velocity's `ProxyInitializeEvent` to perform the CommandAPI's enabling step:
 
 
 <<< @/../reference-code/src/main/java/velocity/Intro.java#enableCommandAPIExample
 
 ## Current limitations
 
-The CommandAPI currently only offers support for a very limited number of arguments on Velocity.
-This is because arguments are primarily implemented on the backend servers.
+The CommandAPI currently only offers support for a very limited number of arguments on Velocity. This is because arguments are primarily implemented on the backend servers.
 However, the CommandAPI offers access to the primitive type arguments:
 
 - [`IntegerArgument`](../create-commands/arguments/types/primitive-arguments#numerical-arguments)
@@ -141,7 +140,7 @@ We want to register the command `/randomnumber` with the following syntax:
 /randomnumber <min> <max>
 ```
 
-To achieve that, we register the command like this:
+To accomplish that, we register the command like this:
 
 :::tabs
 ===Java

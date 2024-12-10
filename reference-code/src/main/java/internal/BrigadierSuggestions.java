@@ -76,7 +76,7 @@ class BrigadierSuggestions {
             // Identify the position of the current argument
             int start;
             if (arg.contains(" ")) {
-                // The Current argument contains spaces - it starts after the last space and after the start of this argument.
+                // Current argument contains spaces - it starts after the last space and after the start of this argument.
                 start = builder.getStart() + arg.lastIndexOf(' ') + 1;
             } else {
                 // Input starts at the start of this argument

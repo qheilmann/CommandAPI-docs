@@ -38,7 +38,7 @@ As an example, let's create a command to move an objective to a player's sidebar
 
 ## Objective criteria argument
 
-The `ObjectiveCriteriaArgument` is fairly straight forward – it represents the criteria for an objective. Similar to Bukkit, the objective criteria is simply represented as a `String`, so it must be casted to a `String` when being used.
+The `ObjectiveCriteriaArgument` is fairly straight forward - it represents the criteria for an objective. Similar to Bukkit, the objective criteria is simply represented as a `String`, so it must be casted to a `String` when being used.
 
 ::::tip Example – Unregister all objectives by criteria
 

@@ -41,7 +41,7 @@ fun spigotChatArguments() {
             val player = args["player"] as Player
             val arr = args["contents"] as Array<BaseComponent>
 
-            // Create a book
+            // Create book
             val item = ItemStack(Material.WRITTEN_BOOK)
             val meta = item.itemMeta as BookMeta
             meta.title = "Custom Book"
@@ -87,7 +87,7 @@ fun spigotChatArgumentsDSL() {
             val player = args["player"] as Player
             val array = args["contents"] as Array<BaseComponent>
 
-            // Create a book
+            // Create book
             val item = ItemStack(Material.WRITTEN_BOOK)
             val meta = item.itemMeta as BookMeta
             meta.title = "Custom Book"

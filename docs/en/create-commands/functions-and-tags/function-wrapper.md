@@ -44,7 +44,7 @@ As of CommandAPI 9.3.0 (compatible with Minecraft versions 1.20.3 and 1.20.4), c
 
 :::
 
-The `run()` method runs the function. The command executor that runs this function is the command executor used to retrieve it. For example, if a player in-game populated this argument, then the player will be filled in for `@p` and the player's location would be used for things such as `~ ~ ~`:
+The `run()` method runs the function. The command executor that runs this function is the command executor that was used to retrieve it. For example, if a player in-game populated this argument, then the player will be filled in for `@p` and the player's location would be used for things such as `~ ~ ~`:
 
 :::tabs
 ===Java

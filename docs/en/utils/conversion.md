@@ -14,7 +14,7 @@ If you're a server owner, you're probably lost! This section is for developer co
 
 :::
 
-The CommandAPI can convert plugin commands to vanilla Minecraft commands using its `config.yml`'s `plugins-to-convert` option. Nevertheless, the API for command conversion is not hidden, and you're free to use it as you see fit!
+The CommandAPI has the ability to convert plugin commands to vanilla Minecraft commands using its `config.yml`'s `plugins-to-convert` option. Nevertheless, the API for command conversion is not hidden, and you're free to use it as you see fit!
 
 Before you continue, let's clear up a few naming conventions that are used in the following sections!
 

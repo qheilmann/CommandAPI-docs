@@ -33,7 +33,7 @@ class SpigotChatArguments {
                 Player player = (Player) args.get("player");
                 BaseComponent[] arr = (BaseComponent[]) args.get("contents");
 
-                // Create a book
+                // Create book
                 ItemStack is = new ItemStack(Material.WRITTEN_BOOK);
                 BookMeta meta = (BookMeta) is.getItemMeta();
                 meta.setTitle("Custom Book");

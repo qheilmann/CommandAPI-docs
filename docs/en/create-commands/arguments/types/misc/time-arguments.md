@@ -20,7 +20,7 @@ The `TimeArgument` provides inputs such as `2d` (2 in-game days), `10s` (10 seco
 
 :::
 
-::::tip Example – Displaying a server-wide announcement
+::::tip Example - Displaying a server-wide announcement
 
 Say we have a command `bigmsg` that displays a title message to all players for a certain duration:
 

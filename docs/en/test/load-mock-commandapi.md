@@ -14,13 +14,13 @@ If your plugin depends on the CommandAPI plugin to load, when running tests you 
 MockCommandAPIPlugin load()
 ```
 
-Load the CommandAPI Plugin in the test environment. Works exactly the same as `MockBukkit.load(MockCommandAPIPlugin.class)`.
+Loads the CommandAPI Plugin in the test environment. Works exactly the same as `MockBukkit.load(MockCommandAPIPlugin.class)`.
 
 ```java
 MockCommandAPIPlugin load(Consumer<CommandAPIBukkitConfig> configureSettings)
 ```
 
-Load the CommandAPI Plugin after applying the given consumer. This allows configuring any setting from the [config.yml](../user-setup/config#configuration-settings) using the methods provided by [CommandAPIBukkitConfig](../dev-setup/shading#loading).
+Loads the CommandAPI Plugin after applying the given consumer. This allows configuring any setting from the [config.yml](../user-setup/config#configuration-settings) using the methods provided by [CommandAPIBukkitConfig](../dev-setup/shading#loading).
 
 :::tip Example - Loading test CommandAPI with settings
 

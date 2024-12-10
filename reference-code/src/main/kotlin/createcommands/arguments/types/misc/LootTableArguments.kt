@@ -47,7 +47,7 @@ fun lootTableArgumentsDSL() {
 
             val state = location.block.state
 
-            // Check if the input block is a container (e.g., chest)
+            // Check if the input block is a container (e.g. chest)
             if (state is Container && state is Lootable) {
                 // Apply the loot table to the chest
                 state.lootTable = lootTable

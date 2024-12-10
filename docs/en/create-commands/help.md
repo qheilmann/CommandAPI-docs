@@ -83,7 +83,7 @@ CommandAPICommand withHelp(HelpTopic helpTopic);
 
 ::::tip Example – Adding locale-specific help
 
-In this example, we implement local-specific help so players can see help in their desired language. To do this, we must make use of the Bukkit `HelpTopic` object which gives us more control over the content of help that is displayed to a player:
+In this example, we implement locale-specific help so players can see help in their desired language. To do this, we must make use of the Bukkit `HelpTopic` object which gives us more control over the content of help that is displayed to a player:
 
 :::tabs
 ===Java
@@ -105,7 +105,7 @@ We then add our new `HelpTopic` to the command using the `withHelp` method:
 
 ## Command usage
 
-When registering a command, there also is a command usage generated. The CommandAPI provides a way to customize this usage by providing the `withUsage()` method:
+When registering a command, there also is a command usage generated. The CommandAPI provides a way to customise this usage by providing the `withUsage()` method:
 
 ```java
 CommandAPICommand withUsage(String... usage)

@@ -67,7 +67,7 @@ $$\downarrow$$
 
 ### Providing the list
 
-The `ListArgument` requires a list that the list argument can pull suggestions and validation from. The `ListArgument` does not support values which aren’t present in the provided list. There are three methods that can be used to provide a list for the `ListArgument`:
+The `ListArgument` requires a list that the list argument can pull suggestions and validation from. The `ListArgument` does not support values which are not present in the provided list. There are three methods that can be used to provide a list for the `ListArgument`:
 
 - Providing an immutable list (a list that doesn't change) using the `Collection<T>` parameter:
 
@@ -75,13 +75,13 @@ The `ListArgument` requires a list that the list argument can pull suggestions a
   public ListArgumentBuilder withList(Collection<T> list);
   ```
 
-- Providing a list determined when suggestions are being displayed to the user and before the command has been executed using the `Supplier<Collection<T>>` parameter:
+- Providing a list that is determined when suggestions are being displayed to the user and before the command has been executed using the `Supplier<Collection<T>>` parameter:
 
   ```java
   public ListArgumentBuilder withList(Supplier<Collection<T>> list);
   ```
 
-- Providing a list determined when suggestions are being displayed to the user and before the command has been executed; that also depends on the `SuggestionInfo` present when running the command, using the `Function<SuggestionInfo<CommandSender>, Collection<T>>` parameter:
+- Providing a list that is determined when suggestions are being displayed to the user and before the command has been executed; that also depends on the `SuggestionInfo` present when running the command, using the `Function<SuggestionInfo<CommandSender>, Collection<T>>` parameter:
 
   ```java
   public ListArgumentBuilder withList(Function<SuggestionInfo<CommandSender>, Collection<T>> list);
@@ -91,7 +91,7 @@ $$\downarrow$$
 
 ### Providing a list mapping function
 
-To display suggestions, the `ListArgument` needs to know how to convert a list entry to a string. For example, a `Location` may be converted into `"x,y,z"`. The `ListArgumentBuilder` provides three methods for providing a mapping function:
+In order to display suggestions, the `ListArgument` needs to know how to convert a list entry to a string. For example, a `Location` may be converted into `"x,y,z"`. The `ListArgumentBuilder` provides three methods for providing a mapping function:
 
 
 - The `withStringMapper()` method converts the object to a string using the object's `.toString()` method. If the object is null, this method will populate it with the string `"null"`:
@@ -116,7 +116,7 @@ $$\downarrow$$
 
 ### Building the `ListArgumentBuilder`
 
-To finish building the `ListArgument`, call the `buildGreedy()` or `buildText()` method. The `buildGreedy()` method will treat the list argument as a greedy string, which means you can only use this list argument at the end of the list of arguments you’re declaring for the command. If you use the `buildText()` instead, you can use the list argument anywhere (and multiple times), but the list must be surrounded with quotation characters (`"`).
+To finish building the `ListArgument`, call the `buildGreedy()` or `buildText()` method. The `buildGreedy()` method will treat the list argument as a greedy string, which means you can only use this list argument at the end of the list of arguments you are declaring for the command. If you use the `buildText()` instead, you can use the list argument anywhere (and multiple times), but the list must be surrounded with quotation characters (`"`).
 
 ```java
 public ListArgument<T> buildGreedy();

@@ -8,7 +8,7 @@ authors:
 
 # Custom arguments
 
-Custom arguments are a quality-of-life feature that the CommandAPI offers which allows you to perform pre-processing on an argument in the argument instance rather than in your `executes()` method for a command. They are designed to be used for multiple commands – you can define the argument once and can use it wherever you want when declaring commands.
+Custom arguments are a quality-of-life feature that the CommandAPI offers which allows you to perform pre-processing on an argument in the argument instance rather than in your `executes()` method for a command. They are designed to be used for multiple commands - you can define the argument once and can use it wherever you want when declaring commands.
 
 The `CustomArgument<T, B>` has the following constructor:
 
@@ -18,7 +18,7 @@ public CustomArgument(Argument<B> base, CustomArgumentInfoParser<T, B> parser);
 
 This constructor takes in two parameters:
 
-- A "base argument", which is the argument that it'll use as the underlying parser. For example, if this is a `StringArgument`, it'll use the StringArgument's parsing rules (alphanumeric characters (A-Z, a-z and 0–9), and the underscore character) and if this is a `LocationArgument`, it'll take three numerical values.
+- A "base argument", which is the argument that it'll use as the underlying parser. For example, if this is a `StringArgument`, it'll use the StringArgument's parsing rules (alphanumeric characters (A-Z, a-z and 0-9), and the underscore character) and if this is a `LocationArgument`, it'll take three numerical values.
 
 - A "parser", which lets you process the argument based on its input. This is described in more detail below.
 
@@ -60,7 +60,7 @@ These fields are as follows:
   CommandSender sender();
   ```
 
-  `sender()` represents the command sender typing the command. This is normally a `Player`, but can also be a console command sender if using a Paper server.
+  `sender()` represents the command sender that is typing the command. This is normally a `Player`, but can also be a console command sender if using a Paper server.
 
 - ```java
   CommandArguments previousArgs();
@@ -106,7 +106,7 @@ We can use our custom argument like any other argument. Say we wanted to write a
 /tpworld <world>
 ```
 
-Since we’ve defined the method `worldArgument()` which automatically generates our argument, we can use it as follows:
+Since we have defined the method `worldArgument()` which automatically generates our argument, we can use it as follows:
 
 :::tabs
 ===Java
@@ -117,13 +117,13 @@ Since we’ve defined the method `worldArgument()` which automatically generates
 <<< @/../reference-code/src/main/kotlin/createcommands/arguments/types/CustomArguments.kt#useCustomArgumentsExampleDSL
 :::
 
-By using a `CustomArgument` (as opposed to a simple `StringArgument` and replacing its suggestions), we’re able to provide a much more powerful form of error handling (automatically handled inside the argument), and we can reuse this argument for other commands.
+By using a `CustomArgument` (as opposed to a simple `StringArgument` and replacing its suggestions), we are able to provide a much more powerful form of error handling (automatically handled inside the argument), and we can reuse this argument for other commands.
 
 ::::
 
 ## Message Builders
 
-The `MessageBuilder` class is a class to easily create messages to describe errors when a sender sends a command which doesn’t meet the expected syntax for an argument. It acts similarly to a `StringBuilder`, where you can append content to the end of a String.
+The `MessageBuilder` class is a class to easily create messages to describe errors when a sender sends a command which does not meet the expected syntax for an argument. It acts in a similar way to a `StringBuilder`, where you can append content to the end of a String.
 
 The following methods are as follows:
 

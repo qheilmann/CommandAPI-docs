@@ -8,7 +8,7 @@ authors:
 
 # Predicate tips
 
-In our [example for creating a party system](../create-commands/requirements#example-a-party-creation-and-teleportation-system), we ended up having lots of code repetitions. In our party creation command, we had the following code:
+In our [example for creating a party system](../create-commands/requirements#example-a-party-creation-and-teleportation-system), we ended up having lots of code repetition. In our party creation command, we had the following code:
 
 :::tabs
 ===Java

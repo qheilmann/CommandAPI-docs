@@ -10,7 +10,7 @@ authors:
 
 ![An advancement argument suggesting a list of Minecraft advancements](/images/arguments/advancement.png)
 
-The `AdvancementArgument` class represents in-game advancements. As expected, the `AdvancementArgument` can be cast to Bukkit's `Advancement` class.
+The `AdvancementArgument` class represents in-game advancements. As expected, the `AdvancementArgument` can be casted to Bukkit's `Advancement` class.
 
 ::::tip Example – Awarding a player an advancement
 

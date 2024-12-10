@@ -12,8 +12,8 @@ authors:
 
 Command arguments allow users to provide an executable server command. The `CommandArgument` class lets you specify:
 
-- Arbitrary commands – any command that the user has permissions to run can be provided.
-- Restricted commands – only specific commands can be provided.
+- Arbitrary commands - any command that the user has permissions to run can be provided.
+- Restricted commands - only specific commands can be provided.
 
 Using the `CommandArgument` will return a `CommandResult`, which contains a Bukkit `Command` instance representing the command to be executed, and a `String[]` of command arguments.
 
@@ -186,7 +186,7 @@ SuggestionsBranch.suggest(
 
 #### Empty suggestions
 
-Empty suggestions that are provided using `ArgumentSuggestions.empty()` tell the `CommandArgument` to stop accepting further suggestions. This "ends" the command. Using the following example, this allows the user to enter `/give diamond` and only `/give diamond` - users can’t enter any other commands.
+Empty suggestions that are provided using `ArgumentSuggestions.empty()` tell the `CommandArgument` to stop accepting further suggestions. This "ends" the command. Using the following example, this allows the user to enter `/give diamond` and only `/give diamond` - users cannot enter any other commands.
 
 ```java
 SuggestionsBranch.suggest(
@@ -203,7 +203,7 @@ These commands are valid:
 /give minecraft:diamond
 ```
 
-These commands aren't valid:
+These commands are not valid:
 
 ```mccmd
 /give

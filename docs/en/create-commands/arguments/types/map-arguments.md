@@ -26,7 +26,7 @@ graph TD
 
 ### Building a `MapArgument`
 
-To start building the argument, you first have to construct a `MapArgumentBuilder` parameterized over the types the key and the value is supposed to have.
+To start building the argument, you first have to construct a `MapArgumentBuilder` parameterized over the types the key and the value are supposed to have.
 If you wanted to construct a `MapArgument` that returns a `LinkedHashMap<String, Integer>` you would construct the `MapArgumentBuilder` like this:
 
 ```java
@@ -86,7 +86,7 @@ $$\downarrow$$
 
 ### Providing suggestions
 
-When providing suggestions, you have the choice whether players are allowed to enter any key/value pair or only key/value pairs specified by the `MapArgument`.
+When providing suggestions you have the choice whether players are allowed to enter any key/value pair or only key/value pairs specified by the `MapArgument`.
 To accomplish this the `MapArgumentBuilder` provides different methods.
 
 Similar to the mappers, you first have to provide the key suggestions:
@@ -121,7 +121,7 @@ public MapArgumentBuilder withoutValueList(boolean allowDuplicates)
 :::
 
 If you choose to allow a value to be written multiple times, you have to set `allowValueDuplicates` to `true`. By default, it is set to `false` and
-doesn’t allow values to be written multiple times.
+does not allow values to be written multiple times.
 
 $$\downarrow$$
 
@@ -158,7 +158,7 @@ To implement that, we create a command that uses a `MapArgument` and use `Player
 
 The `MapArgument` is very strict and doesn't have room for any errors. A key must always be followed by the delimiter, then a value. One value and the next key must always be separated by the separator. Both keys and values also have the option to be surrounded by quotes.
 
-For example, let's say you’re on a server with two players, `Player1` and `Player2`. We want to send both of them the message `Hello, <playerName>!`
+For example, let's say you are on a server with two players, `Player1` and `Player2`. We want to send both of them the message `Hello, <playerName>!`
 To do that, we use the previously declared `sendmessage` command like this:
 
 ```mccmd

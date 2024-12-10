@@ -34,7 +34,7 @@ To understand when and how to use these methods, you need to know a little about
    - Given the `minecraft` namespace (E.g. `minecraft:gamemode`)
 7. The server is done loading
 
-Unregistering a command only works if it happens after the command is created. Bukkit's command system is special and has two locations where commands can exist – either the Vanilla CommandDispatcher or the Bukkit CommandMap – so you also need to know where your command is registered. With that in mind, here is what each of the `unregister` methods do:
+Unregistering a command only works if it happens after the command is created. Bukkit's command system is special and has two locations where commands can exist -- either the Vanilla CommandDispatcher or the Bukkit CommandMap -- so you also need to know where your command is registered. With that in mind, here is what each of the `unregister` methods do:
 
 ```java
 CommandAPI.unregister(String commandName);
@@ -86,7 +86,7 @@ Since this command exists in the Vanilla CommandDispatcher, we can use `CommandA
 
 With this code, executing `/gamemode` will give the unknown command exception as expected. However, even though `unregisterNamespaces` was `false`, `/minecraft:gamemode` can also not be run. This happens because Vanilla commands are given their namespace in step 6, after our plugin has removed `/gamemode`.
 
-When the server starts, `/gamemode` is created in step 2 inside the Vanilla CommandDispatcher. In step 4, our plugin is enabled and we remove the `/gamemode` command from that CommandDispatcher. After all the plugins enable, step 6 moves all commands in the Vanilla CommandDispatcher to the Bukkit CommandMap and gives them the `minecraft` namespace. Since `/gamemode` doesn't exist at this point, step 6 can’t create the `/minecraft:gamemode` command. So, even though `unregisterNamespaces` was `false`, `/minecraft:gamemode` doesn't exist anyway.
+When the server starts, `/gamemode` is created in step 2 inside the Vanilla CommandDispatcher. In step 4, our plugin is enabled and we remove the `/gamemode` command from that CommandDispatcher. After all the plugins enable, step 6 moves all commands in the Vanilla CommandDispatcher to the Bukkit CommandMap and gives them the `minecraft` namespace. Since `/gamemode` doesn't exist at this point, step 6 cannot create the `/minecraft:gamemode` command. So, even though `unregisterNamespaces` was `false`, `/minecraft:gamemode` doesn't exist anyway.
 
 ::::tip Example - Replacing Minecraft's `/gamemode` command
 
@@ -175,7 +175,7 @@ Now, when you try to execute `/break`, you will just get the unknown command mes
 
 If you look at the sequence of events at the top of this page, you might notice that Bukkit's `/help` command gets its own place in step 5. Unlike the other [Bukkit commands](#unregistering-a-bukkit-command-version), `/help` is special and gets registered after plugins are loaded and enabled (don't ask, I don't know why :P). That means unregistering `/help` in `onLoad` or `onEnable` does not work, since the command doesn't exist yet.
 
-To run our unregister task after the server is enabled, we can use Bukkit's [Scheduler API](https://bukkit.fandom.com/wiki/Scheduler_Programming). There are many ways to set up and run a task, and this should work in whatever way you like. You can even give the task zero delay, since Bukkit only starts processing tasks after the server is enabled.
+In order to run our unregister task after the server is enabled, we can use Bukkit's [Scheduler API](https://bukkit.fandom.com/wiki/Scheduler_Programming). There are many ways to set up and run a task, and this should work in whatever way you like. You can even give the task zero delay, since Bukkit only starts processing tasks after the server is enabled.
 
 Since `/help` is in the Bukkit CommandMap, we need to use `CommandAPIBukkit#unregister` with `unregisterBukkit` set to `true`. We'll leave `/bukkit:help` alone, so `unregisterNamespaces` will be `false`. All together, we can unregister Bukkit's `/help` command with this code:
 
@@ -190,13 +190,13 @@ Funnily, if you try to execute `/help`, the server will still tell you: `Unknown
 
 ## Special case: Unregistering only `/minecraft:gamemode`
 
-In the earlier example for [Unregistering `/gamemode`](#unregistering-a-vanilla-command-gamemode), even though `unregisterNamespaces` was `false`, the `/minecraft:gamemode` command was also not executable. As explained up there, this happens because the namespaced version of commands in the Vanilla CommandDispatcher isn’t created until after plugins are loaded and enabled. Since we unregistered `/gamemode` in `onEnable`, when the time came for the server to transfer Vanilla commands into the Bukkit CommandMap, it didn't know to create the `minecraft:gamemode` command. Consequently, this means we can’t normally remove only the `/minecraft:gamemode` command without also unregistering `/gamemode`.
+In the earlier example for [Unregistering `/gamemode`](#unregistering-a-vanilla-command-gamemode), even though `unregisterNamespaces` was `false`, the `/minecraft:gamemode` command was also not executable. As explained up there, this happens because the namespaced version of commands in the Vanilla CommandDispatcher are not created until after plugins are loaded and enabled. Since we unregistered `/gamemode` in `onEnable`, when the time came for the server to transfer Vanilla commands into the Bukkit CommandMap, it didn't know to create the `minecraft:gamemode` command. Consequently, this means we cannot normally remove only the `/minecraft:gamemode` command without also unregistering `/gamemode`.
 
-Of course, it is still possible to only unregister `/minecraft:gamemode` and the namespaced versions of other Vanilla commands. As always, to unregister a command, you have to unregister after the command is created. So, we just need to unregister `/minecraft:gamemode` after the server is enabled. Like the [previous special case](#special-case-unregistering-bukkits-help), we can use Bukkit's [Scheduler API](https://bukkit.fandom.com/wiki/Scheduler_Programming) to run our unregister task after the server is enabled.
+Of course, it is still possible to only unregister `/minecraft:gamemode` and the namespaced versions of other Vanilla commands. As always, in order to unregister a command, you have to unregister after the command is created. So, we just need to unregister `/minecraft:gamemode` after the server is enabled. Like the [previous special case](#special-case-unregistering-bukkits-help), we can use Bukkit's [Scheduler API](https://bukkit.fandom.com/wiki/Scheduler_Programming) to run our unregister task after the server is enabled.
 
 While `/minecraft:gamemode` only exists in the Bukkit CommandMap, it is the namespaced version of the Vanilla `/gamemode` command, so it is considered a Vanilla command. That means `unregisterBukkit` should be `false`, which is what it defaults to when using `CommandAPI#unregister`. The CommandAPI understands that once the server is enabled Vanilla commands will have been copied to the CommandMap, so it will be able to find `/minecraft:gamemode`
 
-Finally, `unregisterNamespaces` should be `false`, and since that's the default value, we don't have to include it. All together, the code looks like this:
+Finally, `unregisterNamespaces` should be `false`, and since that's the default value we don't have to include it. All together, the code looks like this:
 
 :::tabs
 ===Java
@@ -218,7 +218,7 @@ Doing the opposite action here -- only unregistering `/gamemode` but keeping `/m
 <<< @/../reference-code/src/main/kotlin/createcommands/Unregistration.kt#unregisterDelayedVanillaBadExample
 :::
 
-The expected outcome of this code is that `/minecraft:gamemode` would work as expected, and `/gamemode` would give the command not found a message. However, that is only true for the player's commands. If you try to use `/minecraft:gamemode` in the console, it *will not work* properly. Specifically, while you can tab-complete the command's label, `minecraft:gamemode` the command's arguments will not have any suggestions. If you try to execute `/minecraft:gamemode` in the console, it will always tell you your command is unknown or incomplete.
+The expected outcome of this code is that `/minecraft:gamemode` would work as expected, and `/gamemode` would give the command not found message. However, that is only true for the player's commands. If you try to use `/minecraft:gamemode` in the console, it *will not work* properly. Specifically, while you can tab-complete the command's label, `minecraft:gamemode` the command's arguments will not have any suggestions. If you try to execute `/minecraft:gamemode` in the console, it will always tell you your command is unknown or incomplete.
 
 The main point is that if you ever try to unregister a Vanilla command after the server is enabled, the namespaced version of that command will break for the console. To avoid this issue, always set `unregisterNamespaces` to `true` if `unregisterBukkit` is `false` when unregistering commands after the server is enabled.
 

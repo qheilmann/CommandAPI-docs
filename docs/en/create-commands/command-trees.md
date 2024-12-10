@@ -22,7 +22,7 @@ public CommandTree  then(ArgumentTree branch);
 public ArgumentTree then(ArgumentTree branch);
 ```
 
-The `executes()` method is the same `executes()` method that you’veeen previously in this documentation for normal CommandAPI commands. This also includes all of the `executes...()` methods described in [Normal command executors](./executors/normal-executors#restricting-who-can-run-your-command), but for the sake of simplicity, we'll simply refer to all of these by `executes()`.
+The `executes()` method is the same `executes()` method that you have seen previously in this documentation for normal CommandAPI commands. This also includes all of the `executes...()` methods described in [Normal command executors](./executors/normal-executors#restricting-who-can-run-your-command), but for the sake of simplicity, we'll simply refer to all of these by `executes()`.
 
 The `then()` method allows you to create new "branches" in your command "tree" data structure. If you are familiar with [Brigadier](https://github.com/Mojang/brigadier)'s `then()` method for argument nodes, then you should feel right at home. Otherwise, for all intents and purposes `then()` lets you specify additional paths that a command can take when a user is typing their command.
 
@@ -104,7 +104,7 @@ Well, there's too much indentation. We can use nested arguments to reduce the in
 <<< @/../reference-code/src/main/kotlin/createcommands/CommandTrees.kt#nestedLargeArgumentsExampleDSL
 :::
 
-That's effectively all the basics of command trees! We start by writing a normal command, use `executes()` to make it executable and use `then()` to add additional paths to our command. Finally, we finish up with `register()` to register our command. Below, I've included a few more examples showcasing how to design commands using command trees.
+That's effectively all of the basics of command trees! We start by writing a normal command, use `executes()` to make it executable and use `then()` to add additional paths to our command. Finally, we finish up with `register()` to register our command. Below, I've included a few more examples showcasing how to design commands using command trees.
 
 ## Command tree examples
 

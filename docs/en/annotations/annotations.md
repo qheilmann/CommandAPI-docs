@@ -52,17 +52,17 @@ To use annotations on methods, **methods must be static**.
 
 ### `@Default`
 
-The `@Default` annotation indicates that the method is _not_ a subcommand. This acts similarly to regular Bukkit commands. Commands with the `@Default` annotation can be used to run the main code when the command named with the `@Command` annotation is stated, such as the following:
+The `@Default` annotation indicates that the method is _not_ a subcommand. This acts in a similar way to regular Bukkit commands. Commands with the `@Default` annotation can be used to run the main code when the command named with the `@Command` annotation is stated, such as the following:
 
 <<< @/../reference-code/src/main/java/annotations/DefaultMethodExample.java#defaultMethodExample
 
-The `@Default` annotation doesn’t mean that the command can't have arguments! Arguments can still be used and declared as shown:
+The `@Default` annotation does not mean that the command can't have arguments! Arguments can still be used and declared as shown:
 
 <<< @/../reference-code/src/main/java/annotations/DefaultMethodExample.java#defaultWithArgsMethodExample
 
 ### `@Subcommand`
 
-The `@Subcommand` simply tells the CommandAPI that the declared method is a subcommand. This acts similarly to the regular CommandAPI's `.withSubcommand()` method. The subcommand annotation can take in a single string which is the name of the subcommand:
+The `@Subcommand` simply tells the CommandAPI that the declared method is a subcommand. This acts in a similar way to the regular CommandAPI's `.withSubcommand()` method. The subcommand annotation can take in a single string which is the name of the subcommand:
 
 <<< @/../reference-code/src/main/java/annotations/SubcommandMethodExample.java#subcommandMethodExample
 
@@ -119,6 +119,6 @@ For the `@ALiteralArgument` annotation, the parameter is the literal to be used 
 
 #### Other arguments
 
-The `LocationArgument`, `Location2DArgument`, `EntitySelectorArgument` and `ScoreHolderArgument` can all take an extra parameter in their constructors. As a result, the annotation-equivalent of these arguments also allows you to provide the parameter in the annotation:
+The `LocationArgument`, `Location2DArgument`, `EntitySelectorArgument` and `ScoreHolderArgument` can all take an extra parameter in their constructors. As a result, the annotation-equivalent of these arguments also allow you to provide the parameter in the annotation:
 
 <<< @/../reference-code/src/main/java/annotations/ParameterExample.java#otherParameterExample

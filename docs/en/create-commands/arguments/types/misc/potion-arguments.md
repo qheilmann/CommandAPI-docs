@@ -10,9 +10,9 @@ authors:
 
 ![An image of a potion argument with a list of potion effect suggestions](/images/arguments/potion.png)
 
-The `PotionEffectArgument` class represents Minecraft potion effects. When used, this argument is cast to Bukkit's `PotionEffectType` class, or alternatively a `NamespacedKey` object if the `PotionEffectArgument.NamespacedKey` argument is used to create a `PotionEffectArgument`.
+The `PotionEffectArgument` class represents Minecraft potion effects. When used, this argument is casted to Bukkit's `PotionEffectType` class, or alternatively a `NamespacedKey` object if the `PotionEffectArgument.NamespacedKey` argument is used to create a `PotionEffectArgument`.
 
-::::tip Example – Giving a player a potion effect
+::::tip Example - Giving a player a potion effect
 
 Say we wanted to have a command that gives a player a potion effect. For this command, we'll use the following syntax:
 
@@ -20,7 +20,7 @@ Say we wanted to have a command that gives a player a potion effect. For this co
 /potion <target> <potion> <duration> <strength>
 ```
 
-In this example, we use some of the other arguments that we've described earlier, such as the `PlayerArgument` and `TimeArgument`. Since duration for the `PotionEffect` constructor is in ticks, this is perfectly fit for the `TimeArgument`, which is represented in ticks.
+In this example, we utilize some of the other arguments that we've described earlier, such as the `PlayerArgument` and `TimeArgument`. Since duration for the `PotionEffect` constructor is in ticks, this is perfectly fit for the `TimeArgument`, which is represented in ticks.
 
 #### Use `PotionEffectArgument`
 

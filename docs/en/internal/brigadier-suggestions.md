@@ -30,15 +30,15 @@ public interface ArgumentSuggestions<CommandSender> {
 
 This allows you to use Brigadier's `SuggestionsBuilder` and `Suggestions` classes to create more powerful suggestions beyond the basic capabilities of the CommandAPI.
 
-To use this, you will need the Brigadier dependency, which you can find under the [Brigadier installation instructions](https://github.com/Mojang/brigadier#installation).
+In order to use this, you will need the Brigadier dependency, which you can find under the [Brigadier installation instructions](https://github.com/Mojang/brigadier#installation).
 
-::::tip Example – Making an emoji broadcasting message
+::::tip Example - Making an emoji broadcasting message
 
 Say we want to let users broadcast a message, but also allow them to enter emojis into the message they're typing:
 
 ![A gif showcasing a command where emojis are suggested when typing a message](/images/emojimsg.gif)
 
-For this command, we'll use a `GreedyStringArgument` as if we were making a generic broadcasted message. We create a map of emojis to their descriptions to use as tooltips, and then we use Brigadier to display the suggestions at the end of the message where the cursor is.
+For this command, we'll use a `GreedyStringArgument` as if we were making a generic broadcasted message. We create a map of emojis to their descriptions to use as tooltips and then we use Brigadier to display the suggestions at the end of the message where the cursor is.
 
 :::tabs
 ===Java
@@ -51,7 +51,7 @@ In this example, we simply create the `GreedyStringArgument` and use `replaceSug
 
 ::::
 
-::::tip Example – Using a Minecraft command as an argument
+::::tip Example - Using a Minecraft command as an argument
 
 :::info
 
@@ -82,7 +82,7 @@ There's a lot to unpack there, but it's generally split up into four key section
 
 - **Generating suggestions from parse results**. We use our parse results with Brigadier's `getCompletionSuggestions()` method to generate some suggestions based on the parse results and the suggestion string range.
 
-Now that we've declared our argument suggestions, we can then create our simple command with the following syntax:
+Now that we've declared our argument's suggestions, we can then create our simple command with the following syntax:
 
 ```mccmd
 /commandargument <command>
