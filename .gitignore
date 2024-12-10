@@ -7,3 +7,6 @@ yarn.lock
 reference-code.iml
 reference-code/reference-code.iml
 reference-code/target
+
+package-lock.json
+.vscode
