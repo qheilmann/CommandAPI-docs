@@ -80,7 +80,7 @@ class StringSuggestions {
         commandArgs.add(new IntegerArgument("radius"));
 
         // Replace the suggestions for the PlayerArgument.
-        // info.sender() refers to the command sender that is running this command
+        // info.sender() refers to the command sender running this command
         // info.previousArgs() refers to the Object[] of previously declared arguments (in this case, the IntegerArgument radius)
         commandArgs.add(new PlayerArgument("target").replaceSuggestions(
             ArgumentSuggestions.strings(info -> {

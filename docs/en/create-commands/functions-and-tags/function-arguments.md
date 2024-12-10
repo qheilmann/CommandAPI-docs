@@ -22,7 +22,7 @@ Since it's a little difficult to demonstrate a custom use for the `FunctionArgum
 /runfunction <function>
 ```
 
-When provided with a function, it will execute that function. If instead a tag is provided, it will execute that tag (i.e. execute all functions declared in that tag).
+When provided with a function, it will execute that function. If instead a tag is provided, it will execute that tag (i.e., execute all functions declared in that tag).
 
 :::tabs
 ===Java

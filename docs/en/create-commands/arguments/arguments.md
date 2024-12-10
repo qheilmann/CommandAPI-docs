@@ -26,7 +26,7 @@ List<Argument> arguments = new ArrayList<>();
 arguments.add(new PlayerArgument("target"));
 ```
 
-The String value is the node that is registered into Minecraft's internal command graph. This name is also used as a prompt that is shown to a player when they are entering the command.
+The String value is the node registered into Minecraft's internal command graph. This name is also used as a prompt that is shown to a player when they are entering the command.
 
 The CommandAPI is very flexible when it comes to registering arguments, and lets you use a number of different methods to suit your preference:
 
@@ -59,7 +59,7 @@ The CommandAPI is very flexible when it comes to registering arguments, and lets
 
 ## Argument Casting
 
-To access arguments, they have to be casted to the type that the argument represents. The order of the arguments in the [`CommandArguments args`](./command-arguments) is the same as the order in which the arguments were declared.
+To access arguments, they have to be cast to the type that the argument represents. The order of the arguments in the [`CommandArguments args`](./command-arguments) is the same as the order in which the arguments were declared.
 
 :::tabs
 ===Java

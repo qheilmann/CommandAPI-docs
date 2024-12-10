@@ -12,7 +12,7 @@ fun proxySender() {
     // #region simpleKillCommandExample
     CommandAPICommand("killme")
         .executesPlayer(PlayerCommandExecutor { player, _ ->
-            player.setHealth(0.0)
+            player.health = 0.0
         })
         .register()
     // #endregion simpleKillCommandExample
@@ -20,12 +20,12 @@ fun proxySender() {
     // #region proxyKillCommandExample
     CommandAPICommand("killme")
         .executesPlayer(PlayerCommandExecutor { player, _ ->
-            player.setHealth(0.0)
+            player.health = 0.0
         })
         .executesProxy(ProxyCommandExecutor { proxy, _ ->
             // Check if the callee (target) is an Entity and kill it
             if (proxy.callee is LivingEntity) {
-                (proxy.callee as LivingEntity).setHealth(0.0)
+                (proxy.callee as LivingEntity).health = 0.0
             }
         })
         .register()

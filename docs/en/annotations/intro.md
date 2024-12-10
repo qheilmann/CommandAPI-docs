@@ -6,14 +6,14 @@ authors:
 
 # Annotation-based commands
 
-The CommandAPI also includes a very small lightweight annotation-based command framework. This works very differently compared to previous commands shown in this documentation and **it is less feature-rich than registering commands using the other methods.**
+The CommandAPI also includes a tiny lightweight annotation-based command framework. This works very differently compared to previous commands shown in this documentation, and **it is less feature-rich than registering commands using the other methods.**
 
 In short, the CommandAPI's annotation-based system:
 
-- Has no runtime overhead compared to using the regular command registration system (unlike other annotation-based frameworks such as [ACF](https://github.com/aikar/commands)).
+- It Has no runtime overhead compared to using the regular command registration system (unlike other annotation-based frameworks such as [ACF](https://github.com/aikar/commands)).
 - Reduces code bloat (to an extent).
 - Improves readability since commands are declared declaratively instead of imperatively.
-- Is not as powerful as the regular command registration system.
+- It Is not as powerful as the regular command registration system.
 
 :::info
 
@@ -49,7 +49,7 @@ Seems fairly straightforward, given everything else covered in this documentatio
 
 ### Warp command (with annotations)
 
-I think it's best to show the example and the explain it afterwards:
+I think it's best to show the example and explain it afterward:
 
 <<< @/../reference-code/src/main/java/annotations/WarpCommand.java#annotationsExample
 
@@ -68,21 +68,21 @@ The annotation framework is designed in such a way that an entire command is rep
 #### Default command
 <<< @/../reference-code/src/main/java/annotations/WarpCommand.java#defaultExample
 
-Here, declare the main command implementation using the `@Default` annotation. The `@Default` annotation informs the CommandAPI that the method it is attached to does not have any subcommands. This is effectively the same as registering a regular command without using `.withSubcommand()`.
+Here, declare the main command implementation using the `@Default` annotation. The `@Default` annotation informs the CommandAPI that the method it is attached to doesn’t have any subcommands. This is effectively the same as registering a regular command without using `.withSubcommand()`.
 
-Here, we simply write what happens when no arguments are run (i.e. the user just runs `/warp` on its own). As such, we don't include any parameters to our method.
+Here, we simply write what happens when no arguments are run (i.e., the user just runs `/warp` on its own). As such, we don't include any parameters to our method.
 
 #### Default command (again!)
 
 <<< @/../reference-code/src/main/java/annotations/WarpCommand.java#anotherDefaultExample
 
-We also have a second `@Default` annotated method, which handles our `/warp <warp>` command. Because this isn't a subcommand (the warp to teleport to is not a subcommand, it's an argument), we still using the `@Default` annotation. In this method, we include an argument with this command by using the `@AStringArgument` annotation. This argument uses the `StringArgument` class, and the name of this argument is "warpName", which is extracted from the name of the variable. Simply put, **the Annotation for an argument is A** followed by the name of the argument. This is synonymous with using the following:
+We also have a second `@Default` annotated method, which handles our `/warp <warp>` command. Because this isn't a subcommand (the warp to teleport to is not a subcommand, it's an argument), we're still using the `@Default` annotation. In this method, we include an argument with this command by using the `@AStringArgument` annotation. This argument uses the `StringArgument` class, and the name of this argument is "warpName", which is extracted from the name of the variable. Simply put, **the Annotation for an argument is A** followed by the name of the argument. This is synonymous with using the following:
 
 ```java
 new StringArgument("warp")
 ```
 
-It's also very important to note the parameters for this method. The first parameter is a `Player` object, which represents our command sender. The CommandAPI's annotation system uses the fact that the command sender is a `Player` object and automatically ensures that anyone using the command must be a `Player`. In other words, non-players (such as the console or command blocks), would be unable to execute this command.
+It's also crucial to note the parameters for this method. The first parameter is a `Player` object, which represents our command sender. The CommandAPI's annotation system uses the fact that the command sender is a `Player` object and automatically ensures that anyone using the command must be a `Player`. In other words, non-players (such as the console or command blocks), would be unable to execute this command.
 
 The second argument is a `String` object, which represents the result of our argument "warp". The CommandAPI's annotation system can also infer the return type of the argument that is provided to it (in this case, a `StringArgument` will produce a `String`) and will automatically cast and provide the result to that parameter.
 
@@ -90,11 +90,11 @@ The second argument is a `String` object, which represents the result of our arg
 
 <<< @/../reference-code/src/main/java/annotations/WarpCommand.java#subcommandExample
 
-Lastly, we declare a subcommand to allow us to run `/warp create <name>`. To do this, we simply use the `@Subcommand` annotation. In this example, we also apply a permission node that is required to run the command by using the `@Permission` annotation. The rest is fairly straight forward - we declare an argument, in this case it's another `StringArgument` , so we use `@AStringArgument` and then declare everything else in a similar fashion to the default command executor.
+Lastly, we declare a subcommand to allow us to run `/warp create <name>`. To do this, we simply use the `@Subcommand` annotation. In this example, we also apply a permission node required to run the command by using the `@Permission` annotation. The rest is fairly straight forward – we declare an argument, in this case it's another `StringArgument` , so we use `@AStringArgument` and then declare everything else in a similar fashion to the default command executor.
 
 #### Registering the command
 
-Registering the command is fairly simple and is a one liner:
+Registering the command is fairly simple and is a one-liner:
 
 <<< @/../reference-code/src/main/java/annotations/Intro.java#annotationsRegisterExample
 

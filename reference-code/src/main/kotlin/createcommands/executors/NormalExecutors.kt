@@ -28,7 +28,7 @@ fun normalExecutors() {
     // #region suicideExample
     CommandAPICommand("suicide")
         .executesPlayer(PlayerCommandExecutor { player, _ ->
-            player.setHealth(0.0)
+            player.health = 0.0
         })
         .register()
     // #endregion suicideExample
@@ -36,7 +36,7 @@ fun normalExecutors() {
     // #region differentImplExample
     CommandAPICommand("suicide")
         .executesPlayer(PlayerCommandExecutor { player, _ ->
-            player.setHealth(0.0)
+            player.health = 0.0
         })
         .executesEntity(EntityCommandExecutor { entity, _ ->
             entity.world.createExplosion(entity.location, 4f)
@@ -49,7 +49,7 @@ fun normalExecutors() {
     CommandAPICommand("suicide")
         .executes(CommandExecutor { sender, _ ->
             val entity = (if (sender is ProxiedCommandSender) sender.callee else sender) as LivingEntity
-            entity.setHealth(0.0)
+            entity.health = 0.0
         }, ExecutorType.PLAYER, ExecutorType.PROXY)
         .register()
     // #endregion sameImplExample

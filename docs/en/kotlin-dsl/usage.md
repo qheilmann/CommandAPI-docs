@@ -34,7 +34,7 @@ We can then use the following command registration:
 Here you can see some interesting things:
 
 - You do not need to call the `.register()` method when using the DSL
-- You do not need to initialise any arguments
+- You do not need to initialize any arguments
 
 ::::
 
@@ -42,7 +42,7 @@ Here you can see some interesting things:
 
 The Kotlin DSL also provides executors to execute your command. You've seen the `anyExecutor` in the example above.
 
-To find out, which DSL executor corresponds to "normal" executors, you can refer to the table below:
+To find out which DSL executor corresponds to "normal" executors, you can refer to the table below:
 
 | DSL normal executor       | DSL resulting executor             | DSL normal execution info      | DSL resulting execution info            | "normal" Executor         |
 |---------------------------|------------------------------------|--------------------------------|-----------------------------------------|---------------------------|
@@ -67,7 +67,7 @@ One thing to note is that the DSL also features every existing constructor. This
 new IntegerArgument("integer", 0, 10)
 ```
 
-However, when using this DSL it is implemented like this:
+However, when using this DSL, it is implemented like this:
 
 ```kotlin
 integerArgument("integer", 0, 10)
@@ -85,9 +85,9 @@ To use these arguments, the DSL also provides the `argument()` method which take
 
 ## Editing arguments
 
-When using the DSL, you might want to modify the behaviour of certain arguments by adding requirements or suggestions to them.
+When using the DSL, you might want to modify the behavior of certain arguments by adding requirements or suggestions to them.
 
-To give you a general idea how you could accomplish that, the `sendMessageTo` command is adding a broadcast option which should only be executed by server operators.
+To give you a general idea how you could achieve that, the `sendMessageTo` command is adding a broadcast option which should only be executed by server operators.
 
 :::tabs key:dsl-usage-page
 ===CommandTree
@@ -98,13 +98,13 @@ To give you a general idea how you could accomplish that, the `sendMessageTo` co
 
 Notice how you can just add the requirement in a CommandTree by adding it to the argument block where you also define the next arguments and the executor.
 
-However, when modifying the behaviour of an argument in a CommandAPICommand you have to add an extra block where you can implement the additional behaviour.
+However, when modifying the behavior of an argument in a CommandAPICommand you have to add an extra block where you can implement the additional behaviour.
 
 ### Adding requirements to commands
 
 Expanding on the previous example where we added a requirement to a single argument, we now also want to add a requirement to a whole command.
 
-This works similar to how argument behaviour is modified in a CommandTree:
+This works similar to how argument behavior is modified in a CommandTree:
 
 :::tabs key:dsl-usage-page
 ===CommandTree
@@ -126,7 +126,7 @@ We want to create a `/give` command with the following syntax:
 /optionalArgument give <item> <amount>
 ```
 
-To declare an argument as optional you need to set the `optional` value to `true`:
+To declare an argument as optional, you need to set the `optional` value to `true`:
 
 :::tabs key:dsl-usage-page
 ===CommandTree

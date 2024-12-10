@@ -25,7 +25,7 @@ fun requirements() {
             }
 
             // Subtract 30 levels
-            player.level = player.level - 30
+            player.level -= 30
         })
         .register()
     // #endregion baseOnPlayerLevelExample

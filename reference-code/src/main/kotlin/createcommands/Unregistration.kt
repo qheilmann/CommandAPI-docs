@@ -28,7 +28,7 @@ fun unregistration() {
     object : JavaPlugin() {
         // #region unregisterVanillaAndReplaceExample
         override fun onEnable() {
-            CommandAPI.unregister("gamemode");
+            CommandAPI.unregister("gamemode")
 
             // Register our new /gamemode, with survival, creative, adventure and spectator
             CommandAPICommand("gamemode")

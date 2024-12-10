@@ -17,7 +17,7 @@ import java.util.UUID
 
 // #region createFriendsClass
 object Friends {
-    val friends = mutableMapOf<UUID, Array<String>>()
+    private val friends = mutableMapOf<UUID, Array<String>>()
 
     fun getFriends(sender: CommandSender): Array<String> {
         return if (sender is Player) {

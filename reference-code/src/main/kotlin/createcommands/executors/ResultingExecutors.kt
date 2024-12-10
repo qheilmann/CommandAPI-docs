@@ -64,7 +64,7 @@ fun resultingExecutorsDSL() {
     // #endregion randomNumberCommandExampleDSL
 
     // #region giverewardCommandExampleDSL
-    // Register reward giving system for a target player
+    // Register reward giving a system for a target player
     commandAPICommand("givereward") {
         entitySelectorArgumentOnePlayer("target")
         anyExecutor { _, args ->

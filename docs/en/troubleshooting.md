@@ -12,8 +12,8 @@ This section summarizes the list of things that _could_ go wrong with the Comman
 
 If you've registered a command with an argument and replaced/included additional suggestions, but the suggestions:
 
-- Are empty (e.g. a list of worlds returns no suggestions)
-- Don't update automatically (e.g. a list of players doesn't update when new players join the game)
+- Are empty (e.g., a list of worlds returns no suggestions)
+- Don't update automatically (e.g., a list of players doesn't update when new players join the game)
 
 This is most likely caused by using a constant array instead of using a lambda to dynamically update argument suggestions when the player requests them:
 
@@ -29,14 +29,14 @@ new StringArgument("players")
 
 If you're shading the CommandAPI and any of the following occur:
 
-- Players with no permissions cannot run CommandAPI commands
+- Players with no permissions can’t run CommandAPI commands
 - `.withPermission(CommandPermission.NONE)` doesn't work, even if a player has no permissions
 
 You've probably not initialized the CommandAPI correctly. To assign permissions to a command, you have to add `CommandAPI.onEnable()` to your plugin's `onEnable()` method.
 
 ## I've registered my command but nothing happens
 
-If you've registered a command, the command should be present in the console if verbose logging is enabled. If this does not appear in the console, check that you've:
+If you've registered a command, the command should be present in the console if verbose logging is enabled. If this doesn’t appear in the console, check that you've:
 
 - Used `.register()` at the end of your command declaration
 - Added `CommandAPI.onLoad()` and `CommandAPI.onEnable()` to your `onLoad()` and `onEnable()` methods if you're shading the CommandAPI
@@ -106,16 +106,16 @@ Caused by: java.lang.IllegalArgumentException: Whilst parsing command on line 2:
     ... 6 more
 ```
 
-You can safely ignore it - the CommandAPI fixes this later. This is described in more detail [here](./create-commands/functions-and-tags/functions#functions-in-116).
+You can safely ignore it – the CommandAPI fixes this later. This is described in more detail [here](./create-commands/functions-and-tags/functions#functions-in-116).
 
 ## Running `/reload` doesn't work
 
 See [Plugin reloading](./utils/reload)
 
-## Players cannot connect/timeout when joining
+## Players can’t connect/timeout when joining
 
-If players cannot connect, this could be due to the size of the command data packet. To see the resultant packet being sent to players when they log in, enable the `create-dispatcher-json: true` setting and view the file size of the resultant file. If the file size is abnormally large _(Over 2MB is considered very large)_, consider reducing the number of `LiteralArguments` which your plugin uses.
+If players can’t connect, this could be due to the size of the command data packet. To see the resultant packet being sent to players when they log in, enable the `create-dispatcher-json: true` setting and view the file size of the resultant file. If the file size is abnormally large _(Over 2MB is considered huge)_, consider reducing the number of `LiteralArguments` which your plugin uses.
 
 ## My issue isn't on here, what do I do?
 
-If you've found a bug that isn't solved here, submit a bug report on [the CommandAPI's issues page](https://github.com/CommandAPI/CommandAPI/issues/new/choose) and I'll try my best to resolve the issue!
+If you've found a bug that isn't solved here, submit a bug report on [the CommandAPI's issues page,](https://github.com/CommandAPI/CommandAPI/issues/new/choose) and I'll try my best to resolve the issue!

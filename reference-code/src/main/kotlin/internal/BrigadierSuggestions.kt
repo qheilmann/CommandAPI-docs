@@ -71,8 +71,8 @@ fun brigadierSuggestions() {
         val arg: String = info.currentArg()
 
         // Identify the position of the current argument
-        var start = if (arg.contains(" ")) {
-            // Current argument contains spaces - it starts after the last space and after the start of this argument.
+        val start = if (arg.contains(" ")) {
+            // The Current argument contains spaces - it starts after the last space and after the start of this argument.
             builder.start + arg.lastIndexOf(' ') + 1
         } else {
             // Input starts at the start of this argument

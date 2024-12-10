@@ -8,7 +8,7 @@ authors:
 
 :::info
 
-Most developers can completely skip this section. This is for those that are unfamiliar with functions and tags and is less about how the CommandAPI works.
+Most developers can completely skip this section. This is for those that are unfamiliar with functions and tags and is fewer about how the CommandAPI works.
 
 :::
 
@@ -28,7 +28,7 @@ This will run the custom command killall _(as declared in [**Example - Registeri
 
 ## Creating tags
 
-Tags are json files which contain a list of functions. Tags let you run multiple functions at a time. Say we have a tag called `mytag.json`:
+Tags are json files that contain a list of functions. Tags let you run multiple functions at a time. Say we have a tag called `mytag.json`:
 
 ```json
 {

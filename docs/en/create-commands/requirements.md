@@ -8,7 +8,7 @@ authors:
 
 # Requirements
 
-Requirements is a feature that allows you to put a constraint on commands and arguments. Similar to permissions, a requirement is something that must be fulfilled in order to use a given command or argument.
+Requirements is a feature that allows you to put a constraint on commands and arguments. Similar to permissions, a requirement is something that must be fulfilled to use a given command or argument.
 
 This section is broken up into four parts:
 
@@ -37,7 +37,7 @@ Say we have a perks-based command system that depends on a player's level. For e
 /repair
 ```
 
-We want to put a requirement on this command that the player needs to have at least 30 levels of experience in order to run the command – if the player has less than 30 levels, the player should not be able to run the command. The easiest way to make the player not able to run the command is to literally tell the user that the command doesn't exist. That's what requirements do in the CommandAPI:
+We want to put a requirement on this command that the player needs to have at least 30 levels of experience in order to run the command – if the player has less than 30 levels, the player shouldn’t be able to run the command. The easiest way to make the player not able to run the command is to literally tell the user that the command doesn't exist. That's what requirements do in the CommandAPI:
 
 :::tabs
 ===Java
@@ -46,7 +46,7 @@ We want to put a requirement on this command that the player needs to have at le
 <<< @/../reference-code/src/main/kotlin/createcommands/Requirements.kt#baseOnPlayerLevelExample
 :::
 
-It's important to note that in this example, we case the `sender` to a `player` for the requirement method. We know that the sender is definitely a player because we use `executesPlayer()`, which ensures that this is the case. Now that we've got this, **we need to make sure we update the player's requirements _when their exp changes_**. This is covered in more detail in the section about updating requirements below.
+It's important to note that in this example, we case the `sender` to a `player` for the requirement method. We know that the sender is definitely a player because we use `executesPlayer()`, which ensures that this is the case. Now that we've got this, **we need to make sure we update the player's requirements _when their exp changes_**. This is covered in more detail in the section about updating the requirements below.
 
 ::::
 
@@ -56,7 +56,7 @@ In a similar way that you can restrict certain arguments by adding permissions t
 
 ::::tip Example – A party creation and teleportation system
 
-Let's say that we're working on a plugin that has a system to form groups of players called "parties". If you are not already in a party, you can create one of your own and if you are in a party, you can teleport to any other member in your party.
+Let's say that we're working on a plugin that has a system to form groups of players called "parties". If you aren’t already in a party, you can create one of your own and if you’re at a party, you can teleport to any other member in your party.
 
 For this example, we'll use the following command syntax:
 
@@ -83,7 +83,7 @@ To begin with, let's create the `/party create <partyName>` command. First, we m
 <<< @/../reference-code/src/main/kotlin/createcommands/Requirements.kt#partySystemExampleStep2
 :::
 
-In this argument declaration, we put a requirement on the literal `create`, where the player does not have a party. In other words, if the player does not have a party, they are allowed to run `/party create <partyName>`. If a player already has a party, then they won't be allowed to run this command.
+In this argument declaration, we put a requirement on the literal `create`, where the player doesn’t have a party. In other words, if the player doesn’t have a party, they’re allowed to run `/party create <partyName>`. If a player already has a party, then they won't be allowed to run this command.
 
 Now that we've declared our arguments, we can now declare our main command `/party create <partyName>`. We populate it with the arguments, and we create an entry in our `partyMembers` with the player's UUID and the name of the party that they created. Since this updates the requirements of the player, we'll have to make sure we update it (which is covered in more detail in the section about updating requirements below) – until then, I'll omit this from the code:
 
@@ -124,7 +124,7 @@ Finally, the part you've all been waiting for - how to update requirements. With
 
 When a player joins the game, the server tells the client the list of all commands that the client can run _(don't worry, this is completely normal, as declared [here](https://wiki.vg/Protocol#Declare_Commands))_. Let's say that the player has joined and has less than 30 levels.
 
-When a player has less than 30 levels, they are unable to execute the `/repair` command, because the list of commands that the server sent to the client did not contain the `/repair` command. Eventually, the player will fight some mobs or mine some ores and eventually will reach 30 levels. Despite this, the player's client doesn't actually know that they're now able to use the `/repair` command until the server tells them. As such, the server needs to somehow update the requirements that a player has so a player knows they can run the command.
+When a player has less than 30 levels, they’re unable to execute the `/repair` command, because the list of commands that the server sent to the client didn’t contain the `/repair` command. Eventually, the player will fight some mobs or mine some ores and eventually will reach 30 levels. Despite this, the player's client doesn't actually know that they're now able to use the `/repair` command until the server tells them. As such, the server needs to somehow update the requirements that a player has so a player knows they can run the command.
 
 The CommandAPI handles this in a very simple method call:
 
@@ -162,7 +162,7 @@ public void onEnable() {
 
 :::info
 
-I'm assuming you already know how to register events and don't need me to go into great detail how to do so, take the code above with a pinch of salt – I know how much everyone likes to divide their event handlers and listeners to organise their code.
+I'm assuming you already know how to register events and don't need me to go into great detail how to do so, take the code above with a pinch of salt – I know how much everyone likes to divide their event handlers and listeners to organize their code.
 
 :::
 

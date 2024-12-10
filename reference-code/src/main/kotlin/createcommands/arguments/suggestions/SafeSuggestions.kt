@@ -63,7 +63,7 @@ fun safeSuggestions() {
     // #endregion registerCommandWithSafeSuggestions
 
     // #region createForbiddenMobsList
-    val forbiddenMobs = listOf<EntityType>(EntityType.ENDER_DRAGON, EntityType.WITHER)
+    val forbiddenMobs = listOf(EntityType.ENDER_DRAGON, EntityType.WITHER)
     val allowedMobs = EntityType.entries.toMutableList()
     allowedMobs.removeAll(forbiddenMobs) // Now contains everything except ender dragon and wither
     // #endregion createForbiddenMobsList

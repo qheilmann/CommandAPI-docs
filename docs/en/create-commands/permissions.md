@@ -55,9 +55,9 @@ For further fine-tuning of permission management, the CommandAPI allows you to a
 
 This is done by using the `withPermission(CommandPermission)` method _at the end of an argument_.
 
-If a player does not have the required permission:
+If a player doesn’t have the required permission:
 
-- The argument hover text which suggests what the command is will not be shown
+- The argument hovers text which suggests what the command is will not be shown
 - The player will receive an error if they try to type something in for that argument
 - Suggestions, such as a list of materials or players, will not be shown
 
@@ -126,7 +126,7 @@ We first declare the command as normal. Nothing fancy is going on here:
 <<< @/../reference-code/src/main/kotlin/createcommands/Permissions.kt#childBasedPermissionExample
 :::
 
-In our **plugin.yml** we can also set up our permissions for example...
+In our **plugin.yml** we can also set up our permissions, for example...
 
 ```yaml
 permissions:

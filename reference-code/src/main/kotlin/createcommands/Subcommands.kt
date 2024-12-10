@@ -60,7 +60,7 @@ fun subcommands() {
                 .withArguments(StringArgument("permission"))
                 .withArguments(StringArgument("userName"))
                 .executes(CommandExecutor { sender, args ->
-                    // perm user add code
+                    // perm user adds code
                 })
             )
             .withSubcommand(CommandAPICommand("remove")

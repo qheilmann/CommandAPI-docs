@@ -12,7 +12,7 @@ authors:
 
 The `WorldArgument` class allows a command sender to refer to a loaded Bukkit `World`.
 
-::::tip Example - Unloading world
+::::tip Example – Unloading world
 
 Say we want to unload a world on our Minecraft server. We want to create a command with the following syntax:
 

@@ -15,7 +15,7 @@ Literal arguments are used to represent "forced options" for a command. For inst
 /gamemode <mode> <player>
 ```
 
-It consists of a gamemode, followed by an optional player argument. The list of gamemodes are as follows:
+It consists of a gamemode, followed by an optional player argument. The list of gamemodes is as follows:
 
 ```mccmd
 /gamemode survival 
@@ -24,7 +24,7 @@ It consists of a gamemode, followed by an optional player argument. The list of 
 /gamemode spectator
 ```
 
-Unlike regular commands (as those implemented by Bukkit for example), these four options are "hardcoded" - they're not "suggestions". The user can _only_ enter one of these four examples, no other values are allowed.
+Unlike regular commands (as those implemented by Bukkit, for example), these four options are "hardcoded" - they're not "suggestions". The user can _only_ enter one of these four examples, no other values are allowed.
 
 :::danger Developer's Note:
 
@@ -78,7 +78,7 @@ The value of `text` in the code above would be "goodbye".
 
 ::::tip Example – Gamemode command using literal arguments
 
-This is a demonstration of how you co uld create a command similar to Minecraft's `/gamemode` command by using literal arguments. To do this, we are effectively registering 4 separate commands, each called `/gamemode`, but with different literal arguments.
+This is a demonstration of how you could create a command similar to Minecraft's `/gamemode` command by using literal arguments. To do this, we’re effectively registering four separate commands, each called `/gamemode`, but with different literal arguments.
 
 :::tabs
 ===Java
@@ -123,7 +123,7 @@ Because literal arguments are _"hardcoded"_, each literal is effectively mapped 
 },
 ```
 
-Each option produces a new "command" in the tree of commands. This means that having exceptionally large lists of literals, or nested literals (e.g. `/command <literal1> <literal2>`) can cause very large trees which cannot be sent to the clients _(it can cause clients to crash)_.
+Each option produces a new "command" in the tree of commands. This means that having exceptionally large lists of literals, or nested literals (e.g. `/command <literal1> <literal2>`) can cause huge trees which cannot be sent to the clients _(it can cause clients to crash)_.
 
 :::info
 

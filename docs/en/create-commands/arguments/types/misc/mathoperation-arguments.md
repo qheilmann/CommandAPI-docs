@@ -45,7 +45,7 @@ These methods are used to provide a basic implementation of these math operation
 | `MathOperation.MAX`      | `Math.max(val1, val2)` |
 | `MathOperation.SWAP`     | `val2`                 |
 
-::::tip Example - Changing a player's level
+::::tip Example – Changing a player's level
 
 Say we wanted to create a player's level. Typically, this is implemented in the following manner:
 
@@ -60,7 +60,7 @@ Using the `MathOperationArgument`, we can extend the functionality of adding and
 /changelevel <player> <operation> <value>
 ```
 
-As with any command, we declare our arguments, cast them properly and then we write our main code. In this example, we use the `apply(int, int)` method from our `MathOperation` to calculate the player's new level.
+As with any command, we declare our arguments, cast them properly, and then we write our main code. In this example, we use the `apply(int, int)` method from our `MathOperation` to calculate the player's new level.
 
 :::tabs
 ===Java

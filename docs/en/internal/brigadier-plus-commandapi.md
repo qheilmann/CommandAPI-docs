@@ -16,7 +16,7 @@ For those that are unaware, [brigadier](https://github.com/Mojang/brigadier) is 
 
 :::
 
-The CommandAPI has been designed in such a way that you shouldn't have to access NMS in order to make use of the more "advanced" arguments and features - if you find that NMS is required to do something, [please make a new issue](https://github.com/CommandAPI/CommandAPI/issues/new/choose)!
+The CommandAPI has been designed in such a way that you shouldn't have to access NMS to make use of the more "advanced" arguments and features – if you find that NMS is required to do something, [please make a new issue](https://github.com/CommandAPI/CommandAPI/issues/new/choose)!
 
 ## Brigadier support functions
 
@@ -36,7 +36,7 @@ public static Object getBrigadierSourceFromCommandSender(CommandSender sender);
 public static CommandSender getBukkitCommandSenderFromContext(CommandContext cmdCtx);
 ```
 
-Briefly, here's what each of these functions do (you can view the JavaDocs for more information):
+Briefly, here's what each of these functions do (you can view the Javadocs for more information):
 
 | Method                                | Description                                                                                                                                |
 |---------------------------------------|--------------------------------------------------------------------------------------------------------------------------------------------|
@@ -53,9 +53,9 @@ Briefly, here's what each of these functions do (you can view the JavaDocs for m
 
 ## Examples
 
-I hope these examples help understand how the CommandAPI can help with registering more "powerful" commands with the use of brigadier as well! Please bear with with it - these examples can be long, but I'm certain that they've been explained well and will be useful!
+I hope these examples help understand how the CommandAPI can help with registering more "powerful" commands with the use of brigadier as well! Please bear with it - these examples can be long, but I'm certain that they've been explained well and will be useful!
 
-::::tip Example - Adding a predicate to the 'execute' command
+::::tip Example – Adding a predicate to the 'execute' command
 
 Say we wanted to add a predicate to the `/execute` command. In this example, we'll create a predicate which handles random chances. To illustrate this, we want to be able to run commands such as:
 
@@ -108,7 +108,7 @@ With that completed, we can now create our "argument" to this predicate. To do t
 <<< @/../reference-code/src/main/kotlin/internal/BrigadierPlusCommandAPI.kt#addPredicateExampleStep2
 :::
 
-Now we're going to get into the very nitty-gritty part - the predicate declaration. First, we'll create some variables `numerator` and `denominator` to represent the brigadier instances of these arguments. This can be handled by using the `Brigadier.argBuildOf` function:
+Now we're going to get into the very nitty-gritty part – the predicate declaration. First, we'll create some variables `numerator` and `denominator` to represent the brigadier instances of these arguments. This can be handled by using the `Brigadier.argBuildOf` function:
 
 :::tabs
 ===Java

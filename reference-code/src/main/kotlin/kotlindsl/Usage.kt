@@ -34,7 +34,7 @@ fun usage() {
     commandAPICommand("sendMessageTo") {
         literalArgument("broadcast") {
             withRequirement { sender: CommandSender -> sender.isOp } // Applies the requirement to the broadcast literal argument
-            /* add more methods here that modify argument behaviour */
+            /* add more methods here that modify argument behavior */
         }
         greedyStringArgument("msg")
         playerExecutor { _, args ->
@@ -110,7 +110,7 @@ fun usageTree() {
         }
         literalArgument("broadcast") {
             withRequirement { sender: CommandSender -> sender.isOp } // Applies the requirement to the broadcast literal argument
-            /* add more methods here that modify argument behaviour */
+            /* add more methods here that modify argument behavior */
             greedyStringArgument("msg") {
                 playerExecutor { _, args ->
                     val message: String = args["msg"] as String

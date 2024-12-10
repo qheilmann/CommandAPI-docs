@@ -49,7 +49,7 @@ This is similar to importing static methods from the [`org.junit.jupiter.api.Ass
 
 ## Running commands
 
-There are 3 methods to test basic command execution:
+There are three methods to test basic command execution:
 
 ```java
 void dispatchCommand(CommandSender sender, String command) throws CommandSyntaxException
@@ -65,7 +65,7 @@ CommandSyntaxException assertCommandFails(CommandSender sender, String command, 
 
 ## Verifying arguments
 
-When a command is executed, you may want to assert that the Objects provided as arguments match your expectations. There are 4 basic methods for doing this:
+When a command is executed, you may want to assert that the Objects provided as arguments match your expectations. There are four basic methods for doing this:
 
 ```java
 void assertCommandSucceedsWithArguments(CommandSender sender, String command, Object... argumentsArray)
@@ -77,13 +77,13 @@ void assertCommandFailsWithArguments(CommandSender sender, String command, Strin
 
 If you expect the command to succeed, use `assertCommandSucceedsWithArguments`. If you expect the command's executor to throw a [`WrapperCommandSyntaxException`](../create-commands/executors/handle-failures#handle-command-failures), use `assertCommandFailsWithArguments`. You can give these methods either an array or a Map holding all arguments you expect to be present for the command.
 
-Note that if the command input cannot be parsed, the command will fail, but a CommandAPI executor will never be run. In this case, a CommandAPI executor will have never been run, so `assertCommandFailsWithArguments` will not have any arguments to inspect, and the test will fail. You can only successfully use `assertCommandFails` in this situation.
+Note that if the command input can’t be parsed, the command will fail, but a CommandAPI executor will never be run. In this case, a CommandAPI executor will never have been run, so `assertCommandFailsWithArguments` will not have any arguments to inspect, and the test will fail. You can only successfully use `assertCommandFails` in this situation.
 
 ## Verifying suggestions
 
 ### Suggestion texts
 
-There are 4 basic methods that may be used to verify the text of a command's suggestions:
+There are four basic methods that may be used to verify the text of a command's suggestions:
 
 ```java
 void assertCommandSuggests(CommandSender sender, String command, String... expectedSuggestions)
@@ -99,7 +99,7 @@ You can optionally provide a `startingAt` index. This is the place in the comman
 
 ### Suggestion tooltips
 
-If the suggestions you want to check include [tooltips](../create-commands/arguments/suggestions/tooltips), you may use these 5 methods:
+If the suggestions you want to check include [tooltips](../create-commands/arguments/suggestions/tooltips), you may use these five methods:
 
 ```java
 Suggestion makeTooltip(String text, String tooltip);

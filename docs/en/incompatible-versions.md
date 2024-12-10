@@ -9,7 +9,7 @@ authors:
 
 There are a few arguments that are incompatible with various versions of Minecraft. This page outlines the full list of incompatibilities that the CommandAPI has with what versions of Minecraft.
 
-## Argument changes with respect to Minecraft version
+## Argument changes with respect to a Minecraft version
 
 ### ChatArgument's chat preview
 
@@ -19,7 +19,7 @@ Incompatible with Minecraft versions **less than 1.19 and greater than 1.19.2** 
 
 Running functions generated via the `FunctionArgument` on Minecraft version **1.20.3** and **1.20.4** will always return a value of 1, regardless of whether the command succeeds, fails, or returns a result. (Works normally on 1.20.2 and below). Trying to retrieve the list of commands in a function on Minecraft version **1.20.3** and **1.20.4** will always return an empty array.
 
-## CommandAPI behavior with respect to Minecraft version
+## CommandAPI behavior with respect to a Minecraft version
 
 ### Minecraft version 1.16 and beyond
 
@@ -59,4 +59,4 @@ By doing this, this means:
 - Custom functions from datapacks are loaded twice
 - Recipes are reloaded twice, _including_ recipes defined by other plugins
 
-Although this sounds pretty bad (since reloading these things twice can be time consuming, thus contributing to the server start-up time), it is the only way to make custom functions work in Minecraft 1.16 and beyond.
+Although this sounds pretty bad (since reloading these things twice can be time-consuming, thus contributing to the server start-up time), it is the only way to make custom functions work in Minecraft 1.16 and beyond.

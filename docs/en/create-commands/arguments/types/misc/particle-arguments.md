@@ -24,7 +24,7 @@ The `ParticleArgument` class represents Minecraft particles. This is cast to the
 The `ParticleData` class is a record that contains two values:
 
 - `Particle particle`, which is the Bukkit enum `Particle` representation of what particle was provided
-- `T data`, which represents any additional particle data which was provided.
+- `T data`, which represents any additional particle data that was provided.
 
 ```java
 public record ParticleData<T>(Particle particle, T data);
@@ -36,7 +36,7 @@ The `T data` can be used in Bukkit's `World.spawnParticle(Particle particle, Loc
 
 :::info
 
-Particle data depends on your version of Minecraft. In 1.20.5, Minecraft and Spigot updated their particle API, and they are no longer compatible with each other. Please choose which version you use below:
+Particle data depends on your version of Minecraft. In 1.20.5, Minecraft and Spigot updated their particle API, and they’re no longer compatible with each other. Please choose which version you use below:
 
 <MCVersionSwitch></MCVersionSwitch>
 
@@ -205,7 +205,7 @@ The particle argument requires additional data for a particle depending on what 
 
 ## ParticleArgument examples
 
-Because certain particles (in the table above) require additional data, it is not recommended to spawn a particle without its corresponding data. This can result in particles not showing due to missing requirements.
+Because certain particles (in the table above) require additional data, it is not recommended to spawn a particle without its corresponding data. This can result in particles not shown due to missing requirements.
 
 ::::danger Example - Show particles at a player's location (without data)
 
@@ -230,7 +230,7 @@ Running this can result in errors due to missing requirements. If you provide a 
 
 ::::
 
-::::tip Example - Show particles  at a player's location (with data)
+::::tip Example - Show particles at a player's location (with data)
 
 We can fix the issues with the example above by providing the data of the argument using the `ParticleData` record:
 
@@ -272,7 +272,7 @@ This can be used with commands such as:
 
 ## Particle data implementation notes
 
-The `vibration` particle will return a particle data of the Bukkit `Vibration` class. In the `Vibration` class, you can access the destination location using the `Vibration.getDestination()` method, which returns a `Vibration.Destination` instance. The CommandAPI will **always** return a `Vibration.Destination.BlockDestination` instance, and will never return a `Vibration.Destination.EntityDestination` instance. An example of accessing the location can be found below:
+The `vibration` particle will return particle data of the Bukkit `Vibration` class. In the `Vibration` class, you can access the destination location using the `Vibration.getDestination()` method, which returns a `Vibration.Destination` instance. The CommandAPI will **always** return a `Vibration.Destination.BlockDestination` instance, and will never return a `Vibration.Destination.EntityDestination` instance. An example of accessing the location can be found below:
 
 ```java
 ParticleData<Vibration> particleData; // The particle data you get from your argument

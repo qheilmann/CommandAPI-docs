@@ -14,7 +14,7 @@ In Minecraft 1.16, they added the ability to refer to in-game biomes. The Comman
 
 :::danger
 
-When using the `Biome` object, the CommandAPI will return `null` if the specified `Biome` could not be found, for example if a player submitted a biome from a client-side resourcepack. The CommandAPI does **not** return `Biome.CUSTOM` from the `BiomeArgument`.
+When using the `Biome` object, the CommandAPI will return `null` if the specified `Biome` could not be found, for example, if a player submitted a biome from a client-side resourcepack. The CommandAPI does **not** return `Biome.CUSTOM` from the `BiomeArgument`.
 
 :::
 
