@@ -1,4 +1,4 @@
-# CommandAPI-Docs
+# docs
 
 Documentation for CommandAPI.
 

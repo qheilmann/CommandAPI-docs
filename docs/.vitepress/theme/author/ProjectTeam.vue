@@ -62,17 +62,11 @@ const earlyContributorsList = [
 ]
 
 const otherContributors = otherContributorsList
-    .sort()
-    .map(name => {
-        if (earlyContributorsList.includes(name)) {
-            return buildContributor(name, "Early Contributor")
-        } else {
-            return buildContributor(name)
-        }
-    })
+    .sort((a, b) => a.localeCompare(b, undefined, {sensitivity: 'base'})) // Case-insensitive sort
+    .map(name => buildContributor(name));
 
 const earlyContributors = earlyContributorsList
-    .sort()
+    .sort((a, b) => a.localeCompare(b, undefined, {sensitivity: 'base'})) // Case-insensitive sort
     .map(name => buildContributor(name, "Early Contributor"));
 
 function avatar(name: string) {
