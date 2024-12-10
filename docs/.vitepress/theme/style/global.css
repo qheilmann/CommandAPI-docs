@@ -68,3 +68,7 @@ kbd:not(.DocSearch-Button-Key) {
 .tip.custom-block > .danger.custom-block {
     background-color: #fde4e8;
 }
+
+.example-title-anchor > code {
+    background-color: rgba(0, 0, 0, 0) !important;
+}

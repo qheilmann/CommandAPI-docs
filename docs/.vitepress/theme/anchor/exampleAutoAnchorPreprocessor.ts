@@ -17,7 +17,7 @@ export const exampleAutoAnchorPreprocessor = (md: MarkdownIt) => {
  position: relative;
  top: 32px;">
  <TitleAnchor anchor="${processedTitle}">
-    <h3 id="${processedTitle}" style="
+    <h3 id="${processedTitle}" class="example-title-anchor" style="
     -webkit-user-select: none;
     -moz-user-select: none;
     -ms-user-select: none;
