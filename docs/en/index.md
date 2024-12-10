@@ -7,7 +7,7 @@ hero:
     tagline: An API for the command UI introduced in Minecraft 1.13
     actions:
         -   theme: brand
-            text: Introduction
+            text: Documentation
             link: /intro
         -   theme: alt
             text: Download

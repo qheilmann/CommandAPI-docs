@@ -140,7 +140,7 @@ const vitePressI18nOptions: VitePressI18nOptions = {
                     text: 'Home',
                     link: '/'
                 }, {
-                    text: 'Introduction',
+                    text: 'Documentation',
                     link: '/intro'
                 }, {
                     component: 'VersionSwitcher'

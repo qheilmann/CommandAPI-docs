@@ -27,54 +27,53 @@ const coreMembers = [
 ]
 
 const otherContributorsList = [
-    "469512345",
-    "Sytm",
-    "MC-XiaoHei",
-    "Timongcraft",
-    "Strokkur424",
-    "AkaGiant",
-    "Osiris-Team",
-    "Combustible",
-    "SB2DD",
-    "Euphillya",
-    "CJCrafter",
-    "Gregzeee",
-    "powercasgamer",
-    "agonkolgeci",
-    "Xemii16",
     "Abelkrijgtalles",
-    "dkim19375",
-    "misode",
+    "agonkolgeci",
+    "AkaGiant",
     "booky10",
-    "NextdoorPsycho",
-    "RedstoneWizard08",
-    "Kadeluxe",
+    "CJCrafter",
+    "dkim19375",
     "EnragedRabisu",
+    "Euphillya",
+    "Gregzeee",
+    "Kadeluxe",
     "MatrixTunnel",
-    "HielkeMinecraft",
-    "Draycia",
-    "Minenash",
-    "Michael-Ziluck",
-    "portlek"
+    "MC-XiaoHei",
+    "misode",
+    "NextdoorPsycho",
+    "Osiris-Team",
+    "powercasgamer",
+    "RedstoneWizard08",
+    "SB2DD",
+    "Strokkur424",
+    "Sytm",
+    "Timongcraft",
+    "Xemii16",
 ]
 
-const earlyContributors = [
+const earlyContributorsList = [
+    "469512345",
     "Combustible",
     "Draycia",
     "HielkeMinecraft",
-    "Minenash",
     "Michael-Ziluck",
+    "Minenash",
     "portlek",
-    "469512345"
 ]
 
-const otherContributors = otherContributorsList.map(name => {
-    if (earlyContributors.includes(name)) {
-        return buildContributor(name, "Early Contributor")
-    } else {
-        return buildContributor(name)
-    }
-})
+const otherContributors = otherContributorsList
+    .sort()
+    .map(name => {
+        if (earlyContributorsList.includes(name)) {
+            return buildContributor(name, "Early Contributor")
+        } else {
+            return buildContributor(name)
+        }
+    })
+
+const earlyContributors = earlyContributorsList
+    .sort()
+    .map(name => buildContributor(name, "Early Contributor"));
 
 function avatar(name: string) {
     return `https://wsrv.nl/?url=https://www.github.com/${name}.png`
@@ -102,6 +101,8 @@ function buildContributor(name: string, title: string = "Contributor") {
         <br/>
         <h1>Brought to you by</h1>
         <VPTeamMembers size="medium" :members="coreMembers"/>
+        <h3>Early Contributors</h3>
+        <VPTeamMembers size="small" :members="earlyContributors"/>
         <h3>Other Contributors</h3>
         <VPTeamMembers size="small" :members="otherContributors"/>
     </div>

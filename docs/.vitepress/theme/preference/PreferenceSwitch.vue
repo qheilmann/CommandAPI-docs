@@ -94,7 +94,7 @@ onMounted(() => {
             @mousedown="removeOutline"
             @blur="restoreOutline"
         >
-            <span>Preference</span>
+            <span>Preferences</span>
             <VTIconChevronDown class="vt-link-icon" :class="{ open: openPreference }"/>
         </button>
         <div id="preference-switches"
@@ -155,7 +155,7 @@ onMounted(() => {
     transition: border-color 0.5s, background-color 0.5s ease;
     margin-bottom: 20px;
     top: -0.5px;
-    background-color: var(--vp-c-bg);
+    background-color: var(--vt-c-bg);
     padding-top: 10px;
     z-index: 5;
 }
