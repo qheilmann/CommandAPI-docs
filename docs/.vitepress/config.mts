@@ -74,7 +74,7 @@ const vitepressOptions: UserConfig = {
                 link: 'https://ko-fi.com/jorelali'
             },
             {icon: 'discord', link: 'https://discord.com/invite/G4SzSxZ'},
-            {icon: 'github', link: 'https://github.com/CommandAPI/CommandAPI'}
+            {icon: 'github', link: 'https://github.com/CommandAPI/'}
         ]
     },
     markdown: {
