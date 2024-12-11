@@ -26,13 +26,13 @@ I think the easiest way to explain it is with an example:
 
 - In this example, we add an alias, "broadcast", to the command. This allows the sender to use either `/broadcastmsg <message>` or `/broadcast <message>`.
 
-- By using `withPermission`, we require the sender to be an OP to run the command.
+- By using `withPermission`, we require the sender to be an OP in order to run the command.
 
 - We control what the command does using `executes` (this is described in more detail in [the section on command executors](./executors/command-executors)).
 
 - Finally, we register the command to the CommandAPI using `register`.
 
-That's it! This simple snippet of code fully registers the command to the server. You don't need to supply a plugin instance, you don't have to create a custom class, and you don't have to mess with the `plugin.yml` file.
+That's it! This simple snippet of code fully registers the command to the server. You don't need to supply a plugin instance, you don't have to create a custom class and you don't have to mess with the `plugin.yml` file.
 
 Throughout this documentation, we will use the various different methods for command registration to give you an idea of when and where certain methods are more suitable than others.
 
@@ -62,7 +62,7 @@ CommandAPICommand withPermission(CommandPermission)
 CommandAPICommand withPermission(String)
 ```
 
-The `withPermission` method is used to assign a permission required to execute the command. (See [the section on permissions](./permissions) for more info).
+The `withPermission` method is used to assign a permission that is required to execute the command. (See [the section on permissions](./permissions) for more info).
 
 ```java
 CommandAPICommand withRequirements(sender -> {})

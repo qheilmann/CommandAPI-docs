@@ -13,7 +13,7 @@ import ConfigValidator from '../../../.vitepress/theme/components/ConfigValidato
 
 # Command Conversion for server admins
 
-The CommandAPI can convert plugin commands into "Vanilla compatible" commands automatically on startup. This allows you to use `/execute` and Minecraft functions/tags for plugins that don’t use the CommandAPI. For example, if you want to use the `/hat` command from the plugin `Essentials` in an `/execute` command or from a command block, you can use the CommandAPI's command conversion setting to do so.
+The CommandAPI has the ability to convert plugin commands into "Vanilla compatible" commands automatically on startup. This allows you to use `/execute` and Minecraft functions/tags for plugins that don’t use the CommandAPI. For example, if you want to use the `/hat` command from the plugin `Essentials` in an `/execute` command or from a command block, you can use the CommandAPI's command conversion setting to do so.
 
 The CommandAPI has 3 different conversion methods, each one more specific and powerful than the others. These are the following:
 
@@ -48,7 +48,7 @@ If you're uncertain if your configuration is valid (or you're getting weird erro
 
 ### Converting all plugin commands
 
-To convert all the commands that a plugin has, add the name of the plugin, followed by a `~` character to the list of plugins to convert in the `config.yml` file.
+To convert all of the commands that a plugin has, add the name of the plugin, followed by a `~` character to the list of plugins to convert in the `config.yml` file.
 
 ::: tip Example – Converting all commands from EssentialsX
 

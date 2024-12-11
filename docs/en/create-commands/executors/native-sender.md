@@ -8,7 +8,7 @@ authors:
 
 # Native command senders
 
-In a similar way that the `ProxiedCommandSender` is used to store information about two command senders: a caller (the one that wrote the command) and a callee (the one that ends up executing the command), the CommandAPI also has a special `NativeProxyCommandSender` class which is a more powerful representation of the `ProxiedCommandSender` class. In addition to inheriting all the methods from `ProxiedCommandSender`, this class also has the following two methods:
+In a similar way that the `ProxiedCommandSender` is used to store information about two command senders: a caller (the one that wrote the command) and a callee (the one that ends up executing the command), the CommandAPI also has a special `NativeProxyCommandSender` class which is a more powerful representation of the `ProxiedCommandSender` class. In addition to inheriting all of the methods from `ProxiedCommandSender`, this class also has the following two methods:
 
 ```java
 public World getWorld();

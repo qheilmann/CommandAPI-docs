@@ -7,7 +7,7 @@ authors:
 
 # Primitive arguments
 
-Primitive arguments are arguments that represent Java primitive types such as `int`, `float`, `double`, `boolean` and `long`. These arguments are defined in their respective classes:
+Primitive arguments are arguments that represent Java primitive types, such as `int`, `float`, `double`, `boolean` and `long`. These arguments are defined in their respective classes:
 
 | Primitive type | CommandAPI class  |
 |----------------|-------------------|

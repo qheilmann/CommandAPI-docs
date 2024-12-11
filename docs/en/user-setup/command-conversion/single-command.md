@@ -19,7 +19,7 @@ To convert a single command, you need to first populate the `config.yml` with th
 
 ::::tip Example – Converting plugin commands
 
-Say we're using [EssentialsX](https://www.spigotmc.org/resources/essentialsx.9089/) on our server, and we want to be able to use `/afk` and `/hat` in command blocks. This would allow us to use (for example) the following commands in command blocks:
+Say we're using [EssentialsX](https://www.spigotmc.org/resources/essentialsx.9089/) on our server and we want to be able to use `/afk` and `/hat` in command blocks. This would allow us to use (for example) the following commands in command blocks:
 
 ```mccmd
 /execute as @p run afk
@@ -71,7 +71,7 @@ commands:
 
 ## Arbitrary command conversion
 
-Some commands that are registered by plugins aren’t present in the plugin's `plugin.yml` file. Due to this, the CommandAPI can’t link a command to its respective plugin for command conversion. To deal with this, the CommandAPI can link arbitrary commands via the `other-commands-to-convert` option in the CommandAPI's `config.yml` file.
+Some commands which are registered by plugins aren’t present in the plugin's `plugin.yml` file. Due to this, the CommandAPI can’t link a command to its respective plugin for command conversion. In order to deal with this, the CommandAPI can link arbitrary commands via the `other-commands-to-convert` option in the CommandAPI's `config.yml` file.
 
 This can be used for any of the following (and more):
 
@@ -79,7 +79,7 @@ This can be used for any of the following (and more):
 - Commands created using [MyCommand](https://dev.bukkit.org/projects/mycommand)
 - Commands which are not registered in a `plugin.yml`, such as [WorldEdit](https://dev.bukkit.org/projects/worldedit) commands
 
-To add commands to be converted, add them under the `other-command-to-convert` section in the CommandAPI's `config.yml`.
+To add commands to be converted, simply add them under the `other-command-to-convert` section in the CommandAPI's `config.yml`.
 
 ::: tip Example – Converting arbitrary commands
 

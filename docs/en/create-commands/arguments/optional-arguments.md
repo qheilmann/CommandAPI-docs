@@ -142,7 +142,7 @@ A.combineWith(B)
 This does two things:
 
 1. When checking optional argument constraints the argument `B` will be ignored so the `OptionalArgumentException` will not be thrown
-2. It allows you to define additional optional arguments afterward which can only be entered if argument `B` has been entered
+2. It allows you to define additional optional arguments afterwards which can only be entered if argument `B` has been entered
 
 This is how you would add another optional `PlayerArgument` (here simplified to `C`):
 

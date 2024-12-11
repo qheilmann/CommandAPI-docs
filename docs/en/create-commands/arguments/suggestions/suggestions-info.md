@@ -30,7 +30,7 @@ CommandSender sender();
 CommandArguments previousArgs();
 ```
 
-`previousArgs()` represents the previously declared arguments, which are parsed and interpreted as if they were being used to execute the command. See [this example on the string argument suggestions page](./string-suggestions#suggestions-depending-on-previous-arguments) for an idea of how to use this field.
+`previousArgs()` represents the previously declared arguments, which are parsed and interpreted as if they were being used to execute the command. See [this example on the string argument suggestions page](./string-suggestions#suggestions-depending-on-previous-arguments) for an idea of how to utilize this field.
 
 ```java
 String currentInput();

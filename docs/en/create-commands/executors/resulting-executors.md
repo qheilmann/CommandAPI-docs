@@ -28,7 +28,7 @@ The concept of result values is better explained through examples:
 
 ::::tip Example – Random number result command
 
-Say we want a command that returns a random number as a result. This can then be used by vanilla Minecraft's `/execute store result ...` command, which can be used for other commandblock chains.
+Say we want a command that returns a random number as a result. This can then be used by vanilla Minecraft's `/execute store result ...` command, which can be used for other command block chains.
 
 :::tabs
 ===Java

@@ -67,7 +67,7 @@ We can then use this to generate our suggested list of friends:
 
 ## Suggestions depending on previous arguments
 
-The `strings(Function<SuggestionInfo, String[]>)` method can also suggest arguments based on the values of previously inputted arguments, using the `previousArgs()` method in `SuggestionInfo`. This `previousArgs()` method returns a **list of previous arguments** which are parsed exactly like any regular CommandAPI command argument.
+The `strings(Function<SuggestionInfo, String[]>)` method also has the capability to suggest arguments based on the values of previously inputted arguments, using the `previousArgs()` method in `SuggestionInfo`. This `previousArgs()` method returns a **list of previous arguments** which are parsed exactly like any regular CommandAPI command argument.
 
 :::danger
 

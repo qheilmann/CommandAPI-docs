@@ -9,7 +9,7 @@ authors:
 
 # Listed arguments
 
-Arguments have a setting that determines whether they’re present in the [`CommandArguments args`](./command-arguments) that is populated when executing a command.
+Arguments have a setting that determines whether or not they are present in the [`CommandArguments args`](./command-arguments) that is populated when executing a command.
 
 By default, the `LiteralArgument` has this setting set to `false`, hence the literal values are _not_ present in the [`CommandArguments args`](command-arguments).
 

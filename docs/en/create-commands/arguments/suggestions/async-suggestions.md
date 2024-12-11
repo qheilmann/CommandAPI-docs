@@ -10,7 +10,7 @@ authors:
 
 # Asynchronous suggestions
 
-In addition to normal suggestions, safely typed suggestions and suggestions with tooltips, the CommandAPI can support computing the list of suggestions to send to a player asynchronously. This allows you to perform suggestions independent of the main server thread, which is useful for slow operations, such as:
+In addition to normal suggestions, safely-typed suggestions and suggestions with tooltips, the CommandAPI can support computing the list of suggestions to send to a player asynchronously. This allows you to perform suggestions independent of the main server thread, which is useful for slow operations, such as:
 
 - Retrieving suggestions from a remote database
 - Retrieving information from the web

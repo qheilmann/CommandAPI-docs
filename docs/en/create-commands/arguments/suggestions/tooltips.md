@@ -151,7 +151,7 @@ First, we'll declare our arguments. Here, we use a `LocationArgument` and use th
 <<< @/../reference-code/src/main/kotlin/createcommands/arguments/suggestions/Tooltips.kt#createArgumentsWithTooltipsAndSafeSuggestions
 :::
 
-In the argument declaration, we've cast the command sender to a player. To ensure that the command sender is definitely a player, we'll use the `executesPlayer` command execution method in our command declaration:
+In the arguments declaration, we've casted the command sender to a player. To ensure that the command sender is definitely a player, we'll use the `executesPlayer` command execution method in our command declaration:
 
 :::tabs
 ===Java

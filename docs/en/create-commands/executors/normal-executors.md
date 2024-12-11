@@ -102,7 +102,7 @@ This saves having to use `instanceof` multiple times to check the type of the `C
 
 ::::
 
-The different command sender priority is the following (from the highest priority to the lowest priority):
+The different command sender priority is the following (from highest priority to lowest priority):
 
 ```mermaid
 graph TD
