@@ -28,7 +28,7 @@ public MultiLiteralArgument(String nodeName, String... literals)
 
 ::::tip Example – Using multi literals to make the gamemode command
 
-In this example, we'll show how to use multi literals to declare Minecraft's `/gamemode` command. As you can see from the example code below, the argument declaration and command declaration is the same as if you were declaring any normal argument or command.
+In this example, we'll show how to use multi literals to declare Minecraft's `/gamemode` command. As you can see from the example code below, the argument declaration and command declaration are the same as if you were declaring any normal argument or command.
 
 :::tabs
 ===Java

@@ -86,7 +86,7 @@ $$\downarrow$$
 
 ### Providing suggestions
 
-When providing suggestions you have the choice whether players are allowed to enter any key/value pair or only key/value pairs specified by the `MapArgument`.
+When providing suggestions, you have the choice whether players are allowed to enter any key/value pair or only key/value pairs specified by the `MapArgument`.
 To accomplish this the `MapArgumentBuilder` provides different methods.
 
 Similar to the mappers, you first have to provide the key suggestions:
