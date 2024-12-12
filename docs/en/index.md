@@ -14,12 +14,12 @@ hero:
             link: https://github.com/CommandAPI/CommandAPI/releases/latest
 
 features:
-    -   title: Better Commands & Arguments
-        details: Prevent invalid commands and support over 50 arguments with built-in error checking, suggestions, tooltips, and precise permission.
-    -   title: Just Like Vanilla Commands
-        details: Let your command to be executed by the built in <code>/execute</code> command, commandblocks, functions and tags.
-    -   title: Easy to Register
-        details: No need to edit <code>plugin.yml</code>, supports Kotlin DSL, and Brigadier-like <code>CommandTree</code>. Also provide detailed documentation.
+    -   title: Safer commands with better arguments
+        details: Prevent players running invalid commands by picking from over 50 specialized arguments with built-in error checking, suggestions, tooltips, and permission checks.
+    -   title: Supports vanilla datapacks
+        details: Let your command to be executed by the built-in <code>/execute</code> command, command blocks, and even datapack functions and tags.
+    -   title: Write code how <i>you</i> want to
+        details: Want a Brigadier tree-like structure? Want to use Kotlin? Want an annotation-based command system? We've got you covered.
 ---
 
 <!--suppress HtmlUnknownAttribute, ES6UnusedImports -->
