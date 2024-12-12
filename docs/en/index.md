@@ -15,10 +15,13 @@ hero:
 
 features:
     -   title: Safer commands with better arguments
+        icon: 🔒
         details: Prevent players running invalid commands by picking from over 50 specialized arguments with built-in error checking, suggestions, tooltips, and permission checks.
     -   title: Supports vanilla datapacks
+        icon: { src: "images/commandblock.webp" }
         details: Let your command to be executed by the built-in <code>/execute</code> command, command blocks, and even datapack functions and tags.
     -   title: Write code how <i>you</i> want to
+        icon: { src: "images/kotlin.png" }
         details: Want a Brigadier tree-like structure? Want to use Kotlin? Want an annotation-based command system? We've got you covered.
 ---
 
