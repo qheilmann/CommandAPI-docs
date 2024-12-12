@@ -21,17 +21,17 @@ To understand when and how to use these methods, you need to know a little about
 
 1. Vanilla commands are placed in the Vanilla CommandDispatcher
 2. Bukkit commands are placed in the Bukkit CommandMap
-   - Given the `bukkit` namespace (E.g. `bukkit:version`)
+   - Given the `bukkit` namespace (e.g. `bukkit:version`)
 3. Plugins are loaded
    - `onLoad` is called
 4. Plugins are enabled
    - Plugin commands are read from the [`plugin.yml` file](https://www.spigotmc.org/wiki/plugin-yml/#commands) and placed in the Bukkit CommandMap
-   - Given the plugin's name as their namespace (E.g. `luckperms:lp`)
+   - Given the plugin's name as their namespace (e.g. `luckperms:lp`)
    - `onEnable` is called
    - Repeat for each plugin
 5. Bukkit's help command is registered
 6. Vanilla commands are added to the Bukkit CommandMap
-   - Given the `minecraft` namespace (E.g. `minecraft:gamemode`)
+   - Given the `minecraft` namespace (e.g. `minecraft:gamemode`)
 7. The server is done loading
 
 Unregistering a command only works if it happens after the command is created. Bukkit's command system is special and has two locations where commands can exist -- either the Vanilla CommandDispatcher or the Bukkit CommandMap -- so you also need to know where your command is registered. With that in mind, here is what each of the `unregister` methods do:

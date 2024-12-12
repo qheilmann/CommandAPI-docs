@@ -129,8 +129,8 @@ The following methods are as follows:
 
 | Method              | Description                                                                                                             |
 |---------------------|-------------------------------------------------------------------------------------------------------------------------|
-| `appendArgInput()`  | Appends the argument that failed that the sender submitted to the end of the builder. E.g. `/foo bar` will append `bar` |
-| `appendFullInput()` | Appends the full command that a sender submitted to the end of the builder. E.g. `/foo bar` will append `foo bar`       |
+| `appendArgInput()`  | Appends the argument that failed that the sender submitted to the end of the builder, e.g. `/foo bar` will append `bar` |
+| `appendFullInput()` | Appends the full command that a sender submitted to the end of the builder, e.g. `/foo bar` will append `foo bar`       |
 | `appendHere()`      | Appends the text `<--[HERE]` to the end of the builder                                                                  |
 | `append(Object)`    | Appends an object to the end of the builder                                                                             |
 
