@@ -10,7 +10,7 @@ hero:
             text: Documentation
             link: /intro
         -   theme: alt
-            text: Download
+            text: Latest Release
             link: https://github.com/CommandAPI/CommandAPI/releases/latest
 
 features:
@@ -18,10 +18,10 @@ features:
         icon: 🔒
         details: Prevent players running invalid commands by picking from over 50 specialized arguments with built-in error checking, suggestions, tooltips, and permission checks.
     -   title: Supports vanilla datapacks
-        icon: { src: "images/commandblock.webp" }
+        icon: { src: "images/index/commandblock.webp" }
         details: Let your command to be executed by the built-in <code>/execute</code> command, command blocks, and even datapack functions and tags.
     -   title: Write code how <i>you</i> want to
-        icon: { src: "images/kotlin.png" }
+        icon: { src: "images/index/kotlin.png" }
         details: Want a Brigadier tree-like structure? Want to use Kotlin? Want an annotation-based command system? We've got you covered.
 ---
 

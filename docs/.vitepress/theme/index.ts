@@ -15,12 +15,14 @@ import '@nolebase/vitepress-plugin-enhanced-readabilities/client/style.css'
 import VersionSwitcher from "./versioning/VersionSwitcher.vue";
 import TitleAnchor from "./anchor/TitleAnchor.vue";
 import NotFoundComponent from "./404/NotFoundComponent.vue";
+import DownloadCard from "./download/DownloadCard.vue";
 
 // noinspection JSUnusedGlobalSymbols
 export default {
     extends: DefaultTheme,
     enhanceApp({app}) {
         provideTabsSharedState(app)
+        app.component('DownloadCard', DownloadCard)
         app.component('VersionSwitcher', VersionSwitcher)
         app.component('PluginTabs', PluginTabs)
         app.component('PluginTabsTab', PluginTabsTab)
@@ -45,10 +47,12 @@ export default {
         const route = useRoute();
         onMounted(async () => {
             initZoom()
+            injectIndexPageIcons()
             await nextTick(() => scrollToActiveSidebarItem())
         });
         watch(() => route.path, () => nextTick(() => {
             scrollToActiveSidebarItem()
+            injectIndexPageIcons()
             initZoom()
         }));
     }
@@ -63,4 +67,16 @@ function scrollToActiveSidebarItem() {
     if (activeLink) {
         activeLink.scrollIntoView({behavior: 'smooth', block: 'center'})
     }
+}
+
+function injectIndexPageIcons() {
+    document.querySelectorAll("a.VPButton.medium").forEach((button) => {
+        const a = button as HTMLLinkElement;
+        const href = a.href;
+        if (href.includes("CommandAPI/releases/latest")) {
+            a.classList.add("index-download-button");
+        } else if (href.includes("/intro")) {
+            a.classList.add("index-docs-button");
+        }
+    })
 }

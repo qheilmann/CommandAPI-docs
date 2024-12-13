@@ -144,6 +144,8 @@ const vitePressI18nOptions: VitePressI18nOptions = {
                     link: '/intro'
                 }, {
                     component: 'VersionSwitcher'
+                }, {
+                    component: 'DownloadCard'
                 }
             ]
         }
