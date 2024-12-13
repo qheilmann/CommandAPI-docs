@@ -29,20 +29,10 @@ jobs:
           distribution: 'temurin'
           architecture: x64
 
-      - name: Restore Maven Cache
-        uses: skjolber/maven-cache-github-action@v3.1.1
-        with:
-          step: restore
-
       - name: Verify Reference Codes
         run: |
           cd ./reference-code
-          mvn verify
-
-      - name: Save Maven Cache
-        uses: skjolber/maven-cache-github-action@v3.1.1
-        with:
-          step: save
+          ./gradlew build
 
       - name: Setup Node.js
         uses: actions/setup-node@v2

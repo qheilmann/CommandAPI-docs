@@ -18,7 +18,7 @@ yarn docs:build
 
 ```bash
 cd reference-code
-mvn verify
+./gradlew build
 ```
 
 ## License
