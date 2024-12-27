@@ -12,6 +12,20 @@ authors:
 
 "Shading" is the process of including the CommandAPI inside your plugin, rather than requiring the CommandAPI as an external plugin. In other words, if you shade the CommandAPI into your plugin, you don't need to include the `CommandAPI.jar` in your server's plugins folder.
 
+:::danger About mappings
+
+The CommandAPI is available in two versions: one with Spigot mappings and one with Mojang mappings.
+
+The `Spigot-mapped` version(also known as `Reobf` version) uses Spigot's internal names for classes and methods, while the `Mojang-mapped` version(or `Mojmap` version) uses Mojang's internal names.
+
+The `Mojang-mapped` version is recommended for use with Paper after 1.20.5, while the Spigot-mapped version is recommended for use with Spigot.
+
+You can choose which mapping you use in the Preference Card right side of this page (to mobile, Preference Card is on the top of the page).
+
+**If you are using Paper after 1.20.5, you should take attention to [this](https://docs.papermc.io/paper/dev/project-setup#plugin-remapping)**
+
+:::
+
 ## Shading vs CommandAPI plugin
 
 The CommandAPI plugin has a few slight differences with the shaded CommandAPI jar file. The CommandAPI plugin has the following extra features that aren’t present in the shaded version:
