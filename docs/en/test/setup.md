@@ -89,18 +89,18 @@ dependencies {
 ```kotlin
 dependencies {
     // See https://github.com/MockBukkit/MockBukkit?tab=readme-ov-file#mag-usage for latest version
-    testImplementation('com.github.seeseemelk:MockBukkit-v1.21:3.128.0')
+    testImplementation("com.github.seeseemelk:MockBukkit-v1.21:3.128.0")
 
-    testImplementation('dev.jorel:commandapi-bukkit-test-toolkit:9.7.0')
+    testImplementation("dev.jorel:commandapi-bukkit-test-toolkit:9.7.0")
 
     // May be the shade dependency and/or mojang-mapped
-    compileOnly('dev.jorel:commandapi-bukkit-core:9.7.0')
+    compileOnly("dev.jorel:commandapi-bukkit-core:9.7.0")
 
     // Can also be paper-api
-    compileOnly('org.spigotmc:spigot-api:1.21.1-R0.1-SNAPSHOT')
+    compileOnly("org.spigotmc:spigot-api:1.21.1-R0.1-SNAPSHOT")
 
     // See https://junit.org/junit5/ for latest version
-    testImplementation('org.junit.jupiter:junit-jupiter-engine:5.8.2')
+    testImplementation("org.junit.jupiter:junit-jupiter-engine:5.8.2")
 }
 ```
 
