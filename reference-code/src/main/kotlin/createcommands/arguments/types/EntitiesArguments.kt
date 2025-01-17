@@ -1,6 +1,7 @@
 package createcommands.arguments.types
 
 import dev.jorel.commandapi.CommandAPICommand
+import dev.jorel.commandapi.arguments.AsyncOfflinePlayerArgument
 import dev.jorel.commandapi.arguments.EntitySelectorArgument
 import dev.jorel.commandapi.arguments.EntityTypeArgument
 import dev.jorel.commandapi.arguments.IntegerArgument
@@ -10,14 +11,17 @@ import dev.jorel.commandapi.executors.CommandExecutor
 import dev.jorel.commandapi.executors.PlayerCommandExecutor
 import dev.jorel.commandapi.kotlindsl.anyExecutor
 import dev.jorel.commandapi.kotlindsl.commandAPICommand
+import dev.jorel.commandapi.kotlindsl.asyncOfflinePlayerArgument
 import dev.jorel.commandapi.kotlindsl.entitySelectorArgumentManyEntities
 import dev.jorel.commandapi.kotlindsl.entityTypeArgument
 import dev.jorel.commandapi.kotlindsl.integerArgument
 import dev.jorel.commandapi.kotlindsl.playerExecutor
 import org.bukkit.Bukkit
+import org.bukkit.OfflinePlayer
 import org.bukkit.entity.Entity
 import org.bukkit.entity.EntityType
 import org.bukkit.entity.Player
+import java.util.concurrent.CompletableFuture
 
 fun entitiesArguments() {
     // #region entitySelectorArgumentExample
@@ -53,6 +57,33 @@ fun entitiesArguments() {
         .register()
     // #endregion noSelectorSuggestionsExample
 
+    // #region playedBeforeArgumentExample
+    CommandAPICommand("playedbefore")
+        .withArguments(AsyncOfflinePlayerArgument("player"))
+        .executes(CommandExecutor { sender, args ->
+            val player = args["player"] as CompletableFuture<OfflinePlayer>
+
+            // Directly sends a message to the sender, indicating that the command is running to prevent confusion
+            sender.sendMessage("Checking if the player has played before...")
+
+            player.thenAccept { offlinePlayer ->
+                if (offlinePlayer.hasPlayedBefore()) {
+                    sender.sendMessage("Player has played before")
+                } else {
+                    sender.sendMessage("Player has never played before")
+                }
+            }.exceptionally { throwable ->
+                // We have to partly handle exceptions ourselves, since we are using a CompletableFuture
+                val cause = throwable.cause
+                val rootCause = if (cause is RuntimeException) cause.cause else cause
+
+                sender.sendMessage(rootCause?.message ?: "An error occurred")
+                null
+            }
+        })
+        .register()
+    // #endregion playedBeforeArgumentExample
+
     // #region entityTypeArgumentExample
     CommandAPICommand("spawnmob")
         .withArguments(EntityTypeArgument("entity"))
@@ -82,6 +113,33 @@ fun entitiesArgumentsDSL() {
         }
     }
     // #endregion entitySelectorArgumentExampleDSL
+
+    // #region playedBeforeArgumentExampleDSL
+    commandAPICommand("playedbefore") {
+        asyncOfflinePlayerArgument("player")
+        anyExecutor { sender, args ->
+            val player = args["player"] as CompletableFuture<OfflinePlayer>
+
+            // Directly sends a message to the sender, indicating that the command is running to prevent confusion
+            sender.sendMessage("Checking if the player has played before...")
+
+            player.thenAccept { offlinePlayer ->
+                if (offlinePlayer.hasPlayedBefore()) {
+                    sender.sendMessage("Player has played before")
+                } else {
+                    sender.sendMessage("Player has never played before")
+                }
+            }.exceptionally { throwable ->
+                // We have to partly handle exceptions ourselves, since we are using a CompletableFuture
+                val cause = throwable.cause
+                val rootCause = if (cause is RuntimeException) cause.cause else cause
+
+                sender.sendMessage(rootCause?.message ?: "An error occurred")
+                null
+            }
+        }
+    }
+    // #endregion playedBeforeArgumentExampleDSL
 
     // #region entityTypeArgumentExampleDSL
     commandAPICommand("spawnmob") {
