@@ -29,7 +29,7 @@ When you add the dependencies for MockBukkit and `commandapi-bukkit-test-toolkit
     <dependency>
         <groupId>dev.jorel</groupId>
         <artifactId>commandapi-bukkit-test-toolkit</artifactId>
-        <version>9.7.0</version>
+        <version>9.7.1-SNAPSHOT</version>
         <scope>test</scope>
     </dependency>
 
@@ -37,7 +37,7 @@ When you add the dependencies for MockBukkit and `commandapi-bukkit-test-toolkit
     <dependency>
         <groupId>dev.jorel</groupId>
         <artifactId>commandapi-bukkit-core</artifactId>
-        <version>9.7.0</version>
+        <version>9.7.1-SNAPSHOT</version>
         <scope>provided</scope>
     </dependency>
 
@@ -70,10 +70,10 @@ dependencies {
     // See https://github.com/MockBukkit/MockBukkit?tab=readme-ov-file#mag-usage for latest version
     testImplementation 'com.github.seeseemelk:MockBukkit-v1.21:3.128.0'
 
-    testImplementation 'dev.jorel:commandapi-bukkit-test-toolkit:9.7.0'
+    testImplementation 'dev.jorel:commandapi-bukkit-test-toolkit:9.7.1-SNAPSHOT'
 
     // May be the shade dependency and/or mojang-mapped
-    compileOnly 'dev.jorel:commandapi-bukkit-core:9.7.0'
+    compileOnly 'dev.jorel:commandapi-bukkit-core:9.7.1-SNAPSHOT'
 
     // Can also be paper-api
     compileOnly 'org.spigotmc:spigot-api:1.21.1-R0.1-SNAPSHOT'
@@ -91,10 +91,10 @@ dependencies {
     // See https://github.com/MockBukkit/MockBukkit?tab=readme-ov-file#mag-usage for latest version
     testImplementation("com.github.seeseemelk:MockBukkit-v1.21:3.128.0")
 
-    testImplementation("dev.jorel:commandapi-bukkit-test-toolkit:9.7.0")
+    testImplementation("dev.jorel:commandapi-bukkit-test-toolkit:9.7.1-SNAPSHOT")
 
     // May be the shade dependency and/or mojang-mapped
-    compileOnly("dev.jorel:commandapi-bukkit-core:9.7.0")
+    compileOnly("dev.jorel:commandapi-bukkit-core:9.7.1-SNAPSHOT")
 
     // Can also be paper-api
     compileOnly("org.spigotmc:spigot-api:1.21.1-R0.1-SNAPSHOT")

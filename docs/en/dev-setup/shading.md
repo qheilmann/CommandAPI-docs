@@ -114,7 +114,7 @@ Add the CommandAPI shade dependency:
     <dependency>
         <groupId>dev.jorel</groupId>
         <artifactId>commandapi-bukkit-shade</artifactId>
-        <version>9.7.0</version>
+        <version>9.7.1-SNAPSHOT</version>
     </dependency>
 </dependencies>
 ```
@@ -126,7 +126,7 @@ Add the CommandAPI shade dependency:
     <dependency>
         <groupId>dev.jorel</groupId>
         <artifactId>commandapi-bukkit-shade-mojang-mapped</artifactId>
-        <version>9.7.0</version>
+        <version>9.7.1-SNAPSHOT</version>
     </dependency>
 </dependencies>
 ```
@@ -222,7 +222,7 @@ Next, we declare our dependencies:
 
 ```groovy
 dependencies {
-    implementation "dev.jorel:commandapi-bukkit-shade:9.7.0"
+    implementation "dev.jorel:commandapi-bukkit-shade:9.7.1-SNAPSHOT"
 }
 ```
 </div>
@@ -230,7 +230,7 @@ dependencies {
 
 ```groovy
 dependencies {
-    implementation "dev.jorel:commandapi-bukkit-shade-mojang-mapped:9.7.0"
+    implementation "dev.jorel:commandapi-bukkit-shade-mojang-mapped:9.7.1-SNAPSHOT"
 }
 ```
 </div>
@@ -240,7 +240,7 @@ dependencies {
 
 ```kotlin
 dependencies {
-    implementation("dev.jorel:commandapi-bukkit-shade:9.7.0")
+    implementation("dev.jorel:commandapi-bukkit-shade:9.7.1-SNAPSHOT")
 }
 ```
 </div>
@@ -248,7 +248,7 @@ dependencies {
 
 ```kotlin
 dependencies {
-    implementation("dev.jorel:commandapi-bukkit-shade-mojang-mapped:9.7.0")
+    implementation("dev.jorel:commandapi-bukkit-shade-mojang-mapped:9.7.1-SNAPSHOT")
 }
 ```
 </div>

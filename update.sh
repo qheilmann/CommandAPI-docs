@@ -29,4 +29,5 @@ sed -i "s/dev.jorel:commandapi-bukkit-core:$oldVer/dev.jorel:commandapi-bukkit-c
 # Possible manual updates
 echo "These may have to be updated manually:"
 echo "  docs/en/velocity/intro.md"
+echo "  reference-code/gradle/libs.versions.toml -> dev-jorel-commandapi-velocity-shade version"
 echo "  docs/public/versions.yml"
