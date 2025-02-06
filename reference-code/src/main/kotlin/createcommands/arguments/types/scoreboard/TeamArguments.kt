@@ -2,17 +2,18 @@ package createcommands.arguments.types.scoreboard
 
 import dev.jorel.commandapi.CommandAPICommand
 import dev.jorel.commandapi.arguments.TeamArgument
-import dev.jorel.commandapi.executors.CommandExecutor
+import dev.jorel.commandapi.executors.NormalExecutor
 import dev.jorel.commandapi.kotlindsl.anyExecutor
 import dev.jorel.commandapi.kotlindsl.commandAPICommand
 import dev.jorel.commandapi.kotlindsl.teamArgument
+import org.bukkit.command.CommandSender
 import org.bukkit.scoreboard.Team
 
 fun teamArguments() {
     // #region teamArgumentsExample
     CommandAPICommand("togglepvp")
         .withArguments(TeamArgument("team"))
-        .executes(CommandExecutor { _, args ->
+        .executes(NormalExecutor<CommandSender, Any> { _, args ->
             val team = args["team"] as Team
 
             // Toggle pvp

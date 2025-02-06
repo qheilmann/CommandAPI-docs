@@ -8,7 +8,7 @@ import dev.jorel.commandapi.arguments.GreedyStringArgument
 import dev.jorel.commandapi.arguments.IntegerArgument
 import dev.jorel.commandapi.arguments.PlayerArgument
 import dev.jorel.commandapi.arguments.StringArgument
-import dev.jorel.commandapi.executors.PlayerCommandExecutor
+import dev.jorel.commandapi.executors.NormalExecutor
 import org.bukkit.Location
 import org.bukkit.command.CommandSender
 import org.bukkit.entity.EntityType
@@ -43,7 +43,7 @@ fun stringSuggestions() {
 
     CommandAPICommand("warp")
         .withArguments(arguments)
-        .executesPlayer(PlayerCommandExecutor { player, args ->
+        .executesPlayer(NormalExecutor<Player, Any> { player, args ->
             val warp = args["world"] as String
             player.teleport(warps[warp]!!) // Look up the warp in a map, for example
         })
@@ -63,7 +63,7 @@ fun stringSuggestions2() {
 
     CommandAPICommand("friendtp")
         .withArguments(arguments)
-        .executesPlayer(PlayerCommandExecutor { player, args ->
+        .executesPlayer(NormalExecutor<Player, Any> { player, args ->
             val target = args["friend"] as Player
             player.teleport(target)
         })
@@ -98,7 +98,7 @@ fun stringSuggestions2() {
     // Declare our command as normal
     CommandAPICommand("localmsg")
         .withArguments(*commandArgs.toTypedArray())
-        .executesPlayer(PlayerCommandExecutor { _, args ->
+        .executesPlayer(NormalExecutor<Player, Any> { _, args ->
             val target = args["target"] as Player
             val message = args["message"] as String
             target.sendMessage(message)

@@ -5,7 +5,7 @@ import dev.jorel.commandapi.arguments.ArgumentSuggestions
 import dev.jorel.commandapi.arguments.CommandArgument
 import dev.jorel.commandapi.arguments.PlayerArgument
 import dev.jorel.commandapi.arguments.SuggestionsBranch
-import dev.jorel.commandapi.executors.CommandExecutor
+import dev.jorel.commandapi.executors.NormalExecutor
 import dev.jorel.commandapi.kotlindsl.anyExecutor
 import dev.jorel.commandapi.kotlindsl.commandAPICommand
 import dev.jorel.commandapi.kotlindsl.commandArgument
@@ -20,7 +20,7 @@ fun commandArguments() {
     CommandAPICommand("sudo")
         .withArguments(PlayerArgument("target"))
         .withArguments(CommandArgument("command"))
-        .executes(CommandExecutor { _, args ->
+        .executes(NormalExecutor<CommandSender, Any> { _, args ->
             val target = args["target"] as Player
             val command = args["command"] as CommandResult
 

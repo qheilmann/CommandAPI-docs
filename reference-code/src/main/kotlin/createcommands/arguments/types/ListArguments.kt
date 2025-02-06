@@ -3,12 +3,13 @@ package createcommands.arguments.types
 import dev.jorel.commandapi.CommandAPICommand
 import dev.jorel.commandapi.arguments.IntegerArgument
 import dev.jorel.commandapi.arguments.ListArgumentBuilder
-import dev.jorel.commandapi.executors.PlayerCommandExecutor
+import dev.jorel.commandapi.executors.NormalExecutor
 import dev.jorel.commandapi.kotlindsl.argument
 import dev.jorel.commandapi.kotlindsl.commandAPICommand
 import dev.jorel.commandapi.kotlindsl.integerArgument
 import dev.jorel.commandapi.kotlindsl.playerExecutor
 import org.bukkit.Material
+import org.bukkit.entity.Player
 import org.bukkit.inventory.ItemStack
 
 fun listArguments() {
@@ -20,7 +21,7 @@ fun listArguments() {
             .withMapper { material -> material.name.lowercase() }
             .buildGreedy()
         )
-        .executesPlayer(PlayerCommandExecutor { player, args ->
+        .executesPlayer(NormalExecutor<Player, Any> { player, args ->
             val amount = args["amount"] as Int
             val theList = args["materials"] as List<Material>
 

@@ -4,7 +4,8 @@ import dev.jorel.commandapi.CommandAPI
 import dev.jorel.commandapi.CommandAPIBukkit
 import dev.jorel.commandapi.CommandAPICommand
 import dev.jorel.commandapi.arguments.MultiLiteralArgument
-import dev.jorel.commandapi.executors.CommandExecutor
+import dev.jorel.commandapi.executors.NormalExecutor
+import org.bukkit.command.CommandSender
 import org.bukkit.plugin.java.JavaPlugin
 import org.bukkit.scheduler.BukkitRunnable
 
@@ -33,7 +34,7 @@ fun unregistration() {
             // Register our new /gamemode, with survival, creative, adventure and spectator
             CommandAPICommand("gamemode")
                 .withArguments(MultiLiteralArgument("gamemodes", "survival", "creative", "adventure", "spectator"))
-                .executes(CommandExecutor { sender, args ->
+                .executes(NormalExecutor<CommandSender, Any> { sender, args ->
                     // Implementation of our /gamemode command
                 })
                 .register()

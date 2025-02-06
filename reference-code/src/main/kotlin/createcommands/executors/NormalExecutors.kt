@@ -3,13 +3,14 @@ package createcommands.executors
 import dev.jorel.commandapi.CommandAPICommand
 import dev.jorel.commandapi.CommandPermission
 import dev.jorel.commandapi.arguments.GreedyStringArgument
-import dev.jorel.commandapi.executors.CommandExecutor
-import dev.jorel.commandapi.executors.EntityCommandExecutor
 import dev.jorel.commandapi.executors.ExecutorType
-import dev.jorel.commandapi.executors.PlayerCommandExecutor
+import dev.jorel.commandapi.executors.NormalExecutor
 import org.bukkit.Bukkit
+import org.bukkit.command.CommandSender
 import org.bukkit.command.ProxiedCommandSender
+import org.bukkit.entity.Entity
 import org.bukkit.entity.LivingEntity
+import org.bukkit.entity.Player
 
 fun normalExecutors() {
     // #region broadcastExample
@@ -18,7 +19,7 @@ fun normalExecutors() {
         .withArguments(GreedyStringArgument("message"))     // The arguments
         .withAliases("broadcast", "broadcastmessage")       // Command aliases
         .withPermission(CommandPermission.OP)               // Required permissions
-        .executes(CommandExecutor { _, args ->
+        .executes(NormalExecutor<CommandSender, Any> { _, args ->
             val message = args["message"] as String
             Bukkit.getServer().broadcastMessage(message)
         })
@@ -27,7 +28,7 @@ fun normalExecutors() {
 
     // #region suicideExample
     CommandAPICommand("suicide")
-        .executesPlayer(PlayerCommandExecutor { player, _ ->
+        .executesPlayer(NormalExecutor<Player, Any> { player, _ ->
             player.health = 0.0
         })
         .register()
@@ -35,10 +36,10 @@ fun normalExecutors() {
 
     // #region differentImplExample
     CommandAPICommand("suicide")
-        .executesPlayer(PlayerCommandExecutor { player, _ ->
+        .executesPlayer(NormalExecutor<Player, Any> { player, _ ->
             player.health = 0.0
         })
-        .executesEntity(EntityCommandExecutor { entity, _ ->
+        .executesEntity(NormalExecutor<Entity, Any> { entity, _ ->
             entity.world.createExplosion(entity.location, 4f)
             entity.remove()
         })
@@ -47,7 +48,7 @@ fun normalExecutors() {
 
     // #region sameImplExample
     CommandAPICommand("suicide")
-        .executes(CommandExecutor { sender, _ ->
+        .executes(NormalExecutor<CommandSender, Any> { sender, _ ->
             val entity = (if (sender is ProxiedCommandSender) sender.callee else sender) as LivingEntity
             entity.health = 0.0
         }, ExecutorType.PLAYER, ExecutorType.PROXY)

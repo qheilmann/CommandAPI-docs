@@ -1,17 +1,18 @@
 package createcommands.executors
 
 import dev.jorel.commandapi.CommandAPICommand
-import dev.jorel.commandapi.executors.PlayerCommandExecutor
-import dev.jorel.commandapi.executors.ProxyCommandExecutor
+import dev.jorel.commandapi.executors.NormalExecutor
 import dev.jorel.commandapi.kotlindsl.commandAPICommand
 import dev.jorel.commandapi.kotlindsl.playerExecutor
 import dev.jorel.commandapi.kotlindsl.proxyExecutor
+import dev.jorel.commandapi.wrappers.NativeProxyCommandSender
 import org.bukkit.entity.LivingEntity
+import org.bukkit.entity.Player
 
 fun proxySender() {
     // #region simpleKillCommandExample
     CommandAPICommand("killme")
-        .executesPlayer(PlayerCommandExecutor { player, _ ->
+        .executesPlayer(NormalExecutor<Player, Any> { player, _ ->
             player.health = 0.0
         })
         .register()
@@ -19,10 +20,10 @@ fun proxySender() {
 
     // #region proxyKillCommandExample
     CommandAPICommand("killme")
-        .executesPlayer(PlayerCommandExecutor { player, _ ->
+        .executesPlayer(NormalExecutor<Player, Any> { player, _ ->
             player.health = 0.0
         })
-        .executesProxy(ProxyCommandExecutor { proxy, _ ->
+        .executesProxy(NormalExecutor<NativeProxyCommandSender, Any> { proxy, _ ->
             // Check if the callee (target) is an Entity and kill it
             if (proxy.callee is LivingEntity) {
                 (proxy.callee as LivingEntity).health = 0.0

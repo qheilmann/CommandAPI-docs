@@ -3,19 +3,20 @@ package createcommands.arguments.types.misc
 import dev.jorel.commandapi.CommandAPICommand
 import dev.jorel.commandapi.arguments.GreedyStringArgument
 import dev.jorel.commandapi.arguments.TimeArgument
-import dev.jorel.commandapi.executors.CommandExecutor
+import dev.jorel.commandapi.executors.NormalExecutor
 import dev.jorel.commandapi.kotlindsl.anyExecutor
 import dev.jorel.commandapi.kotlindsl.commandAPICommand
 import dev.jorel.commandapi.kotlindsl.greedyStringArgument
 import dev.jorel.commandapi.kotlindsl.timeArgument
 import org.bukkit.Bukkit
+import org.bukkit.command.CommandSender
 
 fun timeArguments() {
     // #region timeArgumentsExample
     CommandAPICommand("bigmsg")
         .withArguments(TimeArgument("duration"))
         .withArguments(GreedyStringArgument("message"))
-        .executes(CommandExecutor { _, args ->
+        .executes(NormalExecutor<CommandSender, Any> { _, args ->
             // Duration in ticks
             val duration = args["duration"] as Int
             val message = args["message"] as String

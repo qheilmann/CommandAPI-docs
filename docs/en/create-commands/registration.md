@@ -142,39 +142,6 @@ CommandAPICommand executesNative(info -> {})
 
 Executes a command regardless of what the command sender is, using the `NativeProxyCommandSender`.  Read more about native proxied command senders [here](./executors/native-sender).
 
-:::info
-
-Sometimes, the Java compiler throws an error saying that a method is ambiguous for the type CommandAPICommand. This is due to a limitation in Java's type inference system and is not a fault of the CommandAPI. If we take the following code, used to spawn a pig:
-
-```java
-new CommandAPICommand("spawnpigs")
-     .executesPlayer((player, args) -> {
-           for(int i = 0; i < 10; i++) {
-               player.getWorld().spawnEntity(player.getLocation(), (EntityType) args.get(0));
-           }
-     })
-     .register();
-```
-
-The Java type inference system can’t determine what the type of the lambda `(player, args) -> ()` is, therefore, it produces the following compilation error:
-
-```log
-The method executesPlayer(PlayerCommandExecutor) is ambiguous for the type CommandAPICommand
-```
-
-This can easily be resolved by declaring the specific type of the command sender and the arguments. For example:
-
-```java
-new CommandAPICommand("spawnpigs")
-     .executesPlayer((Player player, CommandArguments args) -> {
-           for(int i = 0; i < 10; i++) {
-               player.getWorld().spawnEntity(player.getLocation(), (EntityType) args.get(0));
-           }
-     })
-     .register();
-```
-:::
-
 #### Registering the command
 
 ```java

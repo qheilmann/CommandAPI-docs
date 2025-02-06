@@ -1,8 +1,9 @@
 package createcommands.functionsandtags
 
 import dev.jorel.commandapi.CommandAPICommand
-import dev.jorel.commandapi.executors.CommandExecutor
+import dev.jorel.commandapi.executors.NormalExecutor
 import org.bukkit.Bukkit
+import org.bukkit.command.CommandSender
 import org.bukkit.plugin.java.JavaPlugin
 
 // #region functionsExample
@@ -11,7 +12,7 @@ class Main : JavaPlugin() {
         // Commands which will be used in Minecraft functions are registered here
 
         CommandAPICommand("killall")
-            .executes(CommandExecutor { _, _ ->
+            .executes(NormalExecutor<CommandSender, Any> { _, _ ->
                 // Kills all enemies in all worlds
                 Bukkit.getWorlds().forEach { world -> world.livingEntities.forEach { entity -> entity.health = 0.0 } }
             })

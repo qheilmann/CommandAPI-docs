@@ -2,17 +2,18 @@ package createcommands.arguments.types.misc
 
 import dev.jorel.commandapi.CommandAPICommand
 import dev.jorel.commandapi.arguments.ItemStackArgument
-import dev.jorel.commandapi.executors.PlayerCommandExecutor
+import dev.jorel.commandapi.executors.NormalExecutor
 import dev.jorel.commandapi.kotlindsl.commandAPICommand
 import dev.jorel.commandapi.kotlindsl.itemStackArgument
 import dev.jorel.commandapi.kotlindsl.playerExecutor
+import org.bukkit.entity.Player
 import org.bukkit.inventory.ItemStack
 
 fun itemStackArguments() {
     // #region itemStackArgumentsExample
     CommandAPICommand("item")
         .withArguments(ItemStackArgument("itemStack"))
-        .executesPlayer(PlayerCommandExecutor { player, args ->
+        .executesPlayer(NormalExecutor<Player, Any> { player, args ->
             player.inventory.addItem(args["itemStack"] as ItemStack)
         })
         .register()

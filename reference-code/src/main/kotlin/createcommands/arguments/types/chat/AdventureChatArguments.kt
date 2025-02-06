@@ -7,8 +7,7 @@ import dev.jorel.commandapi.arguments.AdventureChatComponentArgument
 import dev.jorel.commandapi.arguments.PlayerArgument
 import dev.jorel.commandapi.arguments.StringArgument
 import dev.jorel.commandapi.arguments.TextArgument
-import dev.jorel.commandapi.executors.CommandExecutor
-import dev.jorel.commandapi.executors.PlayerCommandExecutor
+import dev.jorel.commandapi.executors.NormalExecutor
 import dev.jorel.commandapi.kotlindsl.adventureChatArgument
 import dev.jorel.commandapi.kotlindsl.adventureChatComponentArgument
 import dev.jorel.commandapi.kotlindsl.anyExecutor
@@ -23,13 +22,14 @@ import net.kyori.adventure.text.Component
 import net.kyori.adventure.text.format.NamedTextColor
 import org.bukkit.Bukkit
 import org.bukkit.Server
+import org.bukkit.command.CommandSender
 import org.bukkit.entity.Player
 
 fun adventureChatArguments() {
     // #region namedTextColorExample
     CommandAPICommand("namecolor")
         .withArguments(AdventureChatColorArgument("chatcolor"))
-        .executesPlayer(PlayerCommandExecutor { player, args ->
+        .executesPlayer(NormalExecutor<Player, Any> { player, args ->
             val color = args["chatcolor"] as NamedTextColor
             player.displayName(Component.text().color(color).append(Component.text(player.name)).build())
         })
@@ -42,7 +42,7 @@ fun adventureChatArguments() {
         .withArguments(TextArgument("title"))
         .withArguments(StringArgument("author"))
         .withArguments(AdventureChatComponentArgument("contents"))
-        .executes(CommandExecutor { _, args ->
+        .executes(NormalExecutor<CommandSender, Any> { _, args ->
             val target = args["target"] as Player
             val title = args["title"] as String
             val author = args["author"] as String
@@ -58,7 +58,7 @@ fun adventureChatArguments() {
     // #region chatArgumentExample
     CommandAPICommand("pbroadcast")
         .withArguments(AdventureChatArgument("message"))
-        .executes(CommandExecutor { _, args ->
+        .executes(NormalExecutor<CommandSender, Any> { _, args ->
             val message = args["message"] as Component
 
             // Broadcast the message to everyone with broadcast permissions.

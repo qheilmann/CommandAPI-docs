@@ -2,17 +2,18 @@ package createcommands.arguments.types.literal
 
 import dev.jorel.commandapi.CommandAPICommand
 import dev.jorel.commandapi.arguments.MultiLiteralArgument
-import dev.jorel.commandapi.executors.PlayerCommandExecutor
+import dev.jorel.commandapi.executors.NormalExecutor
 import dev.jorel.commandapi.kotlindsl.commandAPICommand
 import dev.jorel.commandapi.kotlindsl.multiLiteralArgument
 import dev.jorel.commandapi.kotlindsl.playerExecutor
 import org.bukkit.GameMode
+import org.bukkit.entity.Player
 
 fun multiliteralArguments() {
     // #region multiliteralArgumentsExample
     CommandAPICommand("gamemode")
         .withArguments(MultiLiteralArgument("gamemodes", "adventure", "creative", "spectator", "survival"))
-        .executesPlayer(PlayerCommandExecutor { player, args ->
+        .executesPlayer(NormalExecutor<Player, Any> { player, args ->
             // The literal string that the player enters IS available in the args[]
             when (args["gamemodes"] as String) {
                 "adventure" -> player.gameMode = GameMode.ADVENTURE

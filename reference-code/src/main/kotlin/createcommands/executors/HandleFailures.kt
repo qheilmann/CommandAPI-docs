@@ -4,7 +4,8 @@ import dev.jorel.commandapi.CommandAPI
 import dev.jorel.commandapi.CommandAPICommand
 import dev.jorel.commandapi.arguments.ArgumentSuggestions
 import dev.jorel.commandapi.arguments.StringArgument
-import dev.jorel.commandapi.executors.CommandExecutor
+import dev.jorel.commandapi.executors.NormalExecutor
+import org.bukkit.command.CommandSender
 
 fun handleFailures() {
     // #region handleFailuresExample
@@ -14,7 +15,7 @@ fun handleFailures() {
     // Register the command
     CommandAPICommand("getfruit")
         .withArguments(StringArgument("item").replaceSuggestions(ArgumentSuggestions.strings(fruit)))
-        .executes(CommandExecutor { _, args ->
+        .executes(NormalExecutor<CommandSender, Any> { _, args ->
             val inputFruit = args["item"] as String
 
             if (fruit.any { it == inputFruit }) {

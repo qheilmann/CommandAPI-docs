@@ -3,7 +3,8 @@ package devsetup
 import dev.jorel.commandapi.CommandAPI
 import dev.jorel.commandapi.CommandAPIBukkitConfig
 import dev.jorel.commandapi.CommandAPICommand
-import dev.jorel.commandapi.executors.CommandExecutor
+import dev.jorel.commandapi.executors.NormalExecutor
+import org.bukkit.command.CommandSender
 import org.bukkit.plugin.java.JavaPlugin
 
 fun shading() {
@@ -19,7 +20,7 @@ class MyPlugin : JavaPlugin() {
         CommandAPI.onLoad(CommandAPIBukkitConfig(this).verboseOutput(true)) // Load with verbose output
 
         CommandAPICommand("ping")
-            .executes(CommandExecutor { sender, _ ->
+            .executes(NormalExecutor<CommandSender, Any> { sender, _ ->
                 sender.sendMessage("pong!")
             })
             .register()

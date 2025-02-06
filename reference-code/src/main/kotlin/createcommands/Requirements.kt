@@ -3,7 +3,7 @@ package createcommands
 import dev.jorel.commandapi.CommandAPI
 import dev.jorel.commandapi.CommandAPICommand
 import dev.jorel.commandapi.arguments.*
-import dev.jorel.commandapi.executors.PlayerCommandExecutor
+import dev.jorel.commandapi.executors.NormalExecutor
 import org.bukkit.Bukkit
 import org.bukkit.Material
 import org.bukkit.entity.Player
@@ -14,7 +14,7 @@ fun requirements() {
     // #region baseOnPlayerLevelExample
     CommandAPICommand("repair")
         .withRequirement { (it as Player).level >= 30 }
-        .executesPlayer(PlayerCommandExecutor { player, _ ->
+        .executesPlayer(NormalExecutor<Player, Any> { player, _ ->
 
             // Repair the item back to full durability
             val item = player.inventory.itemInMainHand
@@ -48,7 +48,7 @@ fun requirements() {
     // #region partySystemExampleStep3
     CommandAPICommand("party")
         .withArguments(*arguments.toTypedArray())
-        .executesPlayer(PlayerCommandExecutor { player, args ->
+        .executesPlayer(NormalExecutor<Player, Any> { player, args ->
 
             // Get the name of the party to create
             val partyName = args["partyName"] as String
@@ -96,7 +96,7 @@ fun requirements() {
     // #region partySystemExampleStep5
     CommandAPICommand("party")
         .withArguments(arguments)
-        .executesPlayer(PlayerCommandExecutor { player, args ->
+        .executesPlayer(NormalExecutor<Player, Any> { player, args ->
             val target = args["player"] as Player
             player.teleport(target)
         })
@@ -106,7 +106,7 @@ fun requirements() {
     // #region updateRequirementsExample
     CommandAPICommand("party")
         .withArguments(arguments)
-        .executesPlayer(PlayerCommandExecutor { player, args ->
+        .executesPlayer(NormalExecutor<Player, Any> { player, args ->
 
             // Get the name of the party to create
             val partyName = args["partyName"] as String
@@ -123,7 +123,7 @@ fun requirements() {
         .withRequirement { (it as Player).level >= 30 }
         .withRequirement { (it as Player).inventory.contains(Material.DIAMOND_PICKAXE) }
         .withRequirement { (it as Player).isInvulnerable }
-        .executesPlayer(PlayerCommandExecutor { player, args ->
+        .executesPlayer(NormalExecutor<Player, Any> { player, args ->
             // Code goes here
         })
         .register()

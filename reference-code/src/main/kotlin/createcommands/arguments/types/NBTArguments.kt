@@ -5,10 +5,11 @@ import dev.jorel.commandapi.CommandAPI
 import dev.jorel.commandapi.CommandAPIBukkitConfig
 import dev.jorel.commandapi.CommandAPICommand
 import dev.jorel.commandapi.arguments.NBTCompoundArgument
-import dev.jorel.commandapi.executors.CommandExecutor
+import dev.jorel.commandapi.executors.NormalExecutor
 import dev.jorel.commandapi.kotlindsl.anyExecutor
 import dev.jorel.commandapi.kotlindsl.commandAPICommand
 import dev.jorel.commandapi.kotlindsl.nbtCompoundArgument
+import org.bukkit.command.CommandSender
 import org.bukkit.plugin.java.JavaPlugin
 
 val nbtArguments = object : JavaPlugin() {
@@ -25,7 +26,7 @@ fun nbtArguments() {
     // #region nbtCompoundArgumentsExample
     CommandAPICommand("award")
         .withArguments(NBTCompoundArgument<NBTContainer>("nbt"))
-        .executes(CommandExecutor { _, args ->
+        .executes(NormalExecutor<CommandSender, Any> { _, args ->
             val nbt = args["nbt"] as NBTContainer
             // Do something with "nbt" here...
         })

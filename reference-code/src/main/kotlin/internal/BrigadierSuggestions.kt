@@ -9,7 +9,7 @@ import dev.jorel.commandapi.Brigadier
 import dev.jorel.commandapi.CommandAPICommand
 import dev.jorel.commandapi.arguments.ArgumentSuggestions
 import dev.jorel.commandapi.arguments.GreedyStringArgument
-import dev.jorel.commandapi.executors.CommandExecutor
+import dev.jorel.commandapi.executors.NormalExecutor
 import org.bukkit.Bukkit
 import org.bukkit.command.CommandSender
 import java.util.concurrent.CompletableFuture
@@ -59,7 +59,7 @@ fun brigadierSuggestions() {
 
     CommandAPICommand("emoji")
         .withArguments(messageArgument)
-        .executes(CommandExecutor { _, args ->
+        .executes(NormalExecutor<CommandSender, Any> { _, args ->
             Bukkit.broadcastMessage(args["message"] as String)
         })
         .register()
@@ -106,7 +106,7 @@ fun brigadierSuggestions() {
     // #region commandArgumentsExampleStep2
     CommandAPICommand("commandargument")
         .withArguments(GreedyStringArgument("command").replaceSuggestions(commandSuggestions))
-        .executes(CommandExecutor { sender, args ->
+        .executes(NormalExecutor<CommandSender, Any> { sender, args ->
             // Run the command using Bukkit.dispatchCommand()
             Bukkit.dispatchCommand(sender, args["command"] as String)
         })

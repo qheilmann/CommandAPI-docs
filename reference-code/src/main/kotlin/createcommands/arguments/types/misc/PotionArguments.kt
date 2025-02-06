@@ -5,9 +5,10 @@ import dev.jorel.commandapi.arguments.IntegerArgument
 import dev.jorel.commandapi.arguments.PlayerArgument
 import dev.jorel.commandapi.arguments.PotionEffectArgument
 import dev.jorel.commandapi.arguments.TimeArgument
-import dev.jorel.commandapi.executors.CommandExecutor
+import dev.jorel.commandapi.executors.NormalExecutor
 import dev.jorel.commandapi.kotlindsl.*
 import org.bukkit.NamespacedKey
+import org.bukkit.command.CommandSender
 import org.bukkit.entity.Player
 import org.bukkit.potion.PotionEffect
 import org.bukkit.potion.PotionEffectType
@@ -19,7 +20,7 @@ fun potionArguments() {
         .withArguments(PotionEffectArgument("potion"))
         .withArguments(TimeArgument("duration"))
         .withArguments(IntegerArgument("strength"))
-        .executes(CommandExecutor { _, args ->
+        .executes(NormalExecutor<CommandSender, Any> { _, args ->
             val target = args["target"] as Player
             val potion = args["potion"] as PotionEffectType
             val duration = args["duration"] as Int
@@ -37,7 +38,7 @@ fun potionArguments() {
         .withArguments(PotionEffectArgument.NamespacedKey("potion"))
         .withArguments(TimeArgument("duration"))
         .withArguments(IntegerArgument("strength"))
-        .executes(CommandExecutor { _, args ->
+        .executes(NormalExecutor<CommandSender, Any> { _, args ->
             val target = args["target"] as Player
             val potionKey = args["potion"] as NamespacedKey
             val duration = args["duration"] as Int

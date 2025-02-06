@@ -7,8 +7,7 @@ import dev.jorel.commandapi.arguments.EntityTypeArgument
 import dev.jorel.commandapi.arguments.IntegerArgument
 import dev.jorel.commandapi.arguments.PlayerArgument
 import dev.jorel.commandapi.arguments.SafeSuggestions
-import dev.jorel.commandapi.executors.CommandExecutor
-import dev.jorel.commandapi.executors.PlayerCommandExecutor
+import dev.jorel.commandapi.executors.NormalExecutor
 import dev.jorel.commandapi.kotlindsl.anyExecutor
 import dev.jorel.commandapi.kotlindsl.commandAPICommand
 import dev.jorel.commandapi.kotlindsl.asyncOfflinePlayerArgument
@@ -18,6 +17,7 @@ import dev.jorel.commandapi.kotlindsl.integerArgument
 import dev.jorel.commandapi.kotlindsl.playerExecutor
 import org.bukkit.Bukkit
 import org.bukkit.OfflinePlayer
+import org.bukkit.command.CommandSender
 import org.bukkit.entity.Entity
 import org.bukkit.entity.EntityType
 import org.bukkit.entity.Player
@@ -28,7 +28,7 @@ fun entitiesArguments() {
     CommandAPICommand("remove")
         // Using a collective entity selector to select multiple entities
         .withArguments(EntitySelectorArgument.ManyEntities("entities"))
-        .executes(CommandExecutor { sender, args ->
+        .executes(NormalExecutor<CommandSender, Any> { sender, args ->
             // Parse the argument as a collection of entities (as stated above in the documentation)
             val entities = args["entities"] as Collection<Entity>
 
@@ -50,7 +50,7 @@ fun entitiesArguments() {
     // #region noSelectorSuggestionsExample
     CommandAPICommand("warp")
         .withArguments(noSelectorSuggestions)
-        .executesPlayer(PlayerCommandExecutor { player, args ->
+        .executesPlayer(NormalExecutor<Player, Any> { player, args ->
             val target = args["target"] as Player
             player.teleport(target)
         })
@@ -60,7 +60,7 @@ fun entitiesArguments() {
     // #region playedBeforeArgumentExample
     CommandAPICommand("playedbefore")
         .withArguments(AsyncOfflinePlayerArgument("player"))
-        .executes(CommandExecutor { sender, args ->
+        .executes(NormalExecutor<CommandSender, Any> { sender, args ->
             val player = args["player"] as CompletableFuture<OfflinePlayer>
 
             // Directly sends a message to the sender, indicating that the command is running to prevent confusion
@@ -88,7 +88,7 @@ fun entitiesArguments() {
     CommandAPICommand("spawnmob")
         .withArguments(EntityTypeArgument("entity"))
         .withArguments(IntegerArgument("amount", 1, 100)) // Prevent spawning too many entities
-        .executesPlayer(PlayerCommandExecutor { player, args ->
+        .executesPlayer(NormalExecutor<Player, Any> { player, args ->
             for (i in 0 until args["amount"] as Int) {
                 player.world.spawnEntity(player.location, args["entity"] as EntityType)
             }

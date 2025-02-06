@@ -3,10 +3,10 @@ package createcommands
 import dev.jorel.commandapi.CommandAPI
 import dev.jorel.commandapi.CommandTree
 import dev.jorel.commandapi.arguments.*
-import dev.jorel.commandapi.executors.CommandExecutor
-import dev.jorel.commandapi.executors.PlayerCommandExecutor
+import dev.jorel.commandapi.executors.NormalExecutor
 import dev.jorel.commandapi.kotlindsl.*
 import org.bukkit.block.Sign
+import org.bukkit.command.CommandSender
 import org.bukkit.entity.Player
 import org.bukkit.metadata.FixedMetadataValue
 import org.bukkit.plugin.java.JavaPlugin
@@ -14,12 +14,12 @@ import org.bukkit.plugin.java.JavaPlugin
 fun commandTrees() {
     // #region commandTreesExample
     CommandTree("sayhi")
-        .executes(CommandExecutor { sender, _ ->
+        .executes(NormalExecutor<CommandSender, Any> { sender, _ ->
             sender.sendMessage("Hi!")
         })
         .then(
             PlayerArgument("target")
-                .executes(CommandExecutor { _, args ->
+                .executes(NormalExecutor<CommandSender, Any> { _, args ->
                     val target = args["target"] as Player
                     target.sendMessage("Hi")
                 })
@@ -35,7 +35,7 @@ fun commandTrees() {
                 .then(StringArgument("arg3")
                     .then(DoubleArgument("arg4", 0.0)
                         .then(StringArgument("arg5")
-                            .executes(CommandExecutor { sender, _ ->
+                            .executes(NormalExecutor<CommandSender, Any> { sender, _ ->
                                 // your code here
                             }))))))
         .register()
@@ -50,7 +50,7 @@ fun commandTrees() {
             StringArgument("arg3"),
             DoubleArgument("arg4", 0.0),
             StringArgument("arg5")
-                .executes(CommandExecutor { sender, _ ->
+                .executes(NormalExecutor<CommandSender, Any> { sender, _ ->
                     // your code here
                 })
         ).register()
@@ -64,7 +64,7 @@ fun commandTrees() {
                 .then(LiteralArgument("set")
                     .then(IntegerArgument("line_number", 1, 4)
                         .then(GreedyStringArgument("text")
-                            .executesPlayer(PlayerCommandExecutor { player, args ->
+                            .executesPlayer(NormalExecutor<Player, Any> { player, args ->
                                 // /signedit set <line_number> <text>
                                 val sign: Sign = getTargetSign(player)
                                 val line_number = args["line_number"] as Int
@@ -74,7 +74,7 @@ fun commandTrees() {
                             }))))
                 .then(LiteralArgument("clear")
                     .then(IntegerArgument("line_number", 1, 4)
-                        .executesPlayer(PlayerCommandExecutor { player, args ->
+                        .executesPlayer(NormalExecutor<Player, Any> { player, args ->
                             // /signedit clear <line_number>
                             val sign: Sign = getTargetSign(player)
                             val line_number = args["line_number"] as Int
@@ -83,7 +83,7 @@ fun commandTrees() {
                         })))
                 .then(LiteralArgument("copy")
                     .then(IntegerArgument("line_number", 1, 4)
-                        .executesPlayer(PlayerCommandExecutor { player, args ->
+                        .executesPlayer(NormalExecutor<Player, Any> { player, args ->
                             // /signedit copy <line_number>
                             val sign: Sign = getTargetSign(player)
                             val line_number = args["line_number"] as Int
@@ -91,7 +91,7 @@ fun commandTrees() {
                         })))
                 .then(LiteralArgument("paste")
                     .then(IntegerArgument("line_number", 1, 4)
-                        .executesPlayer(PlayerCommandExecutor { player, args ->
+                        .executesPlayer(NormalExecutor<Player, Any> { player, args ->
                             // /signedit copy <line_number>
                             val sign: Sign = getTargetSign(player)
                             val line_number = args["line_number"] as Int

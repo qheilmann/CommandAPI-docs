@@ -1,11 +1,12 @@
 package createcommands
 
 import dev.jorel.commandapi.CommandAPICommand
-import dev.jorel.commandapi.executors.CommandBlockCommandExecutor
-import dev.jorel.commandapi.executors.EntityCommandExecutor
+import dev.jorel.commandapi.executors.NormalExecutor
 import dev.jorel.commandapi.kotlindsl.commandAPICommand
 import dev.jorel.commandapi.kotlindsl.commandBlockExecutor
 import dev.jorel.commandapi.kotlindsl.entityExecutor
+import org.bukkit.command.BlockCommandSender
+import org.bukkit.entity.Entity
 
 fun aliases() {
     // #region aliasesExample
@@ -14,11 +15,11 @@ fun aliases() {
         .withAliases("getposition", "getloc", "getlocation", "whereami")
 
         // Declare your implementation
-        .executesEntity(EntityCommandExecutor { entity, _ ->
+        .executesEntity(NormalExecutor<Entity, Any> { entity, _ ->
             val loc = entity.location
             entity.sendMessage("You are at ${loc.blockX}, ${loc.blockY}, ${loc.blockZ}")
         })
-        .executesCommandBlock(CommandBlockCommandExecutor { block, _ ->
+        .executesCommandBlock(NormalExecutor<BlockCommandSender, Any> { block, _ ->
             val loc = block.block.location
             block.sendMessage("You are at ${loc.blockX}, ${loc.blockY}, ${loc.blockZ}")
         })

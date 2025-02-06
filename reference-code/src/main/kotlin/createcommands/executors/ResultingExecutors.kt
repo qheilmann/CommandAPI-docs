@@ -2,14 +2,15 @@ package createcommands.executors
 
 import dev.jorel.commandapi.CommandAPICommand
 import dev.jorel.commandapi.arguments.EntitySelectorArgument
-import dev.jorel.commandapi.executors.CommandExecutor
-import dev.jorel.commandapi.executors.ResultingCommandExecutor
+import dev.jorel.commandapi.executors.NormalExecutor
+import dev.jorel.commandapi.executors.ResultingExecutor
 import dev.jorel.commandapi.kotlindsl.anyExecutor
 import dev.jorel.commandapi.kotlindsl.anyResultingExecutor
 import dev.jorel.commandapi.kotlindsl.commandAPICommand
 import dev.jorel.commandapi.kotlindsl.entitySelectorArgumentOnePlayer
 import org.bukkit.Bukkit
 import org.bukkit.Material
+import org.bukkit.command.CommandSender
 import org.bukkit.entity.Player
 import org.bukkit.inventory.ItemStack
 import kotlin.random.Random
@@ -17,7 +18,7 @@ import kotlin.random.Random
 fun resultingExecutors() {
     // #region randomResultCommandExample
     CommandAPICommand("randnum")
-        .executes(ResultingCommandExecutor { _, _ ->
+        .executes(ResultingExecutor<CommandSender, Any> { _, _ ->
             Random.nextInt()
         })
         .register()
@@ -26,7 +27,7 @@ fun resultingExecutors() {
     // #region randomNumberCommandExample
     // Register random number generator command from 1 to 99 (inclusive)
     CommandAPICommand("randomnumber")
-        .executes(ResultingCommandExecutor { _, _ ->
+        .executes(ResultingExecutor<CommandSender, Any> { _, _ ->
             (1..100).random() // Returns random number from 1 <= x < 100
         })
         .register()
@@ -36,7 +37,7 @@ fun resultingExecutors() {
     // Register reward giving system for a target player
     CommandAPICommand("givereward")
         .withArguments(EntitySelectorArgument.OnePlayer("target"))
-        .executes(CommandExecutor { _, args ->
+        .executes(NormalExecutor<CommandSender, Any> { _, args ->
             val player = args["target"] as Player
             player.inventory.addItem(ItemStack(Material.DIAMOND, 64))
             Bukkit.broadcastMessage("${player.name} won a rare 64 diamonds from a loot box!")

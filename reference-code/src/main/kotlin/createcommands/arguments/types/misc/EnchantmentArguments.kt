@@ -3,19 +3,20 @@ package createcommands.arguments.types.misc
 import dev.jorel.commandapi.CommandAPICommand
 import dev.jorel.commandapi.arguments.EnchantmentArgument
 import dev.jorel.commandapi.arguments.IntegerArgument
-import dev.jorel.commandapi.executors.PlayerCommandExecutor
+import dev.jorel.commandapi.executors.NormalExecutor
 import dev.jorel.commandapi.kotlindsl.commandAPICommand
 import dev.jorel.commandapi.kotlindsl.enchantmentArgument
 import dev.jorel.commandapi.kotlindsl.integerArgument
 import dev.jorel.commandapi.kotlindsl.playerExecutor
 import org.bukkit.enchantments.Enchantment
+import org.bukkit.entity.Player
 
 fun enchantmentArguments() {
     // #region enchantmentArgumentsExample
     CommandAPICommand("enchantitem")
         .withArguments(EnchantmentArgument("enchantment"))
         .withArguments(IntegerArgument("level", 1, 5))
-        .executesPlayer(PlayerCommandExecutor { player, args ->
+        .executesPlayer(NormalExecutor<Player, Any> { player, args ->
             val enchantment = args["enchantment"] as Enchantment
             val level = args["level"] as Int
 

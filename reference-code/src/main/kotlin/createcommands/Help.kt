@@ -1,7 +1,7 @@
 package createcommands
 
 import dev.jorel.commandapi.CommandAPICommand
-import dev.jorel.commandapi.executors.CommandExecutor
+import dev.jorel.commandapi.executors.NormalExecutor
 import dev.jorel.commandapi.kotlindsl.anyExecutor
 import dev.jorel.commandapi.kotlindsl.commandAPICommand
 import org.bukkit.Bukkit
@@ -14,7 +14,7 @@ fun help() {
     CommandAPICommand("mycmd")
         .withShortDescription("Says hi")
         .withFullDescription("Broadcasts hi to everyone on the server")
-        .executes(CommandExecutor { _, _ ->
+        .executes(NormalExecutor<CommandSender, Any> { _, _ ->
             Bukkit.broadcastMessage("Hi!")
         })
         .register()
@@ -23,7 +23,7 @@ fun help() {
     // #region helpExampleStep2
     CommandAPICommand("mycmd")
         .withHelp("Says hi", "Broadcasts hi to everyone on the server")
-        .executes(CommandExecutor { _, _ ->
+        .executes(NormalExecutor<CommandSender, Any> { _, _ ->
             Bukkit.broadcastMessage("Hi!")
         })
         .register()
@@ -57,7 +57,7 @@ fun help() {
     // #region helpTopicExampleStep2
     return CommandAPICommand("mycmd")
         .withHelp(makeHelp("mycmd"))
-        .executes(CommandExecutor { _, _ ->
+        .executes(NormalExecutor<CommandSender, Any> { _, _ ->
             Bukkit.broadcastMessage("Hi!")
         })
         .register()

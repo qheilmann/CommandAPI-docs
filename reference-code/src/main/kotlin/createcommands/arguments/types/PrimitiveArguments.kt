@@ -4,11 +4,12 @@ import dev.jorel.commandapi.CommandAPICommand
 import dev.jorel.commandapi.arguments.ArgumentSuggestions
 import dev.jorel.commandapi.arguments.BooleanArgument
 import dev.jorel.commandapi.arguments.TextArgument
-import dev.jorel.commandapi.executors.CommandExecutor
+import dev.jorel.commandapi.executors.NormalExecutor
 import dev.jorel.commandapi.kotlindsl.anyExecutor
 import dev.jorel.commandapi.kotlindsl.argument
 import dev.jorel.commandapi.kotlindsl.booleanArgument
 import dev.jorel.commandapi.kotlindsl.commandAPICommand
+import org.bukkit.command.CommandSender
 import org.bukkit.plugin.java.JavaPlugin
 
 val primitiveArguments = object : JavaPlugin() {
@@ -24,7 +25,7 @@ val primitiveArguments = object : JavaPlugin() {
                     ArgumentSuggestions.strings { _ -> configKeys })
             )
             .withArguments(BooleanArgument("value"))
-            .executes(CommandExecutor { _, args ->
+            .executes(NormalExecutor<CommandSender, Any> { _, args ->
                 // Update the config with the boolean argument
                 config.set(args["config-key"] as String, args["value"] as Boolean)
             })

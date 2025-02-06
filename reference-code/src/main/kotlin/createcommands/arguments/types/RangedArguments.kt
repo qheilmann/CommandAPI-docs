@@ -3,7 +3,7 @@ package createcommands.arguments.types
 import dev.jorel.commandapi.CommandAPICommand
 import dev.jorel.commandapi.arguments.IntegerRangeArgument
 import dev.jorel.commandapi.arguments.ItemStackArgument
-import dev.jorel.commandapi.executors.PlayerCommandExecutor
+import dev.jorel.commandapi.executors.NormalExecutor
 import dev.jorel.commandapi.kotlindsl.commandAPICommand
 import dev.jorel.commandapi.kotlindsl.integerRangeArgument
 import dev.jorel.commandapi.kotlindsl.itemStackArgument
@@ -11,6 +11,7 @@ import dev.jorel.commandapi.kotlindsl.playerExecutor
 import dev.jorel.commandapi.wrappers.IntegerRange
 import org.bukkit.Location
 import org.bukkit.block.Chest
+import org.bukkit.entity.Player
 import org.bukkit.inventory.ItemStack
 
 fun rangedArguments() {
@@ -18,7 +19,7 @@ fun rangedArguments() {
     CommandAPICommand("searchchests")
         .withArguments(IntegerRangeArgument("range")) // Range argument
         .withArguments(ItemStackArgument("item"))     // The item to search for
-        .executesPlayer(PlayerCommandExecutor { player, args ->
+        .executesPlayer(NormalExecutor<Player, Any> { player, args ->
             // Retrieve the range from the arguments
             val range = args["range"] as IntegerRange
             val itemStack = args["item"] as ItemStack

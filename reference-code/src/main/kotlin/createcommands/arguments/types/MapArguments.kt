@@ -2,7 +2,7 @@ package createcommands.arguments.types
 
 import dev.jorel.commandapi.CommandAPICommand
 import dev.jorel.commandapi.arguments.MapArgumentBuilder
-import dev.jorel.commandapi.executors.PlayerCommandExecutor
+import dev.jorel.commandapi.executors.NormalExecutor
 import dev.jorel.commandapi.kotlindsl.argument
 import dev.jorel.commandapi.kotlindsl.commandAPICommand
 import dev.jorel.commandapi.kotlindsl.playerExecutor
@@ -31,7 +31,7 @@ fun mapArguments() {
             // Build the MapArgument
             .build()
         )
-        .executesPlayer(PlayerCommandExecutor { _, args ->
+        .executesPlayer(NormalExecutor<Player, Any> { _, args ->
             // The MapArgument returns a LinkedHashMap
             val map: LinkedHashMap<Player, String> = args["message"] as LinkedHashMap<Player, String>
 

@@ -4,12 +4,13 @@ import dev.jorel.commandapi.CommandAPICommand
 import dev.jorel.commandapi.arguments.GreedyStringArgument
 import dev.jorel.commandapi.arguments.IntegerArgument
 import dev.jorel.commandapi.arguments.PlayerArgument
-import dev.jorel.commandapi.executors.CommandExecutor
+import dev.jorel.commandapi.executors.NormalExecutor
 import dev.jorel.commandapi.kotlindsl.anyExecutor
 import dev.jorel.commandapi.kotlindsl.commandAPICommand
 import dev.jorel.commandapi.kotlindsl.greedyStringArgument
 import dev.jorel.commandapi.kotlindsl.integerArgument
 import dev.jorel.commandapi.kotlindsl.playerArgument
+import org.bukkit.command.CommandSender
 import org.bukkit.entity.Player
 
 fun listedArguments() {
@@ -18,7 +19,7 @@ fun listedArguments() {
         .withArguments(PlayerArgument("player"))
         .withArguments(IntegerArgument("value").setListed(false))
         .withArguments(GreedyStringArgument("message"))
-        .executes(CommandExecutor { _, args ->
+        .executes(NormalExecutor<CommandSender, Any> { _, args ->
             // args == [player, message]
             val player = args["player"] as Player
             val message = args["message"] as String // Note that the IntegerArgument is not available in the CommandArguments

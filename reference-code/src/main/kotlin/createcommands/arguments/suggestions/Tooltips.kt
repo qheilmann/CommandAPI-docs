@@ -11,7 +11,7 @@ import dev.jorel.commandapi.arguments.LocationArgument
 import dev.jorel.commandapi.arguments.PlayerArgument
 import dev.jorel.commandapi.arguments.SafeSuggestions
 import dev.jorel.commandapi.arguments.StringArgument
-import dev.jorel.commandapi.executors.PlayerCommandExecutor
+import dev.jorel.commandapi.executors.NormalExecutor
 import org.bukkit.Location
 import org.bukkit.Material
 import org.bukkit.entity.Player
@@ -36,7 +36,7 @@ fun tooltips() {
     // #region registerEmoteCommand
     CommandAPICommand("emote")
         .withArguments(*arguments.toTypedArray())
-        .executesPlayer(PlayerCommandExecutor { player, args ->
+        .executesPlayer(NormalExecutor<Player, Any> { player, args ->
             val emote = args["emote"] as String
             val target = args["target"] as Player
 
@@ -72,7 +72,7 @@ fun tooltips() {
 
     CommandAPICommand("giveitem")
         .withArguments(StringArgument("item").replaceSuggestions(ArgumentSuggestions.stringsWithTooltips(*customItems))) // We use customItems[] as the input for our suggestions with tooltips
-        .executesPlayer(PlayerCommandExecutor { player, args ->
+        .executesPlayer(NormalExecutor<Player, Any> { player, args ->
             val itemName = args["item"] as String
 
             // Give them the item
@@ -106,7 +106,7 @@ fun tooltips2() {
     // #region registerWarpCommand
     CommandAPICommand("warp")
         .withArguments(arguments)
-        .executesPlayer(PlayerCommandExecutor { player, args ->
+        .executesPlayer(NormalExecutor<Player, Any> { player, args ->
             player.teleport(args["location"] as Location)
         })
         .register()

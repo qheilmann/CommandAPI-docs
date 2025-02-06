@@ -7,11 +7,12 @@ import dev.jorel.commandapi.arguments.CustomArgument
 import dev.jorel.commandapi.arguments.CustomArgument.CustomArgumentException
 import dev.jorel.commandapi.arguments.CustomArgument.MessageBuilder
 import dev.jorel.commandapi.arguments.StringArgument
-import dev.jorel.commandapi.executors.PlayerCommandExecutor
+import dev.jorel.commandapi.executors.NormalExecutor
 import dev.jorel.commandapi.kotlindsl.commandAPICommand
 import dev.jorel.commandapi.kotlindsl.playerExecutor
 import org.bukkit.Bukkit
 import org.bukkit.World
+import org.bukkit.entity.Player
 
 // #region declareCustomArgumentsExample
 // Function that returns our custom argument
@@ -38,7 +39,7 @@ fun customArguments() {
     // #region useCustomArgumentsExample
     CommandAPICommand("tpworld")
         .withArguments(worldArgument("world"))
-        .executesPlayer(PlayerCommandExecutor { player, args ->
+        .executesPlayer(NormalExecutor<Player, Any> { player, args ->
             player.teleport((args["world"] as World).spawnLocation)
         })
         .register()

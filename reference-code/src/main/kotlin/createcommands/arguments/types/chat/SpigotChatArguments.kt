@@ -5,8 +5,7 @@ import dev.jorel.commandapi.arguments.ChatArgument
 import dev.jorel.commandapi.arguments.ChatColorArgument
 import dev.jorel.commandapi.arguments.ChatComponentArgument
 import dev.jorel.commandapi.arguments.PlayerArgument
-import dev.jorel.commandapi.executors.CommandExecutor
-import dev.jorel.commandapi.executors.PlayerCommandExecutor
+import dev.jorel.commandapi.executors.NormalExecutor
 import dev.jorel.commandapi.kotlindsl.anyExecutor
 import dev.jorel.commandapi.kotlindsl.chatArgument
 import dev.jorel.commandapi.kotlindsl.chatColorArgument
@@ -18,6 +17,7 @@ import net.md_5.bungee.api.chat.BaseComponent
 import org.bukkit.Bukkit
 import org.bukkit.ChatColor
 import org.bukkit.Material
+import org.bukkit.command.CommandSender
 import org.bukkit.entity.Player
 import org.bukkit.inventory.ItemStack
 import org.bukkit.inventory.meta.BookMeta
@@ -26,7 +26,7 @@ fun spigotChatArguments() {
     // #region chatColorArgumentExample
     CommandAPICommand("namecolor")
         .withArguments(ChatColorArgument("chatColor"))
-        .executesPlayer(PlayerCommandExecutor { player, args ->
+        .executesPlayer(NormalExecutor<Player, Any> { player, args ->
             val color = args["chatColor"] as ChatColor
             player.setDisplayName("$color${player.name}")
         })
@@ -37,7 +37,7 @@ fun spigotChatArguments() {
     CommandAPICommand("makebook")
         .withArguments(PlayerArgument("player"))
         .withArguments(ChatComponentArgument("contents"))
-        .executes(CommandExecutor { _, args ->
+        .executes(NormalExecutor<CommandSender, Any> { _, args ->
             val player = args["player"] as Player
             val arr = args["contents"] as Array<BaseComponent>
 
@@ -58,7 +58,7 @@ fun spigotChatArguments() {
     // #region chatArgumentExample
     CommandAPICommand("pbroadcast")
         .withArguments(ChatArgument("message"))
-        .executes(CommandExecutor { _, args ->
+        .executes(NormalExecutor<CommandSender, Any> { _, args ->
             val message = args["message"] as Array<BaseComponent>
 
             // Broadcast the message to everyone on the server

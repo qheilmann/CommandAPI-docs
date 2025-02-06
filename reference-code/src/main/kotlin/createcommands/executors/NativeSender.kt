@@ -1,14 +1,15 @@
 package createcommands.executors
 
 import dev.jorel.commandapi.CommandAPICommand
-import dev.jorel.commandapi.executors.NativeCommandExecutor
+import dev.jorel.commandapi.executors.NormalExecutor
 import dev.jorel.commandapi.kotlindsl.commandAPICommand
 import dev.jorel.commandapi.kotlindsl.nativeExecutor
+import dev.jorel.commandapi.wrappers.NativeProxyCommandSender
 
 fun nativeSender() {
     // #region breakCommandExample
     CommandAPICommand("break")
-        .executesNative(NativeCommandExecutor { sender, _ ->
+        .executesNative(NormalExecutor<NativeProxyCommandSender, Any> { sender, _ ->
             val location = sender.location
             location.block.breakNaturally()
         })

@@ -16,7 +16,7 @@ So far in this documentation, we've described many different ways to register co
 The Command Tree represents command structures in a tree-like fashion, in a very similar way that Brigadier's API lets you declare commands. Command tree commands effectively revolve around two methods:
 
 ```java
-public T executes(CommandExecutor executor);
+public T executes(NormalExecutor<CommandSender, ?> executor);
 
 public CommandTree  then(ArgumentTree branch);
 public ArgumentTree then(ArgumentTree branch);

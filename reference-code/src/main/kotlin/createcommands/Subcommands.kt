@@ -2,18 +2,19 @@ package createcommands
 
 import dev.jorel.commandapi.CommandAPICommand
 import dev.jorel.commandapi.arguments.StringArgument
-import dev.jorel.commandapi.executors.CommandExecutor
+import dev.jorel.commandapi.executors.NormalExecutor
 import dev.jorel.commandapi.kotlindsl.anyExecutor
 import dev.jorel.commandapi.kotlindsl.commandAPICommand
 import dev.jorel.commandapi.kotlindsl.stringArgument
 import dev.jorel.commandapi.kotlindsl.subcommand
+import org.bukkit.command.CommandSender
 
 fun subcommands() {
     // #region subcommandsExampleStep1
     val groupAdd = CommandAPICommand("add")
         .withArguments(StringArgument("permission"))
         .withArguments(StringArgument("groupName"))
-        .executes(CommandExecutor { sender, args ->
+        .executes(NormalExecutor<CommandSender, Any> { sender, args ->
             // perm group add code
         })
     // #endregion subcommandsExampleStep1
@@ -22,7 +23,7 @@ fun subcommands() {
     val groupRemove = CommandAPICommand("remove")
         .withArguments(StringArgument("permission"))
         .withArguments(StringArgument("groupName"))
-        .executes(CommandExecutor { sender, args ->
+        .executes(NormalExecutor<CommandSender, Any> { sender, args ->
             // perm group remove code
         })
 
@@ -43,14 +44,14 @@ fun subcommands() {
             .withSubcommand(CommandAPICommand("add")
                 .withArguments(StringArgument("permission"))
                 .withArguments(StringArgument("groupName"))
-                .executes(CommandExecutor { sender, args ->
+                .executes(NormalExecutor<CommandSender, Any> { sender, args ->
                     // perm group add code
                 })
             )
             .withSubcommand(CommandAPICommand("remove")
                 .withArguments(StringArgument("permission"))
                 .withArguments(StringArgument("groupName"))
-                .executes(CommandExecutor { sender, args ->
+                .executes(NormalExecutor<CommandSender, Any> { sender, args ->
                     // perm group remove code
                 })
             )
@@ -59,14 +60,14 @@ fun subcommands() {
             .withSubcommand(CommandAPICommand("add")
                 .withArguments(StringArgument("permission"))
                 .withArguments(StringArgument("userName"))
-                .executes(CommandExecutor { sender, args ->
+                .executes(NormalExecutor<CommandSender, Any> { sender, args ->
                     // perm user add code
                 })
             )
             .withSubcommand(CommandAPICommand("remove")
                 .withArguments(StringArgument("permission"))
                 .withArguments(StringArgument("userName"))
-                .executes(CommandExecutor { sender, args ->
+                .executes(NormalExecutor<CommandSender, Any> { sender, args ->
                     // perm user remove code
                 })
             )

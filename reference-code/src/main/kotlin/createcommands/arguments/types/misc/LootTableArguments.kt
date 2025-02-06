@@ -4,13 +4,14 @@ import dev.jorel.commandapi.CommandAPICommand
 import dev.jorel.commandapi.arguments.LocationArgument
 import dev.jorel.commandapi.arguments.LocationType
 import dev.jorel.commandapi.arguments.LootTableArgument
-import dev.jorel.commandapi.executors.CommandExecutor
+import dev.jorel.commandapi.executors.NormalExecutor
 import dev.jorel.commandapi.kotlindsl.anyExecutor
 import dev.jorel.commandapi.kotlindsl.commandAPICommand
 import dev.jorel.commandapi.kotlindsl.locationArgument
 import dev.jorel.commandapi.kotlindsl.lootTableArgument
 import org.bukkit.Location
 import org.bukkit.block.Container
+import org.bukkit.command.CommandSender
 import org.bukkit.loot.LootTable
 import org.bukkit.loot.Lootable
 
@@ -19,7 +20,7 @@ fun lootTableArguments() {
     CommandAPICommand("giveloottable")
         .withArguments(LootTableArgument("lootTable"))
         .withArguments(LocationArgument("location", LocationType.BLOCK_POSITION))
-        .executes(CommandExecutor { _, args ->
+        .executes(NormalExecutor<CommandSender, Any> { _, args ->
             val lootTable = args["lootTable"] as LootTable
             val location = args["location"] as Location
 

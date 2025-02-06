@@ -2,18 +2,19 @@ package createcommands.arguments.types.misc
 
 import dev.jorel.commandapi.CommandAPICommand
 import dev.jorel.commandapi.arguments.SoundArgument
-import dev.jorel.commandapi.executors.PlayerCommandExecutor
+import dev.jorel.commandapi.executors.NormalExecutor
 import dev.jorel.commandapi.kotlindsl.commandAPICommand
 import dev.jorel.commandapi.kotlindsl.playerExecutor
 import dev.jorel.commandapi.kotlindsl.soundArgument
 import org.bukkit.NamespacedKey
 import org.bukkit.Sound
+import org.bukkit.entity.Player
 
 fun soundArguments() {
     // #region soundArgumentsExample
     CommandAPICommand("sound")
         .withArguments(SoundArgument("sound"))
-        .executesPlayer(PlayerCommandExecutor { player, args ->
+        .executesPlayer(NormalExecutor<Player, Any> { player, args ->
             player.world.playSound(player.location, args["sound"] as Sound, 100.0f, 1.0f)
         })
         .register()
@@ -22,7 +23,7 @@ fun soundArguments() {
     // #region soundArgumentsNamespacedKeyExample
     CommandAPICommand("sound")
         .withArguments(SoundArgument.NamespacedKey("sound"))
-        .executesPlayer(PlayerCommandExecutor { player, args ->
+        .executesPlayer(NormalExecutor<Player, Any> { player, args ->
             player.world.playSound(player.location, (args["sound"] as NamespacedKey).asString(), 100.0f, 1.0f)
         })
         .register()

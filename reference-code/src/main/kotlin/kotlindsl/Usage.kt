@@ -1,6 +1,7 @@
 package kotlindsl
 
 import dev.jorel.commandapi.arguments.ArgumentSuggestions
+import dev.jorel.commandapi.executors.CommandArguments
 import dev.jorel.commandapi.kotlindsl.*
 import org.bukkit.Bukkit
 import org.bukkit.command.CommandSender
@@ -131,19 +132,22 @@ fun usageTree() {
     // #endregion commandRequirementsTreeExample
 
     // #region optionalArgumentsTreeExample
+    fun giveOptionalAmount(player: Player, args: CommandArguments) {
+        // This command will let you execute:
+        // "/optionalArgument give minecraft:stick"
+        // "/optionalArgument give minecraft:stick 5"
+        val itemStack: ItemStack = args["item"] as ItemStack
+        val amount: Int = args.getOptional("amount").orElse(1) as Int
+        itemStack.amount = amount
+        player.inventory.addItem(itemStack)
+    }
+
     commandTree("optionalArgument") {
         literalArgument("give") {
             itemStackArgument("item") {
-                integerArgument("amount", optional = true) {
-                    playerExecutor { player, args ->
-                        // This command will let you execute:
-                        // "/optionalArgument give minecraft:stick"
-                        // "/optionalArgument give minecraft:stick 5"
-                        val itemStack: ItemStack = args["item"] as ItemStack
-                        val amount: Int = args.getOptional("amount").orElse(1) as Int
-                        itemStack.amount = amount
-                        player.inventory.addItem(itemStack)
-                    }
+                playerExecutor(::giveOptionalAmount)
+                integerArgument("amount") {
+                    playerExecutor(::giveOptionalAmount)
                 }
             }
         }

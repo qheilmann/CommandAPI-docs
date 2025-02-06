@@ -5,12 +5,13 @@ import dev.jorel.commandapi.arguments.Argument
 import dev.jorel.commandapi.arguments.BlockPredicateArgument
 import dev.jorel.commandapi.arguments.BlockStateArgument
 import dev.jorel.commandapi.arguments.IntegerArgument
-import dev.jorel.commandapi.executors.PlayerCommandExecutor
+import dev.jorel.commandapi.executors.NormalExecutor
 import dev.jorel.commandapi.kotlindsl.arguments
 import dev.jorel.commandapi.kotlindsl.commandAPICommand
 import dev.jorel.commandapi.kotlindsl.playerExecutor
 import org.bukkit.block.Block
 import org.bukkit.block.data.BlockData
+import org.bukkit.entity.Player
 import java.util.function.Predicate
 import kotlin.math.sqrt
 
@@ -26,7 +27,7 @@ fun blockPredicateArguments() {
     // #region blockPredicateArgumentsExample
     CommandAPICommand("replace")
         .withArguments(*arguments)
-        .executesPlayer(PlayerCommandExecutor { player, args ->
+        .executesPlayer(NormalExecutor<Player, Any> { player, args ->
             // Parse the arguments
             val radius = args["radius"] as Int
             val predicate = args["fromBlock"] as Predicate<Block>

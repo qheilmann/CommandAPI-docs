@@ -3,8 +3,7 @@ package createcommands.arguments.types.literal
 import dev.jorel.commandapi.CommandAPICommand
 import dev.jorel.commandapi.arguments.LiteralArgument
 import dev.jorel.commandapi.arguments.TextArgument
-import dev.jorel.commandapi.executors.CommandExecutor
-import dev.jorel.commandapi.executors.PlayerCommandExecutor
+import dev.jorel.commandapi.executors.NormalExecutor
 import dev.jorel.commandapi.kotlindsl.anyExecutor
 import dev.jorel.commandapi.kotlindsl.argument
 import dev.jorel.commandapi.kotlindsl.commandAPICommand
@@ -12,13 +11,15 @@ import dev.jorel.commandapi.kotlindsl.literalArgument
 import dev.jorel.commandapi.kotlindsl.playerExecutor
 import dev.jorel.commandapi.kotlindsl.textArgument
 import org.bukkit.GameMode
+import org.bukkit.command.CommandSender
+import org.bukkit.entity.Player
 
 fun literalArguments() {
     // #region showLiteralArgumentsIsNotListed
     CommandAPICommand("mycommand")
         .withArguments(LiteralArgument("hello"))
         .withArguments(TextArgument("text"))
-        .executes(CommandExecutor { _, args ->
+        .executes(NormalExecutor<CommandSender, Any> { _, args ->
             // This gives the variable "text" the contents of the TextArgument, and not the literal "hello"
             val text = args[0] as String
         })
@@ -29,7 +30,7 @@ fun literalArguments() {
     CommandAPICommand("mycommand")
         .withArguments(LiteralArgument.of("hello"))
         .withArguments(TextArgument("text"))
-        .executes(CommandExecutor { _, args ->
+        .executes(NormalExecutor<CommandSender, Any> { _, args ->
             val text = args[0] as String
         })
         .register()
@@ -37,7 +38,7 @@ fun literalArguments() {
     CommandAPICommand("mycommand")
         .withArguments(LiteralArgument.literal("hello"))
         .withArguments(TextArgument("text"))
-        .executes(CommandExecutor { _, args ->
+        .executes(NormalExecutor<CommandSender, Any> { _, args ->
             val text = args[0] as String
         })
         .register()
@@ -57,7 +58,7 @@ fun literalArguments() {
         // Register the command as usual
         CommandAPICommand("changegamemode")
             .withArguments(LiteralArgument(key))
-            .executesPlayer(PlayerCommandExecutor { player, _ ->
+            .executesPlayer(NormalExecutor<Player, Any> { player, _ ->
                 // Retrieve the object from the map via the key and NOT the args[]
                 player.gameMode = gamemodes[key]!!
             })

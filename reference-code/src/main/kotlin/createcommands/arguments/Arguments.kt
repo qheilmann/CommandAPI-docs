@@ -4,12 +4,13 @@ import dev.jorel.commandapi.CommandAPICommand
 import dev.jorel.commandapi.arguments.LocationArgument
 import dev.jorel.commandapi.arguments.PotionEffectArgument
 import dev.jorel.commandapi.arguments.StringArgument
-import dev.jorel.commandapi.executors.CommandExecutor
+import dev.jorel.commandapi.executors.NormalExecutor
 import dev.jorel.commandapi.kotlindsl.anyExecutor
 import dev.jorel.commandapi.kotlindsl.arguments
 import dev.jorel.commandapi.kotlindsl.commandAPICommand
 import dev.jorel.commandapi.kotlindsl.stringArgument
 import org.bukkit.Location
+import org.bukkit.command.CommandSender
 import org.bukkit.potion.PotionEffectType
 
 fun arguments() {
@@ -52,7 +53,7 @@ fun arguments() {
 
     CommandAPICommand("cmd")
         .withArguments(commandArguments)
-        .executes(CommandExecutor { _, args ->
+        .executes(NormalExecutor<CommandSender, Any> { _, args ->
             val stringArg = args["arg0"] as String
             val potionArg = args["arg1"] as PotionEffectType
             val locationArg = args["arg2"] as Location

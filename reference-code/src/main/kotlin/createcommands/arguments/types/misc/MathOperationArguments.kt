@@ -4,9 +4,10 @@ import dev.jorel.commandapi.CommandAPICommand
 import dev.jorel.commandapi.arguments.IntegerArgument
 import dev.jorel.commandapi.arguments.MathOperationArgument
 import dev.jorel.commandapi.arguments.PlayerArgument
-import dev.jorel.commandapi.executors.CommandExecutor
+import dev.jorel.commandapi.executors.NormalExecutor
 import dev.jorel.commandapi.kotlindsl.*
 import dev.jorel.commandapi.wrappers.MathOperation
+import org.bukkit.command.CommandSender
 import org.bukkit.entity.Player
 
 fun mathOperationArguments() {
@@ -15,7 +16,7 @@ fun mathOperationArguments() {
         .withArguments(PlayerArgument("player"))
         .withArguments(MathOperationArgument("operation"))
         .withArguments(IntegerArgument("value"))
-        .executes(CommandExecutor { _, args ->
+        .executes(NormalExecutor<CommandSender, Any> { _, args ->
             val target = args["player"] as Player
             val op = args["operation"] as MathOperation
             val value = args["value"] as Int

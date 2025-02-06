@@ -3,12 +3,13 @@ package createcommands.arguments.types.position
 import dev.jorel.commandapi.CommandAPICommand
 import dev.jorel.commandapi.arguments.EntitySelectorArgument
 import dev.jorel.commandapi.arguments.RotationArgument
-import dev.jorel.commandapi.executors.CommandExecutor
+import dev.jorel.commandapi.executors.NormalExecutor
 import dev.jorel.commandapi.kotlindsl.anyExecutor
 import dev.jorel.commandapi.kotlindsl.commandAPICommand
 import dev.jorel.commandapi.kotlindsl.entitySelectorArgumentOneEntity
 import dev.jorel.commandapi.kotlindsl.rotationArgument
 import dev.jorel.commandapi.wrappers.Rotation
+import org.bukkit.command.CommandSender
 import org.bukkit.entity.ArmorStand
 import org.bukkit.entity.Entity
 import org.bukkit.util.EulerAngle
@@ -18,7 +19,7 @@ fun rotationArguments() {
     CommandAPICommand("rotate")
         .withArguments(RotationArgument("rotation"))
         .withArguments(EntitySelectorArgument.OneEntity("target"))
-        .executes(CommandExecutor { _, args ->
+        .executes(NormalExecutor<CommandSender, Any> { _, args ->
             val rotation = args["rotation"] as Rotation
             val target = args["target"] as Entity
 

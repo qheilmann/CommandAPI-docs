@@ -2,10 +2,11 @@ package createcommands.arguments.types.predicate
 
 import dev.jorel.commandapi.CommandAPICommand
 import dev.jorel.commandapi.arguments.ItemStackPredicateArgument
-import dev.jorel.commandapi.executors.PlayerCommandExecutor
+import dev.jorel.commandapi.executors.NormalExecutor
 import dev.jorel.commandapi.kotlindsl.commandAPICommand
 import dev.jorel.commandapi.kotlindsl.itemStackPredicateArgument
 import dev.jorel.commandapi.kotlindsl.playerExecutor
+import org.bukkit.entity.Player
 import org.bukkit.inventory.ItemStack
 import java.util.function.Predicate
 
@@ -14,7 +15,7 @@ fun itemStackPredicateArguments() {
     // Register our command
     CommandAPICommand("rem")
         .withArguments(ItemStackPredicateArgument("items"))
-        .executesPlayer(PlayerCommandExecutor { player, args ->
+        .executesPlayer(NormalExecutor<Player, Any> { player, args ->
             // Get our predicate
             val predicate = args["items"] as Predicate<ItemStack>
 

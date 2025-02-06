@@ -7,7 +7,7 @@ import dev.jorel.commandapi.arguments.EntityTypeArgument
 import dev.jorel.commandapi.arguments.PotionEffectArgument
 import dev.jorel.commandapi.arguments.RecipeArgument
 import dev.jorel.commandapi.arguments.SafeSuggestions
-import dev.jorel.commandapi.executors.PlayerCommandExecutor
+import dev.jorel.commandapi.executors.NormalExecutor
 import org.bukkit.Bukkit.getServer
 import org.bukkit.Material
 import org.bukkit.NamespacedKey
@@ -55,7 +55,7 @@ fun safeSuggestions() {
     // Register our command
     CommandAPICommand("giverecipe")
         .withArguments(arguments)
-        .executesPlayer(PlayerCommandExecutor { player, args ->
+        .executesPlayer(NormalExecutor<Player, Any> { player, args ->
             val recipe = args["recipe"] as Recipe
             player.inventory.addItem(recipe.result)
         })
@@ -85,7 +85,7 @@ fun safeSuggestions() {
     // #region registerSpawnMobCommand
     CommandAPICommand("spawnmob")
         .withArguments(safeArguments)
-        .executesPlayer(PlayerCommandExecutor { player, args ->
+        .executesPlayer(NormalExecutor<Player, Any> { player, args ->
             val entityType = args["mob"] as EntityType
             player.world.spawnEntity(player.location, entityType)
         })
@@ -108,7 +108,7 @@ fun safeSuggestions() {
     // #region registerRemoveEffectCommand
     CommandAPICommand("removeeffect")
         .withArguments(safeArgs)
-        .executesPlayer(PlayerCommandExecutor { _, args ->
+        .executesPlayer(NormalExecutor<Player, Any> { _, args ->
             val target = args["target"] as Player
             val potionEffect = args["potioneffect"] as PotionEffectType
             target.removePotionEffect(potionEffect)
