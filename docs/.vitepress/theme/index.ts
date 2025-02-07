@@ -77,6 +77,8 @@ function injectIndexPageIcons() {
             a.classList.add("index-download-button");
         } else if (href.includes("/intro")) {
             a.classList.add("index-docs-button");
+        } else if (href.includes("javadocs")) {
+            a.classList.add("index-javadocs-button")
         }
     })
 }
