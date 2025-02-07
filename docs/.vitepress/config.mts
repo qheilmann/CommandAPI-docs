@@ -121,6 +121,15 @@ const vitepressOptions: UserConfig = {
             exampleAutoAnchorPreprocessor(md);
             titleAnchorPreprocessor(md);
             mathjaxContainerPreprocessor(md);
+
+            // Replace "kt" in the top right of code blocks with "kotlin"
+            const render = md.renderer.rules.fence!;
+            md.renderer.rules.fence = (tokens, idx, options, env, self) => {
+                if (tokens[idx].info.startsWith("kt[")) {
+                    tokens[idx].info = tokens[idx].info.replace("kt[", "kotlin[");
+                }
+                return render(tokens, idx, options, env, self);
+            };
         }
     }
 }
