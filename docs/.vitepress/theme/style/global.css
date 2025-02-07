@@ -91,6 +91,18 @@ kbd:not(.DocSearch-Button-Key) {
     content: url(/images/index/docs-light.svg);
 }
 
+.index-javadocs-button:before {
+    display: block;
+    float: left;
+    width: 18px;
+    height: 18px;
+    padding-top: 5px;
+    margin-left: -4px;
+    margin-right: 6px;
+    /*noinspection CssUnknownTarget*/
+    content: url(/images/index/javadocs-light.svg);
+}
+
 .dark {
     .tip.custom-block > .danger.custom-block {
         background-color: #3e2129;
@@ -104,5 +116,10 @@ kbd:not(.DocSearch-Button-Key) {
     .index-docs-button:before {
         /*noinspection CssUnknownTarget*/
         content: url(/images/index/docs-dark.svg);
+    }
+
+    .index-javadocs-button:before {
+        /*noinspection CssUnknownTarget*/
+        content: url(/images/index/javadocs-dark.svg);
     }
 }
