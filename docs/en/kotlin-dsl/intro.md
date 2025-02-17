@@ -15,21 +15,34 @@ This DSL provides many methods to easily add arguments to your command structure
 
 ## Installing the DSL
 
-To install the DSL, you need to add the `commandapi-bukkit-kotlin` dependency into your `pom.xml` or your `build.gradle`, making sure to specify the server flavor you are developing for:
+To install the DSL, you need to add the Kotlin DSL dependency into your build script, making sure to specify the server flavor you are developing for:
 
 ### Adding the dependency
 
 <div class="maven">
 
+:::tabs
+===Paper
 ```xml
 <dependencies>
     <dependency>
         <groupId>dev.jorel</groupId>
-        <artifactId>commandapi-bukkit-kotlin</artifactId>
+        <artifactId>commandapi-kotlin-paper</artifactId>
         <version>9.7.0</version>
     </dependency>
 </dependencies>
 ```
+===Spigot
+```xml
+<dependencies>
+    <dependency>
+        <groupId>dev.jorel</groupId>
+        <artifactId>commandapi-kotlin-spigot</artifactId>
+        <version>9.7.0</version>
+    </dependency>
+</dependencies>
+```
+:::
 
 Next, you need to add Kotlin to your project. For this, you first need to add the dependency:
 
@@ -104,20 +117,38 @@ Next, you need to add the dependency:
 
 <div class="groovy">
 
+:::tabs
+===Paper
 ```groovy
 dependencies {
-    implementation "dev.jorel:commandapi-bukkit-kotlin:9.7.0"
+    implementation "dev.jorel:commandapi-kotlin-paper:9.7.0"
 }
 ```
+===Spigot
+```groovy
+dependencies {
+    implementation "dev.jorel:commandapi-kotlin-spigot:9.7.0"
+}
+```
+:::
 
 </div>
 <div class="kts">
 
+:::tabs
+===Paper
 ```kotlin
 dependencies {
-    implementation("dev.jorel:commandapi-bukkit-kotlin:9.7.0")
+    implementation("dev.jorel:commandapi-kotlin-paper:9.7.0")
 }
 ```
+===Spigot
+```kotlin
+dependencies {
+    implementation("dev.jorel:commandapi-kotlin-spigot:9.7.0")
+}
+```
+:::
 
 </div>
 

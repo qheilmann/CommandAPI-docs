@@ -50,20 +50,36 @@ public class CommandAPIConfig {
 
 The `CommandAPIConfig` class follows a typical builder pattern (without you having to run `.build()` at the end), which lets you easily construct configuration instances.
 
-However, the `CommandAPIConfig` class is abstract and can’t be used to configure the CommandAPI directly. Instead, you must use a subclass of `CommandAPIConfig` that corresponds to the platform you’re developing for. For example, when developing for Bukkit, you should use the `CommandAPIBukkitConfig` class.
+However, the `CommandAPIConfig` class is abstract and can’t be used to configure the CommandAPI directly. Instead, you must use a subclass of `CommandAPIConfig` that corresponds to the platform you’re developing for. For example, when developing for a Bukkit-based server, you should use the `CommandAPIPaperConfig` or the `CommandAPISpigotConfig` class.
 
 <!-- TODO: Add tabs and explanations for other platforms -->
 
+:::tabs
+===Bukkit
 ```java
-public class CommandAPIBukkitConfig extends CommandAPIConfig {
+public abstract class CommandAPIBukkitConfig extends CommandAPIConfig {
     CommandAPIBukkitConfig(JavaPlugin plugin);
 
-    CommandAPIBukkitConfig shouldHookPaperReload(boolean hooked); // Whether the CommandAPI should hook into the Paper-exclusive ServerResourcesReloadedEvent
     CommandAPIBukkitConfig skipReloadDatapacks(boolean skip); // Whether the CommandAPI should reload datapacks on server load
 }
 ```
+===Paper
+```java
+public class CommandAPIPaperConfig extends CommandAPIBukkitConfig {
+    CommandAPIPaperConfig(JavaPlugin plugin);
+    
+    CommandAPIPaperConfig shouldHookPaperReload(boolean hooked); // Whether the CommandAPI should hook into the Paper-exclusive ServerResourcesReloadedEvent
+}
+```
+===Spigot
+```java
+public class CommandAPISpigotConfig extends CommandAPIBukkitConfig {
+    CommandAPISpigotConfig(JavaPlugin plugin);
+}
+```
+:::
 
-In order to create a `CommandAPIBukkitConfig` object, you must give it a reference to your `JavaPlugin` instance. The CommandAPI always uses this to register events, so it is required when loading the CommandAPI on Bukkit. There are also Bukkit-specific features, such as the `hook-paper-reload` configuration option, which may be configured using a `CommandAPIBukkitConfig` instance.
+In order to create a `CommandAPIPaperConfig` or a `CommandAPISpigotConfig` object, you must give it a reference to your `JavaPlugin` instance. The CommandAPI always uses this to register events, so it is required when loading the CommandAPI on Bukkit. There are also platform-specific features, such as the `hook-paper-reload` configuration option on Paper, which may be configured using a `CommandAPIPaperConfig` instance.
 
 For example, to load the CommandAPI on Bukkit with all logging disabled, you can use the following:
 
@@ -109,27 +125,55 @@ Add the CommandAPI shade dependency:
 
 <div class="reobf">
 
+:::tabs
+===Paper
 ```xml
 <dependencies>
     <dependency>
         <groupId>dev.jorel</groupId>
-        <artifactId>commandapi-bukkit-shade</artifactId>
+        <artifactId>commandapi-paper-shade</artifactId>
         <version>9.7.0</version>
     </dependency>
 </dependencies>
 ```
+===Spigot
+```xml
+<dependencies>
+    <dependency>
+        <groupId>dev.jorel</groupId>
+        <artifactId>commandapi-spigot-shade</artifactId>
+        <version>9.7.0</version>
+    </dependency>
+</dependencies>
+```
+:::
+
 </div>
 <div class="mojmap">
 
+:::tabs
+===Paper
 ```xml
 <dependencies>
     <dependency>
         <groupId>dev.jorel</groupId>
-        <artifactId>commandapi-bukkit-shade-mojang-mapped</artifactId>
+        <artifactId>commandapi-paper-shade-mojang-mapped</artifactId>
         <version>9.7.0</version>
     </dependency>
 </dependencies>
 ```
+===Spigot
+```xml
+<dependencies>
+    <dependency>
+        <groupId>dev.jorel</groupId>
+        <artifactId>commandapi-spigot-shade-mojang-mapped</artifactId>
+        <version>9.7.0</version>
+    </dependency>
+</dependencies>
+```
+:::
+
 </div>
 
 You can shade the CommandAPI easily by adding the `maven-shade-plugin` to your build sequence:
@@ -220,37 +264,77 @@ Next, we declare our dependencies:
 <div class="groovy">
 <div class="reobf">
 
+:::tabs
+===Paper
 ```groovy
 dependencies {
-    implementation "dev.jorel:commandapi-bukkit-shade:9.7.0"
+    implementation "dev.jorel:commandapi-paper-shade:9.7.0"
 }
 ```
+===Spigot
+```groovy
+dependencies {
+    implementation "dev.jorel:commandapi-spigot-shade:9.7.0"
+}
+```
+:::
+
 </div>
 <div class="mojmap">
 
+:::tabs
+===Paper
 ```groovy
 dependencies {
-    implementation "dev.jorel:commandapi-bukkit-shade-mojang-mapped:9.7.0"
+    implementation "dev.jorel:commandapi-paper-shade-mojang-mapped:9.7.0"
 }
 ```
+===Spigot
+```groovy
+dependencies {
+    implementation "dev.jorel:commandapi-spigot-shade-mojang-mapped:9.7.0"
+}
+```
+:::
+
 </div>
 </div>
 <div class="kts">
 <div class="reobf">
 
+:::tabs
+===Paper
 ```kotlin
 dependencies {
-    implementation("dev.jorel:commandapi-bukkit-shade:9.7.0")
+    implementation("dev.jorel:commandapi-paper-shade:9.7.0")
 }
 ```
+===Spigot
+```kotlin
+dependencies {
+    implementation("dev.jorel:commandapi-spigot-shade:9.7.0")
+}
+```
+:::
+
 </div>
 <div class="mojmap">
 
+:::tabs
+===Paper
 ```kotlin
 dependencies {
-    implementation("dev.jorel:commandapi-bukkit-shade-mojang-mapped:9.7.0")
+    implementation("dev.jorel:commandapi-paper-shade-mojang-mapped:9.7.0")
 }
 ```
+===Spigot
+```kotlin
+dependencies {
+    implementation("dev.jorel:commandapi-spigot-shade-mojang-mapped:9.7.0")
+}
+```
+:::
+
 </div>
 </div>
 

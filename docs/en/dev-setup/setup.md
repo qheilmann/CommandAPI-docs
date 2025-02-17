@@ -46,16 +46,30 @@ If you've never used a build system before, I highly recommend it! It makes it e
 
 - Add the dependency to your `pom.xml`:
 
+:::tabs
+===Paper
   ```xml
   <dependencies>
       <dependency>
           <groupId>dev.jorel</groupId>
-          <artifactId>commandapi-bukkit-core</artifactId>
+          <artifactId>commandapi-paper-core</artifactId>
           <version>9.7.0</version>
           <scope>provided</scope>
       </dependency>
   </dependencies>
   ```
+===Spigot
+  ```xml
+  <dependencies>
+      <dependency>
+          <groupId>dev.jorel</groupId>
+          <artifactId>commandapi-spigot-core</artifactId>
+          <version>9.7.0</version>
+          <scope>provided</scope>
+      </dependency>
+  </dependencies>
+  ```
+:::
 
 </div>
 <div class="gradle">
@@ -88,21 +102,38 @@ If you've never used a build system before, I highly recommend it! It makes it e
 
   <div class="groovy">
 
+  :::tabs
+  ===Paper
   ```groovy
   dependencies {
-      compileOnly "dev.jorel:commandapi-bukkit-core:9.7.0"
+      compileOnly "dev.jorel:commandapi-paper-core:9.7.0"
   }
   ```
+  ===Spigot
+  ```groovy
+  dependencies {
+      compileOnly "dev.jorel:commandapi-spigot-core:9.7.0"
+  }
+  ```
+  :::
   
   </div>
   <div class="kts">
   
+  :::tabs
+  ===Paper
   ```kotlin
   dependencies {
-      compileOnly("dev.jorel:commandapi-bukkit-core:9.7.0")
+      compileOnly("dev.jorel:commandapi-paper-core:9.7.0")
   }
   ```
-  
+  ===Spigot
+  ```kotlin
+  dependencies {
+      compileOnly("dev.jorel:commandapi-spigot-core:9.7.0")
+  }
+  ```
+  :::
   </div>
 
 </div>
