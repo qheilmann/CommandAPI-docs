@@ -10,6 +10,9 @@ hero:
             text: Documentation
             link: /intro
         -   theme: alt
+            text: Javadocs
+            link: https://javadocs.commandapi.dev/
+        -   theme: alt
             text: Latest Release
             link: https://github.com/CommandAPI/CommandAPI/releases/latest
 
