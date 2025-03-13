@@ -42,7 +42,6 @@ public class CommandAPIConfig {
     CommandAPIConfig missingExecutorImplementationMessage(String value); // Set message to display when executor implementation is missing
     CommandAPIConfig dispatcherFile(File file); // If not null, the CommandAPI will create a JSON file with Brigadier's command tree
     CommandAPIConfig setNamespace(String namespace); // The namespace to use when the CommandAPI registers a command
-    CommandAPIConfig usePluginNamespace(); // Whether the CommandAPI should use the name of the plugin passed into the CommandAPIConfig implementation as the default namespace for commands
 
     <T> CommandAPIConfig initializeNBTAPI(Class<T> nbtContainerClass, Function<Object, T> nbtContainerConstructor); // Initializes hooks with an NBT API. See NBT arguments documentation page for more info
 }

@@ -181,7 +181,12 @@ new CommandAPICommand("spawnpigs")
 void register()
 ```
 
-Registers the command with the default `minecraft` namespace. If you are [shading](../dev-setup/shading) you can set the default namespace using `CommandAPIConfig#setNamespace(String)` or `CommandAPIBukkitConfig#usePluginNamespace()`.
+Registers the command with the default namespace.
+
+If you are not shading, the default namespace is going to be `commandapi`. Hence it is recommended that you use one of the two methods below to register your commands.
+
+If you are [shading](../dev-setup/shading), the default namespace is going to be the name of your plugin. You can also change the default namespace using `CommandAPIConfig#setNamespace(String)`.
+Hence you can safely use this method to register your commands without the namespace being `commandapi`, while you're also able to change individual namespaces for commands using the methods below.
 
 ```java
 void register(String namespace)
