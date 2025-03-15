@@ -96,7 +96,6 @@ fun unregistration() {
 
     object : JavaPlugin() {
         // #region unregisterDelayedVanillaGoodExample
-        // NOT RECOMMENDED
         override fun onEnable() {
             object : BukkitRunnable() {
                 override fun run() {

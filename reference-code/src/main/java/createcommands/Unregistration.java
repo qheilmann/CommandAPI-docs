@@ -107,7 +107,6 @@ class Unregistration {
 
         new JavaPlugin() {
             // #region unregisterDelayedVanillaGoodExample
-            // NOT RECOMMENDED
             @Override
             public void onEnable() {
                 new BukkitRunnable() {
