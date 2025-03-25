@@ -51,7 +51,7 @@ If you've never used a build system before, I highly recommend it! It makes it e
       <dependency>
           <groupId>dev.jorel</groupId>
           <artifactId>commandapi-bukkit-core</artifactId>
-          <version>9.7.0</version>
+          <version>10.0.0</version>
           <scope>provided</scope>
       </dependency>
   </dependencies>
@@ -90,7 +90,7 @@ If you've never used a build system before, I highly recommend it! It makes it e
 
   ```groovy
   dependencies {
-      compileOnly "dev.jorel:commandapi-bukkit-core:9.7.0"
+      compileOnly "dev.jorel:commandapi-bukkit-core:10.0.0"
   }
   ```
   
@@ -99,7 +99,7 @@ If you've never used a build system before, I highly recommend it! It makes it e
   
   ```kotlin
   dependencies {
-      compileOnly("dev.jorel:commandapi-bukkit-core:9.7.0")
+      compileOnly("dev.jorel:commandapi-bukkit-core:10.0.0")
   }
   ```
   
