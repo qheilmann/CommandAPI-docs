@@ -23,17 +23,18 @@ To use these features, the CommandAPI includes the `stringsWithTooltips` methods
 
 ```java
 ArgumentSuggestions stringsWithTooltips(IStringTooltip... suggestions);
+ArgumentSuggestions stringsWithTooltips(Collection<IStringTooltip> suggestions);
 ArgumentSuggestions stringsWithTooltips(Function<SuggestionInfo, IStringTooltip[]> suggestions);
 ```
 
-The `StringTooltip` class is the CommandAPI's default implementation of `IStringTooltip`, which has some static methods to construct tooltips easily:
+The `StringTooltip` and `BukkitStringTooltip` classes are the CommandAPI's default implementations of `IStringTooltip`, which have some static methods to construct tooltips easily:
 
 ```java
 StringTooltip none(String suggestion);
 StringTooltip ofString(String suggestion, String tooltip);
 StringTooltip ofMessage(String suggestion, Message tooltip);
-StringTooltip ofBaseComponents(String suggestion, BaseComponent... tooltip);
-StringTooltip ofAdventureComponent(String suggestion, Component tooltip);
+BukkitStringTooltip ofBaseComponents(String suggestion, BaseComponent... tooltip);
+BukkitStringTooltip ofAdventureComponent(String suggestion, ComponentLike tooltip);
 ```
 
 The first method, `StringTooltip.none(String)` creates a normal suggestion entry with no tooltip. The other methods create a suggestion with the provided tooltip text in either `String`, Brigadier `Message`, Spigot `BaseComponent[]` or Adventure `Component` format.
@@ -126,8 +127,8 @@ Just like the `StringTooltip` class, the `Tooltip<S>` class provides the followi
 Tooltip<S> none(S object);
 Tooltip<S> ofString(S object, String tooltip);
 Tooltip<S> ofMessage(S object, Message tooltip);
-Tooltip<S> ofBaseComponents(S object, BaseComponent... tooltip);
-Tooltip<S> ofAdventureComponent(S object, Component tooltip);
+BukkitTooltip<S> ofBaseComponents(S object, BaseComponent... tooltip);
+BukkitTooltip<S> ofAdventureComponent(S object, ComponentLike tooltip);
 
 Tooltip<S>[] arrayOf(Tooltip<S>... tooltips);
 ```
