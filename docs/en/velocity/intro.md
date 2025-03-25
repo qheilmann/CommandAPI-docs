@@ -4,6 +4,7 @@ preferences: ['build-system']
 authors:
   - JorelAli
   - DerEchtePilz
+  - WillKroboth
 ---
 
 # Velocity
@@ -104,3 +105,13 @@ To accomplish that, we register the command like this:
 :::
 
 ::::
+
+## Updating Requirements
+
+As explained on the page about command and argument [requirements](../create-commands/requirements.md#updating-requirements), you should run `CommandAPI.updateRequirements(player)` whenever conditions that affect whether a player can access a command change. However, Velocity is not able to resend commands to a client by itself; it only knows how to add commands to a packet the backend server sent. So, in order for `updateRequirements` to work, the CommandAPI needs to be able to tell the backend server to resend commands.
+
+The CommandAPI Velocity plugin handles this by sending a plugin message to the backend server. In order for the backend server to process this message, you must add a plugin that understands CommandAPI plugin messages. You can easily do this by installing the CommandAPI Bukkit plugin or any plugin that shades CommandAPI version 10.0.0 or later to each backend server. However, the CommandAPI Bukkit plugin includes a lot of extra stuff to make registering commands work, which isn't necessary if you only need `updateRequirements` to work on Velocity. In this case, you can install the special CommandAPI Bukkit Networking plugin, which simply contains the code necessary to respond to plugin messages.
+
+Whether you want to install the CommandAPI Bukkit plugin or the CommandAPI Bukkit Networking plugin, you can find the latest releases [here](https://github.com/CommandAPI/CommandAPI/releases/latest).
+
+So far, the CommandAPI only uses the plugin messaging system to implement `updateRequirements` on Velocity. If you're not using `updateRequirements` on Velocity, you don't need to install a CommandAPI plugin on your backend servers. It is possible that future features will take advantage of the plugin messaging system as CommandAPI Velocity is further developed. If this ever happens, you should see a clear error message prompting you to update to a compatible version.

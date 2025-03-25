@@ -27,7 +27,7 @@ The CommandAPI does not follow the "standard" method of registering commands. In
 
 - **Commands should not be declared in the `plugin.yml` file.**
 - Commands are automatically registered under the namespace of the plugin that registered the command. For example, if you register a command `/hello`, you can also run it using `/<pluginname>:hello`. However, you can change the default namespace. More about this [on the command registration page](./create-commands/registration#registering-the-command).
-- Commands are not "linked" to a certain plugin. In other words, you can’t look up which commands are registered by which plugin.
+- Commands are not "linked" to a certain plugin. In other words, you can’t look up which commands are registered by which plugin. This is not the case for commands on Paper versions that have Paper's Brigadier API, or in other words, any Paper build starting in 1.20.6 with build 65.
 
 ## How this documentation works
 
