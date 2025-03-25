@@ -31,5 +31,4 @@ sed -i "s/dev.jorel:commandapi-velocity-shade:$oldVer/dev.jorel:commandapi-veloc
 
 # Possible manual updates
 echo "These may have to be updated manually:"
-echo "  docs/en/velocity/intro.md"
 echo "  docs/public/versions.yml"
