@@ -33,10 +33,10 @@ class NativeSender {
                 new CommandArgument("command")
             )
             .executes((caller, args) -> {
-                CommandSender callee = args.getUnchecked("target");
-                Location location = args.getUnchecked("location");
-                World world = args.getUnchecked("world");
-                CommandResult command = args.getUnchecked("command");
+                CommandSender callee = (CommandSender) args.get("target");
+                Location location = (Location) args.get("location");
+                World world = (World) args.get("world");
+                CommandResult command = (CommandResult) args.get("command");
 
                 assert callee != null && location != null && world != null && command != null;
 
