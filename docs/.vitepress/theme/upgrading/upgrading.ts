@@ -18,6 +18,7 @@ export const upgradingInfos: UpgradingInfo[] = [
     {from: '9.0.1', to: '9.0.2'},
     {from: '9.0.3', to: '9.1.0'},
     {from: '9.2.0', to: '9.3.0'},
+    {from: `9.7.0`, to: '10.0.0'},
 ]
 
 export const keyVersions = Array.from(new Set(upgradingInfos.map(info => [info.from, info.to]).flat()));

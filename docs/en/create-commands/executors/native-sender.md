@@ -68,3 +68,22 @@ This can now be used via the following command examples:
 ```
 
 ::::
+
+## Constructing a `NativeProxyCommandSender`
+
+You can create a `NativeProxyCommandSender` object yourself using the static `from` method:
+
+```java
+NativeProxyCommandSender from(CommandSender caller, CommandSender callee, Location location, World world);
+```
+
+This `CommandSender` will work the same as any other `NativeProxyCommandSender` you would get while using `executesNative`. For example, you could use it to make a simple version of `/execute`, like so:
+
+:::tabs
+===Java
+<<< @/../reference-code/src/main/java/createcommands/executors/NativeSender.java#constructorExample
+===Kotlin
+<<< @/../reference-code/src/main/kotlin/createcommands/executors/NativeSender.kt#constructorExample
+===Kotlin DSL
+<<< @/../reference-code/src/main/kotlin/createcommands/executors/NativeSender.kt#constructorExampleDSL
+:::
