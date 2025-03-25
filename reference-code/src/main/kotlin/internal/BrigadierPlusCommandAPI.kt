@@ -45,8 +45,8 @@ fun brigadierPlusCommandAPI() {
     // #endregion addPredicateExampleStep5
 
     // #region addPredicateExampleStep6
-    // Add <numerator> <denominator> as a child of randomchance
-    randomChance.addChild(numerator.then(denominator).build())
+    // Add (randomchance <numerator> <denominator>) as a child of (execute -> if)
+    Brigadier.getRootNode().getChild("execute").getChild("if").addChild(randomChance);
     // #endregion addPredicateExampleStep6
     // #endregion addPredicateExample
 }

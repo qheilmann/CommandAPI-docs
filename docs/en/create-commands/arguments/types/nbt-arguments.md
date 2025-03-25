@@ -10,10 +10,6 @@ authors:
 
 The CommandAPI includes support for NBT compound arguments using an NBT API. The usage for the `NBTCompoundArgument` depends on whether you are using the CommandAPI plugin (using a `CommandAPI.jar` file in your `plugins/` folder), or are shading the CommandAPI (including the compiled CommandAPI code in your own plugin).
 
-## Plugin usage setup
-
-By default, the CommandAPI plugin includes a copy of the [NBT API by tr7zw](https://www.spigotmc.org/resources/nbt-api.7939/) in `dev.jorel.commandapi.nbtapi`. No additional setup is required, and it can be used directly out the box.
-
 ## Shading usage setup
 
 In order to use the `NBTCompoundArgument`, you will have to use an NBT API that can create an NBT Compound object from an `Object` (ideally a `net.minecraft.nbt.NBTTagCompound` object). Examples of NBT APIs that can do this are _(these are not sponsored in any way)_:
