@@ -1,25 +1,39 @@
 <script setup lang="ts">
-import {useData} from 'vitepress'
-import {changingVersion, currentVersion, isLatest} from "../versioning/version";
+import { useData } from "vitepress";
+import { computed } from "vue";
+import { changingVersion, currentVersion, isLatest, isOld } from "../versioning/version";
 import getRandomNotFoundMsg from "./notFoundMsg";
 
-const {theme} = useData()
+const {theme} = useData();
+const redirectFromAnotherVersion = computed(() =>
+    window.location.search.startsWith("?from=") && !changingVersion.value,
+);
+const redirectFromVersion = computed(() => {
+    if (redirectFromAnotherVersion.value) {
+        return window.location.search.split("?from=")[1].split("&")[0];
+    }
+    return "";
+});
 </script>
 
 <template>
     <div class="NotFound">
-        <p class="code">{{ changingVersion ? '' : '404' }}</p>
-        <h1 class="title">{{ changingVersion ? 'Redirecting' : 'PAGE NOT FOUND' }}</h1>
-        <div class="divider"/>
-        <div class="quote">{{ changingVersion ? 'Please wait......' : getRandomNotFoundMsg() }}</div>
+        <p class="code">{{ changingVersion ? "" : "404" }}</p>
+        <h1 class="title">{{ changingVersion ? "Redirecting" : "PAGE NOT FOUND" }}</h1>
+        <div class="divider" />
+        <div v-if="redirectFromAnotherVersion">
+            You switched here from version {{ redirectFromVersion }}, but this version does not have a corresponding page.
+        </div>
+        <div v-else class="quote">{{ changingVersion ? "Please wait......" : getRandomNotFoundMsg() }}</div>
 
         <div class="action" v-if="!changingVersion">
             <a
                 class="link"
                 :href="isLatest ? '/' : `/${currentVersion}/`"
                 :aria-label="theme.notFound?.linkLabel ?? 'go to home'"
+                :onclick="isOld ? 'location.reload(true);location.href=this.href;return false;' : undefined"
             >
-                {{ theme.notFound?.linkText ?? 'Take me home' }}
+                {{ theme.notFound?.linkText ?? "Take me home" }}
             </a>
         </div>
     </div>

@@ -1,12 +1,12 @@
 <!--modified from https://github.com/IMB11/vitepress-versioning-plugin , original license is MIT-->
 
 <script setup lang="ts">
-import {onMounted, ref, watch} from 'vue'
-import VPMenuLink from 'vitepress/dist/client/theme-default/components/VPMenuLink.vue'
-import VPFlyout from 'vitepress/dist/client/theme-default/components/VPFlyout.vue'
-import {parse} from "yaml";
-import {useRoute} from "vitepress";
-import {changingVersion, currentVersion, isLatest, latestVersion} from "./version";
+import { useRoute } from "vitepress";
+import VPFlyout from "vitepress/dist/client/theme-default/components/VPFlyout.vue";
+import VPMenuLink from "vitepress/dist/client/theme-default/components/VPMenuLink.vue";
+import { computed, onMounted, ref, watch } from "vue";
+import { parse } from "yaml";
+import { changingVersion, currentVersion, isLatest, isOld, latestVersion } from "./version";
 
 // noinspection JSUnusedGlobalSymbols
 const props = defineProps<{
@@ -15,7 +15,15 @@ const props = defineProps<{
 const route = useRoute();
 
 let versionList: string[] = [];
+let oldVersionList: string[] = [];
 const versions = ref<string[]>([]);
+const docsPath = computed(() => {
+    if (isLatest.value) {
+        return window.location.pathname;
+    } else {
+        return window.location.pathname.split(`/${ currentVersion.value }/`)[1];
+    }
+});
 
 function refresh() {
     let version = latestVersion.value;
@@ -23,36 +31,38 @@ function refresh() {
     isLatest.value = true;
 
     for (const v of versionList) {
-        if (window.location.pathname.startsWith(`/${v}/`)) {
+        if (window.location.pathname.startsWith(`/${ v }/`)) {
             version = v;
             isLatest.value = false;
             break;
         }
     }
 
-    if (currentVersion.value !== '' && currentVersion.value !== version) {
+    if (currentVersion.value !== "" && currentVersion.value !== version) {
         refreshPage = true;
         changingVersion.value = true;
     }
 
     currentVersion.value = version;
     versions.value = versionList;
+    isOld.value = oldVersionList.includes(version);
 
     if (refreshPage) {
-        window.location.pathname = isLatest.value ? '/' : `/${version}/`;
+        window.location.pathname = isLatest.value ? "/" : `/${ version }/`;
         window.location.reload();
     }
 }
 
 async function init() {
     changingVersion.value = false;
-    const versionDataFileUrl = `${window.location.origin}/versions.yml`;
+    const versionDataFileUrl = `${ window.location.origin }/versions.yml`;
     const versionDataFileContent = await (await fetch(versionDataFileUrl)).text();
     const versionData = parse(versionDataFileContent);
     versionList = versionData.versions;
+    oldVersionList = versionData["old-versions"];
     latestVersion.value = versionList[0];
     versionList.shift();
-    refresh()
+    refresh();
 }
 
 const isOpen = ref(false);
@@ -60,10 +70,10 @@ const toggle = () => {
     isOpen.value = !isOpen.value;
 };
 
-onMounted(async () => init())
+onMounted(async () => init());
 watch(
     () => route.path,
-    () => refresh()
+    () => refresh(),
 );
 </script>
 
@@ -73,32 +83,32 @@ watch(
         <div class="items">
             <VPMenuLink v-if="!isLatest" :item="{
         text: latestVersion,
-        link: `/../`,
-      }"/>
+        link: `/../${docsPath}?from=${currentVersion}`,
+      }" />
             <template v-for="version in versions" :key="version">
                 <VPMenuLink v-if="currentVersion != version" :item="{
           text: version,
-          link: `${isLatest? '' : '/..'}/${version}/`,
-        }"/>
+          link: `${isLatest? '' : '/..'}/${version}/${docsPath}?from=${currentVersion}`,
+        }" />
             </template>
         </div>
     </VPFlyout>
     <div v-else class="VPScreenVersionSwitcher" :class="{ open: isOpen }">
         <button class="button" aria-controls="navbar-group-version" :aria-expanded="isOpen" @click="toggle">
-            <span class="button-text"><span class="vpi-versioning icon"/>Switch Version</span>
-            <span class="vpi-plus button-icon"/>
+            <span class="button-text"><span class="vpi-versioning icon" />Switch Version</span>
+            <span class="vpi-plus button-icon" />
         </button>
 
         <div id="navbar-group-version" class="items">
             <VPMenuLink :item="{
         text: latestVersion,
         link: `${isLatest? '' : '/..'}/`,
-      }"/>
+      }" />
             <template v-for="version in versions" :key="version">
                 <VPMenuLink :item="{
           text: version,
           link: `${isLatest? '' : '/..'}/${version}/`,
-        }"/>
+        }" />
             </template>
         </div>
     </div>
@@ -116,11 +126,11 @@ watch(
 
 <style scoped>
 .VPMenuLink {
-    font-family: 'Helvetica Neue', sans-serif;
+    font-family: "Helvetica Neue", sans-serif;
 }
 
 .VPVersionSwitcher {
-    font-family: 'Helvetica Neue', sans-serif;
+    font-family: "Helvetica Neue", sans-serif;
     display: flex;
     align-items: center;
 }
