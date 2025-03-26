@@ -18,6 +18,7 @@ function getBoolean(key: string, defaultValue: boolean) {
 }
 
 export const isLatest = ref(true);
+export const isOld = ref(false);
 export const currentVersion = ref(getString('current-version', ''));
 export const latestVersion = ref('');
 export const changingVersion = ref(getBoolean('changing-version', true));
