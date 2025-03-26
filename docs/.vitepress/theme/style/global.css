@@ -29,6 +29,10 @@
     border: none !important;
 }
 
+.DocSearch-Button-Keys > kbd:nth-child(1) {
+    padding-left: 6px;
+}
+
 .DocSearch-Button .DocSearch-Button-Keys {
     border: none !important;
     gap: 0 !important;
