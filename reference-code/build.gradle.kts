@@ -25,12 +25,21 @@ repositories {
     }
 
     maven {
+        url = uri("https://repo.codemc.io/repository/nms/")
+    }
+
+    maven {
         url = uri("https://s01.oss.sonatype.org/content/repositories/snapshots")
     }
 
     maven {
         url = uri("https://repo.maven.apache.org/maven2/")
     }
+
+    maven {
+        url = uri("https://jitpack.io")
+    }
+
 }
 
 dependencies {
@@ -40,6 +49,7 @@ dependencies {
     api(libs.dev.jorel.commandapi.annotations)
     compileOnly(libs.dev.jorel.commandapi.velocity.shade)
     api(libs.de.tr7zw.item.nbt.api)
+    api(libs.com.saicone.rtag)
     api(libs.org.jetbrains.kotlin.kotlin.stdlib)
     testImplementation(libs.org.junit.jupiter.junit.jupiter)
     testImplementation(libs.dev.jorel.commandapi.bukkit.test.toolkit)
@@ -48,6 +58,9 @@ dependencies {
     compileOnly(libs.com.mojang.authlib)
     compileOnly(libs.io.papermc.paper.paper.api)
     compileOnly(libs.com.velocitypowered.velocity.api)
+
+    // Apologies to whoever discovers I added this heinous dependency here
+    api("org.spigotmc:spigot:1.21-R0.1-SNAPSHOT:remapped-mojang")
 }
 
 group = "dev.jorel.commandapi"
