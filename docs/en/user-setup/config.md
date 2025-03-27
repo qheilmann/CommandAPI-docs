@@ -55,20 +55,20 @@ use-latest-nms-version: false
 # Keep in mind that implementations may vary and actually updating the CommandAPI might be necessary.
 be-lenient-for-minor-versions: false
 
-# Hook into Paper's ServerResourcesReloadedEvent (default: true)
+# Hook into Paper's ServerResourcesReloadedEvent (default: false)
 # If "true", and the CommandAPI detects it is running on a Paper server, it will
 # hook into Paper's ServerResourcesReloadedEvent to detect when /minecraft:reload is run.
 # This allows the CommandAPI to automatically call its custom datapack-reloading
 # function which allows CommandAPI commands to be used in datapacks.
 # If you set this to false, CommandAPI commands may not work inside datapacks after
 # reloading datapacks.
-hook-paper-reload: true
+hook-paper-reload: false
 
-# Skips the initial datapack reload when the server loads (default: false)
+# Skips the initial datapack reload when the server loads (default: true)
 # If "true", the CommandAPI will not reload datapacks when the server has finished
 # loading. Datapacks will still be reloaded if performed manually when "hook-paper-reload"
 # is set to "true" and /minecraft:reload is run.
-skip-initial-datapack-reload: false
+skip-initial-datapack-reload: true
 
 # Plugins to convert (default: [])
 # Controls the list of plugins to process for command conversion.
@@ -209,40 +209,40 @@ be-lenient-for-minor-versions: true
 
 Controls whether the CommandAPI hooks into the Paper-exclusive `ServerResourcesReloadedEvent` when available.
 
-When the CommandAPI detects it is running on a Paper-based server, its default behavior will be to hook into the `ServerResourcesReloadedEvent`, which triggers when `/minecraft:reload` is run. During this event, the CommandAPI runs a custom datapack reloading sequence that helps commands registered with the CommandAPI work within datapacks. See [Reloading datapacks](../internal/internal#reloading-datapacks) for more information on this process.
+When the CommandAPI detects it is running on a Paper-based server, this config option controls if the CommandAPI hooks into the `ServerResourcesReloadedEvent`, which triggers when `/minecraft:reload` is run. During this event, the CommandAPI runs a custom datapack reloading sequence that helps commands registered with the CommandAPI work within datapacks. See [Reloading datapacks](../internal/internal#reloading-datapacks) for more information on this process.
 
-By default, this value is set to `true` and the CommandAPI will hook into the `ServerResourcesReloadedEvent`. If you want, you can set this to `false`, and the CommandAPI will not hook into this event.
+By default, this value is set to `false` and the CommandAPI will not hook into the `ServerResourcesReloadedEvent`. If you want, you can set this to `true`, and the CommandAPI will hook into this event.
 
 **Default value**
 
 ```yaml
-hook-paper-reload: true
+hook-paper-reload: false
 ```
 
 **Example value**
 
 ```yaml
-hook-paper-reload: false
+hook-paper-reload: true
 ```
 
 ### `skip-initial-datapack-reload`
 
 Controls whether the CommandAPI should perform its initial datapack reload when the server has finished loading.
 
-The CommandAPI automatically reloads all datapacks in a similar fashion to `/minecraft:reload` in order to propagate CommandAPI commands into datapack functions and tags. This operation may cause a slight delay to server startup and is not necessary if you aren’t using datapacks or functions that use CommandAPI commands. This operation can be skipped by setting this value to `true`.
+If set to `false`, the CommandAPI reloads all datapacks in a similar fashion to `/minecraft:reload` in order to propagate CommandAPI commands into datapack functions and tags. This operation may cause a slight delay to server startup and is not necessary if you aren’t using datapacks or functions that use CommandAPI commands.
 
 Note that datapacks will still be reloaded if performed manually when `hook-paper-reload` is set to `true` and you run `/minecraft:reload`.
 
 **Default value**
 
 ```yaml
-skip-initial-datapack-reload: false
+skip-initial-datapack-reload: true
 ```
 
 **Example value**
 
 ```yaml
-skip-initial-datapack-reload: true
+skip-initial-datapack-reload: false
 ```
 
 ### `plugins-to-convert`
