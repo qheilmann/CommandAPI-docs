@@ -30,6 +30,9 @@ jobs:
           architecture: x64
 
       - name: Verify Reference Codes
+        # For dev builds, we want this enabled because dev builds aren't published yet
+        # TODO: Make this not apply to dev builds
+        continue-on-error: true
         run: |
           cd ./reference-code
           ./gradlew build
