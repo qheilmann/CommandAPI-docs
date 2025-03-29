@@ -1,12 +1,13 @@
 <script setup lang="ts">
 import { useData } from "vitepress";
-import { computed } from "vue";
+import { computed, ref, onMounted } from "vue";
 import { changingVersion, currentVersion, isLatest, isOld } from "../versioning/version";
 import getRandomNotFoundMsg from "./notFoundMsg";
 
 const {theme} = useData();
-const redirectFromAnotherVersion = computed(() =>
-    window.location.search.startsWith("?from=") && !changingVersion.value,
+const redirectFromAnotherVersion = ref(false);
+onMounted(() =>
+    redirectFromAnotherVersion.value = window.location.search.startsWith("?from=") && !changingVersion.value,
 );
 const redirectFromVersion = computed(() => {
     if (redirectFromAnotherVersion.value) {

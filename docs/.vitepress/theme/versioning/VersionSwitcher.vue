@@ -17,11 +17,13 @@ const route = useRoute();
 let versionList: string[] = [];
 let oldVersionList: string[] = [];
 const versions = ref<string[]>([]);
-const docsPath = computed(() => {
+const docsPath = ref("");
+
+onMounted(() => {
     if (isLatest.value) {
-        return window.location.pathname;
+        docsPath.value = window.location.pathname;
     } else {
-        return window.location.pathname.split(`/${ currentVersion.value }/`)[1];
+        docsPath.value = window.location.pathname.split(`/${ currentVersion.value }/`)[1];
     }
 });
 
