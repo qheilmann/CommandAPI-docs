@@ -19,14 +19,6 @@ let oldVersionList: string[] = [];
 const versions = ref<string[]>([]);
 const docsPath = ref("");
 
-onMounted(() => {
-    if (isLatest.value) {
-        docsPath.value = window.location.pathname;
-    } else {
-        docsPath.value = window.location.pathname.split(`/${ currentVersion.value }/`)[1];
-    }
-});
-
 function refresh() {
     let version = latestVersion.value;
     let refreshPage = false;
@@ -48,6 +40,12 @@ function refresh() {
     currentVersion.value = version;
     versions.value = versionList;
     isOld.value = oldVersionList.includes(version);
+
+    if (isLatest.value) {
+        docsPath.value = window.location.pathname;
+    } else {
+        docsPath.value = window.location.pathname.split(`/${ currentVersion.value }/`)[1];
+    }
 
     if (refreshPage) {
         window.location.pathname = isLatest.value ? "/" : `/${ version }/`;
