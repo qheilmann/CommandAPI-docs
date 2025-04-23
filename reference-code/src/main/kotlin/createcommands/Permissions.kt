@@ -4,6 +4,7 @@ import createcommands.Permissions.Economy
 import dev.jorel.commandapi.CommandAPICommand
 import dev.jorel.commandapi.CommandPermission
 import dev.jorel.commandapi.arguments.DoubleArgument
+import dev.jorel.commandapi.arguments.LiteralArgument;
 import dev.jorel.commandapi.arguments.PlayerArgument
 import dev.jorel.commandapi.executors.PlayerCommandExecutor
 import org.bukkit.entity.Player
@@ -74,6 +75,7 @@ fun permissions() {
     // /economy give <target> <amount> - requires the permission "economy.admin.give" to execute
     CommandAPICommand("economy")
         .withPermission("economy.admin.give") // The important part of this example
+        .withArguments(new LiteralArgument("give"))
         .withArguments(PlayerArgument("target"))
         .withArguments(DoubleArgument("amount"))
         .executesPlayer(PlayerCommandExecutor { player, args ->
@@ -88,6 +90,7 @@ fun permissions() {
     // /economy reset <target> - requires the permission "economy.admin.reset" to execute
     CommandAPICommand("economy")
         .withPermission("economy.admin.reset") // The important part of this example
+        .withArguments(new LiteralArgument("reset"))
         .withArguments(PlayerArgument("target"))
         .executesPlayer(PlayerCommandExecutor { player, args ->
             val target = args["target"] as Player

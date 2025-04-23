@@ -114,7 +114,7 @@ For example, say we're registering a command `/economy`:
 /economy                         - shows your own balance                 | economy.self
 /economy <target>                - shows you another players balance      | economy.other
 /economy give  <target> <amount> - gives the target a set amount of money | economy.admin.give
-/economy reset <target> <amount> - resets the targets balance             | economy.admin.reset
+/economy reset <target>          - resets the targets balance             | economy.admin.reset
 ```
 
 We first declare the command as normal. Nothing fancy is going on here:

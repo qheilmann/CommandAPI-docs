@@ -3,6 +3,7 @@ package createcommands;
 import dev.jorel.commandapi.CommandAPICommand;
 import dev.jorel.commandapi.CommandPermission;
 import dev.jorel.commandapi.arguments.DoubleArgument;
+import dev.jorel.commandapi.arguments.LiteralArgument;
 import dev.jorel.commandapi.arguments.PlayerArgument;
 import org.bukkit.entity.Player;
 
@@ -73,6 +74,7 @@ class Permissions {
         // /economy give <target> <amount> - requires the permission "economy.admin.give" to execute
         new CommandAPICommand("economy")
             .withPermission("economy.admin.give") // The important part of this example
+            .withArguments(new LiteralArgument("give"))
             .withArguments(new PlayerArgument("target"))
             .withArguments(new DoubleArgument("amount"))
             .executesPlayer((player, args) -> {
@@ -87,6 +89,7 @@ class Permissions {
         // /economy reset <target> - requires the permission "economy.admin.reset" to execute
         new CommandAPICommand("economy")
             .withPermission("economy.admin.reset") // The important part of this example
+            .withArguments(new LiteralArgument("reset"))
             .withArguments(new PlayerArgument("target"))
             .executesPlayer((player, args) -> {
                 Player target = (Player) args.get("target");
