@@ -75,7 +75,7 @@ fun permissions() {
     // /economy give <target> <amount> - requires the permission "economy.admin.give" to execute
     CommandAPICommand("economy")
         .withPermission("economy.admin.give") // The important part of this example
-        .withArguments(new LiteralArgument("give"))
+        .withArguments(LiteralArgument("give"))
         .withArguments(PlayerArgument("target"))
         .withArguments(DoubleArgument("amount"))
         .executesPlayer(PlayerCommandExecutor { player, args ->
@@ -90,7 +90,7 @@ fun permissions() {
     // /economy reset <target> - requires the permission "economy.admin.reset" to execute
     CommandAPICommand("economy")
         .withPermission("economy.admin.reset") // The important part of this example
-        .withArguments(new LiteralArgument("reset"))
+        .withArguments(LiteralArgument("reset"))
         .withArguments(PlayerArgument("target"))
         .executesPlayer(PlayerCommandExecutor { player, args ->
             val target = args["target"] as Player
