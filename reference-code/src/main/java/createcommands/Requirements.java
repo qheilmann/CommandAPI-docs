@@ -49,7 +49,7 @@ class Requirements {
         // #region partySystemExampleStep2
         List<Argument<?>> arguments = new ArrayList<>();
 
-        // The "create" literal, with a requirement that a player must have a party
+        // The "create" literal, with a requirement that a player must not have a party
         arguments.add(new LiteralArgument("create")
             .withRequirement(sender -> !partyMembers.containsKey(((Player) sender).getUniqueId()))
         );

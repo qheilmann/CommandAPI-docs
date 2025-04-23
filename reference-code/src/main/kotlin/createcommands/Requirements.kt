@@ -37,7 +37,7 @@ fun requirements() {
     // #region partySystemExampleStep2
     var arguments = mutableListOf<Argument<*>>()
 
-    // The "create" literal, with a requirement that a player must have a party
+    // The "create" literal, with a requirement that a player must not have a party
     arguments.add(LiteralArgument("create")
         .withRequirement { !partyMembers.containsKey((it as Player).uniqueId) }
     )
